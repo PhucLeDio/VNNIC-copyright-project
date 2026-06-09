@@ -1,0 +1,8 @@
+pandas
+requests
+python-whois
+dnspython
+ipwhois
+tldextract
+beautifulsoup4
+playwright
