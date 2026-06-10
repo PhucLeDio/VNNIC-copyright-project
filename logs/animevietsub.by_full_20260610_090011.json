@@ -1,0 +1,230 @@
+{
+    "domain_age_days": null,
+    "creation_date": "None",
+    "registrar": null,
+    "is_whois_privacy_active": false,
+    "tld_info": {
+        "tld": ".by",
+        "risk": "LOW"
+    },
+    "redirect_history": [
+        "https://animevietsub.by/"
+    ],
+    "redirect_info": {
+        "redirect_depth": 1,
+        "domains_seen": [
+            "animevietsub.by"
+        ],
+        "domain_hopping": false
+    },
+    "dns_records": {
+        "A": [
+            "104.26.7.250",
+            "104.26.6.250",
+            "172.67.70.163"
+        ],
+        "AAAA": [
+            "2606:4700:20::681a:7fa",
+            "2606:4700:20::ac43:46a3",
+            "2606:4700:20::681a:6fa"
+        ],
+        "NS": [
+            "tricia.ns.cloudflare.com.",
+            "rustam.ns.cloudflare.com."
+        ],
+        "MX": [],
+        "TXT": [
+            "\"google-site-verification=j-LLeHBboHLcOClECQXIvZulyXgkVD-tsPSPCMoViU4\""
+        ],
+        "CNAME": []
+    },
+    "detected_ns": [
+        "tricia.ns.cloudflare.com.",
+        "rustam.ns.cloudflare.com."
+    ],
+    "cloudflare_detected": true,
+    "cdn_providers": [
+        "cloudflare"
+    ],
+    "http_headers": {
+        "Server": "cloudflare",
+        "CF-Ray": "a094c7ee098916e8-SIN",
+        "CF-Cache-Status": "DYNAMIC",
+        "Alt-Svc": "h3=\":443\"; ma=86400"
+    },
+    "mx_analysis": {
+        "has_mx": false,
+        "possible_streaming_only_site": true
+    },
+    "mail_provider": null,
+    "txt_analysis": {
+        "google_verification": true,
+        "google_verification_count": 1,
+        "spf_configured": false,
+        "dmarc_configured": false,
+        "microsoft_verification": false,
+        "facebook_verification": false
+    },
+    "cloud_provider": "CLOUDFLARE",
+    "ns_provider": "CLOUDFLARE",
+    "suspicious_hosting": false,
+    "resolved_ip": [
+        "104.26.7.250",
+        "172.67.70.163",
+        "104.26.6.250"
+    ],
+    "asn_info": {
+        "asn": "13335",
+        "asn_description": "CLOUDFLARENET - Cloudflare, Inc., US"
+    },
+    "legitimate_signals": {
+        "official_tld": false,
+        "business_mail": false,
+        "google_verification": true,
+        "spf_configured": false,
+        "major_cloud_provider": true,
+        "enterprise_dns": false,
+        "total_signals": 2
+    },
+    "risk_score": 15,
+    "legitimacy_score": 25,
+    "step2_evidence": {
+        "target_url": "https://animevietsub.by/",
+        "target_domain": "animevietsub.by",
+        "timestamp": "2026-06-10T09:00:11.964950",
+        "cloudflare_bypassed": true,
+        "episodes_found_total": 6,
+        "episodes_checked": 3,
+        "popup_blocked_count": 4,
+        "popup_urls": [
+            "https://bom88.news/?a=five_5ec7e52591464a5cb1a330629a14cc30&utm_campaign=cpd&utm_source=animevietsubapp&utm_medium=popunder&utm_term=phim",
+            "https://debet.st/?a=993e515a606a6b533fa18ceb06338ec1&utm_source=animevietsubapp&utm_medium=popup&utm_campaign=cpd&utm_term=phim",
+            "https://debet.st/?a=993e515a606a6b533fa18ceb06338ec1&utm_source=animevietsubapp&utm_medium=popup&utm_campaign=cpd&utm_term=phim",
+            "https://qc.rikvip.sc/?a=c4b818ac14ef52dcbf2260e37a153c02&utm_source=animevietsubapp&utm_medium=topplayer&utm_campaign=cpd&utm_term=phim"
+        ],
+        "episodes_detail": [
+            {
+                "episode_url": "https://animevietsub.by/phim/super-no-ura-de-yani-suu-futari-a6008/tap-11-114002.html",
+                "streams": [
+                    {
+                        "url": "https://stream.googleapiscdn.com/playlist/842c79cf6a5a60fe7f7be161200c299c9feb909ef4308e1c610e7f675b75c2c7/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgxMDU2ODMzLCJleHAiOjE3ODEwNjQwMzMsImp0aSI6ImJhM2IwZTI0MWY0ZDEwZmRmYzU0YjYwYTUxNWUwNmUyMjM3Njc4YzA3ZjgzN2Q5OWNlOWRmM2ZhOWM0NTc3M2YyNjU0YmJhZGM4NTJhZTUxOTZlNWViOGZlZDA5MTVhMjFkZjlkZTVkYWVjMDkwMjMzODIwYTk0NDIwNmE0MzAyIn0.1p60_BF0k53TtgD5gk2ltvoHd6Mv_qBFCH5_HtTlMb8&fc=Y3Jvc3Mtb3JpZ2lu",
+                        "content_type": "detected_from_request",
+                        "status": 0,
+                        "matched_by": "request_intercept"
+                    }
+                ],
+                "iframes": [
+                    {
+                        "iframe_src": "https://animevietsub.by/phim/super-no-ura-de-yani-suu-futari-a6008/tap-11-114002.html",
+                        "source": "frame_tree",
+                        "is_external": false
+                    },
+                    {
+                        "iframe_src": "https://stream.googleapiscdn.com/devtools-warning",
+                        "source": "frame_tree",
+                        "is_external": true
+                    },
+                    {
+                        "iframe_src": "https://stream.googleapiscdn.com/player/842c79cf6a5a60fe7f7be161200c299c9feb909ef4308e1c610e7f675b75c2c7?isFinal=1",
+                        "source": "dom_query",
+                        "is_external": true,
+                        "dimensions": "100%x100%"
+                    }
+                ],
+                "screenshot_path": "logs\\screenshots\\animevietsub.by_ep1_20260610_090110.png"
+            },
+            {
+                "episode_url": "https://animevietsub.by/phim/co-len-douki-chan-a4311/tap-03-79585.html",
+                "streams": [
+                    {
+                        "url": "https://stream.googleapiscdn.com/playlist/0412445cfe00d025fbc84d3edadf91cde9ee3cd11149a6ecd56c29e8136ed04b/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgxMDU2ODcyLCJleHAiOjE3ODEwNjQwNzIsImp0aSI6Ijc0YWQyMDM2OWYxM2IzN2IwZmNkNDcxNGRhN2VmOGQ2YTIzOGMwMWIwMjA5MWNhYzAwODMyNjVlMWQ2MDJmNDMzN2Y0YjdlZDEyY2QwNjc4N2M1YWYxMWFkYWE3YmMyN2IxMDBmMDQzNTc2NzI1ODg4MjgzZDY4NzMxN2NjYWI2In0.fa0mif2duw_yWG2yE_fPFEFYCgYZqxYU2UvWcmNaVhE&fc=Y3Jvc3Mtb3JpZ2lu",
+                        "content_type": "detected_from_request",
+                        "status": 0,
+                        "matched_by": "request_intercept"
+                    }
+                ],
+                "iframes": [
+                    {
+                        "iframe_src": "https://animevietsub.by/phim/co-len-douki-chan-a4311/tap-03-79585.html",
+                        "source": "frame_tree",
+                        "is_external": false
+                    },
+                    {
+                        "iframe_src": "https://stream.googleapiscdn.com/devtools-warning",
+                        "source": "frame_tree",
+                        "is_external": true
+                    },
+                    {
+                        "iframe_src": "https://stream.googleapiscdn.com/player/0412445cfe00d025fbc84d3edadf91cde9ee3cd11149a6ecd56c29e8136ed04b?nextName=04&nextUrl=https%3A%2F%2Fanimevietsub.by%2Fphim%2Fco-len-douki-chan-a4311%2Ftap-04-79714.html",
+                        "source": "dom_query",
+                        "is_external": false,
+                        "dimensions": "100%x100%"
+                    }
+                ],
+                "screenshot_path": "logs\\screenshots\\animevietsub.by_ep2_20260610_090151.png"
+            },
+            {
+                "episode_url": "https://animevietsub.by/phim/masamune-kun-no-revenge-r-a4663/tap-08-93206.html",
+                "streams": [
+                    {
+                        "url": "https://stream.googleapiscdn.com/playlist/3052561d304965dadba69e650d9f4a503c12d515df081bc654b3c74c5b1d8a60/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgxMDU2OTEzLCJleHAiOjE3ODEwNjQxMTMsImp0aSI6ImZlZjQyOWZlYmU5YTUxZDE3NDY2ZGJmMTVlMjAyZWE1OTdkYzZiZmQ5MGIyZTkxNjdiMGEyMDdhYzYyMmY1ZTMwNmY5MTk0Njc3ODc2OTA2MzRlOWU4MmI3MjE3ZWM0MjkyMDI2MTg5YjUxODkyYTk4ZDQ4MWFmYTgxMzkzMWU5In0.0JvkTHF7VK1-6xwqHrlLDmh75v7SrpZIo55oOaOq0TU&fc=Y3Jvc3Mtb3JpZ2lu",
+                        "content_type": "detected_from_request",
+                        "status": 0,
+                        "matched_by": "request_intercept"
+                    }
+                ],
+                "iframes": [
+                    {
+                        "iframe_src": "https://animevietsub.by/phim/masamune-kun-no-revenge-r-a4663/tap-08-93206.html",
+                        "source": "frame_tree",
+                        "is_external": false
+                    },
+                    {
+                        "iframe_src": "https://stream.googleapiscdn.com/devtools-warning",
+                        "source": "frame_tree",
+                        "is_external": true
+                    },
+                    {
+                        "iframe_src": "https://stream.googleapiscdn.com/player/3052561d304965dadba69e650d9f4a503c12d515df081bc654b3c74c5b1d8a60?nextName=09&nextUrl=https%3A%2F%2Fanimevietsub.by%2Fphim%2Fmasamune-kun-no-revenge-r-a4663%2Ftap-09-93337.html",
+                        "source": "dom_query",
+                        "is_external": false,
+                        "dimensions": "100%x100%"
+                    }
+                ],
+                "screenshot_path": "logs\\screenshots\\animevietsub.by_ep3_20260610_090226.png"
+            }
+        ],
+        "all_streams": [
+            "https://stream.googleapiscdn.com/playlist/842c79cf6a5a60fe7f7be161200c299c9feb909ef4308e1c610e7f675b75c2c7/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgxMDU2ODMzLCJleHAiOjE3ODEwNjQwMzMsImp0aSI6ImJhM2IwZTI0MWY0ZDEwZmRmYzU0YjYwYTUxNWUwNmUyMjM3Njc4YzA3ZjgzN2Q5OWNlOWRmM2ZhOWM0NTc3M2YyNjU0YmJhZGM4NTJhZTUxOTZlNWViOGZlZDA5MTVhMjFkZjlkZTVkYWVjMDkwMjMzODIwYTk0NDIwNmE0MzAyIn0.1p60_BF0k53TtgD5gk2ltvoHd6Mv_qBFCH5_HtTlMb8&fc=Y3Jvc3Mtb3JpZ2lu",
+            "https://stream.googleapiscdn.com/playlist/0412445cfe00d025fbc84d3edadf91cde9ee3cd11149a6ecd56c29e8136ed04b/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgxMDU2ODcyLCJleHAiOjE3ODEwNjQwNzIsImp0aSI6Ijc0YWQyMDM2OWYxM2IzN2IwZmNkNDcxNGRhN2VmOGQ2YTIzOGMwMWIwMjA5MWNhYzAwODMyNjVlMWQ2MDJmNDMzN2Y0YjdlZDEyY2QwNjc4N2M1YWYxMWFkYWE3YmMyN2IxMDBmMDQzNTc2NzI1ODg4MjgzZDY4NzMxN2NjYWI2In0.fa0mif2duw_yWG2yE_fPFEFYCgYZqxYU2UvWcmNaVhE&fc=Y3Jvc3Mtb3JpZ2lu",
+            "https://stream.googleapiscdn.com/playlist/3052561d304965dadba69e650d9f4a503c12d515df081bc654b3c74c5b1d8a60/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgxMDU2OTEzLCJleHAiOjE3ODEwNjQxMTMsImp0aSI6ImZlZjQyOWZlYmU5YTUxZDE3NDY2ZGJmMTVlMjAyZWE1OTdkYzZiZmQ5MGIyZTkxNjdiMGEyMDdhYzYyMmY1ZTMwNmY5MTk0Njc3ODc2OTA2MzRlOWU4MmI3MjE3ZWM0MjkyMDI2MTg5YjUxODkyYTk4ZDQ4MWFmYTgxMzkzMWU5In0.0JvkTHF7VK1-6xwqHrlLDmh75v7SrpZIo55oOaOq0TU&fc=Y3Jvc3Mtb3JpZ2lu"
+        ],
+        "all_iframes": [
+            "https://animevietsub.by/phim/super-no-ura-de-yani-suu-futari-a6008/tap-11-114002.html",
+            "https://stream.googleapiscdn.com/devtools-warning",
+            "https://stream.googleapiscdn.com/player/842c79cf6a5a60fe7f7be161200c299c9feb909ef4308e1c610e7f675b75c2c7?isFinal=1",
+            "https://animevietsub.by/phim/co-len-douki-chan-a4311/tap-03-79585.html",
+            "https://stream.googleapiscdn.com/player/0412445cfe00d025fbc84d3edadf91cde9ee3cd11149a6ecd56c29e8136ed04b?nextName=04&nextUrl=https%3A%2F%2Fanimevietsub.by%2Fphim%2Fco-len-douki-chan-a4311%2Ftap-04-79714.html",
+            "https://animevietsub.by/phim/masamune-kun-no-revenge-r-a4663/tap-08-93206.html",
+            "https://stream.googleapiscdn.com/player/3052561d304965dadba69e650d9f4a503c12d515df081bc654b3c74c5b1d8a60?nextName=09&nextUrl=https%3A%2F%2Fanimevietsub.by%2Fphim%2Fmasamune-kun-no-revenge-r-a4663%2Ftap-09-93337.html"
+        ],
+        "footer_analysis": {
+            "has_legal_footer": false,
+            "legal_notice_found": false,
+            "tax_code_found": false,
+            "authority_found": false,
+            "has_telegram_contact": false,
+            "has_ad_contact_only": true,
+            "FOOTER_ANONYMOUS": true,
+            "footer_text_snippet": "XEM PHIM\nDONATE♥️\nCHAT ANIME/DISCORD\nTHUẬT NGỮ\nGROUP THẢO LUẬN\n\nkanefusa fansub  one piece, vua hải tặc đảo hải tặc thám tử lừng danh conan hoạt hình trung quốc\n\nLiên Hệ Quảng Cáo: ads@animevietsub.tv\n\n© Copyright 2026 AnimeVietSub.TV. All rights reserved.\n\nMiễn trừ trách nhiệm\n\nTrang web này cung cấp nội dung anime chỉ với mục đích giải trí và không chịu trách nhiệm về bất kỳ nội dung quảng cáo, liên kết của bên thứ ba hiển thị trên trang web của chúng tôi.\n\nTất cả thông tin và hình ảnh trên we"
+        },
+        "technical_flags": {
+            "cloudflare_bypassed": true,
+            "is_drm_protected": false,
+            "iframe_detected": true,
+            "stream_intercepted": true,
+            "has_legal_footer": false,
+            "popup_detected": true
+        }
+    }
+}

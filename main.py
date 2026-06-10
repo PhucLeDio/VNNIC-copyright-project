@@ -14,6 +14,8 @@ from evidence import (
     build_evidence_buffer
 )
 
+from step2 import run_step2
+
 #################################################
 # CONFIG
 #################################################
@@ -106,6 +108,71 @@ def main():
         print(f"\n[INFO] Kết quả Step 1 đã được lưu vào file JSON: {log_file_path}")
     except Exception as e:
         print(f"\n[ERROR] Không thể lưu file JSON kết quả Step 1: {e}")
+
+
+    #################################################
+    # STEP 2: Deep Browser Evidence Collection
+    #################################################
+
+    print("\n========================")
+    print("STEP 2")
+    print("========================\n")
+
+    # Ensure URL has scheme for Playwright
+    browser_url = target_url
+    if not browser_url.startswith("http"):
+        browser_url = "https://" + browser_url
+
+    step2_evidence = run_step2(domain, browser_url)
+
+    # Merge Step 2 into the evidence buffer
+    evidence_buffer["step2_evidence"] = step2_evidence
+
+    print(
+        json.dumps(
+            step2_evidence,
+            indent=4,
+            ensure_ascii=False,
+            default=str
+        )
+    )
+
+    # Save combined output (Step 1 + Step 2)
+    combined_file = f"{safe_domain}_full_{timestamp}.json"
+    combined_path = os.path.join(logs_dir, combined_file)
+
+    try:
+        with open(combined_path, "w", encoding="utf-8") as f:
+            json.dump(
+                evidence_buffer, f,
+                indent=4, ensure_ascii=False, default=str
+            )
+        print(
+            f"\n[INFO] Kết quả đầy đủ (Step 1 + Step 2) "
+            f"đã lưu vào: {combined_path}"
+        )
+    except Exception as e:
+        print(
+            f"\n[ERROR] Không thể lưu file JSON kết quả: {e}"
+        )
+
+    # Save Step 2 separately as well
+    step2_file = f"{safe_domain}_step2_{timestamp}.json"
+    step2_path = os.path.join(logs_dir, step2_file)
+
+    try:
+        with open(step2_path, "w", encoding="utf-8") as f:
+            json.dump(
+                step2_evidence, f,
+                indent=4, ensure_ascii=False, default=str
+            )
+        print(
+            f"[INFO] Kết quả Step 2 riêng đã lưu vào: {step2_path}"
+        )
+    except Exception as e:
+        print(
+            f"[ERROR] Không thể lưu file JSON Step 2: {e}"
+        )
 
 
 if __name__ == "__main__":
