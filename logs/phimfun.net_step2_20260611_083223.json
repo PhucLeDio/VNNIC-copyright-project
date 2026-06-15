@@ -1,0 +1,74 @@
+{
+    "target_url": "https://phimfun.net/",
+    "target_domain": "phimfun.net",
+    "timestamp": "2026-06-11T08:32:23.927566",
+    "cloudflare_bypassed": true,
+    "episodes_found_total": 92,
+    "episodes_checked": 3,
+    "popup_blocked_count": 0,
+    "popup_urls": [],
+    "episodes_detail": [
+        {
+            "episode_url": "https://phimfun.net/phim/chum-19651",
+            "streams": [],
+            "iframes": [
+                {
+                    "iframe_src": "https://phimfun.net/phim/chum-19651",
+                    "source": "frame_tree",
+                    "is_external": false
+                }
+            ],
+            "screenshot_path": "logs\\screenshots\\phimfun.net_ep1_20260611_083322.png"
+        },
+        {
+            "episode_url": "https://phimfun.net/phim/gold-land-19064",
+            "streams": [],
+            "iframes": [
+                {
+                    "iframe_src": "https://phimfun.net/phim/gold-land-19064",
+                    "source": "frame_tree",
+                    "is_external": false
+                }
+            ],
+            "screenshot_path": "logs\\screenshots\\phimfun.net_ep2_20260611_083404.png"
+        },
+        {
+            "episode_url": "https://phimfun.net/phim/ashes-to-crown-19602",
+            "streams": [],
+            "iframes": [
+                {
+                    "iframe_src": "https://phimfun.net/phim/ashes-to-crown-19602",
+                    "source": "frame_tree",
+                    "is_external": false
+                }
+            ],
+            "screenshot_path": "logs\\screenshots\\phimfun.net_ep3_20260611_083447.png"
+        }
+    ],
+    "all_streams": [],
+    "all_iframes": [
+        "https://phimfun.net/phim/chum-19651",
+        "https://phimfun.net/phim/gold-land-19064",
+        "https://phimfun.net/phim/ashes-to-crown-19602"
+    ],
+    "footer_analysis": {
+        "has_legal_footer": false,
+        "legal_notice_found": false,
+        "tax_code_found": false,
+        "authority_found": false,
+        "copyright_found": false,
+        "has_telegram_contact": false,
+        "has_ad_contact_only": false,
+        "FOOTER_ANONYMOUS": true,
+        "extraction_method": "none",
+        "footer_text_snippet": ""
+    },
+    "technical_flags": {
+        "cloudflare_bypassed": true,
+        "is_drm_protected": false,
+        "iframe_detected": true,
+        "stream_intercepted": false,
+        "has_legal_footer": false,
+        "popup_detected": false
+    }
+}

@@ -45,25 +45,44 @@ CDN_KEYWORDS = [
 # URL patterns that indicate an ACTUAL episode watch page
 # (not just anime info pages)
 EPISODE_WATCH_PATTERNS = [
+    # --- Pirate site patterns ---
     r"/tap-\d+",
     r"tap-\d+.*\.html",
     r"/episode[/-]\d+",
     r"/watch/.+/\d+",
     r"/xem-phim/.+/tap",
+    # --- Legitimate site patterns ---
+    r"/vod/.+",              # VTVGo VOD content
+    r"/kenh-truyen-hinh/.+", # VTVGo live TV channels
+    r"/chuong-trinh/.+",     # Program pages
+    r"/live/.+",             # General live streams
+    r"/video/.+",            # Generic video paths
+    r"/truyen-hinh/.+",      # TV channels
+    r"/phim-bo/.+",          # TV series (official)
+    r"/phim-le/.+",          # Movies (official)
 ]
 
-# Broader patterns for anime pages (info + episodes)
+# Broader patterns for content pages (info + episodes)
 EPISODE_URL_PATTERNS = [
+    # --- Pirate site patterns ---
     r"/xem-phim/",
     r"/tap-",
     r"/episode/",
     r"/watch/",
     r"/phim/",
     r"/xem/",
+    # --- Legitimate site patterns ---
+    r"/vod/",
+    r"/kenh-truyen-hinh/",
+    r"/chuong-trinh/",
+    r"/live/",
+    r"/video/",
+    r"/truyen-hinh/",
 ]
 
 # Legal notice keywords (Vietnamese)
 LEGAL_KEYWORDS = [
+    # --- Core legal identifiers ---
     "giấy phép",
     "giấy phép số",
     "gp số",
@@ -77,6 +96,15 @@ LEGAL_KEYWORDS = [
     "số giấy phép",
     "chịu trách nhiệm nội dung",
     "trụ sở",
+    # --- Official broadcaster keywords ---
+    "đài truyền hình",
+    "đơn vị quản lý",
+    "tổng biên tập",
+    "giám đốc",
+    "bản quyền thuộc",
+    "© 20",
+    "sở hữu bởi",
+    "đăng ký kinh doanh",
 ]
 
 # Timeouts (milliseconds)
@@ -294,9 +322,31 @@ async def crawl_episode_urls(page, base_domain):
     Extract episode/watch-page URLs from the current page.
     Prioritizes actual watch URLs (with tap-XX, .html) over
     anime info pages (which don't have a video player).
+
+    For SPAs / lazy-loaded pages: scrolls down 3 times before
+    extracting links to trigger content card rendering.
+
     Returns deduplicated list of absolute URLs.
     """
 
+    # ── Pre-scroll: trigger lazy-loaded content cards ──
+    # SPAs like VTVGo only render video links after scroll
+    for scroll_round in range(1, 4):
+        await page.evaluate("""
+            () => window.scrollBy(0, window.innerHeight * 1.5)
+        """)
+        logger.info(
+            f"[Crawl] Content scroll round {scroll_round}/3"
+        )
+        await page.wait_for_timeout(1500)
+
+    # Scroll back to top so we capture ALL links
+    await page.evaluate(
+        "window.scrollTo(0, 0)"
+    )
+    await page.wait_for_timeout(500)
+
+    # ── Extract all <a href> links ──
     all_hrefs = await page.evaluate("""
         () => {
             const links = document.querySelectorAll('a[href]');
@@ -531,11 +581,15 @@ async def extract_iframes(page, base_domain):
 # IFRAME DEEP PIERCING (Stage 2B)
 # ──────────────────────────────────────────────
 
-async def pierce_iframes(page, evidence_collector):
+async def pierce_iframes(page, evidence_collector, base_domain=""):
     """
     Stage 2B: For each iframe detected, switch context into it
     and listen for additional network requests that reveal
     the actual stream source hidden inside the player.
+
+    Args:
+        base_domain: Skip iframes belonging to the target domain
+                     itself (only pierce external/player iframes).
     """
 
     for frame in page.frames:
@@ -545,7 +599,7 @@ async def pierce_iframes(page, evidence_collector):
         if (
             not frame_url
             or frame_url == "about:blank"
-            or "animevietsub" in frame_url
+            or (base_domain and base_domain in frame_url)
         ):
             continue
 
@@ -595,73 +649,318 @@ async def pierce_iframes(page, evidence_collector):
 
 
 # ──────────────────────────────────────────────
-# FOOTER SCANNER
+# LEGAL IDENTITY SCANNER (formerly "Footer Scanner")
+# Enhanced: meta tag scan + infinite scroll aware
 # ──────────────────────────────────────────────
+
+async def _scan_meta_tags(page):
+    """
+    Strategy 0: Scan <head> meta tags, <title>, Open Graph,
+    and JSON-LD structured data for legal/copyright signals.
+    This runs BEFORE any scrolling and works on every site
+    type including infinite-scroll SPAs.
+    """
+
+    try:
+        meta_result = await page.evaluate("""
+            () => {
+                const result = {
+                    title: document.title || '',
+                    meta_copyright: '',
+                    meta_author: '',
+                    og_site_name: '',
+                    json_ld_org: '',
+                    all_meta_text: '',
+                };
+
+                // Collect all <meta> tags
+                const metas = document.querySelectorAll('meta');
+                const metaParts = [];
+                metas.forEach(m => {
+                    const name = (m.name || m.getAttribute('property') || '').toLowerCase();
+                    const content = m.content || '';
+                    if (content) {
+                        metaParts.push(content);
+                    }
+                    // Specific extractions
+                    if (name === 'copyright' || name === 'rights') {
+                        result.meta_copyright = content;
+                    }
+                    if (name === 'author' || name === 'publisher') {
+                        result.meta_author = content;
+                    }
+                    if (name === 'og:site_name') {
+                        result.og_site_name = content;
+                    }
+                });
+                result.all_meta_text = metaParts.join(' ');
+
+                // JSON-LD structured data
+                const ldScripts = document.querySelectorAll(
+                    'script[type="application/ld+json"]'
+                );
+                const ldParts = [];
+                ldScripts.forEach(s => {
+                    try {
+                        const data = JSON.parse(s.textContent);
+                        if (data['@type'] === 'Organization'
+                            || data['@type'] === 'WebSite'
+                            || data['@type'] === 'BroadcastService') {
+                            ldParts.push(JSON.stringify(data));
+                        }
+                        // Also check for nested publisher
+                        if (data.publisher && data.publisher.name) {
+                            ldParts.push(data.publisher.name);
+                        }
+                    } catch(e) {}
+                });
+                result.json_ld_org = ldParts.join(' ');
+
+                return JSON.stringify(result);
+            }
+        """)
+
+        return json.loads(meta_result)
+
+    except Exception as e:
+        logger.warning(f"[Meta Scan] Error: {e}")
+        return {}
+
+
+async def _detect_infinite_scroll(page):
+    """
+    Detect if the page uses infinite scroll by measuring
+    body height before and after a scroll action.
+    Returns True if page height grew (= infinite scroll).
+    """
+
+    try:
+        height_before = await page.evaluate(
+            "document.body.scrollHeight"
+        )
+        await page.evaluate(
+            "window.scrollTo(0, document.body.scrollHeight)"
+        )
+        await page.wait_for_timeout(2000)
+        height_after = await page.evaluate(
+            "document.body.scrollHeight"
+        )
+
+        is_infinite = height_after > height_before + 200
+        logger.info(
+            f"[Footer] Infinite scroll detection: "
+            f"before={height_before}px, after={height_after}px → "
+            f"{'INFINITE SCROLL' if is_infinite else 'STATIC'}"
+        )
+        return is_infinite
+
+    except Exception as e:
+        logger.warning(f"[Footer] Infinite scroll check error: {e}")
+        return False
+
 
 async def scan_footer(page):
     """
-    Scroll to the bottom of the page and scan the <footer>
-    (or bottom 20% of the page) for legal notices.
+    Multi-layered legal identity scan:
+
+    Layer 0: Meta tag scan (works on ALL sites, no scroll needed)
+    Layer 1: Infinite scroll detection
+    Layer 2: Deep-scroll + DOM extraction (4 strategies)
+
+    For infinite-scroll sites (no footer exists), Layer 0
+    provides the legal identity signals instead.
     """
 
-    # Scroll to bottom
-    await page.evaluate(
-        "window.scrollTo(0, document.body.scrollHeight)"
-    )
-    await page.wait_for_timeout(2000)
+    # ══════════════════════════════════════════
+    # Layer 0: Meta Tag Scan (ALWAYS runs first)
+    # ══════════════════════════════════════════
 
-    # Try to extract footer text
+    logger.info("[Footer] Layer 0: Scanning meta tags...")
+    meta_info = await _scan_meta_tags(page)
+
+    meta_text = " ".join([
+        meta_info.get("title", ""),
+        meta_info.get("meta_copyright", ""),
+        meta_info.get("meta_author", ""),
+        meta_info.get("og_site_name", ""),
+        meta_info.get("json_ld_org", ""),
+        meta_info.get("all_meta_text", ""),
+    ]).lower()
+
+    meta_has_legal = any(
+        kw in meta_text for kw in LEGAL_KEYWORDS
+    )
+    meta_has_copyright = bool(
+        re.search(r"©\s*20\d{2}", meta_text)
+    ) or bool(meta_info.get("meta_copyright"))
+    meta_has_org = bool(
+        meta_info.get("og_site_name")
+        or meta_info.get("json_ld_org")
+    )
+
+    logger.info(
+        f"[Footer] Meta scan: legal={meta_has_legal}, "
+        f"copyright={meta_has_copyright}, org={meta_has_org}"
+    )
+
+    # ══════════════════════════════════════════
+    # Layer 1: Infinite Scroll Detection
+    # ══════════════════════════════════════════
+
+    logger.info("[Footer] Layer 1: Checking for infinite scroll...")
+    is_infinite_scroll = await _detect_infinite_scroll(page)
+
+    # ══════════════════════════════════════════
+    # Layer 2: DOM-based footer extraction
+    # (scroll + 4 strategies)
+    # ══════════════════════════════════════════
+
+    logger.info("[Footer] Layer 2: DOM footer extraction...")
+
+    # Deep scroll (2 more rounds — _detect_infinite_scroll
+    # already did 1 scroll)
+    for scroll_round in range(1, 3):
+        await page.evaluate(
+            "window.scrollTo(0, document.body.scrollHeight)"
+        )
+        logger.info(
+            f"[Footer] Scroll round {scroll_round}/2"
+        )
+        await page.wait_for_timeout(2000)
+
+    # ── Multi-strategy footer text extraction ──
     footer_text = ""
+    extraction_method = "none"
 
     try:
         footer_text = await page.evaluate("""
             () => {
-                // Try <footer> tag first
+                // Strategy 1: Semantic <footer> tag
                 const footer = document.querySelector('footer');
-                if (footer && footer.innerText.trim()) {
-                    return footer.innerText.trim();
+                if (footer && footer.innerText.trim().length > 20) {
+                    return JSON.stringify({
+                        text: footer.innerText.trim(),
+                        method: 'semantic_footer'
+                    });
                 }
 
-                // Fallback: last section / bottom of body
+                // Strategy 2: Common footer CSS selectors
+                const footerSelectors = [
+                    '.footer',
+                    '#footer',
+                    '[class*="footer"]',
+                    '[role="contentinfo"]',
+                    '.site-footer',
+                    '.page-footer',
+                    '#site-footer',
+                ];
+                for (const sel of footerSelectors) {
+                    const el = document.querySelector(sel);
+                    if (el && el.innerText.trim().length > 20) {
+                        return JSON.stringify({
+                            text: el.innerText.trim(),
+                            method: 'css_selector: ' + sel
+                        });
+                    }
+                }
+
+                // Strategy 3: Keyword-targeted element search
+                const legalKeywords = [
+                    'giấy phép', 'mã số thuế', 'mst:',
+                    'cơ quan chủ quản', 'bộ thông tin',
+                    'cục phát thanh', 'chịu trách nhiệm',
+                    'đài truyền hình', 'tổng biên tập',
+                    'bản quyền thuộc', '© 20',
+                    'đăng ký kinh doanh', 'giám đốc',
+                ];
+                const candidates = document.querySelectorAll(
+                    'div, p, span, section, aside'
+                );
+                for (const el of candidates) {
+                    const txt = (el.innerText || '').toLowerCase();
+                    if (txt.length > 30 && txt.length < 2000) {
+                        const matched = legalKeywords.some(
+                            kw => txt.includes(kw)
+                        );
+                        if (matched) {
+                            return JSON.stringify({
+                                text: el.innerText.trim(),
+                                method: 'keyword_targeted'
+                            });
+                        }
+                    }
+                }
+
+                // Strategy 4 (fallback): bottom 20% of body text
                 const body = document.body.innerText || '';
-                const lines = body.split('\\n');
-                // Take last 20% of lines
+                const lines = body.split('\n');
                 const cutoff = Math.max(0,
                     Math.floor(lines.length * 0.8)
                 );
-                return lines.slice(cutoff).join('\\n').trim();
+                return JSON.stringify({
+                    text: lines.slice(cutoff).join('\n').trim(),
+                    method: 'body_bottom_20pct'
+                });
             }
         """)
-    except Exception as e:
-        logger.warning(f"[Footer] Error extracting footer: {e}")
 
-    footer_lower = footer_text.lower()
+        # Parse the JSON result from JS
+        try:
+            parsed = json.loads(footer_text)
+            footer_text = parsed.get("text", "")
+            extraction_method = parsed.get("method", "unknown")
+        except (json.JSONDecodeError, TypeError):
+            extraction_method = "raw_fallback"
+
+    except Exception as e:
+        logger.warning(f"[Footer] DOM extraction error: {e}")
+
+    logger.info(
+        f"[Footer] DOM extraction method: {extraction_method}"
+    )
+
+    # ══════════════════════════════════════════
+    # Combine signals from Meta (Layer 0) + DOM (Layer 2)
+    # ══════════════════════════════════════════
+
+    # Merge footer_text with meta_text for keyword scanning
+    combined_text = (footer_text + " " + meta_text).lower()
 
     legal_notice_found = any(
-        kw in footer_lower for kw in LEGAL_KEYWORDS
+        kw in combined_text for kw in LEGAL_KEYWORDS
     )
 
     tax_code_found = bool(
         re.search(
             r"(mã số thuế|mst)[:\s]*\d{10,13}",
-            footer_lower,
+            combined_text,
         )
     )
 
     authority_found = any(
-        kw in footer_lower
+        kw in combined_text
         for kw in [
             "cơ quan chủ quản",
             "bộ thông tin",
             "cục phát thanh",
             "sở thông tin",
+            "đài truyền hình",
+            "tổng biên tập",
         ]
     )
 
+    # Copyright from footer text OR meta tags
+    copyright_found = bool(
+        re.search(r"©\s*20\d{2}", combined_text)
+    ) or meta_has_copyright
+
+    # Structured data signals (JSON-LD, OG)
+    has_structured_identity = meta_has_org
+
     # Check for suspicious ad-contact-only footer
-    has_telegram = "telegram" in footer_lower
+    has_telegram = "telegram" in combined_text
     has_ad_contact = any(
-        kw in footer_lower
+        kw in combined_text
         for kw in [
             "liên hệ quảng cáo",
             "liên hệ qc",
@@ -670,27 +969,51 @@ async def scan_footer(page):
         ]
     )
 
+    # ── Final verdict ──
+    # A page is NOT anonymous if ANY of these signals fire
     footer_anonymous = (
         not legal_notice_found
         and not tax_code_found
         and not authority_found
+        and not copyright_found
+        and not has_structured_identity
     )
+
+    # Build snippet for output
+    if footer_text:
+        snippet = footer_text[:500]
+    elif meta_text.strip():
+        snippet = f"[META] {meta_text[:500]}"
+    else:
+        snippet = ""
 
     result = {
         "has_legal_footer": not footer_anonymous,
         "legal_notice_found": legal_notice_found,
         "tax_code_found": tax_code_found,
         "authority_found": authority_found,
+        "copyright_found": copyright_found,
+        "has_structured_identity": has_structured_identity,
+        "is_infinite_scroll": is_infinite_scroll,
         "has_telegram_contact": has_telegram,
         "has_ad_contact_only": (
             has_ad_contact and not legal_notice_found
         ),
         "FOOTER_ANONYMOUS": footer_anonymous,
-        "footer_text_snippet": footer_text[:500],
+        "extraction_method": extraction_method,
+        "meta_info": {
+            "title": meta_info.get("title", ""),
+            "og_site_name": meta_info.get("og_site_name", ""),
+            "meta_copyright": meta_info.get("meta_copyright", ""),
+            "meta_author": meta_info.get("meta_author", ""),
+            "has_json_ld": bool(meta_info.get("json_ld_org")),
+        },
+        "footer_text_snippet": snippet,
     }
 
     logger.info(
-        f"[Footer] FOOTER_ANONYMOUS = {footer_anonymous}"
+        f"[Footer] FOOTER_ANONYMOUS = {footer_anonymous} "
+        f"(infinite_scroll={is_infinite_scroll})"
     )
 
     return result
@@ -824,7 +1147,7 @@ async def investigate_episode(
         episode_evidence["iframes"] = iframes
 
         # Stage 2B: Pierce into iframes for hidden video sources
-        await pierce_iframes(page, episode_evidence)
+        await pierce_iframes(page, episode_evidence, domain)
 
         # Capture screenshot
         screenshot_path = await capture_screenshot(
