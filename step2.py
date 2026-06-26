@@ -1473,6 +1473,7 @@ async def _run_step2_async(domain, url):
         "all_iframes": [],
         "footer_analysis": {},
         "technical_flags": {},
+        "dom_text": "",  # Full body text for Content Model (Step 3 Branch 2)
     }
 
     stealth = Stealth(
@@ -1583,6 +1584,30 @@ async def _run_step2_async(domain, url):
             await bypass_cloudflare(page, url)
             footer = await scan_footer(page)
             evidence["footer_analysis"] = footer
+
+            # ── Extract full body text for Content Model (Step 3) ──
+            logger.info("[Phase 5] Extracting full DOM text for Content Model...")
+            try:
+                dom_text = await page.evaluate("""
+                    () => {
+                        // Remove script / style / noscript nodes from clone
+                        const clone = document.body.cloneNode(true);
+                        for (const tag of ['script', 'style', 'noscript', 'svg', 'img']) {
+                            clone.querySelectorAll(tag).forEach(el => el.remove());
+                        }
+                        return clone.innerText || '';
+                    }
+                """)
+                # Collapse excessive whitespace
+                import re as _re
+                dom_text = _re.sub(r'[ \t]+', ' ', dom_text)
+                dom_text = _re.sub(r'\n{3,}', '\n\n', dom_text).strip()
+                evidence["dom_text"] = dom_text
+                logger.info(
+                    f"[Phase 5] DOM text extracted: {len(dom_text)} chars"
+                )
+            except Exception as e:
+                logger.warning(f"[Phase 5] DOM text extraction error: {e}")
 
             # ────────────────────────────────
             # Phase 6: Compile technical flags

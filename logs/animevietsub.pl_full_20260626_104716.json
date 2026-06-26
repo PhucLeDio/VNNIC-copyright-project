@@ -1,0 +1,269 @@
+{
+    "domain_age_days": 271,
+    "creation_date": "2025-09-27 11:28:03+00:00",
+    "registrar": "Hosting Concepts B.V.",
+    "is_whois_privacy_active": false,
+    "tld_info": {
+        "tld": ".pl",
+        "risk": "LOW"
+    },
+    "redirect_history": [
+        "https://animevietsub.pl/"
+    ],
+    "redirect_info": {
+        "redirect_depth": 1,
+        "domains_seen": [
+            "animevietsub.pl"
+        ],
+        "domain_hopping": false
+    },
+    "dns_records": {
+        "A": [
+            "172.67.70.67",
+            "104.26.14.230",
+            "104.26.15.230"
+        ],
+        "AAAA": [
+            "2606:4700:20::ac43:4643",
+            "2606:4700:20::681a:fe6",
+            "2606:4700:20::681a:ee6"
+        ],
+        "NS": [
+            "tricia.ns.cloudflare.com.",
+            "rustam.ns.cloudflare.com."
+        ],
+        "MX": [],
+        "TXT": [
+            "\"google-site-verification=aJGxCmNWIlpVOTe_WDQ8nHK3zzcc4kX99RWp6M5Bo28\""
+        ],
+        "CNAME": []
+    },
+    "detected_ns": [
+        "tricia.ns.cloudflare.com.",
+        "rustam.ns.cloudflare.com."
+    ],
+    "cloudflare_detected": true,
+    "cdn_providers": [
+        "cloudflare"
+    ],
+    "http_headers": {
+        "Server": "cloudflare",
+        "CF-Ray": "a1193ac7ff87ef6e-SIN",
+        "CF-Cache-Status": "DYNAMIC",
+        "Alt-Svc": "h3=\":443\"; ma=86400"
+    },
+    "mx_analysis": {
+        "has_mx": false,
+        "possible_streaming_only_site": true
+    },
+    "mail_provider": null,
+    "txt_analysis": {
+        "google_verification": true,
+        "google_verification_count": 1,
+        "spf_configured": false,
+        "dmarc_configured": false,
+        "microsoft_verification": false,
+        "facebook_verification": false
+    },
+    "cloud_provider": "CLOUDFLARE",
+    "ns_provider": "CLOUDFLARE",
+    "suspicious_hosting": false,
+    "resolved_ip": [
+        "172.67.70.67",
+        "104.26.15.230",
+        "104.26.14.230"
+    ],
+    "asn_info": {
+        "asn": "13335",
+        "asn_description": "CLOUDFLARENET - Cloudflare, Inc., US"
+    },
+    "legitimate_signals": {
+        "official_tld": false,
+        "business_mail": false,
+        "google_verification": true,
+        "spf_configured": false,
+        "major_cloud_provider": true,
+        "enterprise_dns": false,
+        "total_signals": 2
+    },
+    "risk_score": 15,
+    "legitimacy_score": 25,
+    "step0": {
+        "input_domain": "https://animevietsub.pl/",
+        "normalized_domain": "animevietsub.pl",
+        "in_database": false,
+        "domain_model": {
+            "label": 1,
+            "label_name": "Độc hại",
+            "prob_safe": 0.1515,
+            "prob_malicious": 0.8485,
+            "features": [
+                15.0,
+                3.640223928941852,
+                0.0,
+                0.0,
+                0.0,
+                3.0,
+                3.0,
+                2.0,
+                0.0,
+                3.0,
+                2.0,
+                300.0
+            ],
+            "flag": "FLAG_DOMAIN_PREDICT_MALICIOUS",
+            "model": "v1_hybrid"
+        }
+    },
+    "step2_evidence": {
+        "target_url": "https://animevietsub.pl/",
+        "target_domain": "animevietsub.pl",
+        "timestamp": "2026-06-26T10:47:21.251874",
+        "cloudflare_bypassed": true,
+        "episodes_found_total": 5,
+        "episodes_checked": 3,
+        "popup_blocked_count": 4,
+        "popup_urls": [
+            "https://debet.kim/?a=993e515a606a6b533fa18ceb06338ec1&utm_source=animevietsubapp&utm_medium=popup&utm_campaign=cpd&utm_content=phim",
+            "https://bom88.cool/?a=five_5ec7e52591464a5cb1a330629a14cc30&utm_campaign=cpd&utm_source=animevietsubapp&utm_medium=popunder&utm_term=phim",
+            "https://debet.kim/?a=993e515a606a6b533fa18ceb06338ec1&utm_source=animevietsubapp&utm_medium=popup&utm_campaign=cpd&utm_content=phim",
+            "https://qc.rikvip.gg/?a=c4b818ac14ef52dcbf2260e37a153c02&utm_source=animevietsubapp&utm_medium=topplayer&utm_campaign=cpd&utm_term=phim"
+        ],
+        "episodes_detail": [
+            {
+                "episode_url": "https://animevietsub.pl/phim/super-no-ura-de-yani-suu-futari-a6008/tap-12-114007.html",
+                "streams": [
+                    {
+                        "url": "https://storage.googleapiscdn.com/playlist/4af7a244f45414610cd19584749c3b61406f86741f1a690e81e85fd626af99ef/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgyNDQ1NjcyLCJleHAiOjE3ODI0NTI4NzIsImp0aSI6IjQyNDMzZmRmZjM3ZTQ2OGQxYWJlZGIxMGU3ODU1NmEwOGY4YzY2NjE2NjFlYWNjMjdmMjRjYTA3ZGQ5ZmNmMDRjNWZmZWQ0NTI0M2FhNmQ4NGE2N2E1NmJmN2M3ODNlM2RkNTQ5NWQ2MDZhZDVhNGVlYTBmNGZjMTRjMDEwNTE4In0.aHF_u_IJ1dkuI0inlxKKFE-4zRzRxsOt1mFHxCCmekU&fc=Y3Jvc3Mtb3JpZ2lu",
+                        "content_type": "detected_from_request",
+                        "status": 0,
+                        "matched_by": "request_intercept"
+                    }
+                ],
+                "iframes": [
+                    {
+                        "iframe_src": "https://animevietsub.pl/phim/super-no-ura-de-yani-suu-futari-a6008/tap-12-114007.html",
+                        "source": "frame_tree",
+                        "is_external": false
+                    },
+                    {
+                        "iframe_src": "https://storage.googleapiscdn.com/devtools-warning",
+                        "source": "frame_tree",
+                        "is_external": true
+                    },
+                    {
+                        "iframe_src": "https://storage.googleapiscdn.com/player/4af7a244f45414610cd19584749c3b61406f86741f1a690e81e85fd626af99ef?isFinal=1",
+                        "source": "dom_query",
+                        "is_external": true,
+                        "dimensions": "100%x100%"
+                    }
+                ],
+                "screenshot_path": "logs\\screenshots\\animevietsub.pl_ep1_20260626_104830.png"
+            },
+            {
+                "episode_url": "https://animevietsub.pl/phim/pham-nhan-tu-tien-tinh-hai-phi-tri-a5035/tap-30-98478.html",
+                "streams": [
+                    {
+                        "url": "https://storage.googleapiscdn.com/playlist/12bc01ab4f6f91905819020a02923f7bcb7b116fa65e003040159bd08684f4f0/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgyNDQ1NzExLCJleHAiOjE3ODI0NTI5MTEsImp0aSI6Ijk3MjExZGNmNmMwMDVmNzg0NmU0MDAzM2RmOTYzZTgyOTE4OGU5OGU3MThlZjNkMjE4M2I5MWRhMDE4ZGZmMDMzNzFhYmVhZDdkMjBlMmViODA4MzBhMDcxZWViNzc4YzNkYzFkYmNmYzM3OGE2ZDEwZTdkZTc4OTdjNzMxNzhkIn0.g7HL5NirzPCC5O_5uPxQHyEdhwsT9PicQVJIPKBQhmQ&fc=Y3Jvc3Mtb3JpZ2lu",
+                        "content_type": "detected_from_request",
+                        "status": 0,
+                        "matched_by": "request_intercept"
+                    }
+                ],
+                "iframes": [
+                    {
+                        "iframe_src": "https://animevietsub.pl/phim/pham-nhan-tu-tien-tinh-hai-phi-tri-a5035/tap-30-98478.html",
+                        "source": "frame_tree",
+                        "is_external": false
+                    },
+                    {
+                        "iframe_src": "https://storage.googleapiscdn.com/devtools-warning",
+                        "source": "frame_tree",
+                        "is_external": true
+                    },
+                    {
+                        "iframe_src": "https://storage.googleapiscdn.com/player/12bc01ab4f6f91905819020a02923f7bcb7b116fa65e003040159bd08684f4f0?nextName=30&nextUrl=https%3A%2F%2Fanimevietsub.pl%2Fphim%2Fpham-nhan-tu-tien-tinh-hai-phi-tri-a5035%2Ftap-30-98597.html",
+                        "source": "dom_query",
+                        "is_external": false,
+                        "dimensions": "100%x100%"
+                    }
+                ],
+                "screenshot_path": "logs\\screenshots\\animevietsub.pl_ep2_20260626_104910.png"
+            },
+            {
+                "episode_url": "https://animevietsub.pl/phim/shinigami-bocchan-to-kuro-maid-3rd-season-a5210/tap-07-98612.html",
+                "streams": [
+                    {
+                        "url": "https://storage.googleapiscdn.com/playlist/3cf5a00f54408b3d603c8a3f6e5fbab216908c809b917c77d1d9a74a4115b9a7/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgyNDQ1NzUyLCJleHAiOjE3ODI0NTI5NTIsImp0aSI6ImM5YjAxNTFhMjdhMWU0YmVkODg5NDI4NTY2Mjc0Y2NjZjljNDExMTk2MTk4N2MzOWRmMGNjZDg4MmE4Yjk3NGI3OWE5MmY1ZDFmZjJiYWYwMDRkZTE1NWE3NTUzNWNiNGE5NmUyOWZjZGEyMjFmYmM4MjQ5YjYxYTZjYWJkMWY4In0.lbBLZgwt-7oZWGN1Mq02WqXxt7wvviT9ZTU2bZqH0hQ&fc=Y3Jvc3Mtb3JpZ2lu",
+                        "content_type": "detected_from_request",
+                        "status": 0,
+                        "matched_by": "request_intercept"
+                    }
+                ],
+                "iframes": [
+                    {
+                        "iframe_src": "https://animevietsub.pl/phim/shinigami-bocchan-to-kuro-maid-3rd-season-a5210/tap-07-98612.html",
+                        "source": "frame_tree",
+                        "is_external": false
+                    },
+                    {
+                        "iframe_src": "https://storage.googleapiscdn.com/devtools-warning",
+                        "source": "frame_tree",
+                        "is_external": true
+                    },
+                    {
+                        "iframe_src": "https://storage.googleapiscdn.com/player/3cf5a00f54408b3d603c8a3f6e5fbab216908c809b917c77d1d9a74a4115b9a7?nextName=08&nextUrl=https%3A%2F%2Fanimevietsub.pl%2Fphim%2Fshinigami-bocchan-to-kuro-maid-3rd-season-a5210%2Ftap-08-98734.html",
+                        "source": "dom_query",
+                        "is_external": false,
+                        "dimensions": "100%x100%"
+                    }
+                ],
+                "screenshot_path": "logs\\screenshots\\animevietsub.pl_ep3_20260626_104945.png"
+            }
+        ],
+        "all_streams": [
+            "https://storage.googleapiscdn.com/playlist/4af7a244f45414610cd19584749c3b61406f86741f1a690e81e85fd626af99ef/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgyNDQ1NjcyLCJleHAiOjE3ODI0NTI4NzIsImp0aSI6IjQyNDMzZmRmZjM3ZTQ2OGQxYWJlZGIxMGU3ODU1NmEwOGY4YzY2NjE2NjFlYWNjMjdmMjRjYTA3ZGQ5ZmNmMDRjNWZmZWQ0NTI0M2FhNmQ4NGE2N2E1NmJmN2M3ODNlM2RkNTQ5NWQ2MDZhZDVhNGVlYTBmNGZjMTRjMDEwNTE4In0.aHF_u_IJ1dkuI0inlxKKFE-4zRzRxsOt1mFHxCCmekU&fc=Y3Jvc3Mtb3JpZ2lu",
+            "https://storage.googleapiscdn.com/playlist/12bc01ab4f6f91905819020a02923f7bcb7b116fa65e003040159bd08684f4f0/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgyNDQ1NzExLCJleHAiOjE3ODI0NTI5MTEsImp0aSI6Ijk3MjExZGNmNmMwMDVmNzg0NmU0MDAzM2RmOTYzZTgyOTE4OGU5OGU3MThlZjNkMjE4M2I5MWRhMDE4ZGZmMDMzNzFhYmVhZDdkMjBlMmViODA4MzBhMDcxZWViNzc4YzNkYzFkYmNmYzM3OGE2ZDEwZTdkZTc4OTdjNzMxNzhkIn0.g7HL5NirzPCC5O_5uPxQHyEdhwsT9PicQVJIPKBQhmQ&fc=Y3Jvc3Mtb3JpZ2lu",
+            "https://storage.googleapiscdn.com/playlist/3cf5a00f54408b3d603c8a3f6e5fbab216908c809b917c77d1d9a74a4115b9a7/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgyNDQ1NzUyLCJleHAiOjE3ODI0NTI5NTIsImp0aSI6ImM5YjAxNTFhMjdhMWU0YmVkODg5NDI4NTY2Mjc0Y2NjZjljNDExMTk2MTk4N2MzOWRmMGNjZDg4MmE4Yjk3NGI3OWE5MmY1ZDFmZjJiYWYwMDRkZTE1NWE3NTUzNWNiNGE5NmUyOWZjZGEyMjFmYmM4MjQ5YjYxYTZjYWJkMWY4In0.lbBLZgwt-7oZWGN1Mq02WqXxt7wvviT9ZTU2bZqH0hQ&fc=Y3Jvc3Mtb3JpZ2lu"
+        ],
+        "all_iframes": [
+            "https://animevietsub.pl/phim/super-no-ura-de-yani-suu-futari-a6008/tap-12-114007.html",
+            "https://storage.googleapiscdn.com/devtools-warning",
+            "https://storage.googleapiscdn.com/player/4af7a244f45414610cd19584749c3b61406f86741f1a690e81e85fd626af99ef?isFinal=1",
+            "https://animevietsub.pl/phim/pham-nhan-tu-tien-tinh-hai-phi-tri-a5035/tap-30-98478.html",
+            "https://storage.googleapiscdn.com/player/12bc01ab4f6f91905819020a02923f7bcb7b116fa65e003040159bd08684f4f0?nextName=30&nextUrl=https%3A%2F%2Fanimevietsub.pl%2Fphim%2Fpham-nhan-tu-tien-tinh-hai-phi-tri-a5035%2Ftap-30-98597.html",
+            "https://animevietsub.pl/phim/shinigami-bocchan-to-kuro-maid-3rd-season-a5210/tap-07-98612.html",
+            "https://storage.googleapiscdn.com/player/3cf5a00f54408b3d603c8a3f6e5fbab216908c809b917c77d1d9a74a4115b9a7?nextName=08&nextUrl=https%3A%2F%2Fanimevietsub.pl%2Fphim%2Fshinigami-bocchan-to-kuro-maid-3rd-season-a5210%2Ftap-08-98734.html"
+        ],
+        "footer_analysis": {
+            "has_legal_footer": true,
+            "legal_notice_found": false,
+            "tax_code_found": false,
+            "authority_found": false,
+            "copyright_found": false,
+            "has_structured_identity": true,
+            "is_infinite_scroll": false,
+            "has_telegram_contact": false,
+            "has_ad_contact_only": false,
+            "FOOTER_ANONYMOUS": false,
+            "extraction_method": "none",
+            "meta_info": {
+                "title": "Anime Vietsub Online - AnimeVietSub.pl",
+                "og_site_name": "animevietsub.pl",
+                "meta_copyright": "",
+                "meta_author": "",
+                "has_json_ld": false
+            },
+            "footer_text_snippet": "[META] anime vietsub online - animevietsub.pl   animevietsub.pl  anime vietsub online - animevietsub.pl anime vietsub online - animevietsub.pl xem phim anime vietsub online xem trên điện thoại di động và máy tính nhanh nhất. là một website xem phim anime vietsub miễn phí tốt nhất. liên tục cập nhật các anime sớm nhất từ các fansub việt nam. anime, animetv, anime hay, anime vietsub, anime vietsub online, xem anime, anime tv, download anime vietsub, anime hd, tai anime, anime moi nhat, phim anime, hoat h"
+        },
+        "technical_flags": {
+            "cloudflare_bypassed": true,
+            "is_drm_protected": false,
+            "iframe_detected": true,
+            "stream_intercepted": true,
+            "has_legal_footer": true,
+            "popup_detected": true
+        },
+        "dom_text": "🌙Đăng nhậpTrang chủDạng AnimeTV/SeriesMovie/OVAHH Trung QuốcAnime Sắp ChiếuAnime Đang ChiếuAnime Trọn BộTop AnimeTheo NgàyYêu ThíchTheo ThángTheo MùaTheo NămTHỂ LOẠIActionAdventureBoys LoveCartoonCổ TrangComedyDementiaDemonsDramaEcchiFantasyGameHaremHistoricalHorrorJoseiKidsLive ActionMagicMartial ArtsMechaMilitaryMusicMysteryParodyPolicePsychologicalRomanceSamuraiSchoolSci-FiSeinenShoujoShoujo AiShounenShounen AiSlice of LifeSpaceSportsSuper PowerSupernaturalSuspenseThrillerTokusatsuVampireYaoiYuriSeasonMùa Đông 2026Mùa Xuân 2026Mùa Hạ 2026Mùa Thu 2026Mùa Đông 2025Mùa Xuân 2025Mùa Hạ 2025Mùa Thu 2025Mùa Đông 2024Mùa Xuân 2024Mùa Hạ 2024Mùa Thu 2024Mùa Đông 2023Mùa Xuân 2023Mùa Hạ 2023Mùa Thu 2023Mùa Đông 2022Mùa Xuân 2022Mùa Hạ 2022Mùa Thu 2022Mùa Đông 2021Mùa Xuân 2021Mùa Hạ 2021Mùa Thu 2021Mùa Đông 2020Mùa Xuân 2020Mùa Hạ 2020Mùa Thu 2020Mùa Đông 2019Mùa Xuân 2019Mùa Hạ 2019Mùa Thu 2019Mùa Đông 2018Mùa Xuân 2018Mùa Hạ 2018Mùa Thu 2018Thư việnLịch chiếu 📌LINK RÚT GỌNLưu lại để truy cập khi nhà mạng chặn!bit.ly/animevietsubtv🤝CỘNG ĐỒNGTham gia để cập nhật và ủng hộ AnimeVietsub!👥 Facebook💬 Discord🔖KHÔI PHỤC DỮ LIỆULấy lịch sử xem & đăng nhập từ tên miền cũTẢI NGAYHOÀNTẤT9.8Dr. Stone 4th SeasonHOÀNTẤT5.4Saikyou no Ousama, Nidome no Jinsei wa Nani wo Suru? 2nd SeasonHOÀNTẤT9Chào Mừng Đến Với Lớp Học Đề Cao Thực Lực 4HOÀNTẤT9.5Class de 2-banme ni Kawaii Onnanoko to Tomodachi ni NattaTẬP129.1Mai Mối Cho Độc SưHOÀNTẤT9.5Cuộc Sống Nông Dân Ở Thế Giới Khác 2HOÀNTẤT9.5Xưởng Phép ThuậtTẬP11679.3One Piece - Đảo Hải TặcTẬP128.3Needy Girl OverdoseTẬP119Hắc Miêu Và Lớp Học Phù ThủyTẬP119.6Wistoria: Trượng Và Kiếm Mùa 2HOÀNTẤT9.2Kanan-sama wa Akumade ChoroiTẬP129.5Song Mệnh Cõi Hoàng TuyềnTẬP12049.5Thám Tử Lừng Danh ConanTẬP129.6Vào Ma Giới Rồi Đấy! Iruma-kun Mùa 4TẬP119.3Lúc Đó, Tôi Đã Chuyển Sinh Thành Slime Mùa 4Dr. Stone 4th Season9.837/372025HDMùa 4 của Dr. Stone.Studio: TMS EntertainmentThể Loại:Shounen, Sci-Fi, Comedy, Adventure, Xem PhimSaikyou no Ousama, Nidome no Jinsei wa Nani wo Suru? 2nd Season5.412/122026FHDCâu chuyện sẽ tập trung vào hành trình của Arthur Leywin khi anh bắt...Studio: Studio A-CATThể Loại:Fantasy, Drama, Magic, Xem PhimChào Mừng Đến Với Lớp Học Đề Cao Thực Lực 4916/162026FHDKhi Ayanokouji và các bạn cùng lớp bắt đầu năm thứ hai tại Trường Trung...Studio: LercheThể Loại:Slice of Life, School, Suspense, Psychological, Drama, Xem PhimClass de 2-banme ni Kawaii Onnanoko to Tomodachi ni Natta9.512/122026FHDMaeshima Aki, một nam sinh cao trung sống khép kín, tình cờ trở thành bạn...Studio: ConnectThể Loại:Slice of Life, School, Romance, Comedy, Xem PhimMai Mối Cho Độc Sư9.112/132026FHDHikaru Gero, người kế thừa của Ngự Độc sư, một gia tộc sát thủ chuyên sử...Studio: Bones FilmThể Loại:Shounen, Romance, Drama, Comedy, Action, Xem PhimCuộc Sống Nông Dân Ở Thế Giới Khác 29.512/122026HDMùa 2 sẽ tiếp tục câu chuyện về cuộc sống nông dân bình yên nhưng đầy phiêu...Studio: Zero-GThể Loại:Slice of Life, Seinen, Romance, Harem, Fantasy, Comedy, Adventure, Xem PhimXưởng Phép Thuật9.513/132026FHDTrong một thế giới mà mọi người coi những điều kỳ diệu như phép thuật và...Studio: BUG FILMSThể Loại:Seinen, Fantasy, Adventure, Magic, Xem PhimOne Piece - Đảo Hải Tặc9.31167/????1999FHD Anime được phát sóng lần đầu tiên vào năm 1999 và nhanh chóng trở...Studio: Toei AnimationThể Loại:Shounen, Super Power, Fantasy, Drama, Comedy, Adventure, Action, Xem PhimNeedy Girl Overdose8.312/132026FHDNeedy Girl Overdose là một \"cuộc phiêu lưu nhiều kết thúc\" khắc họa cuộc...Studio: Yostar PicturesThể Loại:Drama, Xem PhimHắc Miêu Và Lớp Học Phù Thủy911/242026FHDSpica Virgo, một nữ phù thủy tập sự không thể sử dụng bất kỳ phép thuật...Studio: LIDENFILMSThể Loại:School, Fantasy, Comedy, Xem PhimMới cập nhật Tất cảMùa Xuân - 2026Anime bộAnime lẻHH Trung QuốcTẬP389.1Ganso! Bandori-chanLượt xem: 625,118Ganso! Bandori-chanHD9.138/522025New mini Anime series for BanG Dream!.Studio: AtoriE Thể loại:Comedy, Music, Diễn viên: Minato, HOÀNTẤT9.1Awajima HyakkeiLượt xem: 250,387Awajima HyakkeiFHD9.112/122026 Một hành trình nghệ thuật độc đáo tái hiện vẻ đẹp của Awajima qua nhiều...Studio: Madhouse Thể loại:School, Drama, Music, Diễn viên: Ueda, HOÀNTẤT8.4Cánh Hoa Luân HồiLượt xem: 413,135Cánh Hoa Luân HồiFHD8.413/132026Toya Senji, một nam sinh trung học luôn cảm thấy mình tầm thường và khao...Studio: BENTEN Film Thể loại:Shounen, Supernatural, Mystery, Action, Diễn viên: Senji, TẬP139.5Bức Tường BăngLượt xem: 542,428Bức Tường BăngFHD9.513/??2026Koyuki Hikawa, một nữ sinh trung học có vẻ ngoài lạnh lùng, ít nói và luôn...Studio: Studio KAI Thể loại:Slice of Life, School, Romance, Comedy, Diễn viên: Hikawa, TẬP018.5Rakudai Kenja no Gakuin Musou: Nidome no Tensei, S-Rank Cheat Majutsushi BoukenrokuLượt xem: 116,418Rakudai Kenja no Gakuin Musou: Nidome no Tensei, S-Rank Cheat Majutsushi BoukenrokuFHD8.501/??2026Ephtal, một đại hiền giả dành cả đời nghiên cứu ma thuật nhưng bị giới...Studio: EMT Squared Thể loại:Fantasy, Adventure, Action, Diễn viên: Merlin, HOÀNTẤT4.5Jidou Hanbaiki ni Umarekawatta Ore wa Meikyuu wo Samayou 3rd SeasonLượt xem: 392,417Jidou Hanbaiki ni Umarekawatta Ore wa Meikyuu wo Samayou 3rd SeasonHD4.512/122026Boxxo và Lammis sẽ dấn thân vào những tầng sâu nhất để giải mã bí ẩn cuối...Studio: Studio Gokumi, AXsiZ Thể loại:Supernatural, Romance, Fantasy, Comedy, Adventure, Diễn viên: Boxxo, HOÀNTẤT8.8Kujima Utaeba Ie HororoLượt xem: 216,928Kujima Utaeba Ie HororoFHD8.812/122026Arata Kouda, một cậu học sinh lớp 9 đang phải đối mặt với áp lực thi cử...Studio: Studio Hibari Thể loại:Shounen, Supernatural, Comedy, Diễn viên: Kujima, HOÀNTẤT9.8Dr. Stone 4th SeasonLượt xem: 10,374,273Dr. Stone 4th SeasonHD9.837/372025Mùa 4 của Dr. Stone.Studio: TMS Entertainment Thể loại:Shounen, Sci-Fi, Comedy, Adventure, Diễn viên: Ishigami, HOÀNTẤT9.4Himekishi wa Barbaroi no YomeLượt xem: 561,425Himekishi wa Barbaroi no YomeFHD9.412/122026Seraphina, một nữ hiệp sĩ tài giỏi và là niềm tự hào của vương quốc. Sau...Studio: Jumondou Thể loại:Shounen, Romance, Fantasy, Comedy, Diễn viên: De Lavillant, HOÀNTẤT9.2Otaku ni Yasashii Gal wa Inai!?Lượt xem: 460,083Otaku ni Yasashii Gal wa Inai!?FHD9.212/122026 Câu chuyện xoay quanh Takuya Seo, một nam sinh sống khép kín và là...Studio: TMS Entertainment Thể loại:Romance, Comedy, Diễn viên: Ijichi, Xem thêm.. Sắp chiếuSẮP CHIẾU20269.5Otome Kaijuu CaraméliserLượt xem: 12,080Otome Kaijuu CaraméliserHD9.5PV/??2026 Akashi Kuroe là một cô gái khép kín với căn bệnh kỳ lạ: mỗi khi cảm...Studio: LIDENFILMS Thể loại:Seinen, School, Supernatural, Romance, Diễn viên: Akaishi, SẮP CHIẾU07-20269.5Thiếu Chủ Giỏi Chạy Trốn 2Lượt xem: 88,179Thiếu Chủ Giỏi Chạy Trốn 2FHD9.5PV/??07-2026Sau thời gian dài ẩn mình và tích lũy lực lượng tại vùng Suwa, Hōjō Tokiyuki...Studio: CloverWorks Thể loại:Comedy, Adventure, Diễn viên: Houjou, 12d 13h 9m 54s09-07-20268.8DogulwangLượt xem: 128,062DogulwangFHD8.8PV/??2026Phim lấy bối cảnh thế giới xuất hiện các \"Lăng mộ thần bí\" chứa đựng những...Studio: Studio Eek Thể loại:Fantasy, Adventure, Action, Diễn viên: Seo, SẮP CHIẾU07-20269.7Grand Blue Season 3Lượt xem: 75,599Grand Blue Season 3FHD9.7PV/??07-2026Phần 3 sẽ đánh dấu một cột mốc mới khi đưa nhóm nhân vật chính lần đầu...Studio: Zero-G, Saber Works Thể loại:Slice of Life, Comedy, Diễn viên: Kitahara, 5d 13h 9m 54s02-07-20266.6Lv999 no MurabitoLượt xem: 56,614Lv999 no MurabitoFHD6.6PV/??2026Kagami Kouji là một \"Dân làng\" – chức nghiệp yếu nhất thế giới. Sau khi...Studio: Brain's Base Thể loại:Fantasy, Diễn viên: Kagami, 7d 13h 9m 54s04-07-20269.4Hell Mode: Yarikomizuki no Gamer wa Hai Settei no Isekai de Musou suru 2nd SeasonLượt xem: 102,919Hell Mode: Yarikomizuki no Gamer wa Hai Settei no Isekai de Musou suru 2nd SeasonFHD9.4PV/??2026Nội dung của phần 2 sẽ tập trung toàn bộ vào Học viện Học đường (Academy...Studio: Yokohama Animation Lab Thể loại:Fantasy, Adventure, Action, Diễn viên: Allen, SẮP CHIẾU10-20269.1Dragon Ball Super: BeerusLượt xem: 227,767Dragon Ball Super: BeerusFHD9.1PV/??10-2026 Hòa bình Trái Đất một lần nữa bị đe dọa khi Thần Hủy Diệt Beerus thức...Studio: Toei Animation Thể loại:Fantasy, Adventure, Action, Diễn viên: Son, 8d 13h 9m 54s05-07-20269Nijusseiki Denki Mokuroku: Eureka EvrikaLượt xem: 325,517Nijusseiki Denki Mokuroku: Eureka EvrikaFHD9PV/??2026 Bối cảnh diễn ra vào năm 1907 tại Kyoto, thời điểm Nhật Bản chuyển...Studio: Kyoto Animation Thể loại:Romance, Historical, Diễn viên: Momokawa, 8d 13h 9m 54s05-07-20269.5Cậu Và Tớ Là Hai Thái Cực Đối Lập 2Lượt xem: 180,575Cậu Và Tớ Là Hai Thái Cực Đối Lập 2FHD9.5PV/??2025Mùa 2 tiếp tục xoay quanh quá trình phát triển tình cảm giữa cô nàng năng...Studio: Lapin Track Thể loại:Romance, Comedy, Diễn viên: Suzuki, 8d 13h 9m 54s05-07-20268.1Kimi no Koto ga Daidaidaidaidaisuki na 100-nin no Kanojo 3rd SeasonLượt xem: 293,037Kimi no Koto ga Daidaidaidaidaisuki na 100-nin no Kanojo 3rd SeasonFHD8.1PV/??2026Nối tiếp diễn biến từ phần trước, phần 3 của anime tiếp tục theo chân Rentarou...Studio: Bibury Animation Studios Thể loại:Romance, Comedy, Diễn viên: Inda, Xem thêm.. Đề cử Xem nhiều hôm nayXem nhiều trong mùaYêu ThíchThángHOÀNTẤT9.8Dr. Stone 4th SeasonLượt xem: 10,374,273Dr. Stone 4th SeasonHD9.837/372025Mùa 4 của Dr. Stone.Studio: TMS Entertainment Thể loại:Shounen, Sci-Fi, Comedy, Adventure, Diễn viên: Ishigami, TẬP018.5Rakudai Kenja no Gakuin Musou: Nidome no Tensei, S-Rank Cheat Majutsushi BoukenrokuLượt xem: 116,418Rakudai Kenja no Gakuin Musou: Nidome no Tensei, S-Rank Cheat Majutsushi BoukenrokuFHD8.501/??2026Ephtal, một đại hiền giả dành cả đời nghiên cứu ma thuật nhưng bị giới...Studio: EMT Squared Thể loại:Fantasy, Adventure, Action, Diễn viên: Merlin, HOÀNTẤT5.4Saikyou no Ousama, Nidome no Jinsei wa Nani wo Suru? 2nd SeasonLượt xem: 1,111,778Saikyou no Ousama, Nidome no Jinsei wa Nani wo Suru? 2nd SeasonFHD5.412/122026Câu chuyện sẽ tập trung vào hành trình của Arthur Leywin khi anh bắt...Studio: Studio A-CAT Thể loại:Fantasy, Drama, Magic, Diễn viên: Leywin, TẬP139.5Bức Tường BăngLượt xem: 542,428Bức Tường BăngFHD9.513/??2026Koyuki Hikawa, một nữ sinh trung học có vẻ ngoài lạnh lùng, ít nói và luôn...Studio: Studio KAI Thể loại:Slice of Life, School, Romance, Comedy, Diễn viên: Hikawa, HOÀNTẤT9.4Himekishi wa Barbaroi no YomeLượt xem: 561,425Himekishi wa Barbaroi no YomeFHD9.412/122026Seraphina, một nữ hiệp sĩ tài giỏi và là niềm tự hào của vương quốc. Sau...Studio: Jumondou Thể loại:Shounen, Romance, Fantasy, Comedy, Diễn viên: De Lavillant, HOÀNTẤT9.5Class de 2-banme ni Kawaii Onnanoko to Tomodachi ni NattaLượt xem: 1,626,081Class de 2-banme ni Kawaii Onnanoko to Tomodachi ni NattaFHD9.512/122026Maeshima Aki, một nam sinh cao trung sống khép kín, tình cờ trở thành bạn...Studio: Connect Thể loại:Slice of Life, School, Romance, Comedy, Diễn viên: Asanagi, HOÀNTẤT9Chào Mừng Đến Với Lớp Học Đề Cao Thực Lực 4Lượt xem: 1,535,789Chào Mừng Đến Với Lớp Học Đề Cao Thực Lực 4FHD916/162026Khi Ayanokouji và các bạn cùng lớp bắt đầu năm thứ hai tại Trường Trung...Studio: Lerche Thể loại:Slice of Life, School, Suspense, Psychological, Drama, Diễn viên: Ayanokouji, HOÀNTẤT8.4Cánh Hoa Luân HồiLượt xem: 413,135Cánh Hoa Luân HồiFHD8.413/132026Toya Senji, một nam sinh trung học luôn cảm thấy mình tầm thường và khao...Studio: BENTEN Film Thể loại:Shounen, Supernatural, Mystery, Action, Diễn viên: Senji, HOÀNTẤT9.2Otaku ni Yasashii Gal wa Inai!?Lượt xem: 460,083Otaku ni Yasashii Gal wa Inai!?FHD9.212/122026 Câu chuyện xoay quanh Takuya Seo, một nam sinh sống khép kín và là...Studio: TMS Entertainment Thể loại:Romance, Comedy, Diễn viên: Ijichi, HOÀNTẤT4.5Jidou Hanbaiki ni Umarekawatta Ore wa Meikyuu wo Samayou 3rd SeasonLượt xem: 392,417Jidou Hanbaiki ni Umarekawatta Ore wa Meikyuu wo Samayou 3rd SeasonHD4.512/122026Boxxo và Lammis sẽ dấn thân vào những tầng sâu nhất để giải mã bí ẩn cuối...Studio: Studio Gokumi, AXsiZ Thể loại:Supernatural, Romance, Fantasy, Comedy, Adventure, Diễn viên: Boxxo, Xem thêm.. Tâm điểm Sôi nổiTop bình luậnThành viên tích cựcĐược yêu thíchBình luận nhiều nhất Đang tải... Đang tải... Đang tải...🥇 1710FullClass de 2-banme ni Kawaii Onnanoko to Tomodachi ni Natta🥈 527FullThiên Sứ Nhà Bên 2🥉 440Tập 11Aishiteru Game wo Owarasetai 347Tập 11Wistoria: Trượng Và Kiếm Mùa 2 229Tập 01Yêu Nhau Đến Tận Ngày Cậu Biến Mất 199FullDr. Stone 4th Season 180FullCuộc Sống Nông Dân Ở Thế Giới Khác 2 175Tập 11Lúc Đó, Tôi Đã Chuyển Sinh Thành Slime Mùa 4 159FullChào Mừng Đến Với Lớp Học Đề Cao Thực Lực 4 153Tập 11Re:Zero kara Hajimeru Isekai Seikatsu 4th Season Đang tải...Tiếp tục xem HOÀNTẤTCông Tước Chết Chóc Và Cô Hầu Gái Của Cậu Mùa 3đã xem 35 giây trước Xem tiếp Tập 07TẬP179Phàm Nhân Tu Tiên: Tinh Hải Phi Trìđã xem 1 phút trước Xem tiếp Tập 30TẬP12Super no Ura de Yani Suu Futariđã xem 1 phút trước Xem tiếp Tập 12Xem thêm.. Hôm nay xem gì?Nếu bạn buồn phiền không biết xem gì hôm nay. Hãy để chúng tôi chọn cho bạnXem Anime Ngẫu NhiênHỏi/đáp anime Bình luận (3009)🕑 Mới nhất🕐 Cũ nhất🔥 Nổi bậtĐăng nhập để tham gia bình luận Tin quan trọngGấu Myz0 Gấu Boss16 ngày trước⚠️ Thông báo\nServer Discord hiện tại đã bị vô hiệu hóa do các báo cáo liên quan đến bản quyền.\nĐội ngũ đang tiến hành xây dựng một server Discord mới. Thông tin tham gia sẽ được cập nhật trong thời gian sớm nhất.\nCảm ơn mọi người đã đồng hành và kiên nhẫn chờ đợi! ❤️ 633 8••• Xem người tương tác 76 trả lời Tin quan trọngGấu Myz0 Gấu Boss1 tháng trướcAnimeVietsub hoàn lương bất thành, đành trở lại kiếp web lậu để kiếm kinh phí duy trì hoạt động. Vì vậy, quảng cáo sẽ được đặt trở lại. 😅(đã chỉnh sửa) 2145 43••• Xem người tương tác 282 trả lờiQuốc Tuấn1 giờ trướcyozakura family ep 11 ss2 đâu ta sao k thấy 0 0••• Tiết lộ nội dung Xem người tương tác 1 trả lờiLoiloli4 giờ trướcsao mình xem video cứ giật giật vậy mạng ổn định mà xem cứ load liên tục ấy, ai chỉ fix với 0 0••• Xem người tương tác 1 trả lờiNNgô Ngọc Hải7 giờ trước:v 0 0••• Xem người tương tácH Your11 giờ trướcXem vinland Saga với Kingdom xong nghiện dòng lịch sử luôn r hóng Historie ở 2027 kkkkkkkk 0 0••• Xem người tương tácYor13 giờ trướcTôi cần tìm hộ gì mà hay hay á có main còn trẻ mà xinh nx chất lượng cx rất ấy luon, tên gì quên r 0 0••• Tiết lộ nội dung Xem người tương tácHiển thị 7/3009 bình luận Tải thêm bình luận ANIME MỚI CẬP NHẬTGanso! Bandori-chanTập 38Awajima HyakkeiFullCánh Hoa Luân HồiFullBức Tường BăngTập 13Rakudai Kenja no Gakuin Musou: Nidome no Tensei, S-Rank Cheat Majutsushi BoukenrokuTập 01Jidou Hanbaiki ni Umarekawatta Ore wa Meikyuu wo Samayou 3rd SeasonFullKujima Utaeba Ie HororoFullDr. Stone 4th SeasonFullHimekishi wa Barbaroi no YomeFullOtaku ni Yasashii Gal wa Inai!?FullXem thêm..BÌNH LUẬNMới nhấtTop bình luậnIvy36 giây trướchoàng tử có dùng điện thoại ko?Magic-Kyun! RenaissanceVietCong67891 phút trướcthằng Lu cặc chém bỏ mẹ nó đi, trẩu trẩu vẫn chấp nhận được chạy thì chạy mẹ đi còn quay đánh đồng đ…Saikyou no Ousama, Nidome no Jinsei wa Nani wo Suru? 2nd SeasonLâm Minh Quân2 phút trước@khaigabap đồ họa còn bao gồm animation nữa mà, cái animation đơ cứng ói ẻ luôn áHimekishi wa Barbaroi no YomeKudasai Yamate2 phút trướcHayCông Tước Chết Chóc Và Cô Hầu Gái Của Cậu Mùa 3Hoàng Ngọc Anh2 phút trướcHaito Sato ơi cậu cho mình xin mes với để nchuyen cho dễ;₫₫Class de 2-banme ni Kawaii Onnanoko to Tomodachi ni NattaAOAsanagi:)5 phút trướcTuất tiến ơi, m còn ko bằng cái móng chân của Yukiya bên Aishteru của m nx, kickwar ít thoii thk tuấ…Class de 2-banme ni Kawaii Onnanoko to Tomodachi ni NattaHà Phương Đỗ Hoàng5 phút trướcMiki với Yota k thành đôi tác giả làm đôi nha??Bức Tường BăngKkhoinguyenthanh.7775 phút trước10:44 đã xongHồi Sinh Thế GiớiHà Phương Đỗ Hoàng6 phút trướcnhạc hay main dyeu hihi phim đúng gu vi ci eoSuper no Ura de Yani Suu FutariHaito Sato6 phút trước@nguyenhuuphuc160920 drClass de 2-banme ni Kawaii Onnanoko to Tomodachi ni NattaHà Phương Đỗ Hoàng7 phút trướcoii cái yêu cái tyêu hại phổi này quóSuper no Ura de Yani Suu FutariAOAsanagi:)7 phút trước@duoctien710 Tuất Tiến, m còn ko bằng một móng chân của Yukiya bên kia nx, chứ chx nói tới …Class de 2-banme ni Kawaii Onnanoko to Tomodachi ni NattaAOAsanagi:)8 phút trước@duoctien710 biến cmm đi, qua đó liếm chân Miku ấy, tiến kickwar tuất vl=)Class de 2-banme ni Kawaii Onnanoko to Tomodachi ni NattaWibu hùa không rách cũng không lành8 phút trướctrên này là ???? tưởng 24 tập nhưng mà trên MAL có 14 tập nên chắc phải đợi ss2 nhểBức Tường BăngTakidori Amano (Amano Ririsa)9 phút trướcChắc đay là cái l9f đẻ ra bộ chuyển sinh thành máy bán hàng tự độg vs chuyển sinh thành kiếm quá, hả…Megami &quot;Isekai Tensei Nani ni Naritai desu ka&quot; Ore &quot;Yuusha no Rokkotsu de&quot;Đang tải... HOT TUẦNTV/SeriesMovie/OVA#1One Piece - Đảo Hải Tặc9.31167/????1999FHD#2Wistoria: Trượng Và Kiếm Mùa 29.611/122026FHD#3Cuộc Sống Nông Dân Ở Thế Giới Khác 29.512/122026HD#4Class de 2-banme ni Kawaii Onnanoko to Tomodachi ni Natta9.512/122026FHD#5Xưởng Phép Thuật9.513/132026FHDList anime thể loại Action - Comedy List anime thể loại Action -Romance List anime thể loại Harem - Comedy List Phim Hoạt Hình Trung Quốc List anime Ghibli List anime của studio MAPPA List anime của studio TOEI ANIMATION List anime của studio TMS ENTERTAINMENT XEM PHIMDonate♥️Chat Anime/DiscordTHUẬT NGỮGROUP THẢO LUẬNKanefusa Fansub  One Piece, Vua Hải Tặc Đảo Hải Tặc Thám Tử Lừng Danh Conan Hoạt Hình Trung Quốc Liên Hệ Quảng Cáo: ads@animevietsub.tv© Copyright 2026 AnimeVietSub.TV. All rights reserved.Miễn trừ trách nhiệmTrang web này cung cấp nội dung anime chỉ với mục đích giải trí và không chịu trách nhiệm về bất kỳ nội dung quảng cáo, liên kết của bên thứ ba hiển thị trên trang web của chúng tôi.Tất cả thông tin và hình ảnh trên website đều được thu thập từ internet. Chúng tôi không chịu trách nhiệm về bất kỳ nội dung nào. Nếu bạn hoặc tổ chức của bạn có vấn đề gì liên quan đến nội dung hiển thị trên website, vui lòng liên hệ với chúng tôi để được giải quyết. xoilacxoilacxoilactrực tiếp bóng đá xoilaccakhiatvtrực tiếp bóng đábóng đá trực tuyếncakhiatv trực tiếp bóng đáthapcamtvgavangtvluongsontvgavangtv \n\nX \n\n \n \n \n \n \n \n \n ×\n \n \n \n \n \n \n \n \n \n \n \n \n ×"
+    }
+}
