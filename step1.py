@@ -9,6 +9,7 @@ import socket
 import hashlib
 import requests
 import whois
+# pyrefly: ignore [missing-import]
 import dns.resolver
 
 from datetime import datetime, timezone
