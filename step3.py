@@ -50,86 +50,47 @@ TYPE_MAPPING = {
 # TEXT SEGMENTER WITH OVERLAP
 # ==============================================================================
 
-def _find_sentence_break(tokens: list, start: int, window: int) -> int:
+def segment_text(text: str, tokenizer=None, max_words: int = 256, overlap_words: int = 40) -> list[str]:
     """
-    Tìm vị trí ngắt câu trong vùng [start - window, start).
-    Ưu tiên dấu chấm (.) trước, sau đó dấu phẩy (,).
-    Trả về index token tốt nhất để bắt đầu segment mới,
-    hoặc `start` nếu không tìm thấy điểm ngắt.
+    Cắt `text` thành danh sách segments, mỗi segment tối đa `max_words` từ.
+    Sử dụng từ điển pyvi (nếu có) hoặc split space và tìm điểm ngắt câu bằng `.!?。！？\n`.
     """
-    # Các token tương ứng dấu chấm / phẩy trong vocab PhoBERT
-    BREAK_TOKENS_PRIORITY = [
-        [".", "▁."],   # dấu chấm (ưu tiên cao)
-        [",", "▁,"],   # dấu phẩy
-    ]
-
-    search_start = max(0, start - window)
-    for break_set in BREAK_TOKENS_PRIORITY:
-        # Duyệt ngược để tìm điểm ngắt gần nhất trước `start`
-        for i in range(start - 1, search_start - 1, -1):
-            if tokens[i] in break_set:
-                # Trả về token NGAY SAU dấu câu
-                return i + 1
-    return start
-
-
-def segment_text(text: str, tokenizer, max_tokens: int = MAX_TOKENS, overlap_tokens: int = OVERLAP_TOKENS) -> list[str]:
-    """
-    Cắt `text` thành danh sách segments, mỗi segment tối đa `max_tokens` tokens.
-
-    Từ segment thứ 2 trở đi:
-    - Lùi `overlap_tokens` về phía trước từ vị trí bắt đầu tự nhiên
-    - Tìm vị trí ngắt câu (dấu chấm ưu tiên, sau đó dấu phẩy)
-    - Bắt đầu segment mới từ điểm ngắt đó
-
-    Điều này đảm bảo mỗi segment bắt đầu từ đầu câu, tránh cắt câu dở dang.
-    """
-    if not text or not text.strip():
+    if not text or not isinstance(text, str):
         return []
+    
+    clean_text = re.sub(r"\s+", " ", text.strip())
+    try:
+        from pyvi import ViTokenizer
+        words, _ = ViTokenizer.spacy_tokenize(clean_text)
+    except Exception:
+        words = clean_text.split()
 
-    # Tokenize toàn bộ text (không giới hạn độ dài)
-    encoded = tokenizer(
-        text,
-        add_special_tokens=False,
-        return_offsets_mapping=False,
-    )
-    token_ids = encoded["input_ids"]
-    token_strings = tokenizer.convert_ids_to_tokens(token_ids)
-
-    if not token_ids:
-        return []
+    if len(words) <= max_words:
+        return [" ".join(words).replace("_", " ")]
 
     segments = []
-    pos = 0  # Con trỏ vị trí hiện tại trong token_ids
-    is_first_segment = True
-
-    while pos < len(token_ids):
-        end = min(pos + max_tokens, len(token_ids))
-
-        if is_first_segment:
-            # Segment đầu: lấy thẳng từ đầu
-            seg_ids = token_ids[pos:end]
-            is_first_segment = False
+    start = 0
+    while start < len(words):
+        end = start + max_words
+        if end >= len(words):
+            segment_words = words[start:]
+            start = len(words)
         else:
-            # Segment tiếp theo: tìm điểm ngắt câu trong vùng overlap
-            actual_start = _find_sentence_break(token_strings, pos, overlap_tokens)
-            seg_ids = token_ids[actual_start:min(actual_start + max_tokens, len(token_ids))]
-            end = actual_start + len(seg_ids)
+            cutoff = end
+            search_from = max(start, end - 100)
+            for i in range(end - 1, search_from - 1, -1):
+                word = words[i].replace("_", " ")
+                if any(word.endswith(p) for p in ".!?。！？\n"):
+                    cutoff = i + 1
+                    break
+            segment_words = words[start:cutoff]
+            start = max(cutoff - overlap_words, 0)
 
-        # Decode tokens về text
-        seg_text = tokenizer.decode(seg_ids, skip_special_tokens=True)
-        seg_text = seg_text.strip()
-
-        if seg_text:
-            segments.append(seg_text)
-
-        pos = end
-
-        # Guard: tránh vòng lặp vô hạn
-        if pos <= 0:
-            break
-
+        segment_text = " ".join(segment_words).replace("_", " ").strip()
+        if len(segment_text) > 30:
+            segments.append(segment_text)
     return segments
+
 
 
 # ==============================================================================
@@ -177,15 +138,16 @@ def _predict_segment(text: str, model, tokenizer) -> dict:
 # MAX POOLING AGGREGATOR
 # ==============================================================================
 
-def _aggregate_results(segment_results: list[dict]) -> dict:
+def _aggregate_results(segment_results: list[dict], total_segments_count: int) -> dict:
     """
-    Tổng hợp kết quả từ tất cả segments bằng Max Pooling:
+    Tổng hợp kết quả từ tất cả segments:
 
     - Final label  : max(label_i) — chỉ cần 1 segment độc hại → cả trang độc hại
-    - Final type   : loại có xác suất trung bình cao nhất trên tất cả segments
-    - max_malicious_prob: xác suất độc hại cao nhất trong các segments (để debug)
+    - Final type   : bầu cử đa số (voting-based) trên các segments đã chạy
+    - max_malicious_prob: xác suất độc hại cao nhất trong các segments
     - malicious_segment_count: số segments bị nhãn độc hại
     """
+    from collections import Counter
     if not segment_results:
         return {
             "final_label":             0,
@@ -194,7 +156,7 @@ def _aggregate_results(segment_results: list[dict]) -> dict:
             "final_type_name":         "Chưa xác định",
             "max_malicious_prob":      0.0,
             "malicious_segment_count": 0,
-            "total_segments":          0,
+            "total_segments":          total_segments_count,
         }
 
     # Max Pooling cho label (Task 1)
@@ -202,14 +164,17 @@ def _aggregate_results(segment_results: list[dict]) -> dict:
     max_mal_prob = max(r["prob_malicious"] for r in segment_results)
     mal_count = sum(1 for r in segment_results if r["label"] == 1)
 
-    # Average Pooling cho type (Task 2) — lấy loại có avg prob cao nhất
-    n_types = len(segment_results[0]["type_probs"])
-    avg_type_probs = [0.0] * n_types
-    for r in segment_results:
-        for i, p in enumerate(r["type_probs"]):
-            avg_type_probs[i] += p
-    avg_type_probs = [p / len(segment_results) for p in avg_type_probs]
-    final_type = int(avg_type_probs.index(max(avg_type_probs)))
+    # Voting cho type (Task 2)
+    type_votes = [r["type"] for r in segment_results]
+    counter = Counter(type_votes)
+    ranked = counter.most_common()
+    
+    # Lọc bỏ class 9 (Chưa xác định) trừ khi không còn class nào khác
+    without_9 = [x for x in ranked if x[0] != 9]
+    if 9 in counter:
+        without_9.append((9, counter[9]))
+        
+    final_type = without_9[0][0] if without_9 else 9
 
     return {
         "final_label":             final_label,
@@ -218,7 +183,7 @@ def _aggregate_results(segment_results: list[dict]) -> dict:
         "final_type_name":         TYPE_MAPPING.get(final_type, "Chưa xác định"),
         "max_malicious_prob":      round(max_mal_prob, 4),
         "malicious_segment_count": mal_count,
-        "total_segments":          len(segment_results),
+        "total_segments":          total_segments_count,
     }
 
 
@@ -226,12 +191,13 @@ def _aggregate_results(segment_results: list[dict]) -> dict:
 # PUBLIC API
 # ==============================================================================
 
-def run_content_model(dom_text: str) -> dict:
+def run_content_model(dom_text: str, mode: str = "quick") -> dict:
     """
     Chạy toàn bộ Branch 2 — Content Model pipeline.
 
     Args:
         dom_text: Text thô được cào từ DOM của trang web.
+        mode: "quick" (early stop khi phát hiện độc hại) hoặc "full" (quét hết).
 
     Returns:
         dict: {
@@ -262,7 +228,7 @@ def run_content_model(dom_text: str) -> dict:
 
     model, tokenizer = get_content_model()
 
-    # 1. Segmentation với overlap handler
+    # 1. Segmentation với overlap handler (dùng word-based segmenter)
     segments = segment_text(dom_text, tokenizer, MAX_TOKENS, OVERLAP_TOKENS)
 
     if not segments:
@@ -286,12 +252,18 @@ def run_content_model(dom_text: str) -> dict:
         result["segment_index"] = i
         result["segment_preview"] = seg[:100] + "..." if len(seg) > 100 else seg
         segment_results.append(result)
+        
+        # Early Stop nếu tìm thấy segment độc hại
+        if result["label"] == 1 and mode == "quick":
+            print(f" [Early Stop] Phát hiện nội dung độc hại tại segment {i+1}! Dừng quét các segment tiếp theo.")
+            break
 
-    # 3. Max Pooling aggregation
-    aggregated = _aggregate_results(segment_results)
+    # 3. Aggregation (bầu cử đa số)
+    aggregated = _aggregate_results(segment_results, len(segments))
 
     return {
         **aggregated,
         "segment_results": segment_results,
         "model":           "v2_multitask",
     }
+

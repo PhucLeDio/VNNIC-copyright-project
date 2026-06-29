@@ -1,0 +1,269 @@
+{
+    "domain_age_days": 274,
+    "creation_date": "2025-09-27 11:28:03+00:00",
+    "registrar": "Hosting Concepts B.V.",
+    "is_whois_privacy_active": false,
+    "tld_info": {
+        "tld": ".pl",
+        "risk": "LOW"
+    },
+    "redirect_history": [
+        "https://animevietsub.pl/"
+    ],
+    "redirect_info": {
+        "redirect_depth": 1,
+        "domains_seen": [
+            "animevietsub.pl"
+        ],
+        "domain_hopping": false
+    },
+    "dns_records": {
+        "A": [
+            "172.67.70.67",
+            "104.26.14.230",
+            "104.26.15.230"
+        ],
+        "AAAA": [
+            "2606:4700:20::ac43:4643",
+            "2606:4700:20::681a:fe6",
+            "2606:4700:20::681a:ee6"
+        ],
+        "NS": [
+            "rustam.ns.cloudflare.com.",
+            "tricia.ns.cloudflare.com."
+        ],
+        "MX": [],
+        "TXT": [
+            "\"google-site-verification=aJGxCmNWIlpVOTe_WDQ8nHK3zzcc4kX99RWp6M5Bo28\""
+        ],
+        "CNAME": []
+    },
+    "detected_ns": [
+        "rustam.ns.cloudflare.com.",
+        "tricia.ns.cloudflare.com."
+    ],
+    "cloudflare_detected": true,
+    "cdn_providers": [
+        "cloudflare"
+    ],
+    "http_headers": {
+        "Server": "cloudflare",
+        "CF-Ray": "a1317bf3df87ce17-SIN",
+        "CF-Cache-Status": "DYNAMIC",
+        "Alt-Svc": "h3=\":443\"; ma=86400"
+    },
+    "mx_analysis": {
+        "has_mx": false,
+        "possible_streaming_only_site": true
+    },
+    "mail_provider": null,
+    "txt_analysis": {
+        "google_verification": true,
+        "google_verification_count": 1,
+        "spf_configured": false,
+        "dmarc_configured": false,
+        "microsoft_verification": false,
+        "facebook_verification": false
+    },
+    "cloud_provider": "CLOUDFLARE",
+    "ns_provider": "CLOUDFLARE",
+    "suspicious_hosting": false,
+    "resolved_ip": [
+        "172.67.70.67",
+        "104.26.14.230",
+        "104.26.15.230"
+    ],
+    "asn_info": {
+        "asn": "13335",
+        "asn_description": "CLOUDFLARENET - Cloudflare, Inc., US"
+    },
+    "legitimate_signals": {
+        "official_tld": false,
+        "business_mail": false,
+        "google_verification": true,
+        "spf_configured": false,
+        "major_cloud_provider": true,
+        "enterprise_dns": false,
+        "total_signals": 2
+    },
+    "risk_score": 15,
+    "legitimacy_score": 25,
+    "step0": {
+        "input_domain": "https://animevietsub.pl/",
+        "normalized_domain": "animevietsub.pl",
+        "in_database": false,
+        "domain_model": {
+            "label": 1,
+            "label_name": "Độc hại",
+            "prob_safe": 0.1515,
+            "prob_malicious": 0.8485,
+            "features": [
+                15.0,
+                3.640223928941852,
+                0.0,
+                0.0,
+                0.0,
+                3.0,
+                3.0,
+                2.0,
+                0.0,
+                3.0,
+                2.0,
+                300.0
+            ],
+            "flag": "FLAG_DOMAIN_PREDICT_MALICIOUS",
+            "model": "v1_hybrid"
+        }
+    },
+    "step2_evidence": {
+        "target_url": "https://animevietsub.pl/",
+        "target_domain": "animevietsub.pl",
+        "timestamp": "2026-06-29T09:26:07.672003",
+        "cloudflare_bypassed": true,
+        "episodes_found_total": 5,
+        "episodes_checked": 3,
+        "popup_blocked_count": 4,
+        "popup_urls": [
+            "https://bom88.cool/?a=five_5ec7e52591464a5cb1a330629a14cc30&utm_campaign=cpd&utm_source=animevietsubapp&utm_medium=popunder&utm_term=phim",
+            "https://debet.kim/?a=993e515a606a6b533fa18ceb06338ec1&utm_source=animevietsubapp&utm_medium=popup&utm_campaign=cpd&utm_content=phim",
+            "https://debet.kim/?a=993e515a606a6b533fa18ceb06338ec1&utm_source=animevietsubapp&utm_medium=popup&utm_campaign=cpd&utm_content=phim",
+            "https://qc.rikvip.gg/?a=c4b818ac14ef52dcbf2260e37a153c02&utm_source=animevietsubapp&utm_medium=topplayer&utm_campaign=cpd&utm_term=phim"
+        ],
+        "episodes_detail": [
+            {
+                "episode_url": "https://animevietsub.pl/phim/keikenzumi-na-kimi-to-keiken-zero-na-ore-ga-otsukiai-suru-hanashi-a4928/tap-12_end-95725.html",
+                "streams": [
+                    {
+                        "url": "https://storage.googleapiscdn.com/playlist/d62121cf18642546bcb7c4d72046294f30d773bc5716f3a24d75553b76ca1b0d/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgyNjk5OTkyLCJleHAiOjE3ODI3MDcxOTIsImp0aSI6ImViNzA3MTlhYWNiYzAxNzk2ZDRjMTc4YjRkNTBlYTcxZTRmNTJkY2RlZWY2MTI1ZDhkYzQxM2ZhY2YzMjM3ZDVhZWI4NmEwZmQwYTY1N2E4YzAxZmIwZWQxYjc0MDExOTVhMzRkMmExZTY1ZmU3MTk4Mjg4MWVjZmM2OGRhNTE1In0.93sYgE8ni7gyh0dMCKmC7zNWl4-SwAMmduDFk-A5DJQ&fc=Y3Jvc3Mtb3JpZ2lu",
+                        "content_type": "detected_from_request",
+                        "status": 0,
+                        "matched_by": "request_intercept"
+                    }
+                ],
+                "iframes": [
+                    {
+                        "iframe_src": "https://animevietsub.pl/phim/keikenzumi-na-kimi-to-keiken-zero-na-ore-ga-otsukiai-suru-hanashi-a4928/tap-12_end-95725.html",
+                        "source": "frame_tree",
+                        "is_external": false
+                    },
+                    {
+                        "iframe_src": "https://storage.googleapiscdn.com/devtools-warning",
+                        "source": "frame_tree",
+                        "is_external": true
+                    },
+                    {
+                        "iframe_src": "https://storage.googleapiscdn.com/player/d62121cf18642546bcb7c4d72046294f30d773bc5716f3a24d75553b76ca1b0d?isFinal=1",
+                        "source": "dom_query",
+                        "is_external": true,
+                        "dimensions": "100%x100%"
+                    }
+                ],
+                "screenshot_path": "logs\\animevietsub.pl\\screenshots\\animevietsub.pl_ep1_20260629_092709.png"
+            },
+            {
+                "episode_url": "https://animevietsub.pl/phim/youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-4th-season-2-nensei-hen-1-gakki-a5800/tap-15-114126.html",
+                "streams": [
+                    {
+                        "url": "https://storage.googleapiscdn.com/playlist/f7b7b2e5d832a0114e4a6a2844b93f6aea8e16cb9dd52817327fa55a30fdeb99/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgyNzAwMDMxLCJleHAiOjE3ODI3MDcyMzEsImp0aSI6ImUxZTUzMWM3MmY0YzAyYTJhODA2YTliODA0MGFkNWI1ZTkzYmM0NTg1MjU0NWIwNjJiMzBmMzE1ZTkyODk4MWRhMzU1OTg1OTVmZmE3MjY4ZGViNTFhZTg4ZTQxZmFlNWJjOTUyNjg0ZTMzNGZjMTU0NjViZTY5ZWMwZDhkMDExIn0.BtQ-rNdGsnYRFznQv-QsnpaKwzkJPVOWUUX6EawYjXA&fc=Y3Jvc3Mtb3JpZ2lu",
+                        "content_type": "detected_from_request",
+                        "status": 0,
+                        "matched_by": "request_intercept"
+                    }
+                ],
+                "iframes": [
+                    {
+                        "iframe_src": "https://animevietsub.pl/phim/youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-4th-season-2-nensei-hen-1-gakki-a5800/tap-15-114126.html",
+                        "source": "frame_tree",
+                        "is_external": false
+                    },
+                    {
+                        "iframe_src": "https://storage.googleapiscdn.com/devtools-warning",
+                        "source": "frame_tree",
+                        "is_external": true
+                    },
+                    {
+                        "iframe_src": "https://storage.googleapiscdn.com/player/f7b7b2e5d832a0114e4a6a2844b93f6aea8e16cb9dd52817327fa55a30fdeb99?nextName=16&nextUrl=https%3A%2F%2Fanimevietsub.pl%2Fphim%2Fyoukoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-4th-season-2-nensei-hen-1-gakki-a5800%2Ftap-16-114247.html",
+                        "source": "dom_query",
+                        "is_external": false,
+                        "dimensions": "100%x100%"
+                    }
+                ],
+                "screenshot_path": "logs\\animevietsub.pl\\screenshots\\animevietsub.pl_ep2_20260629_092751.png"
+            },
+            {
+                "episode_url": "https://animevietsub.pl/phim/a-rank-party-wo-ridatsu-shita-ore-wa-moto-oshiego-tachi-to-meikyuu-shinbu-wo-mezasu-a5519/tap-01-103933.html",
+                "streams": [
+                    {
+                        "url": "https://storage.googleapiscdn.com/playlist/1d1d9b56f249b4f757f6b92eab00081b0a8fcb39674b0cd4c282f826d6c4b748/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgyNzAwMDczLCJleHAiOjE3ODI3MDcyNzMsImp0aSI6IjJjZTA3MGU5MDVjZmIyYzI1ZjllMmVjNzI4NDMyYzc2MjUwNTIyY2M3NzVjNzdiMTZmNGMyNjc1ZjAzYmQ5YmUyMWY4ZGI2NjVmNTA3NTYzOGRhMWZhNGUyM2I0M2E4NWI4ODVlODM5MDNkYWE4MmE4NWM1M2M0MzRjNDlhODlmIn0.R2o8i-3xrEx_yM3bbvPvpebsd4d28JerKgdfyq_LIhQ&fc=Y3Jvc3Mtb3JpZ2lu",
+                        "content_type": "detected_from_request",
+                        "status": 0,
+                        "matched_by": "request_intercept"
+                    }
+                ],
+                "iframes": [
+                    {
+                        "iframe_src": "https://animevietsub.pl/phim/a-rank-party-wo-ridatsu-shita-ore-wa-moto-oshiego-tachi-to-meikyuu-shinbu-wo-mezasu-a5519/tap-01-103933.html",
+                        "source": "frame_tree",
+                        "is_external": false
+                    },
+                    {
+                        "iframe_src": "https://storage.googleapiscdn.com/devtools-warning",
+                        "source": "frame_tree",
+                        "is_external": true
+                    },
+                    {
+                        "iframe_src": "https://storage.googleapiscdn.com/player/1d1d9b56f249b4f757f6b92eab00081b0a8fcb39674b0cd4c282f826d6c4b748?nextName=02&nextUrl=https%3A%2F%2Fanimevietsub.pl%2Fphim%2Fa-rank-party-wo-ridatsu-shita-ore-wa-moto-oshiego-tachi-to-meikyuu-shinbu-wo-mezasu-a5519%2Ftap-02-104092.html",
+                        "source": "dom_query",
+                        "is_external": false,
+                        "dimensions": "100%x100%"
+                    }
+                ],
+                "screenshot_path": "logs\\animevietsub.pl\\screenshots\\animevietsub.pl_ep3_20260629_092827.png"
+            }
+        ],
+        "all_streams": [
+            "https://storage.googleapiscdn.com/playlist/d62121cf18642546bcb7c4d72046294f30d773bc5716f3a24d75553b76ca1b0d/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgyNjk5OTkyLCJleHAiOjE3ODI3MDcxOTIsImp0aSI6ImViNzA3MTlhYWNiYzAxNzk2ZDRjMTc4YjRkNTBlYTcxZTRmNTJkY2RlZWY2MTI1ZDhkYzQxM2ZhY2YzMjM3ZDVhZWI4NmEwZmQwYTY1N2E4YzAxZmIwZWQxYjc0MDExOTVhMzRkMmExZTY1ZmU3MTk4Mjg4MWVjZmM2OGRhNTE1In0.93sYgE8ni7gyh0dMCKmC7zNWl4-SwAMmduDFk-A5DJQ&fc=Y3Jvc3Mtb3JpZ2lu",
+            "https://storage.googleapiscdn.com/playlist/f7b7b2e5d832a0114e4a6a2844b93f6aea8e16cb9dd52817327fa55a30fdeb99/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgyNzAwMDMxLCJleHAiOjE3ODI3MDcyMzEsImp0aSI6ImUxZTUzMWM3MmY0YzAyYTJhODA2YTliODA0MGFkNWI1ZTkzYmM0NTg1MjU0NWIwNjJiMzBmMzE1ZTkyODk4MWRhMzU1OTg1OTVmZmE3MjY4ZGViNTFhZTg4ZTQxZmFlNWJjOTUyNjg0ZTMzNGZjMTU0NjViZTY5ZWMwZDhkMDExIn0.BtQ-rNdGsnYRFznQv-QsnpaKwzkJPVOWUUX6EawYjXA&fc=Y3Jvc3Mtb3JpZ2lu",
+            "https://storage.googleapiscdn.com/playlist/1d1d9b56f249b4f757f6b92eab00081b0a8fcb39674b0cd4c282f826d6c4b748/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgyNzAwMDczLCJleHAiOjE3ODI3MDcyNzMsImp0aSI6IjJjZTA3MGU5MDVjZmIyYzI1ZjllMmVjNzI4NDMyYzc2MjUwNTIyY2M3NzVjNzdiMTZmNGMyNjc1ZjAzYmQ5YmUyMWY4ZGI2NjVmNTA3NTYzOGRhMWZhNGUyM2I0M2E4NWI4ODVlODM5MDNkYWE4MmE4NWM1M2M0MzRjNDlhODlmIn0.R2o8i-3xrEx_yM3bbvPvpebsd4d28JerKgdfyq_LIhQ&fc=Y3Jvc3Mtb3JpZ2lu"
+        ],
+        "all_iframes": [
+            "https://animevietsub.pl/phim/keikenzumi-na-kimi-to-keiken-zero-na-ore-ga-otsukiai-suru-hanashi-a4928/tap-12_end-95725.html",
+            "https://storage.googleapiscdn.com/devtools-warning",
+            "https://storage.googleapiscdn.com/player/d62121cf18642546bcb7c4d72046294f30d773bc5716f3a24d75553b76ca1b0d?isFinal=1",
+            "https://animevietsub.pl/phim/youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-4th-season-2-nensei-hen-1-gakki-a5800/tap-15-114126.html",
+            "https://storage.googleapiscdn.com/player/f7b7b2e5d832a0114e4a6a2844b93f6aea8e16cb9dd52817327fa55a30fdeb99?nextName=16&nextUrl=https%3A%2F%2Fanimevietsub.pl%2Fphim%2Fyoukoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-4th-season-2-nensei-hen-1-gakki-a5800%2Ftap-16-114247.html",
+            "https://animevietsub.pl/phim/a-rank-party-wo-ridatsu-shita-ore-wa-moto-oshiego-tachi-to-meikyuu-shinbu-wo-mezasu-a5519/tap-01-103933.html",
+            "https://storage.googleapiscdn.com/player/1d1d9b56f249b4f757f6b92eab00081b0a8fcb39674b0cd4c282f826d6c4b748?nextName=02&nextUrl=https%3A%2F%2Fanimevietsub.pl%2Fphim%2Fa-rank-party-wo-ridatsu-shita-ore-wa-moto-oshiego-tachi-to-meikyuu-shinbu-wo-mezasu-a5519%2Ftap-02-104092.html"
+        ],
+        "footer_analysis": {
+            "has_legal_footer": true,
+            "legal_notice_found": false,
+            "tax_code_found": false,
+            "authority_found": false,
+            "copyright_found": false,
+            "has_structured_identity": true,
+            "is_infinite_scroll": false,
+            "has_telegram_contact": false,
+            "has_ad_contact_only": false,
+            "FOOTER_ANONYMOUS": false,
+            "extraction_method": "none",
+            "meta_info": {
+                "title": "Anime Vietsub Online - AnimeVietSub.pl",
+                "og_site_name": "animevietsub.pl",
+                "meta_copyright": "",
+                "meta_author": "",
+                "has_json_ld": false
+            },
+            "footer_text_snippet": "[META] anime vietsub online - animevietsub.pl   animevietsub.pl  anime vietsub online - animevietsub.pl anime vietsub online - animevietsub.pl xem phim anime vietsub online xem trên điện thoại di động và máy tính nhanh nhất. là một website xem phim anime vietsub miễn phí tốt nhất. liên tục cập nhật các anime sớm nhất từ các fansub việt nam. anime, animetv, anime hay, anime vietsub, anime vietsub online, xem anime, anime tv, download anime vietsub, anime hd, tai anime, anime moi nhat, phim anime, hoat h"
+        },
+        "technical_flags": {
+            "cloudflare_bypassed": true,
+            "is_drm_protected": false,
+            "iframe_detected": true,
+            "stream_intercepted": true,
+            "has_legal_footer": true,
+            "popup_detected": true
+        },
+        "dom_text": "Anime Vietsub Online - AnimeVietSub.pl\n📌\nLINK RÚT GỌN\nLưu lại để truy cập khi nhà mạng chặn!bit.ly/animevietsubtv\n🤝\nCỘNG ĐỒNG\nTham gia để cập nhật và ủng hộ AnimeVietsub!\n👥 Facebook💬 Discord\n🔖\nKHÔI PHỤC DỮ LIỆU\nLấy lịch sử xem & đăng nhập từ tên miền cũTẢI NGAY\nTẬP12\n9\nHắc Miêu Và Lớp Học Phù Thủy\nHOÀNTẤT\n9.5\nWistoria: Trượng Và Kiếm Mùa 2\nTẬP1205\n9.5\nThám Tử Lừng Danh Conan\nTẬP13\n9.6\nVào Ma Giới Rồi Đấy! Iruma-kun Mùa 4\nTẬP12\n9.3\nLúc Đó, Tôi Đã Chuyển Sinh Thành Slime Mùa 4\nHOÀNTẤT\n9.8\nDr. Stone 4th Season\nHOÀNTẤT\n5.5\nSaikyou no Ousama, Nidome no Jinsei wa Nani wo Suru? 2nd Season\nHOÀNTẤT\n9\nChào Mừng Đến Với Lớp Học Đề Cao Thực Lực 4\nHOÀNTẤT\n9.5\nClass de 2-banme ni Kawaii Onnanoko to Tomodachi ni Natta\nTẬP12\n9.1\nMai Mối Cho Độc Sư\nHOÀNTẤT\n9.4\nCuộc Sống Nông Dân Ở Thế Giới Khác 2\nHOÀNTẤT\n9.5\nXưởng Phép Thuật\nTẬP1167\n9.3\nOne Piece - Đảo Hải Tặc\nTẬP12\n8.3\nNeedy Girl Overdose\nHOÀNTẤT\n9.2\nKanan-sama wa Akumade Choroi\nTẬP12\n9.6\nSong Mệnh Cõi Hoàng Tuyền\nHắc Miêu Và Lớp Học Phù Thủy\n912/242026FHD\nSpica Virgo, một nữ phù thủy tập sự không thể sử dụng bất kỳ phép thuật...\nStudio: LIDENFILMS\nThể Loại:School, Fantasy, Comedy,\nXem Phim\nWistoria: Trượng Và Kiếm Mùa 2\n9.512/122026FHD\nSau khi thể hiện sức mạnh vượt trội ở cuối mùa 1, Will bắt đầu thu hút...\nStudio: Bandai Namco Pictures, Actas\nThể Loại:Shounen, School, Fantasy, Adventure, Action,\nXem Phim\nThám Tử Lừng Danh Conan\n9.51205/????1996HD\nMở đầu câu truyện, cậu học sinh trung học 17 tuổi Shinichi Kudo bị biến...\nStudio: TMS Entertainment\nThể Loại:Shounen, Comedy, Adventure, Police, Mystery,\nXem Phim\nVào Ma Giới Rồi Đấy! Iruma-kun Mùa 4\n9.613/242026FHD\nMùa 4 sẽ tập trung vào Arc Lễ hội Âm nhạc, nơi lớp Cá biệt phải đối mặt...\nStudio: Bandai Namco Pictures\nThể Loại:Shounen, School, Supernatural, Fantasy, Demons, Comedy,\nXem Phim\nLúc Đó, Tôi Đã Chuyển Sinh Thành Slime Mùa 4\n9.312/??2026FHD\nSau các sự kiện ở mùa 3, Liên bang Jura-Tempest bắt đầu hướng tới việc...\nStudio: 8bit\nThể Loại:Fantasy, Demons, Comedy, Adventure, Magic, Action,\nXem Phim\nDr. Stone 4th Season\n9.837/372025HD\nMùa 4 của Dr. Stone.\nStudio: TMS Entertainment\nThể Loại:Shounen, Sci-Fi, Comedy, Adventure,\nXem Phim\nSaikyou no Ousama, Nidome no Jinsei wa Nani wo Suru? 2nd Season\n5.512/122026FHD\nCâu chuyện sẽ tập trung vào hành trình của Arthur Leywin khi anh bắt...\nStudio: Studio A-CAT\nThể Loại:Fantasy, Drama, Magic,\nXem Phim\nChào Mừng Đến Với Lớp Học Đề Cao Thực Lực 4\n916/162026FHD\nKhi Ayanokouji và các bạn cùng lớp bắt đầu năm thứ hai tại Trường Trung...\nStudio: Lerche\nThể Loại:Slice of Life, School, Suspense, Psychological, Drama,\nXem Phim\nClass de 2-banme ni Kawaii Onnanoko to Tomodachi ni Natta\n9.512/122026FHD\nMaeshima Aki, một nam sinh cao trung sống khép kín, tình cờ trở thành bạn...\nStudio: Connect\nThể Loại:Slice of Life, School, Romance, Comedy,\nXem Phim\nMai Mối Cho Độc Sư\n9.112/132026FHD\nHikaru Gero, người kế thừa của Ngự Độc sư, một gia tộc sát thủ chuyên sử...\nStudio: Bones Film\nThể Loại:Shounen, Romance, Drama, Comedy, Action,\nXem Phim\nMới cập nhật Tất cảMùa Xuân - 2026Anime bộAnime lẻHH Trung Quốc\nTẬP12\n9\nHắc Miêu Và Lớp Học Phù ThủyLượt xem: 947,895\nHắc Miêu Và Lớp Học Phù Thủy\nFHD912/242026\nSpica Virgo, một nữ phù thủy tập sự không thể sử dụng bất kỳ phép thuật...\nStudio: LIDENFILMS\nThể loại:School, Fantasy, Comedy,\nDiễn viên: Virgo,\nTẬP13\n9.7\nDiamond no Ace: Act II Second SeasonLượt xem: 295,061\nDiamond no Ace: Act II Second Season\nHD9.713/??2026\nTiếp tục vòng loại mùa hè trên con đường trưởng thành của Ace Sawamura\nStudio: OLM\nThể loại:Shounen, School, Sports, Comedy,\nDiễn viên: Miyuki,\nHOÀNTẤT\n9.5\nWistoria: Trượng Và Kiếm Mùa 2Lượt xem: 2,706,401\nWistoria: Trượng Và Kiếm Mùa 2\nFHD9.512/122026\nSau khi thể hiện sức mạnh vượt trội ở cuối mùa 1, Will bắt đầu thu hút...\nStudio: Bandai Namco Pictures, Actas\nThể loại:Shounen, School, Fantasy, Adventure, Action,\nDiễn viên: Serfort,\nHOÀNTẤT\n9.2\nDũng Sĩ Cặn BãLượt xem: 799,681\nDũng Sĩ Cặn Bã\nFHD9.224/242026\nĐến giữa thế kỷ 21, thế giới ngầm tội phạm Tokyo bị cai trị bởi các Ma...\nStudio: OLM\nThể loại:Sci-Fi, Super Power, Fantasy, Action,\nDiễn viên: Kashiwagi Pendragon,\nHOÀNTẤT\n9.5\nSứ Giả Bốn Mùa: Vũ Điệu Mùa XuânLượt xem: 680,224\nSứ Giả Bốn Mùa: Vũ Điệu Mùa Xuân\nFHD9.514/142026\nTrong một thế giới mà các vị thần gọi là Đặc vụ Bốn Mùa mang thời tiết...\nStudio: Wit Studio\nThể loại:Romance, Fantasy, Drama,\nDiễn viên: Kayou,\nFHD\n9.3\nLúc Đó, Tôi Đã Chuyển Sinh Thành Slime: Nước Mắt Đại DươngLượt xem: 590,584\nLúc Đó, Tôi Đã Chuyển Sinh Thành Slime: Nước Mắt Đại Dương\nFHD9.3104 phút2026\nMovie 2 của Tensei shitara Slime Datta Ken.\nStudio: 8bit\nThể loại:Fantasy, Demons, Comedy, Adventure, Magic, Action,\nDiễn viên: Tempest,\nHOÀNTẤT\n9.5\nKill AoLượt xem: 484,850\nKill Ao\nHD9.512/122026\nJuzo Ogami, một sát thủ huyền thoại 39 tuổi chưa bao giờ thất bại trong...\nStudio: Cue\nThể loại:Shounen, School, Comedy, Action,\nDiễn viên: Oogami,\nTẬP01\n9.9\nNeko to RyuuLượt xem: 30,214\nNeko to Ryuu\nHD9.901/??2026\nCâu chuyện bắt đầu từ một hang động nơi gia đình mèo sinh sống. Họ...\nStudio: OLM\nThể loại:Slice of Life, Fantasy, Adventure,\nDiễn viên: Nekoryuu,\nTẬP04\n9.4\nGirls & Panzer: Motto Love Love Sakusen desu!Lượt xem: 157,509\nGirls & Panzer: Motto Love Love Sakusen desu!\nFHD9.404/??2026\nTập trung vào yếu tố hài hước (gag manga) và đời thường, khai...\nStudio: Actas, P.A. Works\nThể loại:Slice of Life, School, Comedy,\nDiễn viên: Akiyama,\nHOÀNTẤT\n8.6\nCô Giáo Mỏng ManhLượt xem: 529,303\nCô Giáo Mỏng Manh\nFHD8.612/122026\nAbiko-sensei, một nữ giáo viên trẻ có tính cách cực kỳ yếu đuối, vụng về...\nStudio: Brain's Base\nThể loại:Shounen, School, Romance, Ecchi, Comedy,\nDiễn viên: Hiwamura, Xem thêm..\nSắp chiếu\nSẮP CHIẾU2026\n9.5\nOtome Kaijuu CaraméliserLượt xem: 25,213\nOtome Kaijuu Caraméliser\nHD9.5PV/??2026\nAkashi Kuroe là một cô gái khép kín với căn bệnh kỳ lạ: mỗi khi cảm...\nStudio: LIDENFILMS\nThể loại:Seinen, School, Supernatural, Romance,\nDiễn viên: Akaishi,\nSẮP CHIẾU07-2026\n9.5\nThiếu Chủ Giỏi Chạy Trốn 2Lượt xem: 111,200\nThiếu Chủ Giỏi Chạy Trốn 2\nFHD9.5PV/??07-2026\nSau thời gian dài ẩn mình và tích lũy lực lượng tại vùng Suwa, Hōjō Tokiyuki...\nStudio: CloverWorks\nThể loại:Comedy, Adventure,\nDiễn viên: Houjou,\n9d 14h 31m 13s09-07-2026\n8.3\nDogulwangLượt xem: 137,321\nDogulwang\nFHD8.3PV/??2026\nPhim lấy bối cảnh thế giới xuất hiện các \"Lăng mộ thần bí\" chứa đựng những...\nStudio: Studio Eek\nThể loại:Fantasy, Adventure, Action,\nDiễn viên: Seo,\nSẮP CHIẾU07-2026\n9.7\nGrand Blue Season 3Lượt xem: 94,238\nGrand Blue Season 3\nFHD9.7PV/??07-2026\nPhần 3 sẽ đánh dấu một cột mốc mới khi đưa nhóm nhân vật chính lần đầu...\nStudio: Zero-G, Saber Works\nThể loại:Slice of Life, Comedy,\nDiễn viên: Kitahara,\n2d 14h 31m 13s02-07-2026\n6.8\nLv999 no MurabitoLượt xem: 64,488\nLv999 no Murabito\nFHD6.8PV/??2026\nKagami Kouji là một \"Dân làng\" – chức nghiệp yếu nhất thế giới. Sau khi...\nStudio: Brain's Base\nThể loại:Fantasy,\nDiễn viên: Kagami,\n4d 14h 31m 13s04-07-2026\n9.4\nHell Mode: Yarikomizuki no Gamer wa Hai Settei no Isekai de Musou suru 2nd SeasonLượt xem: 119,377\nHell Mode: Yarikomizuki no Gamer wa Hai Settei no Isekai de Musou suru 2nd Season\nFHD9.4PV/??2026\nNội dung của phần 2 sẽ tập trung toàn bộ vào Học viện Học đường (Academy...\nStudio: Yokohama Animation Lab\nThể loại:Fantasy, Adventure, Action,\nDiễn viên: Allen,\nSẮP CHIẾU10-2026\n9.2\nDragon Ball Super: BeerusLượt xem: 235,944\nDragon Ball Super: Beerus\nFHD9.2PV/??10-2026\nHòa bình Trái Đất một lần nữa bị đe dọa khi Thần Hủy Diệt Beerus thức...\nStudio: Toei Animation\nThể loại:Fantasy, Adventure, Action,\nDiễn viên: Son,\n5d 14h 31m 13s05-07-2026\n9\nNijusseiki Denki Mokuroku: Eureka EvrikaLượt xem: 339,379\nNijusseiki Denki Mokuroku: Eureka Evrika\nFHD9PV/??2026\nBối cảnh diễn ra vào năm 1907 tại Kyoto, thời điểm Nhật Bản chuyển...\nStudio: Kyoto Animation\nThể loại:Romance, Historical,\nDiễn viên: Momokawa,\n5d 14h 31m 13s05-07-2026\n9.5\nCậu Và Tớ Là Hai Thái Cực Đối Lập 2Lượt xem: 188,397\nCậu Và Tớ Là Hai Thái Cực Đối Lập 2\nFHD9.5PV/??2025\nMùa 2 tiếp tục xoay quanh quá trình phát triển tình cảm giữa cô nàng năng...\nStudio: Lapin Track\nThể loại:Romance, Comedy,\nDiễn viên: Suzuki,\n5d 14h 31m 13s05-07-2026\n8.3\nKimi no Koto ga Daidaidaidaidaisuki na 100-nin no Kanojo 3rd SeasonLượt xem: 306,392\nKimi no Koto ga Daidaidaidaidaisuki na 100-nin no Kanojo 3rd Season\nFHD8.3PV/??2026\nNối tiếp diễn biến từ phần trước, phần 3 của anime tiếp tục theo chân Rentarou...\nStudio: Bibury Animation Studios\nThể loại:Romance, Comedy,\nDiễn viên: Inda, Xem thêm..\nĐề cử Xem nhiều hôm nayXem nhiều trong mùaYêu ThíchTháng\nHOÀNTẤT\n9.5\nWistoria: Trượng Và Kiếm Mùa 2Lượt xem: 2,706,401\nWistoria: Trượng Và Kiếm Mùa 2\nFHD9.512/122026\nSau khi thể hiện sức mạnh vượt trội ở cuối mùa 1, Will bắt đầu thu hút...\nStudio: Bandai Namco Pictures, Actas\nThể loại:Shounen, School, Fantasy, Adventure, Action,\nDiễn viên: Serfort,\nTẬP1167\n9.3\nOne Piece - Đảo Hải TặcLượt xem: 250,223,048\nOne Piece - Đảo Hải Tặc\nFHD9.31167/????1999\nAnime được phát sóng lần đầu tiên vào năm 1999 và nhanh chóng trở...\nStudio: Toei Animation\nThể loại:Shounen, Super Power, Fantasy, Drama, Comedy, Adventure, Action,\nDiễn viên: Monkey D. Luffy,\nFHD\n9.3\nLúc Đó, Tôi Đã Chuyển Sinh Thành Slime: Nước Mắt Đại DươngLượt xem: 590,584\nLúc Đó, Tôi Đã Chuyển Sinh Thành Slime: Nước Mắt Đại Dương\nFHD9.3104 phút2026\nMovie 2 của Tensei shitara Slime Datta Ken.\nStudio: 8bit\nThể loại:Fantasy, Demons, Comedy, Adventure, Magic, Action,\nDiễn viên: Tempest,\nTẬP12\n9.3\nLúc Đó, Tôi Đã Chuyển Sinh Thành Slime Mùa 4Lượt xem: 2,901,652\nLúc Đó, Tôi Đã Chuyển Sinh Thành Slime Mùa 4\nFHD9.312/??2026\nSau các sự kiện ở mùa 3, Liên bang Jura-Tempest bắt đầu hướng tới việc...\nStudio: 8bit\nThể loại:Fantasy, Demons, Comedy, Adventure, Magic, Action,\nDiễn viên: Tempest,\nTẬP13\n9.7\nDiamond no Ace: Act II Second SeasonLượt xem: 295,061\nDiamond no Ace: Act II Second Season\nHD9.713/??2026\nTiếp tục vòng loại mùa hè trên con đường trưởng thành của Ace Sawamura\nStudio: OLM\nThể loại:Shounen, School, Sports, Comedy,\nDiễn viên: Miyuki,\nHOÀNTẤT\n9.2\nDũng Sĩ Cặn BãLượt xem: 799,681\nDũng Sĩ Cặn Bã\nFHD9.224/242026\nĐến giữa thế kỷ 21, thế giới ngầm tội phạm Tokyo bị cai trị bởi các Ma...\nStudio: OLM\nThể loại:Sci-Fi, Super Power, Fantasy, Action,\nDiễn viên: Kashiwagi Pendragon,\nTẬP12\n9\nHắc Miêu Và Lớp Học Phù ThủyLượt xem: 947,895\nHắc Miêu Và Lớp Học Phù Thủy\nFHD912/242026\nSpica Virgo, một nữ phù thủy tập sự không thể sử dụng bất kỳ phép thuật...\nStudio: LIDENFILMS\nThể loại:School, Fantasy, Comedy,\nDiễn viên: Virgo,\nTẬP01\n9.9\nNeko to RyuuLượt xem: 30,214\nNeko to Ryuu\nHD9.901/??2026\nCâu chuyện bắt đầu từ một hang động nơi gia đình mèo sinh sống. Họ...\nStudio: OLM\nThể loại:Slice of Life, Fantasy, Adventure,\nDiễn viên: Nekoryuu,\nHOÀNTẤT\n8.6\nCô Giáo Mỏng ManhLượt xem: 529,303\nCô Giáo Mỏng Manh\nFHD8.612/122026\nAbiko-sensei, một nữ giáo viên trẻ có tính cách cực kỳ yếu đuối, vụng về...\nStudio: Brain's Base\nThể loại:Shounen, School, Romance, Ecchi, Comedy,\nDiễn viên: Hiwamura,\nHOÀNTẤT\n9.5\nKill AoLượt xem: 484,850\nKill Ao\nHD9.512/122026\nJuzo Ogami, một sát thủ huyền thoại 39 tuổi chưa bao giờ thất bại trong...\nStudio: Cue\nThể loại:Shounen, School, Comedy, Action,\nDiễn viên: Oogami, Xem thêm..\nTâm điểm Sôi nổiTop bình luậnThành viên tích cựcĐược yêu thíchBình luận nhiều nhất\nĐang tải...\nĐang tải...\nĐang tải...\n🥇 1791\nFull\nClass de 2-banme ni Kawaii Onnanoko to Tomodachi ni Natta\n🥈 481\nTập 11\nAishiteru Game wo Owarasetai\n🥉 403\nFull\nWistoria: Trượng Và Kiếm Mùa 2\n288\nFull\nDr. Stone 4th Season\n260\nTập 01\nYêu Nhau Đến Tận Ngày Cậu Biến Mất\n202\nFull\nCuộc Sống Nông Dân Ở Thế Giới Khác 2\n185\nTập 12\nLúc Đó, Tôi Đã Chuyển Sinh Thành Slime Mùa 4\n183\nFull\nThiên Sứ Nhà Bên 2\n171\nFull\nChào Mừng Đến Với Lớp Học Đề Cao Thực Lực 4\n160\nFull\nXưởng Phép Thuật\nĐang tải...\nTiếp tục xem\nHOÀNTẤT\nSau Khi Rời Khỏi Tổ Đội Hạng A, Tôi Thám Hiểm Mê Cung Cùng Đệ Tử Cũđã xem 36 giây trước Xem tiếp Tập 01\nHOÀNTẤT\nChào Mừng Đến Với Lớp Học Đề Cao Thực Lực 4đã xem 1 phút trước Xem tiếp Tập 15\nHOÀNTẤT\nKẻ Ngây Thơ, Người Từng Trải Và Câu Chuyện Tình Của Chúng Tađã xem 2 phút trước Xem tiếp Tập 12_ENDXem thêm..\nX\n×\n×"
+    }
+}

@@ -126,6 +126,21 @@ logging.basicConfig(
 )
 
 
+from bs4 import BeautifulSoup
+
+def get_clean_text_from_html(html_content: str) -> str:
+    if not html_content:
+        return ""
+    soup = BeautifulSoup(html_content, "html.parser")
+    for tag in soup(["script", "style", "noscript", "header", "footer", "nav", "iframe", "svg", "aside", "form", "button"]):
+        tag.decompose()
+    for tag in soup.find_all(["p", "div", "h1", "h2", "h3", "h4", "h5", "h6", "li", "tr", "blockquote", "pre", "article", "section", "br"]):
+        tag.insert_before("\n")
+    text = soup.get_text(separator="", strip=False)
+    lines = [re.sub(r"[ \t]+", " ", line).strip() for line in text.splitlines() if re.sub(r"[ \t]+", " ", line).strip()]
+    return "\n".join(lines).strip()
+
+
 # ──────────────────────────────────────────────
 # STEALTH BROWSER LAUNCH
 # ──────────────────────────────────────────────
@@ -1025,16 +1040,17 @@ async def scan_footer(page):
 
 async def capture_screenshot(page, domain, episode_index):
     """
-    Capture a full-page screenshot and save to logs/screenshots/.
+    Capture a full-page screenshot and save to logs/<domain>/screenshots/.
     Returns the file path.
     """
 
-    os.makedirs(SCREENSHOTS_DIR, exist_ok=True)
+    safe_domain = re.sub(r'[\\/*?:"<>|]', "_", domain) if domain else "unknown"
+    screenshots_dir = os.path.join("logs", safe_domain, "screenshots")
+    os.makedirs(screenshots_dir, exist_ok=True)
 
-    safe_domain = re.sub(r'[\\/*?:"<>|]', "_", domain)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     filename = f"{safe_domain}_ep{episode_index}_{timestamp}.png"
-    filepath = os.path.join(SCREENSHOTS_DIR, filename)
+    filepath = os.path.join(screenshots_dir, filename)
 
     try:
         await page.screenshot(
@@ -1585,29 +1601,18 @@ async def _run_step2_async(domain, url):
             footer = await scan_footer(page)
             evidence["footer_analysis"] = footer
 
-            # ── Extract full body text for Content Model (Step 3) ──
-            logger.info("[Phase 5] Extracting full DOM text for Content Model...")
+            # ── Extract full DOM HTML and clean it for Content Model (Step 3) ──
+            logger.info("[Phase 5] Extracting and cleaning DOM text for Content Model...")
             try:
-                dom_text = await page.evaluate("""
-                    () => {
-                        // Remove script / style / noscript nodes from clone
-                        const clone = document.body.cloneNode(true);
-                        for (const tag of ['script', 'style', 'noscript', 'svg', 'img']) {
-                            clone.querySelectorAll(tag).forEach(el => el.remove());
-                        }
-                        return clone.innerText || '';
-                    }
-                """)
-                # Collapse excessive whitespace
-                import re as _re
-                dom_text = _re.sub(r'[ \t]+', ' ', dom_text)
-                dom_text = _re.sub(r'\n{3,}', '\n\n', dom_text).strip()
+                html_content = await page.content()
+                dom_text = get_clean_text_from_html(html_content)
                 evidence["dom_text"] = dom_text
                 logger.info(
-                    f"[Phase 5] DOM text extracted: {len(dom_text)} chars"
+                    f"[Phase 5] DOM text extracted and cleaned: {len(dom_text)} chars"
                 )
             except Exception as e:
                 logger.warning(f"[Phase 5] DOM text extraction error: {e}")
+
 
             # ────────────────────────────────
             # Phase 6: Compile technical flags
@@ -1769,11 +1774,12 @@ if __name__ == "__main__":
     result = run_step2(target_domain, target_url)
 
     # Save output
-    os.makedirs("logs", exist_ok=True)
+    safe = re.sub(r'[\\/*?:"<>|]', "_", target_domain) if target_domain else "unknown"
+    domain_logs_dir = os.path.join("logs", safe)
+    os.makedirs(domain_logs_dir, exist_ok=True)
 
-    safe = re.sub(r'[\\/*?:"<>|]', "_", target_domain)
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    out_path = os.path.join("logs", f"{safe}_step2_{ts}.json")
+    out_path = os.path.join(domain_logs_dir, f"{safe}_step2_{ts}.json")
 
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(

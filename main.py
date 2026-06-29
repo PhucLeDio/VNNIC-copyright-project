@@ -95,13 +95,13 @@ def main():
         )
     )
 
-    # Save Step 1 output to a JSON file inside a logs/ directory
-    logs_dir = "logs"
+    # Save Step 1 output to a JSON file inside a logs/<domain> directory
+    safe_domain = re.sub(r'[\\/*?:"<>|]', "_", domain) if domain else "unknown"
+    logs_dir = os.path.join("logs", safe_domain)
     if not os.path.exists(logs_dir):
         os.makedirs(logs_dir)
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    safe_domain = re.sub(r'[\\/*?:"<>|]', "_", domain) if domain else "unknown"
     log_file_name = f"{safe_domain}_step1_{timestamp}.json"
     log_file_path = os.path.join(logs_dir, log_file_name)
 
