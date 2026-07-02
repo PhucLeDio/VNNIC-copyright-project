@@ -1,0 +1,152 @@
+{
+    "domain_age_days": 3333,
+    "creation_date": "2017-05-14 19:41:27+00:00",
+    "registrar": "GoDaddy.com, LLC",
+    "is_whois_privacy_active": true,
+    "tld_info": {
+        "tld": ".io",
+        "risk": "LOW"
+    },
+    "redirect_history": [],
+    "redirect_info": {
+        "redirect_depth": 0,
+        "domains_seen": [],
+        "domain_hopping": false
+    },
+    "dns_records": {
+        "A": [
+            "172.67.200.109",
+            "104.21.85.6"
+        ],
+        "AAAA": [
+            "2606:4700:3036::6815:5506",
+            "2606:4700:3032::ac43:c86d"
+        ],
+        "NS": [
+            "mitch.ns.cloudflare.com.",
+            "olga.ns.cloudflare.com."
+        ],
+        "MX": [],
+        "TXT": [],
+        "CNAME": []
+    },
+    "detected_ns": [
+        "mitch.ns.cloudflare.com.",
+        "olga.ns.cloudflare.com."
+    ],
+    "cloudflare_detected": true,
+    "cdn_providers": [
+        "cloudflare"
+    ],
+    "http_headers": {
+        "error": "('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))"
+    },
+    "mx_analysis": {
+        "has_mx": false,
+        "possible_streaming_only_site": true
+    },
+    "mail_provider": null,
+    "txt_analysis": {
+        "google_verification": false,
+        "google_verification_count": 0,
+        "spf_configured": false,
+        "dmarc_configured": false,
+        "microsoft_verification": false,
+        "facebook_verification": false
+    },
+    "cloud_provider": "CLOUDFLARE",
+    "ns_provider": "CLOUDFLARE",
+    "suspicious_hosting": false,
+    "resolved_ip": [
+        "104.21.85.6",
+        "172.67.200.109",
+        "2606:4700:3036::6815:5506",
+        "2606:4700:3032::ac43:c86d"
+    ],
+    "asn_info": {
+        "asn": "13335",
+        "asn_description": "CLOUDFLARENET - Cloudflare, Inc., US"
+    },
+    "legitimate_signals": {
+        "official_tld": false,
+        "business_mail": false,
+        "google_verification": false,
+        "spf_configured": false,
+        "major_cloud_provider": true,
+        "enterprise_dns": false,
+        "total_signals": 1
+    },
+    "risk_score": 25,
+    "legitimacy_score": 25,
+    "step0": {
+        "input_domain": "https://prehired.io/",
+        "normalized_domain": "prehired.io",
+        "in_database": false,
+        "domain_model": {
+            "label": 1,
+            "label_name": "Độc hại",
+            "prob_safe": 0.0325,
+            "prob_malicious": 0.9675,
+            "features": [
+                11.0,
+                2.913977073182752,
+                0.0,
+                0.0,
+                0.0,
+                2.0,
+                4.0,
+                2.0,
+                0.0,
+                4.0,
+                2.0,
+                300.0
+            ],
+            "flag": "FLAG_DOMAIN_PREDICT_MALICIOUS",
+            "model": "v1_hybrid"
+        }
+    },
+    "step2_evidence": {
+        "target_url": "https://prehired.io/",
+        "target_domain": "prehired.io",
+        "timestamp": "2026-06-30T19:02:02.941701",
+        "cloudflare_bypassed": false,
+        "episodes_found_total": 0,
+        "episodes_checked": 0,
+        "popup_blocked_count": 0,
+        "popup_urls": [],
+        "episodes_detail": [],
+        "all_streams": [],
+        "all_iframes": [],
+        "footer_analysis": {
+            "has_legal_footer": false,
+            "legal_notice_found": false,
+            "tax_code_found": false,
+            "authority_found": false,
+            "copyright_found": false,
+            "has_structured_identity": false,
+            "is_infinite_scroll": false,
+            "has_telegram_contact": false,
+            "has_ad_contact_only": false,
+            "FOOTER_ANONYMOUS": true,
+            "extraction_method": "none",
+            "meta_info": {
+                "title": "",
+                "og_site_name": "",
+                "meta_copyright": "",
+                "meta_author": "",
+                "has_json_ld": false
+            },
+            "footer_text_snippet": ""
+        },
+        "technical_flags": {
+            "cloudflare_bypassed": false
+        },
+        "dom_text": "",
+        "banners": [],
+        "banner_network_hits": []
+    },
+    "step3_evidence": {
+        "note": "Không có DOM text từ Step 2.",
+        "final_label": null
+    }
+}

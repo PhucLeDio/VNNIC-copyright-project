@@ -57,6 +57,44 @@ AD_IMAGE_URL_KEYWORDS = [
     "sponsor", "partner", "track", "click",
 ]
 
+# Exclusion patterns for content banners (e.g. anime covers, posters, thumbnails)
+BANNER_EXCLUDE_URL_KEYWORDS = [
+    "/data/banner/",
+    "/data/film/",
+    "/data/poster/",
+    "/images/film/",
+    "/images/poster/",
+    "/uploads/movie/",
+    "/uploads/poster/",
+    "/covers/",
+    "/posters/",
+    "/thumb/",
+    "/thumbnail/",
+    "/avatar/",
+    "/logo/",
+    "/icon/",
+]
+
+BANNER_EXCLUDE_CLASS_KEYWORDS = [
+    "poster",
+    "cover",
+    "thumb",
+    "thumbnail",
+    "slide",
+    "slider",
+    "carousel",
+    "avatar",
+    "player",
+    "movie-",
+    "film-",
+    "vn-background",
+    "bg-image",
+    "movie-info",
+    "detail-",
+    "logo",
+    "icon",
+]
+
 # Image file extensions recognised as banner assets
 BANNER_IMAGE_EXTENSIONS = (".jpg", ".jpeg", ".png", ".gif", ".webp", ".bmp")
 
@@ -335,17 +373,21 @@ async def bypass_cloudflare(page, url, max_retries=2):
             "just a moment",
             "checking your browser",
             "ray id",
-            "cloudflare",
             "attention required",
             "please wait",
         ]
 
-        is_blocked = any(
+        is_challenge_page = any(
             sig in (title + " " + body_text).lower()
             for sig in cf_blocked_signals
         )
 
-        if not is_blocked:
+        # If page has substantial body content, treat as loaded regardless
+        # of whether Cloudflare CDN headers/signals are present.
+        # (Distinguishes real challenge page from site *using* CF as CDN)
+        has_real_content = len(body_text.strip()) > 200
+
+        if not is_challenge_page or has_real_content:
             logger.info("[Cloudflare] ✓ Bypass successful!")
             return True
 
@@ -526,11 +568,13 @@ def create_network_interceptor(evidence_collector):
         has_image_ext = any(url_lower.split("?")[0].endswith(ext) for ext in BANNER_IMAGE_EXTENSIONS)
 
         if (is_image_content or has_image_ext) and has_ad_url:
-            hits = evidence_collector.get("banner_network_hits", [])
-            if url not in [h["url"] for h in hits]:
-                hits.append({"url": url, "content_type": content_type})
-                evidence_collector["banner_network_hits"] = hits
-                logger.info(f"[BannerNet] ★ Ad image intercepted: {url[:120]}")
+            is_excluded = any(kw in url_lower for kw in BANNER_EXCLUDE_URL_KEYWORDS)
+            if not is_excluded:
+                hits = evidence_collector.get("banner_network_hits", [])
+                if url not in [h["url"] for h in hits]:
+                    hits.append({"url": url, "content_type": content_type})
+                    evidence_collector["banner_network_hits"] = hits
+                    logger.info(f"[BannerNet] ★ Ad image intercepted: {url[:120]}")
 
     return handle_response
 
@@ -799,14 +843,14 @@ async def _detect_infinite_scroll(page):
 
     try:
         height_before = await page.evaluate(
-            "document.body.scrollHeight"
+            "(document.body || document.documentElement || {scrollHeight: 0}).scrollHeight"
         )
         await page.evaluate(
-            "window.scrollTo(0, document.body.scrollHeight)"
+            "window.scrollTo(0, (document.body || document.documentElement || {scrollHeight: 0}).scrollHeight)"
         )
         await page.wait_for_timeout(2000)
         height_after = await page.evaluate(
-            "document.body.scrollHeight"
+            "(document.body || document.documentElement || {scrollHeight: 0}).scrollHeight"
         )
 
         is_infinite = height_after > height_before + 200
@@ -883,9 +927,12 @@ async def scan_footer(page):
     # Deep scroll (2 more rounds — _detect_infinite_scroll
     # already did 1 scroll)
     for scroll_round in range(1, 3):
-        await page.evaluate(
-            "window.scrollTo(0, document.body.scrollHeight)"
-        )
+        try:
+            await page.evaluate(
+                "window.scrollTo(0, (document.body || document.documentElement || {scrollHeight: 0}).scrollHeight)"
+            )
+        except Exception:
+            pass
         logger.info(
             f"[Footer] Scroll round {scroll_round}/2"
         )
@@ -1093,7 +1140,12 @@ async def _trigger_lazy_load(page):
     Waits 800ms between each step to allow JS to fire.
     """
     try:
-        total_height = await page.evaluate("document.body.scrollHeight")
+        total_height = await page.evaluate(
+            "(document.body || document.documentElement || {scrollHeight: 0}).scrollHeight"
+        )
+        if not total_height:
+            logger.warning("[Banner] Lazy-load skipped: page body not available.")
+            return
         step = max(300, total_height // 6)
         current = 0
         while current < total_height:
@@ -1129,6 +1181,8 @@ async def _scrape_banner_urls(page, domain):
                 const MIN_H = %d;
                 const BANNER_KW = %s;
                 const AD_IMG_KW = %s;
+                const EXCLUDE_URL_KW = %s;
+                const EXCLUDE_CLASS_KW = %s;
 
                 // ── Helpers ──
                 function absUrl(src) {
@@ -1165,6 +1219,40 @@ async def _scrape_banner_urls(page, domain):
                     return null;
                 }
 
+                const MOVIE_PATH_KW = ["/phim/", "/xem-phim/", "/tap-", "/episode/", "/watch/", "/vod/", "/kenh-truyen-hinh/", "/chuong-trinh/", "/live/", "/video/", "/series/"];
+
+                function isExcluded(el, src, link) {
+                    const srcLower = (src || "").toLowerCase();
+                    const linkLower = (link || "").toLowerCase();
+
+                    // 1. Check URL keywords
+                    if (srcLower && EXCLUDE_URL_KW.some(kw => srcLower.includes(kw))) {
+                        return true;
+                    }
+
+                    // 2. Check enclosing link (if it's internal and goes to a movie page)
+                    if (linkLower) {
+                        const isInternal = linkLower.includes(location.hostname) || (!linkLower.startsWith("http") && !linkLower.startsWith("//"));
+                        if (isInternal && MOVIE_PATH_KW.some(p => linkLower.includes(p))) {
+                            return true;
+                        }
+                    }
+
+                    // 3. Check CSS classes and IDs of the element and parent elements
+                    let cur = el;
+                    for (let i = 0; i < 4; i++) {
+                        if (!cur || cur === document.body) break;
+                        const cls = (cur.className || "").toLowerCase();
+                        const id = (cur.id || "").toLowerCase();
+                        if (EXCLUDE_CLASS_KW.some(kw => cls.includes(kw) || id.includes(kw))) {
+                            return true;
+                        }
+                        cur = cur.parentElement;
+                    }
+
+                    return false;
+                }
+
                 const results = [];
                 const seenUrls = new Set();
 
@@ -1189,6 +1277,7 @@ async def _scrape_banner_urls(page, domain):
                     if (!src) return;
                     const anchor = closestAnchor(img) || img.closest('a');
                     const href = anchor ? anchor.href : '';
+                    if (isExcluded(img, src, href)) return;
                     addEntry(src, img.alt, href, w, h, 'case1_nofollow_link');
                 });
 
@@ -1200,7 +1289,9 @@ async def _scrape_banner_urls(page, domain):
                     if (!src) return;
                     const {w, h} = imgDims(img);
                     const anchor = closestAnchor(img);
-                    addEntry(src, img.alt, anchor ? anchor.href : '', w, h, 'case2_lazy_src');
+                    const href = anchor ? anchor.href : '';
+                    if (isExcluded(img, src, href)) return;
+                    addEntry(src, img.alt, href, w, h, 'case2_lazy_src');
                 });
 
                 // ── Case 3: <img> inside banner/ad/sidebar containers ──
@@ -1218,14 +1309,16 @@ async def _scrape_banner_urls(page, domain):
                     if (!src) return;
                     const {w, h} = imgDims(img);
                     const anchor = closestAnchor(img);
-                    addEntry(src, img.alt, anchor ? anchor.href : '', w, h, 'case3_banner_class');
+                    const href = anchor ? anchor.href : '';
+                    if (isExcluded(img, src, href)) return;
+                    addEntry(src, img.alt, href, w, h, 'case3_banner_class');
                 });
 
                 // ── Case 4: CSS background-image ──
                 const allEls = document.querySelectorAll('[style]');
                 allEls.forEach(el => {
                     const style = el.getAttribute('style') || '';
-                    const bgMatch = style.match(/background(?:-image)?\s*:\s*url\(["']?([^"')]+)["']?\)/);
+                    const bgMatch = style.match(/background(?:-image)?[\s]*:[\s]*url\(["']?([^"')]+)["']?\)/);
                     if (!bgMatch) return;
                     const src = bgMatch[1];
                     const rect = el.getBoundingClientRect();
@@ -1234,6 +1327,7 @@ async def _scrape_banner_urls(page, domain):
                     if (w < MIN_W && h < MIN_H) return;
                     // Only include if URL or container hints at ad
                     if (!isAdUrl(src) && !hasBannerClass(el)) return;
+                    if (isExcluded(el, src, '')) return;
                     addEntry(src, el.getAttribute('aria-label') || '', '', w, h, 'case4_bg_image');
                 });
 
@@ -1242,6 +1336,7 @@ async def _scrape_banner_urls(page, domain):
                     const src = iframe.src || iframe.getAttribute('data-src') || '';
                     if (!src) return;
                     if (!isAdUrl(src) && !hasBannerClass(iframe)) return;
+                    if (isExcluded(iframe, src, '')) return;
                     // Store iframe src as link_href; no image file to download
                     if (!seenUrls.has(src)) {
                         seenUrls.add(src);
@@ -1260,6 +1355,7 @@ async def _scrape_banner_urls(page, domain):
                 document.querySelectorAll('picture').forEach(pic => {
                     const anchor = closestAnchor(pic);
                     const href   = anchor ? anchor.href : '';
+                    if (isExcluded(pic, '', href)) return;
                     // Prefer highest-res srcset
                     const sources = pic.querySelectorAll('source[srcset]');
                     sources.forEach(src => {
@@ -1269,6 +1365,7 @@ async def _scrape_banner_urls(page, domain):
                         if (!firstUrl) return;
                         const img = pic.querySelector('img');
                         const {w, h} = img ? imgDims(img) : {w: 0, h: 0};
+                        if (isExcluded(pic, firstUrl, href)) return;
                         addEntry(firstUrl, img ? img.alt : '', href, w, h, 'case6_picture_srcset');
                     });
                     // Fallback img inside <picture>
@@ -1276,6 +1373,7 @@ async def _scrape_banner_urls(page, domain):
                     if (fallbackImg) {
                         const src = fallbackImg.src || fallbackImg.getAttribute('data-src') || '';
                         const {w, h} = imgDims(fallbackImg);
+                        if (isExcluded(fallbackImg, src, href)) return;
                         addEntry(src, fallbackImg.alt, href, w, h, 'case6_picture_img');
                     }
                 });
@@ -1288,6 +1386,8 @@ async def _scrape_banner_urls(page, domain):
                     const {w, h} = imgDims(img);
                     if (w < MIN_W && h < MIN_H) return;
                     const anchor = closestAnchor(img);
+                    const href = anchor ? anchor.href : '';
+                    if (isExcluded(img, src, href)) return;
                     addEntry(src, img.alt, anchor ? anchor.href : '', w, h, 'case_ad_url_img');
                 });
 
@@ -1298,6 +1398,8 @@ async def _scrape_banner_urls(page, domain):
             MIN_BANNER_HEIGHT,
             json.dumps(BANNER_CLASS_KEYWORDS),
             json.dumps(AD_IMAGE_URL_KEYWORDS),
+            json.dumps(BANNER_EXCLUDE_URL_KEYWORDS),
+            json.dumps(BANNER_EXCLUDE_CLASS_KEYWORDS),
         ))
         return raw if isinstance(raw, list) else []
     except Exception as e:
@@ -1410,8 +1512,8 @@ async def collect_banner_images(page, domain: str, evidence_collector: dict) -> 
 
     Orchestrates all 7 banner cases:
       Case 1–6 : DOM scraper via _scrape_banner_urls()
-      Case 7   : Network-intercepted ad image URLs (already in
-                 evidence_collector["banner_network_hits"])
+      Case 7   : Network-intercepted ad image URLs (aggregated from
+                 global and episode-level details)
 
     For each discovered image URL:
       1. Try HTTP download (with browser-like headers).
@@ -1442,10 +1544,47 @@ async def collect_banner_images(page, domain: str, evidence_collector: dict) -> 
     dom_entries = await _scrape_banner_urls(page, domain)
     logger.info(f"[Phase 5b] DOM scraper found {len(dom_entries)} candidate(s).")
 
+    # Apply backup Python-side exclusion filtering for DOM entries
+    filtered_dom_entries = []
+    for entry in dom_entries:
+        src = entry.get("src_url", "").lower()
+        href = entry.get("link_href", "").lower()
+
+        # 1. URL keywords check
+        if any(kw in src for kw in BANNER_EXCLUDE_URL_KEYWORDS):
+            logger.info(f"[Banner] Excluding candidate due to URL match: {src[:120]}")
+            continue
+
+        # 2. Internal movie links check
+        if href:
+            is_internal = domain in href or (not href.startswith("http") and not href.startswith("//"))
+            is_movie_link = any(p in href for p in ["/phim/", "/xem-phim/", "/tap-", "/episode/", "/watch/", "/vod/", "/kenh-truyen-hinh/", "/chuong-trinh/", "/live/", "/video/", "/series/"])
+            if is_internal and is_movie_link:
+                logger.info(f"[Banner] Excluding candidate due to internal movie link: {href[:120]}")
+                continue
+
+        filtered_dom_entries.append(entry)
+    dom_entries = filtered_dom_entries
+    logger.info(f"[Phase 5b] {len(dom_entries)} DOM candidates remain after filtering.")
+
     # ── Step 3: Merge Case 7 network hits ──
-    net_hits = evidence_collector.get("banner_network_hits", [])
+    # Gather network hits from global evidence
+    net_hits = list(evidence_collector.get("banner_network_hits", []))
+
+    # Also gather network hits from each episode's details
+    episodes_detail = evidence_collector.get("episodes_detail", [])
+    for ep in episodes_detail:
+        ep_hits = ep.get("banner_network_hits", [])
+        for hit in ep_hits:
+            if hit["url"] not in [h["url"] for h in net_hits]:
+                net_hits.append(hit)
+
+    # Add filtered network hits to candidates list
     for hit in net_hits:
         url = hit["url"]
+        url_lower = url.lower()
+        if any(kw in url_lower for kw in BANNER_EXCLUDE_URL_KEYWORDS):
+            continue
         # Avoid duplicates with DOM entries
         if not any(e["src_url"] == url for e in dom_entries):
             dom_entries.append({
@@ -1980,18 +2119,11 @@ async def _run_step2_async(domain, url):
             evidence["cloudflare_bypassed"] = cf_ok
 
             if not cf_ok:
-                logger.error(
-                    "[Phase 1] Cannot bypass Cloudflare. "
-                    "Evidence will be limited."
+                logger.warning(
+                    "[Phase 1] Cloudflare bypass uncertain — "
+                    "continuing evidence collection anyway."
                 )
                 evidence["technical_flags"]["cloudflare_bypassed"] = False
-
-                # Still try to capture whatever we can
-                footer = await scan_footer(page)
-                evidence["footer_analysis"] = footer
-                await capture_screenshot(page, domain, 0)
-
-                return evidence
 
             # ────────────────────────────────
             # Phase 2: Crawl episode URLs

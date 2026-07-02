@@ -1,0 +1,86 @@
+{
+    "domain_age_days": 3333,
+    "creation_date": "2017-05-14 19:41:27+00:00",
+    "registrar": "GoDaddy.com, LLC",
+    "is_whois_privacy_active": true,
+    "tld_info": {
+        "tld": ".io",
+        "risk": "LOW"
+    },
+    "redirect_history": [],
+    "redirect_info": {
+        "redirect_depth": 0,
+        "domains_seen": [],
+        "domain_hopping": false
+    },
+    "dns_records": {
+        "A": [
+            "104.21.85.6",
+            "172.67.200.109"
+        ],
+        "AAAA": [
+            "2606:4700:3036::6815:5506",
+            "2606:4700:3032::ac43:c86d"
+        ],
+        "NS": [
+            "mitch.ns.cloudflare.com.",
+            "olga.ns.cloudflare.com."
+        ],
+        "MX": [],
+        "TXT": [],
+        "CNAME": []
+    },
+    "detected_ns": [
+        "mitch.ns.cloudflare.com.",
+        "olga.ns.cloudflare.com."
+    ],
+    "cloudflare_detected": true,
+    "cdn_providers": [
+        "cloudflare"
+    ],
+    "http_headers": {
+        "error": "('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))"
+    },
+    "mx_analysis": {
+        "has_mx": false,
+        "possible_streaming_only_site": true
+    },
+    "mail_provider": null,
+    "txt_analysis": {
+        "google_verification": false,
+        "google_verification_count": 0,
+        "spf_configured": false,
+        "dmarc_configured": false,
+        "microsoft_verification": false,
+        "facebook_verification": false
+    },
+    "cloud_provider": "CLOUDFLARE",
+    "ns_provider": "CLOUDFLARE",
+    "suspicious_hosting": false,
+    "resolved_ip": [
+        "104.21.85.6",
+        "2606:4700:3036::6815:5506",
+        "172.67.200.109",
+        "2606:4700:3032::ac43:c86d"
+    ],
+    "asn_info": {
+        "asn": "13335",
+        "asn_description": "CLOUDFLARENET - Cloudflare, Inc., US"
+    },
+    "legitimate_signals": {
+        "official_tld": false,
+        "business_mail": false,
+        "google_verification": false,
+        "spf_configured": false,
+        "major_cloud_provider": true,
+        "enterprise_dns": false,
+        "total_signals": 1
+    },
+    "risk_score": 25,
+    "legitimacy_score": 25,
+    "step0": {
+        "input_domain": "https://prehired.io/",
+        "normalized_domain": "prehired.io",
+        "in_database": false
+    }
+}

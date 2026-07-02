@@ -1,5 +1,5 @@
 {
-    "domain_age_days": 274,
+    "domain_age_days": 275,
     "creation_date": "2025-09-27 11:28:03+00:00",
     "registrar": "Hosting Concepts B.V.",
     "is_whois_privacy_active": false,
@@ -24,8 +24,8 @@
             "104.26.15.230"
         ],
         "AAAA": [
-            "2606:4700:20::ac43:4643",
             "2606:4700:20::681a:fe6",
+            "2606:4700:20::ac43:4643",
             "2606:4700:20::681a:ee6"
         ],
         "NS": [
@@ -48,7 +48,7 @@
     ],
     "http_headers": {
         "Server": "cloudflare",
-        "CF-Ray": "a1317bf3df87ce17-SIN",
+        "CF-Ray": "a13cd16a3fe63eb0-HKG",
         "CF-Cache-Status": "DYNAMIC",
         "Alt-Svc": "h3=\":443\"; ma=86400"
     },
@@ -69,9 +69,12 @@
     "ns_provider": "CLOUDFLARE",
     "suspicious_hosting": false,
     "resolved_ip": [
-        "172.67.70.67",
         "104.26.14.230",
-        "104.26.15.230"
+        "104.26.15.230",
+        "2606:4700:20::ac43:4643",
+        "2606:4700:20::681a:fe6",
+        "172.67.70.67",
+        "2606:4700:20::681a:ee6"
     ],
     "asn_info": {
         "asn": "13335",
