@@ -193,6 +193,28 @@ logging.basicConfig(
 import hashlib
 import urllib.request
 from urllib.error import URLError
+try:
+    from PIL import Image, ImageFilter as _ImageFilter, UnidentifiedImageError as _PIL_UnidentifiedImageError
+    _PIL_AVAILABLE = True
+except ImportError:
+    _PIL_AVAILABLE = False
+
+# ── Animated banner processing config (Temporal Sampling + MD5 Dedup) ──
+# Khoảng cách thời gian giữa 2 mẫu khi quét GIF/WEBP động (milliseconds)
+GIF_SAMPLE_INTERVAL_MS = 500
+# Tối đa số frame unique được lưu lại
+GIF_MAX_UNIQUE_FRAMES  = 5
+# Hard-cap tổng số frame được load vào memory
+GIF_MAX_MEMORY_FRAMES  = 30
+# Laplacian variance threshold — dựa trên thực nghiệm:
+#   Frame hợp lệ (rõ nét):  variance >= 1465
+#   Frame trống/tối/mờ:     variance = 393–1538
+GIF_MIN_SHARPNESS     = 1000.0
+# Kích thước PNG tối thiểu (để loại frame gần trống như frame xanh lá 996 bytes)
+GIF_MIN_FRAME_BYTES   = 2048
+# Ngưỡng Hamming distance để coi 2 frame là "giống nhau" qua pHash
+# (0 = giống tuyệt đối, 10 = chấp nhận sai lệch nhỏ do GIF delta)
+GIF_PHASH_DISTANCE    = 8
 
 
 from bs4 import BeautifulSoup
@@ -1464,6 +1486,277 @@ def _download_banner_image(url: str, save_dir: str, domain: str) -> str | None:
         return None
 
 
+# ──────────────────────────────────────────────
+# ANIMATED BANNER PROCESSOR (Temporal Sampling + MD5 Dedup)
+# ──────────────────────────────────────────────
+
+# Magic-byte signatures cho các định dạng ảnh động phổ biến
+_MAGIC_GIF87  = b'GIF87a'
+_MAGIC_GIF89  = b'GIF89a'
+_MAGIC_WEBP_1 = b'RIFF'          # WebP: RIFF....WEBP
+_MAGIC_WEBP_2 = b'WEBP'          # offset 8
+_MAGIC_PNG    = b'\x89PNG\r\n\x1a\n'
+
+
+def _detect_animated_format(filepath: str) -> str | None:
+    """
+    Đọc 12 byte đầu của file để xác định định dạng thực sự.
+    **Không dựa vào extension** — phòng tránh khả năng banner phục vụ GIF/WebP
+    dưới extension giả (.jpg, .png, …).
+
+    Returns:
+        'gif'  — GIF87a hoặc GIF89a
+        'webp' — RIFF....WEBP
+        'png'  — PNG (có thể là APNG)
+        None   — JPEG thường hoặc không xác định
+    """
+    try:
+        with open(filepath, 'rb') as f:
+            header = f.read(12)
+    except OSError:
+        return None
+
+    if header[:6] in (_MAGIC_GIF87, _MAGIC_GIF89):
+        return 'gif'
+    if header[:4] == _MAGIC_WEBP_1 and header[8:12] == _MAGIC_WEBP_2:
+        return 'webp'
+    if header[:8] == _MAGIC_PNG:
+        return 'png'
+    return None  # JPEG thường hoặc binary khác
+
+
+def _phash(img_rgba: "Image.Image", hash_size: int = 8) -> int:
+    """
+    Tính Perceptual Hash (pHash / DCT hash) của một frame.
+
+    Thuật toán:
+      1. Resize xuống (hash_size*4) x (hash_size*4)
+      2. Chuyển grayscale
+      3. Tính trung bình pixel
+      4. Bit = 1 nếu pixel > mean, 0 nếu không
+      5. Pack thành số int 64-bit
+
+    So sánh 2 pHash bằng Hamming distance — chấp nhận
+    sai lệch nhỏ do GIF delta encoding.
+    """
+    size = hash_size * 4
+    small = img_rgba.convert("L").resize((size, size), Image.LANCZOS)
+    pixels = list(small.getdata())
+    avg = sum(pixels) / len(pixels)
+    bits = [1 if p > avg else 0 for p in pixels]
+    # Pack vào int (lấy hash_size*hash_size bit đầu tiên)
+    result = 0
+    for bit in bits[: hash_size * hash_size]:
+        result = (result << 1) | bit
+    return result
+
+
+def _hamming(a: int, b: int) -> int:
+    """Hamming distance giữa 2 pHash."""
+    return bin(a ^ b).count("1")
+
+
+def process_animated_banner(filepath: str) -> list[str]:
+    """
+    Xử lý file ảnh động (được nhận biết qua magic bytes, không dựa extension).
+
+    Nhiều site phục vụ banner GIF / animated WEBP dưới extension .jpg / .png
+    để qua mặt các bộ lọc đơn giản. Hàm này phát hiện định dạng thực sự
+    bằng cách đọc 12 byte đầu (magic bytes), sau đó mới chạy thuật toán:
+
+      1. Temporal Sampling  — lấy mẫu frame cách đều GIF_SAMPLE_INTERVAL_MS ms,
+                              tối đa GIF_MAX_MEMORY_FRAMES frame được load.
+      2. MD5 Dedup          — loại bỏ frame trùng tuyệt đối (byte-identical).
+      3. Export             — mỗi frame unique → file PNG riêng.
+
+    Không load toàn bộ GIF vào RAM:
+      - `Image.seek(n)` chỉ decode đúng frame n, frame khác không bị load.
+      - Hard-cap GIF_MAX_MEMORY_FRAMES ngăn OOM với GIF cực lớn.
+
+    Args:
+        filepath: Đường dẫn tới file ảnh đã tải về (mọi extension).
+
+    Returns:
+        list[str]: Danh sách path các frame PNG unique đã lưu.
+                   Trả về [filepath] nguyên bản nếu Pillow chưa cài,
+                   hoặc file không phải ảnh động, hoặc xử lý lỗi.
+    """
+    if not _PIL_AVAILABLE:
+        logger.debug("[AnimBanner] Pillow không có sẵn — bỏ qua xử lý ảnh động.")
+        return [filepath]
+
+    # Phát hiện định dạng thực sự qua magic bytes (bỏ qua extension)
+    true_fmt = _detect_animated_format(filepath)
+    ext = os.path.splitext(filepath)[1].lower()
+    if true_fmt is None and ext not in (".gif", ".webp", ".png"):
+        # JPEG thường — không có animation, bỏ qua
+        return [filepath]
+    if true_fmt is None:
+        # extension gợi ý là ảnh động nhưng magic bytes không khớp — thử Pillow
+        pass
+    if true_fmt:
+        if ext != f".{true_fmt}":
+            logger.info(
+                f"[AnimBanner] Phát hiện extension giả: file '{os.path.basename(filepath)}' "
+                f"thực sự là {true_fmt.upper()} (extension: {ext})"
+            )
+
+    try:
+        img = Image.open(filepath)
+    except _PIL_UnidentifiedImageError:
+        logger.debug(f"[AnimBanner] Pillow không nhận dạng được file: {filepath}")
+        return [filepath]
+    except Exception as e:
+        logger.debug(f"[AnimBanner] Lỗi khi mở file {filepath}: {e}")
+        return [filepath]
+
+    # Kiểm tra có phải ảnh động không
+    try:
+        n_frames = getattr(img, "n_frames", 1)
+    except Exception:
+        n_frames = 1
+
+    if n_frames <= 1:
+        img.close()
+        return [filepath]  # Ảnh tĩnh — không cần xử lý
+
+    logger.info(
+        f"[AnimBanner] Phát hiện ảnh động ({n_frames} frames): "
+        f"{os.path.basename(filepath)}"
+    )
+
+    # ── Bước 1: Tính chỉ số frame sẽ lấy mẫu (Temporal Sampling) ──
+    # Lấy thông tin duration mỗi frame từ metadata (ms)
+    # Pillow lưu duration trong info dict sau khi seek()
+    sampled_indices = []
+    elapsed_ms = 0.0
+    next_sample_ms = 0.0  # Lấy frame đầu tiên luôn
+    frame_durations = []  # Cache duration để không seek lại
+
+    # Pass 1: Thu thập duration của từng frame (seek tuần tự)
+    # Hard-cap: chỉ scan tối đa GIF_MAX_MEMORY_FRAMES đầu
+    scan_limit = min(n_frames, GIF_MAX_MEMORY_FRAMES)
+    for i in range(scan_limit):
+        try:
+            img.seek(i)
+            duration = img.info.get("duration", GIF_SAMPLE_INTERVAL_MS)
+            if duration <= 0:
+                duration = GIF_SAMPLE_INTERVAL_MS
+            frame_durations.append(duration)
+        except EOFError:
+            break
+        except Exception:
+            frame_durations.append(GIF_SAMPLE_INTERVAL_MS)
+
+    # Chọn frame indices dựa trên Temporal Sampling
+    elapsed_ms = 0.0
+    next_sample_ms = 0.0
+    for i, dur in enumerate(frame_durations):
+        if elapsed_ms >= next_sample_ms:
+            sampled_indices.append(i)
+            next_sample_ms = elapsed_ms + GIF_SAMPLE_INTERVAL_MS
+        elapsed_ms += dur
+
+    if not sampled_indices:
+        sampled_indices = [0]  # Fallback: lấy ít nhất frame đầu
+
+    logger.debug(
+        f"[AnimBanner] Temporal Sampling: "
+        f"{len(frame_durations)} frames scanned → "
+        f"{len(sampled_indices)} frames sampled"
+    )
+
+    # ── Bước 2: Extract frame + Sharpness Filter + pHash Dedup ──
+    base = os.path.splitext(filepath)[0]  # VD: logs/.../banner_foo
+    seen_phashes: list[int] = []          # pHash của các frame đã giữ
+    saved_paths: list[str] = []
+
+    for idx in sampled_indices:
+        if len(saved_paths) >= GIF_MAX_UNIQUE_FRAMES:
+            break
+        try:
+            img.seek(idx)
+            # Convert sang RGBA để chuẩn hóa
+            frame = img.convert("RGBA")
+
+            # ─ Sharpness filter: bỏ qua transition/blank frame ─
+            gray = frame.convert("L")
+            lap = gray.filter(_ImageFilter.FIND_EDGES)
+            lap_bytes = lap.tobytes()
+            n_pixels = len(lap_bytes)
+            if n_pixels > 0:
+                mean_lap = sum(lap_bytes) / n_pixels
+                variance = sum((b - mean_lap) ** 2 for b in lap_bytes) / n_pixels
+            else:
+                variance = 0.0
+
+            if variance < GIF_MIN_SHARPNESS:
+                logger.debug(
+                    f"[AnimBanner] Frame {idx}: blur/blank "
+                    f"(var={variance:.0f} < {GIF_MIN_SHARPNESS:.0f}) — bỏ qua."
+                )
+                continue
+
+            # ─ pHash Dedup: bỏ qua frame trông giống frame đã lưu ─
+            ph = _phash(frame)
+            is_dup = any(_hamming(ph, prev) <= GIF_PHASH_DISTANCE for prev in seen_phashes)
+            if is_dup:
+                logger.debug(
+                    f"[AnimBanner] Frame {idx}: pHash gần giống frame đã lưu — bỏ qua."
+                )
+                continue
+
+            seen_phashes.append(ph)
+
+            # Lưu frame vào PNG tạm trước, kiểm tra size tối thiểu
+            frame_path = f"{base}_frame_{len(saved_paths) + 1:03d}.png"
+            frame.save(frame_path, format="PNG", optimize=True)
+            saved_size = os.path.getsize(frame_path)
+            if saved_size < GIF_MIN_FRAME_BYTES:
+                os.remove(frame_path)
+                logger.debug(
+                    f"[AnimBanner] Frame {idx}: PNG quá nhỏ ({saved_size}B) — bỏ qua."
+                )
+                seen_phashes.pop()  # rút lại pHash vì frame bị loại
+                continue
+
+            saved_paths.append(frame_path)
+            logger.debug(
+                f"[AnimBanner] Frame {idx}: SAVED "
+                f"(var={variance:.0f}, pH={ph:016x}) → "
+                f"{os.path.basename(frame_path)}"
+            )
+
+        except EOFError:
+            break
+        except Exception as e:
+            logger.debug(f"[AnimBanner] Lỗi khi extract frame {idx}: {e}")
+            continue
+
+    img.close()
+
+    n_unique = len(saved_paths)
+    logger.info(
+        f"[AnimBanner] ✓ {os.path.basename(filepath)}: "
+        f"{n_frames} tổng / {len(sampled_indices)} mẫu / {n_unique} unique → "
+        f"{n_unique} PNG đã lưu"
+    )
+
+    if not saved_paths:
+        # Không extract được gì (toàn blur hoặc lỗi) → giữ file gốc làm dự phòng
+        return [filepath]
+
+    # Xóa file động gốc sau khi đã extract thành các frame PNG tĩnh
+    # (đảm bảo chỉ xóa khi đã lưu thành công ít nhất 1 frame)
+    try:
+        os.remove(filepath)
+        logger.info(f"[AnimBanner] Ụ Đã xóa file động gốc: {os.path.basename(filepath)}")
+    except OSError as e:
+        logger.debug(f"[AnimBanner] Không xóa được file gốc ({e}): {os.path.basename(filepath)}")
+
+    return saved_paths
+
+
 async def _screenshot_crop_banner(page, entry: dict, save_dir: str) -> str | None:
     """
     Fallback: find the <img> element for a banner by its src URL and
@@ -1621,10 +1914,22 @@ async def collect_banner_images(page, domain: str, evidence_collector: dict) -> 
             local_path = await _screenshot_crop_banner(page, entry, save_dir)
             download_ok = local_path is not None
 
+        # ── Temporal Sampling + MD5 Dedup cho ảnh động (GIF / WEBP) ──
+        # Chạy ngay sau khi download/crop thành công để loại bỏ frame lặp
+        # trước khi bằng chứng được đưa vào pipeline OCR
+        frames: list[str] = []
+        if download_ok and local_path:
+            frames = process_animated_banner(local_path)
+            if len(frames) > 1:
+                # Ảnh động đã được tách thành nhiều frame unique
+                # Dùng frame đầu tiên làm local_path chính để tương thích ngược
+                local_path = frames[0]
+
         banners.append({
             **entry,
-            "local_path": local_path,
+            "local_path":  local_path,
             "download_ok": download_ok,
+            "frames":      frames,  # list các PNG frame unique (rỗng nếu ảnh tĩnh)
         })
 
     ok_count = sum(1 for b in banners if b.get("download_ok"))
