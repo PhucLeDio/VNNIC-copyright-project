@@ -1826,7 +1826,7 @@ async def collect_banner_images(page, domain: str, evidence_collector: dict) -> 
     """
     logger.info("[Phase 5b] Starting banner image collection...")
 
-    safe_domain = re.sub(r'[\\/*?":.<>|]', "_", domain) if domain else "unknown"
+    safe_domain = re.sub(r'[\\/*?:"<>|]', "_", domain) if domain else "unknown"
     save_dir = os.path.join("logs", safe_domain, BANNERS_SUBDIR)
     os.makedirs(save_dir, exist_ok=True)
 
