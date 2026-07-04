@@ -1,48 +1,46 @@
 {
-    "domain_age_days": null,
-    "creation_date": "None",
-    "registrar": null,
-    "is_whois_privacy_active": false,
+    "domain_age_days": 628,
+    "creation_date": "2024-10-13 17:48:55.857000+00:00",
+    "registrar": "DYNADOT LLC",
+    "is_whois_privacy_active": true,
     "tld_info": {
-        "tld": ".id",
+        "tld": ".love",
         "risk": "LOW"
     },
     "redirect_history": [
-        "https://animevietsub.id/",
-        "https://animevietsub.pl/"
+        "https://animevietsub.love/"
     ],
     "redirect_info": {
-        "redirect_depth": 2,
+        "redirect_depth": 1,
         "domains_seen": [
-            "animevietsub.id",
-            "animevietsub.pl"
+            "animevietsub.love"
         ],
-        "domain_hopping": true
+        "domain_hopping": false
     },
     "dns_records": {
         "A": [
-            "104.26.6.35",
-            "172.67.68.161",
-            "104.26.7.35"
+            "172.67.69.87",
+            "104.26.5.130",
+            "104.26.4.130"
         ],
         "AAAA": [
-            "2606:4700:20::681a:623",
-            "2606:4700:20::ac43:44a1",
-            "2606:4700:20::681a:723"
+            "2606:4700:20::ac43:4557",
+            "2606:4700:20::681a:482",
+            "2606:4700:20::681a:582"
         ],
         "NS": [
-            "rustam.ns.cloudflare.com.",
-            "tricia.ns.cloudflare.com."
+            "tricia.ns.cloudflare.com.",
+            "rustam.ns.cloudflare.com."
         ],
         "MX": [],
         "TXT": [
-            "\"google-site-verification=hudFCtdiR5h7NR1TMp4r6kHWwdQsLCbEyr0NDkvgF_0\""
+            "\"google-site-verification=PZGSEaFUC7PFDV0TF6KBS23BJx7W1M3fLovRPgmcppk\""
         ],
         "CNAME": []
     },
     "detected_ns": [
-        "rustam.ns.cloudflare.com.",
-        "tricia.ns.cloudflare.com."
+        "tricia.ns.cloudflare.com.",
+        "rustam.ns.cloudflare.com."
     ],
     "cloudflare_detected": true,
     "cdn_providers": [
@@ -50,7 +48,7 @@
     ],
     "http_headers": {
         "Server": "cloudflare",
-        "CF-Ray": "a14a7d0fac44a3da-SIN",
+        "CF-Ray": "a15dcfcf8e54781d-HKG",
         "CF-Cache-Status": "DYNAMIC",
         "Alt-Svc": "h3=\":443\"; ma=86400"
     },
@@ -71,9 +69,9 @@
     "ns_provider": "CLOUDFLARE",
     "suspicious_hosting": false,
     "resolved_ip": [
-        "172.67.68.161",
-        "104.26.7.35",
-        "104.26.6.35"
+        "172.67.69.87",
+        "104.26.5.130",
+        "104.26.4.130"
     ],
     "asn_info": {
         "asn": "13335",
@@ -88,11 +86,11 @@
         "enterprise_dns": false,
         "total_signals": 2
     },
-    "risk_score": 40,
-    "legitimacy_score": 25,
+    "risk_score": 25,
+    "legitimacy_score": 35,
     "step0": {
-        "input_domain": "https://animevietsub.id/",
-        "normalized_domain": "animevietsub.id",
+        "input_domain": "https://animevietsub.love/",
+        "normalized_domain": "animevietsub.love",
         "in_database": false
     }
 }
