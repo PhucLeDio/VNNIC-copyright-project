@@ -18,6 +18,7 @@ from evidence import (
 from step2 import run_step2
 from step3 import run_content_model
 from ocr_banner import run_ocr_pipeline
+from step4 import run_step4
 
 #################################################
 # CONFIG
@@ -325,6 +326,36 @@ def main():
         print(
             f"\n[ERROR] Không thể lưu file JSON kết quả cuối: {e}"
         )
+
+    #################################################
+    # STEP 4: Gemini API Synthesis
+    #################################################
+
+    print("\n========================")
+    print("STEP 4")
+    print("========================\n")
+
+    gemini_api_key = os.environ.get("GEMINI_API_KEY", "")
+
+    if not gemini_api_key:
+        print(
+            "[WARN] Biến môi trường GEMINI_API_KEY chưa được set.\n"
+            "       Bỏ qua Step 4. Để chạy sau:\n"
+            "         Windows: $env:GEMINI_API_KEY = 'your_key'\n"
+            "         Linux  : export GEMINI_API_KEY='your_key'\n"
+            f"         Sau đó: python step4.py {final_path}"
+        )
+    else:
+        try:
+            run_step4(
+                evidence_buffer,
+                api_key=gemini_api_key,
+                domain=domain,
+                timestamp=timestamp,
+                logs_dir=logs_dir,   # lưu cạnh file _final_
+            )
+        except Exception as e:
+            print(f"\n[ERROR] Step 4 lỗi: {e}")
 
 
 if __name__ == "__main__":

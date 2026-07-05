@@ -1,0 +1,108 @@
+{
+    "domain": "xoilacxtc.tv",
+    "analyzed_at": "2026-07-05 21:01:51",
+    "analyzer": "Gemini/gemini-3.5-flash",
+    "verdict": "VI_PHAM",
+    "confidence": 0.98,
+    "violation_types": [
+        "Cờ bạc"
+    ],
+    "key_signals": [
+        {
+            "signal": "OCR phát hiện nhiều banner quảng cáo cờ bạc với các từ khóa vi phạm như 'đá gà', 'cá cược', 'đặt cược'",
+            "weight": "HIGH"
+        },
+        {
+            "signal": "Mô hình phân tích nội dung và tên miền đánh giá độc hại với xác suất cực cao (lần lượt là 99% và 96.55%)",
+            "weight": "HIGH"
+        },
+        {
+            "signal": "Tên miền mới đăng ký hoạt động (23 ngày), sử dụng dịch vụ ẩn danh WHOIS và Cloudflare để che giấu thông tin",
+            "weight": "MEDIUM"
+        }
+    ],
+    "summary_vi": "Website mới hoạt động được 23 ngày nhưng đã có hành vi vi phạm pháp luật rõ ràng. Hệ thống OCR phát hiện nhiều banner quảng cáo dịch vụ cờ bạc, cá độ trái phép (đá gà, cá cược). Các mô hình AI cũng đánh giá nội dung và tên miền này có độ độc hại cực kỳ cao.",
+    "recommended_action": "BLOCK",
+    "analysis_note": "Trang web có dấu hiệu giả mạo hoặc lợi dụng danh nghĩa trang tin tức/báo chí để lồng ghép, phát tán nội dung quảng cáo cá cược bất hợp pháp.",
+    "supplemental": {
+        "input_domain": "https://xoilacxtc.tv/",
+        "normalized_domain": "xoilacxtc.tv",
+        "resolved_ips": [
+            "104.18.10.162",
+            "104.18.11.162",
+            "2606:4700::6812:aa2",
+            "2606:4700::6812:ba2"
+        ],
+        "asn": {
+            "asn": "13335",
+            "description": "CLOUDFLARENET - Cloudflare, Inc., US",
+            "country": null
+        },
+        "ns_records": [
+            "ignacio.ns.cloudflare.com.",
+            "emily.ns.cloudflare.com."
+        ],
+        "redirect_chain": [
+            "https://xoilacxtc.tv/"
+        ],
+        "registrar": "GoDaddy.com, LLC",
+        "creation_date": "2026-06-11 15:07:09+00:00",
+        "domain_age_days": 23,
+        "cdn_providers": [
+            "cloudflare"
+        ]
+    },
+    "input_summary": {
+        "whitelist_hit": false,
+        "domain_model_label": "Độc hại",
+        "domain_model_prob_mal": 0.9655,
+        "domain_model_flag": "FLAG_DOMAIN_PREDICT_MALICIOUS",
+        "domain_age_days": 23,
+        "registrar": "GoDaddy.com, LLC",
+        "whois_privacy": true,
+        "tld": ".tv",
+        "tld_risk": "MEDIUM",
+        "suspicious_hosting": false,
+        "cloudflare": true,
+        "mail_provider": null,
+        "risk_score": 55,
+        "legitimacy_score": 15,
+        "redirect_cross_domain": 0,
+        "redirect_final_url": null,
+        "streams_found": false,
+        "stream_count": 0,
+        "keyword_hits": [],
+        "external_domains_top5": [],
+        "ocr_banner_count": 27,
+        "ocr_flagged_count": 4,
+        "ocr_has_gambling": true,
+        "ocr_flagged_keywords": [
+            {
+                "tier_hit": 2,
+                "keyword": "đá gà",
+                "field": "Cờ bạc"
+            },
+            {
+                "tier_hit": 2,
+                "keyword": "đá gà",
+                "field": "Cờ bạc"
+            },
+            {
+                "tier_hit": 2,
+                "keyword": "cá cược",
+                "field": "Cờ bạc"
+            },
+            {
+                "tier_hit": 2,
+                "keyword": "đặt cược",
+                "field": "Cờ bạc"
+            }
+        ],
+        "content_label": 1,
+        "content_label_name": "Độc hại",
+        "content_type": "Báo chí",
+        "content_prob_mal": 0.99,
+        "content_seg_malicious": 1,
+        "content_seg_total": 22
+    }
+}
