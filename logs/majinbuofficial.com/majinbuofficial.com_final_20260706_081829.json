@@ -1,0 +1,997 @@
+{
+    "domain_age_days": 788,
+    "creation_date": "2024-05-08 07:53:59+00:00",
+    "registrar": "GoDaddy.com, LLC",
+    "is_whois_privacy_active": false,
+    "tld_info": {
+        "tld": ".com",
+        "risk": "LOW"
+    },
+    "redirect_history": [],
+    "redirect_info": {
+        "redirect_depth": 0,
+        "domains_seen": [],
+        "domain_hopping": false
+    },
+    "dns_records": {
+        "A": [
+            "172.66.43.66",
+            "172.66.40.190"
+        ],
+        "AAAA": [
+            "2606:4700:3108::ac42:2b42",
+            "2606:4700:3108::ac42:28be"
+        ],
+        "NS": [
+            "ignacio.ns.cloudflare.com.",
+            "emily.ns.cloudflare.com."
+        ],
+        "MX": [],
+        "TXT": [],
+        "CNAME": []
+    },
+    "detected_ns": [
+        "ignacio.ns.cloudflare.com.",
+        "emily.ns.cloudflare.com."
+    ],
+    "cloudflare_detected": true,
+    "cdn_providers": [
+        "cloudflare"
+    ],
+    "http_headers": {
+        "Server": "cloudflare",
+        "CF-Ray": "a16ac69088ae715b-HKG",
+        "CF-Cache-Status": "HIT",
+        "X-Powered-By": "WordOps",
+        "Alt-Svc": "h3=\":443\"; ma=86400"
+    },
+    "mx_analysis": {
+        "has_mx": false,
+        "possible_streaming_only_site": true
+    },
+    "mail_provider": null,
+    "txt_analysis": {
+        "google_verification": false,
+        "google_verification_count": 0,
+        "spf_configured": false,
+        "dmarc_configured": false,
+        "microsoft_verification": false,
+        "facebook_verification": false
+    },
+    "cloud_provider": "CLOUDFLARE",
+    "ns_provider": "CLOUDFLARE",
+    "suspicious_hosting": false,
+    "resolved_ip": [
+        "172.66.40.190",
+        "172.66.43.66"
+    ],
+    "asn_info": {
+        "asn": "13335",
+        "asn_description": "CLOUDFLARENET - Cloudflare, Inc., US"
+    },
+    "legitimate_signals": {
+        "official_tld": false,
+        "business_mail": false,
+        "google_verification": false,
+        "spf_configured": false,
+        "major_cloud_provider": true,
+        "enterprise_dns": false,
+        "total_signals": 1
+    },
+    "risk_score": 15,
+    "legitimacy_score": 25,
+    "step0": {
+        "input_domain": "https://majinbuofficial.com/",
+        "normalized_domain": "majinbuofficial.com",
+        "in_database": false,
+        "domain_model": {
+            "label": 1,
+            "label_name": "Độc hại",
+            "prob_safe": 0.0716,
+            "prob_malicious": 0.9284,
+            "features": [
+                19.0,
+                3.471354487013929,
+                0.0,
+                0.0,
+                0.0,
+                2.0,
+                2.0,
+                2.0,
+                0.0,
+                2.0,
+                2.0,
+                300.0
+            ],
+            "flag": "FLAG_DOMAIN_PREDICT_MALICIOUS",
+            "model": "v1_hybrid"
+        }
+    },
+    "step2_evidence": {
+        "target_url": "https://majinbuofficial.com/",
+        "target_domain": "majinbuofficial.com",
+        "timestamp": "2026-07-06T08:18:33.701354",
+        "cloudflare_bypassed": true,
+        "episodes_found_total": 1,
+        "episodes_checked": 1,
+        "popup_blocked_count": 0,
+        "popup_urls": [],
+        "episodes_detail": [
+            {
+                "episode_url": "https://majinbuofficial.com/video/",
+                "streams": [],
+                "iframes": [
+                    {
+                        "iframe_src": "https://majinbuofficial.com/video/",
+                        "source": "frame_tree",
+                        "is_external": false
+                    }
+                ],
+                "screenshot_path": "logs\\majinbuofficial.com\\screenshots\\majinbuofficial.com_ep1_20260706_082022.png"
+            }
+        ],
+        "all_streams": [],
+        "all_iframes": [
+            "https://majinbuofficial.com/video/"
+        ],
+        "footer_analysis": {
+            "has_legal_footer": true,
+            "legal_notice_found": false,
+            "tax_code_found": false,
+            "authority_found": false,
+            "copyright_found": false,
+            "has_structured_identity": true,
+            "is_infinite_scroll": false,
+            "has_telegram_contact": false,
+            "has_ad_contact_only": false,
+            "FOOTER_ANONYMOUS": false,
+            "extraction_method": "none",
+            "meta_info": {
+                "title": "Xoilac TV - Trực tiếp bóng đá Xôi Lạc TV - Link Xoilac365 HD",
+                "og_site_name": "Xoilac365",
+                "meta_copyright": "",
+                "meta_author": "",
+                "has_json_ld": true
+            },
+            "footer_text_snippet": "[META] xoilac tv - trực tiếp bóng đá xôi lạc tv - link xoilac365 hd   xoilac365 {\"@context\":\"http://schema.org\",\"@type\":\"organization\",\"name\":\"xoilac365\",\"alternatename\":[\"xoilac tv\",\"xoilactv\",\"xôi lạc tv\"],\"description\":\"xoilac tv tường thuật trực tiếp bóng đá hôm nay. link xoilac365 chính thức hd, bình luận tiếng việt. cập nhật 24/7 lịch thi đấu, bxh, kết quả bóng đá nhanh nhất.\",\"url\":\"https://majinbuofficial.com/\",\"logo\":\"https://majinbuofficial.com/wp-content/themes/bongda/dist/images/xoilac365.t"
+        },
+        "technical_flags": {
+            "cloudflare_bypassed": true,
+            "is_drm_protected": false,
+            "iframe_detected": true,
+            "stream_intercepted": false,
+            "has_legal_footer": true,
+            "popup_detected": false
+        },
+        "dom_text": "Xoilac TV - Trực tiếp bóng đá Xôi Lạc TV - Link Xoilac365 HD\nHôm nay, 08:00\nMexico\nAnh\nNgày mai, 02:00\nBồ Đào Nha\nTây Ban Nha\nNgày mai, 07:00\nUSA\nBỉ\nHôm nay, 09:00\nTacoma Defiance\nPortland Timbers (R)\nHôm nay, 10:00\nAV Alta\nCharlotte Indep\nHôm nay, 11:00\nFC Ulaanbaatar\nDeren FC\nHôm nay, 14:00\nKhangarid FC\nCentral Stallions\nHôm nay, 15:30\nLanzhou Longyuan U21\nQingdao Red Lions U20\nHôm nay, 19:00\nNữ Kairat Almaty\nNữ Zhetysu\nHôm nay, 21:00\nRotor Volgograd\nAkron Togliatti\nHôm nay, 22:45\nSuduva\nTransinvest\nHôm nay, 23:00\nSuper Nova\nOgre United\nNgày mai, 00:00\nHacken\nDjurgardens\nNgày mai, 00:00\nBrommapojkarna\nGAIS\nNgày mai, 02:15\nKeflavik\nFram Reykjavik\nNgày mai, 04:30\nUniversidad Católica\nMushuc Runa\nNgày mai, 05:00\nVila Nova\nSao Bernardo\nNgày mai, 06:30\nD. Concepcion\nDeportes Temuco\nNgày mai, 06:30\nColo Colo\nDeportes Recoleta\nNgày mai, 07:00\nOrense SC\nTecnico Uni.\nHôm nay, 08:30\nWenzhou Yincai U20\nJiangxi Lushan U20\nHôm nay, 15:30\nLinyi Yihu U20\nShijiazhuang Gongfu U20\nHôm nay, 15:30\nQingdao West Coast U20\nWuhan Towns U21\nHôm nay, 15:30\nYunnan Yukun U20\nLiaoning Tieren U20\nHôm nay, 15:30\nQingdao Hainiu U20\nNantong Zhiyun U20\nHôm nay, 21:00\nPodillya Khmelnytskyi\nBukovyna 2\nHôm nay, 23:30\nFC Schwaig\nJahn Regensburg\nNgày mai, 01:00\nDeportivo Muniz\nDeportivo Espanol\nNgày mai, 01:00\nCentro Espanyol\nMercedes\nNgày mai, 01:00\nSportivo Barracas\nYupanqui\nLive\nLive\nLive\nLive\nLive\nLive\nXoilac365 - Trực tiếp bóng đá Xôi Lạc TV, Link XoilacTV chất lượng cao\nLIVE\n9\nTrận Hot Hot 6\nBLV 365\n53\nHôm nay 25\nNgày mai 58\nTất cả 222\nLIVESCORE\nTất cả giải đấu\nChọn giải đấu\nTất cả giải đấu\n222\nUEFA Champions League\n14\nUEFA Europa Conference\n5\nFIFA World Cup\n6\nArgentine Tebolidun League Group C\n3\nAustralia FFA Cup\n1\nAustralia Queensland Women\n1\nBhutan Premier League\n2\nBRA Campeonato Paulista (Y)\n1\nBrazilian Serie C\n3\nBrazilian Serie D\n1\nCampeonato Brasileiro Sub-20\n4\nCanadian Championship\n3\nCFA Member Association Champions League\n6\nCFA Team China International Tournament\n2\nChilean Cup\n3\nChilean Women Division 1\n3\nCopa de la Liga\n1\nCopa Ecuador\n2\nCopa Rio\n1\nEuropean Women\n2\nFinnish Women Ykkonen\n1\nFinnish Ykkonen\n2\nGiao Hữu CLB\n43\nHạng 2 Brazil\n5\nHạng 2 Ecuador\n1\nHạng 2 Estonia\n1\nHạng 2 Paraguay\n3\nHạng 2 Trung Quốc\n2\nHubei City Football League\n1\nKazakhstan Womens Super League\n1\nMLS Next Pro\n7\nNgoại Hạng Belarus\n1\nNgoại Hạng Mông Cổ\n2\nNSW-N Premier League\n1\nQLD Premier League\n1\nRural Football Super League\n1\nSouth Australia State League 1\n1\nTrung Quốc U-21 League\n7\nUEFA European U-19 Championship\n2\nUruguay Segunda\n1\nUSL Championship\n2\nUSL League One\n3\nUSL League Two\n40\nVĐQG Bolivia\n4\nVĐQG Ecuador\n3\nVĐQG Iceland\n1\nVĐQG Latvia\n1\nVĐQG Lithuania\n1\nVĐQG Nữ Argentine\n7\nVĐQG Thụy Điển\n2\nVenezuela Cup\n10\nFIFA World Cup\nHiệp 1: 21'\n08:00 - 06/07\nMexico\n0 : 0\nAnh\nHT\n0 - 0\n2 - 2\n0 - 1\nHT\n0 - 0\n2 - 2\n0 - 1\nROY\nNICK\nBRADY\n1.10\n0\n0.78\n1.00\n1.5/2\n0.85\nHạng 2 Brazil\nHiệp 2: 89'\n06:30 - 06/07\nNautico (PE)\n0 : 0\nJuventude\nHT\n0 - 0\n5 - 2\n3 - 2\nHT\n0 - 0\n5 - 2\n3 - 2\n0.70\n0\n1.10\n2.90\n0.5\n0.24\nUSL League Two\nHiệp 2: 84'\n06:30 - 06/07\nIronbound SC\n3 : 0\nStaten Island ASC\nHT\n1 - 0\n8 - 3\n1 - 1\nHT\n1 - 0\n8 - 3\n1 - 1\n1.15\n0/0.5\n0.68\n1.38\n3.5\n0.55\nMLS Next Pro\nHiệp 2: 84'\n06:35 - 06/07\nCrown Legacy FC\n1 : 1\nOrlando City B\nHT\n0 - 0\n3 - 4\n1 - 1\nHT\n0 - 0\n3 - 4\n1 - 1\n0.60\n0\n1.30\n1.35\n2.5\n0.58\nMLS Next Pro\nHiệp 2: 57'\n07:00 - 06/07\nHuntsville City\n1 : 2\nChicago Flame B\nHT\n1 - 1\n2 - 1\n0 - 0\nHT\n1 - 1\n2 - 1\n0 - 0\n0.80\n0\n1.00\n0.85\n4/4.5\n0.95\nBrazilian Serie C\nHiệp 2: 62'\n07:00 - 06/07\nAnapolis FC\n0 : 1\nBotafogo PB\nHT\n0 - 0\n0 - 1\n4 - 2\nHT\n0 - 0\n0 - 1\n4 - 2\n0.80\n0\n1.00\n0.85\n1.5/2\n0.95\nChilean Cup\nHiệp 2: 56'\n07:00 - 06/07\nDeportes Limache\n2 : 1\nSan Marcos\nHT\n1 - 1\n6 - 5\n1 - 2\nHT\n1 - 1\n6 - 5\n1 - 2\n0.98\n0.5\n0.83\n0.85\n4/4.5\n0.95\nMLS Next Pro\nHiệp 1: 45+'\n07:30 - 06/07\nAustin FC II\n1 : 0\nColorado Rapids II\nHT\n1 - 0\n2 - 4\n0 - 0\nHT\n1 - 0\n2 - 4\n0 - 0\nPOLO\n0.80\n0/0.5\n1.00\n0.80\n2.5\n1.00\nMLS Next Pro\nHiệp 1: 17'\n08:00 - 06/07\nLos Angeles FC II\n0 : 1\nReal Monarchs\nHT\n0 - 1\n0 - 2\n0 - 0\nHT\n0 - 1\n0 - 2\n0 - 0\nLOGAN\n0.90\n0.5\n0.90\n0.88\n4\n0.93\nTrung Quốc U-21 League\n08:30 - 06/07\nWenzhou Yincai U20\nJiangxi Lushan U20\nHT\n0 - 0\n0 - 0\n0 - 0\nHT\n0 - 0\n0 - 0\n0 - 0\n0.83\n-1.5\n0.98\n0.80\n3\n1.00\nMLS Next Pro\n09:00 - 06/07\nTacoma Defiance\nPortland Timbers (R)\n1 - 0\n2 - 1\n1 - 2\n1 - 0\n2 - 1\n1 - 2\nSILVA\n1.00\n0\n0.80\n0.80\n3\n1.00\nUSL League One\n10:00 - 06/07\nAV Alta\nCharlotte Indep\n3 - 2\n2 - 1\n3 - 2\n2 - 1\nNEMO\n0.95\n0/0.5\n0.85\n0.83\n3\n0.98\nNgoại Hạng Mông Cổ\n11:00 - 06/07\nFC Ulaanbaatar\nDeren FC\n0 - 2\n2 - 0\n1 - 1\n0 - 2\n2 - 0\n1 - 1\nBEE\n0.85\n0\n0.95\n0.90\n4\n0.90\nNgoại Hạng Mông Cổ\n14:00 - 06/07\nKhangarid FC\nCentral Stallions\n2 - 2\n1 - 1\n2 - 1\n2 - 2\n1 - 1\n2 - 1\nLOGAN\n0.95\n0.5\n0.85\n0.98\n3.5/4\n0.83\nTrung Quốc U-21 League\n15:30 - 06/07\nLinyi Yihu U20\nShijiazhuang Gongfu U20\nHT\n0 - 0\n0 - 0\n0 - 0\nHT\n0 - 0\n0 - 0\n0 - 0\n0.98\n0.5\n0.83\n0.83\n3\n0.98\nTrung Quốc U-21 League\n15:30 - 06/07\nQingdao West Coast U20\nWuhan Towns U21\nHT\n0 - 0\n0 - 0\n0 - 0\nHT\n0 - 0\n0 - 0\n0 - 0\n0.98\n0.5/1\n0.83\n1.00\n3.5\n0.80\nTrung Quốc U-21 League\n15:30 - 06/07\nYunnan Yukun U20\nLiaoning Tieren U20\nHT\n0 - 0\n0 - 0\n0 - 0\nHT\n0 - 0\n0 - 0\n0 - 0\n1.00\n1.5\n0.80\n0.93\n3.5/4\n0.88\nTrung Quốc U-21 League\n15:30 - 06/07\nLanzhou Longyuan U21\nQingdao Red Lions U20\nHT\n0 - 0\n0 - 0\n0 - 0\nHT\n0 - 0\n0 - 0\n0 - 0\nHIRO\n0.83\n0.5\n0.98\n0.90\n3/3.5\n0.90\nTrung Quốc U-21 League\n15:30 - 06/07\nQingdao Hainiu U20\nNantong Zhiyun U20\n2 - 2\n2 - 2\n0.78\n0/0.5\n1.03\n0.80\n2.5\n1.00\nKazakhstan Womens Super League\n19:00 - 06/07\nNữ Kairat Almaty\nNữ Zhetysu\n1 - 4\n3 - 1\n1 - 4\n3 - 1\nSILVA\n0.98\n2.5/3\n0.83\n0.83\n4/4.5\n0.98\nXem thêm\nLIVE\n0\nTrận Hot Hot 0\nBLV 365\n19\nHôm nay 14\nNgày mai 32\nTất cả 69\nTất cả giải đấu\nChọn giải đấu\nTất cả giải đấu\n69\nPhilippines MPBL\n10\nAustralia National Basketball League1 Center\n2\nCanada CEBL\n2\nEurope U16 Championship Division C\n2\nFIBA Basketball World Cup Americas Qualifiers\n8\nFIBA Basketball World Cup Asian Qualifiers\n4\nFIBA Basketball World Cup European Qualifiers\n8\nFIBA U16 Women\\'s European Championship Division\n5\nFIBA U20 Women\\'s European Championship Division A\n8\nGuangdong City Basketball League\n2\nNational Women’s Basketball League1 Center\n1\nNBA Summer League\n8\nSuperettan Basket\n1\nWomen National Basketball Association\n8\nFIBA Basketball World Cup Americas Qualifiers\nĐang diễn ra\n07:10 - 06/07\nPanama\nArgentina\nTOMMY\n-\n-\n-\n-\n-\n-\nFIBA Basketball World Cup Asian Qualifiers\n13:00 - 06/07\nTrung Quốc\nĐài Loan\n-\n-\n-\n-\n-\n-\nFIBA Basketball World Cup Asian Qualifiers\n14:00 - 06/07\nNew Zealand\nGuam Island\nSTEP\n-\n-\n-\n-\n-\n-\nPhilippines MPBL\n15:00 - 06/07\nNegros Muscovados\nCebu Classic\n-\n-\n-\n-\n-\n-\nNational Women’s Basketball League1 Center\n16:00 - 06/07\nNữ Woodville Warriors\nNữ Forestville Eagles\n-\n-\n-\n-\n-\n-\nPhilippines MPBL\n17:00 - 06/07\nImus Agimat\nBataan Risers\n-\n-\n-\n-\n-\n-\nPhilippines MPBL\n17:00 - 06/07\nGenSan Warriors\nRizal Xentro Golden\n-\n-\n-\n-\n-\n-\nFIBA Basketball World Cup Asian Qualifiers\n17:30 - 06/07\nHàn Quốc\nNhật Bản\nTOMMY\n-\n-\n-\n-\n-\n-\nFIBA Basketball World Cup Asian Qualifiers\n17:30 - 06/07\nGames for 11th-14th places\nPhilippines\nALAN\n-\n-\n-\n-\n-\n-\nAustralia National Basketball League1 Center\n18:00 - 06/07\nWoodville Warriors\nForestville Eagles\n-\n-\n-\n-\n-\n-\nPhilippines MPBL\n19:00 - 06/07\nPasig City\nMindoro Tamaraws\n-\n-\n-\n-\n-\n-\nFIBA Basketball World Cup European Qualifiers\n22:00 - 06/07\nCH Séc\nEstonia\n-\n-\n-\n-\n-\n-\nFIBA Basketball World Cup European Qualifiers\n23:00 - 06/07\nThổ Nhĩ Kỳ\nThụy Sĩ\nTOMMY\n-\n-\n-\n-\n-\n-\nFIBA Basketball World Cup European Qualifiers\n23:00 - 06/07\nBa Lan\nHà Lan\n-\n-\n-\n-\n-\n-\nFIBA Basketball World Cup European Qualifiers\n00:00 - 07/07\nĐức\nĐảo Síp\nSTEP\n-\n-\n-\n-\n-\n-\nFIBA Basketball World Cup European Qualifiers\n01:00 - 07/07\nSlovenia\nThụy Điển\nALAN\n-\n-\n-\n-\n-\n-\nFIBA Basketball World Cup European Qualifiers\n01:00 - 07/07\nSerbia\nBosnia và Herzegovina\n-\n-\n-\n-\n-\n-\nFIBA Basketball World Cup European Qualifiers\n01:00 - 07/07\nCroatia\nIsrael\n-\n-\n-\n-\n-\n-\nFIBA Basketball World Cup European Qualifiers\n01:30 - 07/07\nPháp\nPhần Lan\n-\n-\n-\n-\n-\n-\nFIBA Basketball World Cup Americas Qualifiers\n04:10 - 07/07\nVenezuela\nFinals\nALAN\n-\n-\n-\n-\n-\n-\nXem thêm\nLIVE\n0\nTrận Hot Hot 0\nBLV 365\n5\nHôm nay 5\nNgày mai 0\nTất cả 5\nTất cả giải đấu\nChọn giải đấu\nTất cả giải đấu\n5\nWimbledon Men Singles\n2\nWimbledon Women Singles\n3\nWimbledon Women Singles\n17:00 - 06/07\nAshlyn Krueger\nMarta Kostyuk\nBảng điểm\nS1\nS2\nS3\nS4\nS5\nAshlyn Krueger\n-\n-\n-\n-\n-\nMarta Kostyuk\n-\n-\n-\n-\n-\nLUCAS\n-\n-\n-\n-\n-\n-\nWimbledon Men Singles\n19:00 - 06/07\nAlex de Minaur\nFlavio Cobolli\nBảng điểm\nS1\nS2\nS3\nS4\nS5\nAlex de Minaur\n-\n-\n-\n-\n-\nFlavio Cobolli\n-\n-\n-\n-\n-\nVIC\n-\n-\n-\n-\n-\n-\nWimbledon Women Singles\n19:30 - 06/07\nJasmine Paolini\nAlexandra Eala\nBảng điểm\nS1\nS2\nS3\nS4\nS5\nJasmine Paolini\n-\n-\n-\n-\n-\nAlexandra Eala\n-\n-\n-\n-\n-\nLUCAS\n-\n-\n-\n-\n-\n-\nWimbledon Women Singles\n20:40 - 06/07\nMadison Keys\nLinda Noskova\nBảng điểm\nS1\nS2\nS3\nS4\nS5\nMadison Keys\n-\n-\n-\n-\n-\nLinda Noskova\n-\n-\n-\n-\n-\nVIC\n-\n-\n-\n-\n-\n-\nWimbledon Men Singles\n22:20 - 06/07\nJiri Lehecka\nAlexander Zverev\nBảng điểm\nS1\nS2\nS3\nS4\nS5\nJiri Lehecka\n-\n-\n-\n-\n-\nAlexander Zverev\n-\n-\n-\n-\n-\nLUCAS\n-\n-\n-\n-\n-\n-\nXem thêm\nLIVE\n0\nTrận Hot Hot 0\nBLV 365\n0\nHôm nay 0\nNgày mai 0\nTất cả 0\nXem thêm\nLIVE\n0\nTrận Hot Hot 0\nBLV 365\n0\nHôm nay 2\nNgày mai 0\nTất cả 2\nTất cả giải đấu\nChọn giải đấu\nTất cả giải đấu\n2\nAsian Championship U18 Women\n2\nAsian Championship U18 Women\n10:00 - 06/07\nNữ Australia U18\nNữ Kyrgyzstan U18\nBảng điểm\nS1\nS2\nS3\nS4\nS5\nNữ Australia U18\n-\n-\n-\n-\n-\nNữ Kyrgyzstan U18\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\nAsian Championship U18 Women\n10:00 - 06/07\nNữ Việt Nam U18\nNữ Mông Cổ U18\nBảng điểm\nS1\nS2\nS3\nS4\nS5\nNữ Việt Nam U18\n-\n-\n-\n-\n-\nNữ Mông Cổ U18\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\nXem thêm\nLIVE\n0\nTrận Hot Hot 0\nBLV 365\n2\nHôm nay 2\nNgày mai 0\nTất cả 2\nTất cả các môn\nChọn môn\nTất cả các môn\n2\nLOL\n2\nDOTA2\n0\nCSGO\n0\nTất cả giải đấu\nChọn giải đấu\nTất cả giải đấu\n2\nMid-Season Invitational 2026\n2\nlol\nMid-Season Invitational 2026\n10:00 - 06/07\nLYON\nBilibili Gaming\n0 - 0\n0 - 0\n0 - 0\n0 - 0\n0 - 0\n0 - 0\nMARTY\n-\n-\n-\n-\n-\n-\nMid-Season Invitational 2026\n15:00 - 06/07\nFURIA Esports\nT1\n0 - 0\n0 - 0\n0 - 0\n0 - 0\n0 - 0\n0 - 0\nMARTY\n-\n-\n-\n-\n-\n-\nGiải đấu\nXem tất cả\nVideo Highlight\nXem tất cả\nBrazil vs Na Uy (03:00 – 06/07)\nParaguay vs Pháp (04:00 – 05/07)\nCanada vs Ma Rốc (00:00 – 05/07)\nColombia vs Ghana (08:30 – 04/07)\nLivescore 7m - Cập nhật Live Score nhanh nhất\nTin thể thao mới nhất\nRoom Bóng Ảo: Nghệ Thuật Giải Mã Và Chiến Thuật Chinh Phục Nhà Cái\nKèo Trên Kèo Dưới Là Gì? Nghệ Thuật Soi Kèo Từ Chuyên Gia\nKèo 1×2 Là Gì? Bí Quyết Giải Mã Kèo Châu Âu Bất Bại\nCá Độ Bóng Đá Có Tính Hiệp Phụ Không? Luật Chơi Chuẩn 2026\nLời giới thiệu\nNội dung chính [hide]\nXoilac365 là gì\nGiới thiệu chi tiết về Xoi Lac TV\nTại sao nên xem trực tiếp bóng đá tại Xoi Lac TV?\nPhát sóng toàn bộ giải bóng đá lớn trên thế giới\nHệ thống link trực tiếp Xoilac365 uy tín, an toàn\nChất lượng truyền tải cao cấp (HD – 4K)\nĐội ngũ bình luận viên chuyên nghiệp, hài hước\nTrải nghiệm không quảng cáo gây phiền nhiễu\nHướng dẫn xem bóng đá tại Xoi Lac TV\nCác tính năng hữu ích khác tại Xoilac365.tv\nDanh sách các trang xem trực tiếp bóng đá uy tín khác\nKết luận\nThông tin liên hệ Xoi Lac TV\nXoilac365 là gì\nXoilac365 (Xoilac TV) là hệ thống phát sóng trực tiếp bóng đá hàng đầu Việt Nam hiện nay. Với sứ mệnh mang đến trải nghiệm đỉnh cao, Xôi Lạc TV cung cấp link xem các giải đấu bóng đá lớn trên thế giới hoàn toàn miễn phí, chất lượng Full HD sắc nét cùng tốc độ tải trang mượt mà.\nXoi Lac TV – Kênh Xôi Lạc TV chính thức\nGiới thiệu chi tiết về Xoi Lac TV\nHiện nay, XoiLac TV tự hào là website xem bóng đá trực tuyến được yêu thích nhất tại Việt Nam với hàng triệu lượt truy cập mỗi ngày. Dù là thương hiệu mới, nhưng nhờ sự đầu tư bài bản về công nghệ và nội dung, XoiLac365 đã nhanh chóng khẳng định vị thế, trở thành điểm đến lý tưởng vượt trội hơn hẳn các trang web phát sóng truyền thống.\n✔️ Kênh trực tiếp bóng đá Xoilac TV 365.\n✔️ Link xem bóng đá trực tuyến Full HD chất lượng cao.\n✔️ Đội ngũ bình luận viên nhiệt huyết, hài hước.\n✔️ Phát sóng tất cả các giải đấu Miễn phí.\nSự phát triển vượt bậc của Xoi Lac TV đến từ việc cam kết mang đến những trận cầu đỉnh cao miễn phí, hình ảnh rõ nét và âm thanh chân thực. Đặc biệt, đội ngũ bình luận tiếng Việt cuốn hút sẽ mang đến cho bạn không khí bóng đá sôi động như đang ngồi trên khán đài.\nChúng tôi không ngừng nâng cấp hệ thống để cung cấp các tính năng hữu ích, giúp người dùng tìm kiếm thông tin nhanh chóng và chính xác nhất.\nXem trực tiếp bóng đá full HD tại Xoilac TV\nTại sao nên xem trực tiếp bóng đá tại Xoi Lac TV?\nNếu bạn đang tìm kiếm địa chỉ uy tín để xem trực tiếp bóng đá hôm nay, Xoilac TV 365 chính là sự lựa chọn hoàn hảo. Dưới đây là những lý do khiến người hâm mộ tin tưởng chúng tôi:\nPhát sóng toàn bộ giải bóng đá lớn trên thế giới\nXoiLac TV đã đầu tư mua bản quyền phát sóng các giải đấu ăn khách nhất hành tinh, bao gồm:\nNgoại Hạng Anh (Premier League)\nUEFA Champion League (Cúp C1)\nEuropa League\nSerie A (Vô địch quốc gia Ý)\nLa Liga (Vô địch quốc gia Tây Ban Nha)\nBundesliga (Vô địch quốc gia Đức)\nLigue 1 (Vô địch quốc gia Pháp)\nWorld Cup, Euro…\nHàng ngày, Xoilac365 cập nhật chi tiết lịch thi đấu để người hâm mộ dễ dàng sắp xếp thời gian theo dõi đội bóng yêu thích.\nLink xem bóng đá trực tuyến hàng đầu khu vực – Xôi Lạc TV\nHệ thống link trực tiếp Xoilac365 uy tín, an toàn\nĐể đảm bảo trải nghiệm người dùng, mỗi trận đấu trên Xôi Lạc 365 đều được cung cấp ít nhất 3 đường link dự phòng, cập nhật trước giờ thi đấu ít nhất 1 tiếng. Nếu link chính gặp sự cố, bạn có thể dễ dàng chuyển sang link mới mà không bị gián đoạn. Chúng tôi cam kết link sạch, không chứa mã độc hay virus.\nChất lượng truyền tải cao cấp (HD – 4K)\nỨng dụng công nghệ truyền tải 4.0, XoiLac TV mang đến trải nghiệm tuyệt vời:\nHình ảnh sắc nét, độ phân giải từ HD trở lên.\nÂm thanh chân thực, sống động như tại sân vận động.\nTương thích tốt trên mọi thiết bị: Điện thoại thông minh (Android/iOS) và máy tính (PC).\nXem mượt mà, không giật lag, không delay.\nĐội ngũ bình luận viên chuyên nghiệp, hài hước\nĐiểm nhấn đặc biệt của Xôi Lạc TV là đội ngũ BLV nổi tiếng như Leo Nát Đô, Giàng A Lử, Captain… với phong cách bình luận hài hước, cuốn hút, mang lại tiếng cười cho người xem. Ngoài ra, tính năng khung chat trực tuyến giúp bạn giao lưu cùng cộng đồng người hâm mộ khác.\nTrải nghiệm không quảng cáo gây phiền nhiễu\nVới phương châm đặt trải nghiệm người dùng lên hàng đầu, Xôi Lạc TV tối ưu hóa các quảng cáo, đảm bảo trận đấu diễn ra thông suốt, không bị ngắt quãng khó chịu.\nHướng dẫn xem bóng đá tại Xoi Lac TV\nGiao diện thân thiện, dễ sử dụng giúp bạn dễ dàng theo dõi trận đấu:\nBước 1: Truy cập vào website chính thức của Xoi Lac TV.\nBước 2: Chọn danh mục “Trang chủ” và tìm trận đấu muốn xem.\nBước 3: Nhấn “Xem ngay” để thưởng thức trận đấu.\nHướng dẫn xem trực tiếp bóng đá tại Xoi Lac TV\nCác tính năng hữu ích khác tại Xoilac365.tv\nBên cạnh trực tiếp bóng đá, Xoi Lac TV còn cung cấp các thông tin hữu ích:\nTin tức bóng đá: Cập nhật tin chuyển nhượng, bên lề sân cỏ nhanh nhất.\nLịch thi đấu: Lịch thi đấu bóng đá hôm nay và ngày mai chính xác.\nBảng xếp hạng: BXH các giải đấu hàng đầu thế giới.\nHighlight bóng đá: Video tổng hợp các bàn thắng đẹp mắt.\nTỷ lệ kèo: Bảng kèo nhà cái chi tiết, chuẩn xác.\nDanh sách các trang xem trực tiếp bóng đá uy tín khác\nBên cạnh Xoilac TV, bạn có thể tham khảo một số trang web chất lượng cao khác như:\nCakhia TV, ChaolongTV, Thuckhuya TV.\n90Phut TV, ThapcamTV, VaoroiTV.\nBanthangTV, MitomTV, BanhkhucTV.\nKết luận\nHãy cùng Xoilac TV hòa mình vào niềm đam mê bóng đá mỗi ngày. Đảm bảo bạn sẽ có những phút giây thư giãn tuyệt vời với chất lượng phát sóng đỉnh cao nhất.\nThông tin liên hệ Xoi Lac TV\nWebsite: https://majinbuofficial.com\nĐịa chỉ: 28 Võ Nguyên Giáp, Dư Hàng Kênh, Lê Chân, Hải Phòng, Việt Nam\nĐiện thoại: 0365285678\nEmail: xoilactvoffical@gmail.com\nSocial: Twitter – Facebook\nHashtag: #Xoilac #XoilacTV #tructiepbongda #XoilacTVOffical\nX\nX\nX\nX\nTrực tiếp\nBXH\nLivescore\nTỷ lệ\nKết quả",
+        "banners": [
+            {
+                "src_url": "https://cdn.lfastcdn.com/2026/04/uknadu8u-1.gif",
+                "alt": "8XBET",
+                "link_href": "https://15.235.211.177/xoilac",
+                "width": 450,
+                "height": 50,
+                "case": "case1_nofollow_link",
+                "local_path": "logs\\majinbuofficial.com\\banners\\1680b7b9e974a8847b88be7a8ba6c88e.gif",
+                "download_ok": true,
+                "frames": [
+                    "logs\\majinbuofficial.com\\banners\\1680b7b9e974a8847b88be7a8ba6c88e_frame_001.png"
+                ]
+            },
+            {
+                "src_url": "https://cdn.lfastcdn.com/2026/04/134dayyrzl.gif",
+                "alt": "8XBET",
+                "link_href": "https://15.235.211.177/xoilac",
+                "width": 1330,
+                "height": 60,
+                "case": "case1_nofollow_link",
+                "local_path": "logs\\majinbuofficial.com\\banners\\5ba6cd9206754a536fefd5de8407908d.gif",
+                "download_ok": true,
+                "frames": [
+                    "logs\\majinbuofficial.com\\banners\\5ba6cd9206754a536fefd5de8407908d_frame_001.png"
+                ]
+            },
+            {
+                "src_url": "https://static.majinbuofficial.com/images/filter/fire.svg",
+                "alt": "Fire",
+                "link_href": "https://majinbuofficial.com/#",
+                "width": 18,
+                "height": 18,
+                "case": "case1_nofollow_link",
+                "local_path": "logs\\majinbuofficial.com\\banners\\08e7681bc7698ec3ad79bd9313cbda91.jpg",
+                "download_ok": true,
+                "frames": [
+                    "logs\\majinbuofficial.com\\banners\\08e7681bc7698ec3ad79bd9313cbda91.jpg"
+                ]
+            },
+            {
+                "src_url": "https://static.majinbuofficial.com/images/filter/mic-2.svg",
+                "alt": "Microphone",
+                "link_href": "https://majinbuofficial.com/#",
+                "width": 18,
+                "height": 18,
+                "case": "case1_nofollow_link",
+                "local_path": "logs\\majinbuofficial.com\\banners\\4967ae587ade34b61ff4eff4f7b835de.jpg",
+                "download_ok": true,
+                "frames": [
+                    "logs\\majinbuofficial.com\\banners\\4967ae587ade34b61ff4eff4f7b835de.jpg"
+                ]
+            },
+            {
+                "src_url": "https://static.majinbuofficial.com/images/filter/calendar.svg",
+                "alt": "Calendar",
+                "link_href": "https://majinbuofficial.com/#",
+                "width": 18,
+                "height": 18,
+                "case": "case1_nofollow_link",
+                "local_path": "logs\\majinbuofficial.com\\banners\\eca1f125f7fa60082241dcda37ff1830.jpg",
+                "download_ok": true,
+                "frames": [
+                    "logs\\majinbuofficial.com\\banners\\eca1f125f7fa60082241dcda37ff1830.jpg"
+                ]
+            },
+            {
+                "src_url": "https://static.majinbuofficial.com/images/filter/all.svg",
+                "alt": "Calendar",
+                "link_href": "https://majinbuofficial.com/#",
+                "width": 18,
+                "height": 18,
+                "case": "case1_nofollow_link",
+                "local_path": "logs\\majinbuofficial.com\\banners\\80bef32e1ba5b08ad562251aad13d751.jpg",
+                "download_ok": true,
+                "frames": [
+                    "logs\\majinbuofficial.com\\banners\\80bef32e1ba5b08ad562251aad13d751.jpg"
+                ]
+            },
+            {
+                "src_url": "https://static.majinbuofficial.com/images/company/21-1.png",
+                "alt": "company",
+                "link_href": "https://15.235.211.177/xoilac",
+                "width": 154,
+                "height": 51,
+                "case": "case1_nofollow_link",
+                "local_path": "logs\\majinbuofficial.com\\banners\\73a706525fff7f24511e7a2a7ec06de5.png",
+                "download_ok": true,
+                "frames": [
+                    "logs\\majinbuofficial.com\\banners\\73a706525fff7f24511e7a2a7ec06de5.png"
+                ]
+            },
+            {
+                "src_url": "https://cdn.majinbuofficial.com/2026/07/photo_2026-07-06_01-56-24-1.jpg",
+                "alt": "Brazil vs Na Uy (03:00 &#8211; 06/07) | Xem lại trận đấu",
+                "link_href": "https://majinbuofficial.com/highlight/brazil-vs-na-uy-0300-06-07/",
+                "width": 800,
+                "height": 551,
+                "case": "case1_nofollow_link",
+                "local_path": "logs\\majinbuofficial.com\\banners\\2cc5689ee90577beee9f9071d561af52.jpg",
+                "download_ok": true,
+                "frames": [
+                    "logs\\majinbuofficial.com\\banners\\2cc5689ee90577beee9f9071d561af52.jpg"
+                ]
+            },
+            {
+                "src_url": "https://cdn.majinbuofficial.com/2026/07/photo_2026-07-05_02-50-54-1.jpg",
+                "alt": "Paraguay vs Pháp (04:00 &#8211; 05/07) | Xem lại trận đấu",
+                "link_href": "https://majinbuofficial.com/highlight/paraguay-vs-phap-0400-05-07/",
+                "width": 800,
+                "height": 538,
+                "case": "case1_nofollow_link",
+                "local_path": "logs\\majinbuofficial.com\\banners\\3ed9281424cb440ecc20855b8356a48e.jpg",
+                "download_ok": true,
+                "frames": [
+                    "logs\\majinbuofficial.com\\banners\\3ed9281424cb440ecc20855b8356a48e.jpg"
+                ]
+            },
+            {
+                "src_url": "https://cdn.majinbuofficial.com/2026/07/photo_2026-07-04_22-50-56-1.jpg",
+                "alt": "Canada vs Ma Rốc (00:00 &#8211; 05/07) | Xem lại trận đấu",
+                "link_href": "https://majinbuofficial.com/highlight/canada-vs-ma-roc-0000-05-07/",
+                "width": 800,
+                "height": 534,
+                "case": "case1_nofollow_link",
+                "local_path": "logs\\majinbuofficial.com\\banners\\90d201edbc2ddd56e75600e8fe5fd5ce.jpg",
+                "download_ok": true,
+                "frames": [
+                    "logs\\majinbuofficial.com\\banners\\90d201edbc2ddd56e75600e8fe5fd5ce.jpg"
+                ]
+            },
+            {
+                "src_url": "https://cdn.majinbuofficial.com/2026/07/Screenshot-2026-07-04-103828.png",
+                "alt": "Colombia vs Ghana (08:30 &#8211; 04/07) | Xem lại trận đấu",
+                "link_href": "https://majinbuofficial.com/highlight/colombia-vs-ghana-0830-04-07/",
+                "width": 711,
+                "height": 469,
+                "case": "case1_nofollow_link",
+                "local_path": "logs\\majinbuofficial.com\\banners\\f7db60b9d43961fa850aa5f13157291a.png",
+                "download_ok": true,
+                "frames": [
+                    "logs\\majinbuofficial.com\\banners\\f7db60b9d43961fa850aa5f13157291a.png"
+                ]
+            },
+            {
+                "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-about.svg",
+                "alt": "",
+                "link_href": "https://about.me/xoilactvoffical/",
+                "width": 50,
+                "height": 50,
+                "case": "case1_nofollow_link",
+                "local_path": null,
+                "download_ok": false,
+                "frames": []
+            },
+            {
+                "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-tumblr.svg",
+                "alt": "",
+                "link_href": "https://www.tumblr.com/xoilactvoffical",
+                "width": 24,
+                "height": 24,
+                "case": "case1_nofollow_link",
+                "local_path": null,
+                "download_ok": false,
+                "frames": []
+            },
+            {
+                "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-trello.svg",
+                "alt": "",
+                "link_href": "https://trello.com/xoilactvoffical/",
+                "width": 24,
+                "height": 24,
+                "case": "case1_nofollow_link",
+                "local_path": "logs\\majinbuofficial.com\\banners\\f8c078e08d9951132dd719227dee3064.jpg",
+                "download_ok": true,
+                "frames": [
+                    "logs\\majinbuofficial.com\\banners\\f8c078e08d9951132dd719227dee3064.jpg"
+                ]
+            },
+            {
+                "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-instagram.svg",
+                "alt": "",
+                "link_href": "https://www.instagram.com/xoilactvoffical/",
+                "width": 24,
+                "height": 24,
+                "case": "case1_nofollow_link",
+                "local_path": "logs\\majinbuofficial.com\\banners\\8e369dd01b62eb029d3924f9f9abd859.jpg",
+                "download_ok": true,
+                "frames": [
+                    "logs\\majinbuofficial.com\\banners\\8e369dd01b62eb029d3924f9f9abd859.jpg"
+                ]
+            },
+            {
+                "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-scoop.svg",
+                "alt": "",
+                "link_href": "https://www.scoop.it/u/xoilactvoffical",
+                "width": 24,
+                "height": 24,
+                "case": "case1_nofollow_link",
+                "local_path": "logs\\majinbuofficial.com\\banners\\a478db0567feb5ae8e15dc1f44292910.jpg",
+                "download_ok": true,
+                "frames": [
+                    "logs\\majinbuofficial.com\\banners\\a478db0567feb5ae8e15dc1f44292910.jpg"
+                ]
+            },
+            {
+                "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-youtube.svg",
+                "alt": "",
+                "link_href": "https://www.youtube.com/@xoilactvoffical/about",
+                "width": 150,
+                "height": 150,
+                "case": "case1_nofollow_link",
+                "local_path": null,
+                "download_ok": false,
+                "frames": []
+            },
+            {
+                "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-issuu.svg",
+                "alt": "",
+                "link_href": "https://issuu.com/xoilactvoffical/",
+                "width": 24,
+                "height": 24,
+                "case": "case1_nofollow_link",
+                "local_path": "logs\\majinbuofficial.com\\banners\\821cabeed168c1ef4fee19332ef303dc.jpg",
+                "download_ok": true,
+                "frames": [
+                    "logs\\majinbuofficial.com\\banners\\821cabeed168c1ef4fee19332ef303dc.jpg"
+                ]
+            },
+            {
+                "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-twitch.svg",
+                "alt": "",
+                "link_href": "https://www.twitch.tv/xoilactvoffical/",
+                "width": 24,
+                "height": 24,
+                "case": "case1_nofollow_link",
+                "local_path": "logs\\majinbuofficial.com\\banners\\adbb0a094a4ea23f2c200596596e3080.jpg",
+                "download_ok": true,
+                "frames": [
+                    "logs\\majinbuofficial.com\\banners\\adbb0a094a4ea23f2c200596596e3080.jpg"
+                ]
+            },
+            {
+                "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-facebook.svg",
+                "alt": "",
+                "link_href": "https://www.facebook.com/xoilactvoffical/",
+                "width": 24,
+                "height": 24,
+                "case": "case1_nofollow_link",
+                "local_path": "logs\\majinbuofficial.com\\banners\\c38435b9912be6ae30d4e32f474fe3cd.jpg",
+                "download_ok": true,
+                "frames": [
+                    "logs\\majinbuofficial.com\\banners\\c38435b9912be6ae30d4e32f474fe3cd.jpg"
+                ]
+            },
+            {
+                "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-twitter.svg",
+                "alt": "",
+                "link_href": "https://twitter.com/xoilactvoffical/",
+                "width": 24,
+                "height": 24,
+                "case": "case1_nofollow_link",
+                "local_path": "logs\\majinbuofficial.com\\banners\\eafe14d36ba48724d0b07ea49d2b20c0.jpg",
+                "download_ok": true,
+                "frames": [
+                    "logs\\majinbuofficial.com\\banners\\eafe14d36ba48724d0b07ea49d2b20c0.jpg"
+                ]
+            },
+            {
+                "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-telegram.svg",
+                "alt": "",
+                "link_href": "https://t.me/s/xoilactvoffical/",
+                "width": 150,
+                "height": 150,
+                "case": "case1_nofollow_link",
+                "local_path": null,
+                "download_ok": false,
+                "frames": []
+            },
+            {
+                "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-tiktok.svg",
+                "alt": "",
+                "link_href": "https://www.tiktok.com/@xoilactvoffical",
+                "width": 150,
+                "height": 150,
+                "case": "case1_nofollow_link",
+                "local_path": null,
+                "download_ok": false,
+                "frames": []
+            },
+            {
+                "src_url": "https://images.dmca.com/Badges/dmca_copyright_protected150b.png?ID=63b93d86-f881-4e6f-99f1-c86ed0aa50d6",
+                "alt": "DMCA.com Protection Status",
+                "link_href": "https://www.dmca.com/Protection/Status.aspx?ID=63b93d86-f881-4e6f-99f1-c86ed0aa50d6",
+                "width": 149,
+                "height": 31,
+                "case": "case1_nofollow_link",
+                "local_path": "logs\\majinbuofficial.com\\banners\\80bff724a3e5c6d151d7e1a6bf4d74ed.png",
+                "download_ok": true,
+                "frames": [
+                    "logs\\majinbuofficial.com\\banners\\80bff724a3e5c6d151d7e1a6bf4d74ed.png"
+                ]
+            },
+            {
+                "src_url": "https://cdn.lfastcdn.com/2026/04/cashfdasj.gif",
+                "alt": "8XBET",
+                "link_href": "https://15.235.211.177/xoilac",
+                "width": 320,
+                "height": 50,
+                "case": "case1_nofollow_link",
+                "local_path": "logs\\majinbuofficial.com\\banners\\6552ec05988de5229111d1c0376a11a1.gif",
+                "download_ok": true,
+                "frames": [
+                    "logs\\majinbuofficial.com\\banners\\6552ec05988de5229111d1c0376a11a1_frame_001.png"
+                ]
+            },
+            {
+                "src_url": "https://majinbuofficial.com/wp-content/uploads/2021/05/xem-truc-tiep-bong-da-full-hd-tai-xoilac-tv.jpg",
+                "alt": "xem-truc-tiep-bong-da-full-hd-tai-xoilac-tv",
+                "link_href": "",
+                "width": 800,
+                "height": 500,
+                "case": "case_ad_url_img",
+                "local_path": null,
+                "download_ok": false,
+                "frames": []
+            },
+            {
+                "src_url": "https://majinbuofficial.com/wp-content/uploads/2021/05/link-xem-bong-da-truc-tuyen-hang-dau-xoi-lac-tv.jpg",
+                "alt": "link-xem-bong-da-truc-tuyen-hang-dau-xoi-lac-tv",
+                "link_href": "",
+                "width": 800,
+                "height": 500,
+                "case": "case_ad_url_img",
+                "local_path": null,
+                "download_ok": false,
+                "frames": []
+            }
+        ],
+        "banner_network_hits": []
+    },
+    "step3_evidence": {
+        "branch1_ocr": {
+            "banner_count": 27,
+            "flagged_count": 4,
+            "has_gambling_banner": true,
+            "results": [
+                {
+                    "path": "logs\\majinbuofficial.com\\banners\\1680b7b9e974a8847b88be7a8ba6c88e.gif",
+                    "src_url": "https://cdn.lfastcdn.com/2026/04/uknadu8u-1.gif",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "8X HOÀN TIỀN 100%6 CUỢc ngaY Bet VÉ CƯỢC ĐẦU TIÊN",
+                    "ocr_norm": "8x hoan tien 100 6 cuoc ngay bet ve cuoc au tien",
+                    "matched": true,
+                    "tier_hit": 2,
+                    "keyword": "đá gà",
+                    "field": "Cờ bạc",
+                    "violation_level": 1,
+                    "score": 75.0,
+                    "score_type": "fuzzy_partial_ratio",
+                    "frames_ocr": [
+                        "8X HOÀN TIỀN 100%6 CUỢc ngaY Bet VÉ CƯỢC ĐẦU TIÊN"
+                    ],
+                    "error": null
+                },
+                {
+                    "path": "logs\\majinbuofficial.com\\banners\\5ba6cd9206754a536fefd5de8407908d.gif",
+                    "src_url": "https://cdn.lfastcdn.com/2026/04/134dayyrzl.gif",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "8Xbet HOÀN TIỀN 100% VÉ CƯỢC ĐẦU TIÊN CƯỢC NGAY",
+                    "ocr_norm": "8xbet hoan tien 100 ve cuoc au tien cuoc ngay",
+                    "matched": true,
+                    "tier_hit": 2,
+                    "keyword": "đá gà",
+                    "field": "Cờ bạc",
+                    "violation_level": 1,
+                    "score": 75.0,
+                    "score_type": "fuzzy_partial_ratio",
+                    "frames_ocr": [
+                        "8Xbet HOÀN TIỀN 100% VÉ CƯỢC ĐẦU TIÊN CƯỢC NGAY"
+                    ],
+                    "error": null
+                },
+                {
+                    "path": "logs\\majinbuofficial.com\\banners\\08e7681bc7698ec3ad79bd9313cbda91.jpg",
+                    "src_url": "https://static.majinbuofficial.com/images/filter/fire.svg",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": null
+                },
+                {
+                    "path": "logs\\majinbuofficial.com\\banners\\4967ae587ade34b61ff4eff4f7b835de.jpg",
+                    "src_url": "https://static.majinbuofficial.com/images/filter/mic-2.svg",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": null
+                },
+                {
+                    "path": "logs\\majinbuofficial.com\\banners\\eca1f125f7fa60082241dcda37ff1830.jpg",
+                    "src_url": "https://static.majinbuofficial.com/images/filter/calendar.svg",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": null
+                },
+                {
+                    "path": "logs\\majinbuofficial.com\\banners\\80bef32e1ba5b08ad562251aad13d751.jpg",
+                    "src_url": "https://static.majinbuofficial.com/images/filter/all.svg",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": null
+                },
+                {
+                    "path": "logs\\majinbuofficial.com\\banners\\73a706525fff7f24511e7a2a7ec06de5.png",
+                    "src_url": "https://static.majinbuofficial.com/images/company/21-1.png",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "BXbet",
+                    "ocr_norm": "bxbet",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [
+                        "BXbet"
+                    ],
+                    "error": null
+                },
+                {
+                    "path": "logs\\majinbuofficial.com\\banners\\2cc5689ee90577beee9f9071d561af52.jpg",
+                    "src_url": "https://cdn.majinbuofficial.com/2026/07/photo_2026-07-06_01-56-24-1.jpg",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": null
+                },
+                {
+                    "path": "logs\\majinbuofficial.com\\banners\\3ed9281424cb440ecc20855b8356a48e.jpg",
+                    "src_url": "https://cdn.majinbuofficial.com/2026/07/photo_2026-07-05_02-50-54-1.jpg",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": null
+                },
+                {
+                    "path": "logs\\majinbuofficial.com\\banners\\90d201edbc2ddd56e75600e8fe5fd5ce.jpg",
+                    "src_url": "https://cdn.majinbuofficial.com/2026/07/photo_2026-07-04_22-50-56-1.jpg",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "De 6 23 2,",
+                    "ocr_norm": "de 6 23 2",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [
+                        "De 6 23 2,"
+                    ],
+                    "error": null
+                },
+                {
+                    "path": "logs\\majinbuofficial.com\\banners\\f7db60b9d43961fa850aa5f13157291a.png",
+                    "src_url": "https://cdn.majinbuofficial.com/2026/07/Screenshot-2026-07-04-103828.png",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "1 Ju 2",
+                    "ocr_norm": "1 ju 2",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [
+                        "1 Ju 2"
+                    ],
+                    "error": null
+                },
+                {
+                    "path": null,
+                    "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-about.svg",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": "Không có file ảnh hợp lệ để OCR"
+                },
+                {
+                    "path": null,
+                    "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-tumblr.svg",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": "Không có file ảnh hợp lệ để OCR"
+                },
+                {
+                    "path": "logs\\majinbuofficial.com\\banners\\f8c078e08d9951132dd719227dee3064.jpg",
+                    "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-trello.svg",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": null
+                },
+                {
+                    "path": "logs\\majinbuofficial.com\\banners\\8e369dd01b62eb029d3924f9f9abd859.jpg",
+                    "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-instagram.svg",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": null
+                },
+                {
+                    "path": "logs\\majinbuofficial.com\\banners\\a478db0567feb5ae8e15dc1f44292910.jpg",
+                    "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-scoop.svg",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": null
+                },
+                {
+                    "path": null,
+                    "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-youtube.svg",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": "Không có file ảnh hợp lệ để OCR"
+                },
+                {
+                    "path": "logs\\majinbuofficial.com\\banners\\821cabeed168c1ef4fee19332ef303dc.jpg",
+                    "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-issuu.svg",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": null
+                },
+                {
+                    "path": "logs\\majinbuofficial.com\\banners\\adbb0a094a4ea23f2c200596596e3080.jpg",
+                    "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-twitch.svg",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": null
+                },
+                {
+                    "path": "logs\\majinbuofficial.com\\banners\\c38435b9912be6ae30d4e32f474fe3cd.jpg",
+                    "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-facebook.svg",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": null
+                },
+                {
+                    "path": "logs\\majinbuofficial.com\\banners\\eafe14d36ba48724d0b07ea49d2b20c0.jpg",
+                    "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-twitter.svg",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": null
+                },
+                {
+                    "path": null,
+                    "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-telegram.svg",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": "Không có file ảnh hợp lệ để OCR"
+                },
+                {
+                    "path": null,
+                    "src_url": "https://majinbuofficial.com/wp-content/themes/bongda/dist/images/icon-tiktok.svg",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": "Không có file ảnh hợp lệ để OCR"
+                },
+                {
+                    "path": "logs\\majinbuofficial.com\\banners\\80bff724a3e5c6d151d7e1a6bf4d74ed.png",
+                    "src_url": "https://images.dmca.com/Badges/dmca_copyright_protected150b.png?ID=63b93d86-f881-4e6f-99f1-c86ed0aa50d6",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "CoTcD DMCA-com",
+                    "ocr_norm": "cotcd dmca com",
+                    "matched": true,
+                    "tier_hit": 2,
+                    "keyword": "cá cược",
+                    "field": "Cờ bạc",
+                    "violation_level": 1,
+                    "score": 76.92307692307692,
+                    "score_type": "fuzzy_partial_ratio",
+                    "frames_ocr": [
+                        "CoTcD DMCA-com"
+                    ],
+                    "error": null
+                },
+                {
+                    "path": "logs\\majinbuofficial.com\\banners\\6552ec05988de5229111d1c0376a11a1.gif",
+                    "src_url": "https://cdn.lfastcdn.com/2026/04/cashfdasj.gif",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "8x HOAN TIỀN 100 VÉ CƯỢC ĐẦU TIẼN Bet CuoC ncay",
+                    "ocr_norm": "8x hoan tien 100 ve cuoc au tien bet cuoc ncay",
+                    "matched": true,
+                    "tier_hit": 2,
+                    "keyword": "đặt cược",
+                    "field": "Cờ bạc",
+                    "violation_level": 1,
+                    "score": 85.71428571428572,
+                    "score_type": "fuzzy_partial_ratio",
+                    "frames_ocr": [
+                        "8x HOAN TIỀN 100 VÉ CƯỢC ĐẦU TIẼN Bet CuoC ncay"
+                    ],
+                    "error": null
+                },
+                {
+                    "path": null,
+                    "src_url": "https://majinbuofficial.com/wp-content/uploads/2021/05/xem-truc-tiep-bong-da-full-hd-tai-xoilac-tv.jpg",
+                    "case": "case_ad_url_img",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": "Không có file ảnh hợp lệ để OCR"
+                },
+                {
+                    "path": null,
+                    "src_url": "https://majinbuofficial.com/wp-content/uploads/2021/05/link-xem-bong-da-truc-tuyen-hang-dau-xoi-lac-tv.jpg",
+                    "case": "case_ad_url_img",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": "Không có file ảnh hợp lệ để OCR"
+                }
+            ]
+        },
+        "branch2_content_model": {
+            "final_label": 1,
+            "final_label_name": "Độc hại",
+            "final_type": 0,
+            "final_type_name": "Báo chí",
+            "max_malicious_prob": 0.9856,
+            "malicious_segment_count": 1,
+            "total_segments": 16,
+            "segment_results": [
+                {
+                    "label": 1,
+                    "label_name": "Độc hại",
+                    "prob_safe": 0.01435212604701519,
+                    "prob_malicious": 0.9856479167938232,
+                    "type": 0,
+                    "type_name": "Báo chí",
+                    "type_probs": [
+                        0.5408506989479065,
+                        0.015634384006261826,
+                        0.07696615904569626,
+                        0.011869839392602444,
+                        0.09252361953258514,
+                        0.07946424931287766,
+                        0.011966224759817123,
+                        0.10319818556308746,
+                        0.01700989529490471,
+                        0.05051681771874428
+                    ],
+                    "segment_index": 0,
+                    "segment_preview": "Xoilac TV - Trực tiếp bóng đá Xôi Lạc TV - Link Xoilac365 HD Hôm nay , 08 : 00 Mexico Anh Ngày mai ,..."
+                }
+            ],
+            "model": "v2_multitask"
+        }
+    }
+}

@@ -1,9 +1,14 @@
 # main.py
 
+import sys
 import json
 import os
 import re
 from datetime import datetime
+
+# Fix Unicode output trên Windows terminal (cp1252 không hỗ trợ tiếng Việt)
+sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+sys.stderr.reconfigure(encoding='utf-8', errors='replace')
 
 from step0 import (
     normalize_domain,

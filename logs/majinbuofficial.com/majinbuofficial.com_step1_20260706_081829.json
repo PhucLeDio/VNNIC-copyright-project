@@ -1,30 +1,26 @@
 {
-    "domain_age_days": 23,
-    "creation_date": "2026-06-11 15:07:09+00:00",
+    "domain_age_days": 788,
+    "creation_date": "2024-05-08 07:53:59+00:00",
     "registrar": "GoDaddy.com, LLC",
-    "is_whois_privacy_active": true,
+    "is_whois_privacy_active": false,
     "tld_info": {
-        "tld": ".tv",
-        "risk": "MEDIUM"
+        "tld": ".com",
+        "risk": "LOW"
     },
-    "redirect_history": [
-        "https://xoilacxtc.tv/"
-    ],
+    "redirect_history": [],
     "redirect_info": {
-        "redirect_depth": 1,
-        "domains_seen": [
-            "xoilacxtc.tv"
-        ],
+        "redirect_depth": 0,
+        "domains_seen": [],
         "domain_hopping": false
     },
     "dns_records": {
         "A": [
-            "104.18.10.162",
-            "104.18.11.162"
+            "172.66.43.66",
+            "172.66.40.190"
         ],
         "AAAA": [
-            "2606:4700::6812:ba2",
-            "2606:4700::6812:aa2"
+            "2606:4700:3108::ac42:2b42",
+            "2606:4700:3108::ac42:28be"
         ],
         "NS": [
             "ignacio.ns.cloudflare.com.",
@@ -44,9 +40,10 @@
     ],
     "http_headers": {
         "Server": "cloudflare",
-        "CF-Ray": "a166e3ce6e0ba67c-HKG",
+        "CF-Ray": "a16ac69088ae715b-HKG",
         "CF-Cache-Status": "HIT",
-        "X-Powered-By": "WordOps"
+        "X-Powered-By": "WordOps",
+        "Alt-Svc": "h3=\":443\"; ma=86400"
     },
     "mx_analysis": {
         "has_mx": false,
@@ -65,10 +62,8 @@
     "ns_provider": "CLOUDFLARE",
     "suspicious_hosting": false,
     "resolved_ip": [
-        "104.18.10.162",
-        "104.18.11.162",
-        "2606:4700::6812:aa2",
-        "2606:4700::6812:ba2"
+        "172.66.40.190",
+        "172.66.43.66"
     ],
     "asn_info": {
         "asn": "13335",
@@ -83,11 +78,11 @@
         "enterprise_dns": false,
         "total_signals": 1
     },
-    "risk_score": 55,
-    "legitimacy_score": 15,
+    "risk_score": 15,
+    "legitimacy_score": 25,
     "step0": {
-        "input_domain": "https://xoilacxtc.tv/",
-        "normalized_domain": "xoilacxtc.tv",
+        "input_domain": "https://majinbuofficial.com/",
+        "normalized_domain": "majinbuofficial.com",
         "in_database": false
     }
 }

@@ -1,0 +1,93 @@
+{
+    "domain_age_days": 1142,
+    "creation_date": "2023-05-20 12:50:27+00:00",
+    "registrar": "GoDaddy.com, LLC",
+    "is_whois_privacy_active": true,
+    "tld_info": {
+        "tld": ".io",
+        "risk": "LOW"
+    },
+    "redirect_history": [
+        "https://sales-tracker.io/"
+    ],
+    "redirect_info": {
+        "redirect_depth": 1,
+        "domains_seen": [
+            "sales-tracker.io"
+        ],
+        "domain_hopping": false
+    },
+    "dns_records": {
+        "A": [
+            "104.21.48.71",
+            "172.67.181.50"
+        ],
+        "AAAA": [
+            "2606:4700:3030::ac43:b532",
+            "2606:4700:3034::6815:3047"
+        ],
+        "NS": [
+            "aron.ns.cloudflare.com.",
+            "theo.ns.cloudflare.com."
+        ],
+        "MX": [],
+        "TXT": [
+            "\"google-site-verification=O5q2V7agSwVQ-Y1Zr8TdzkozMqyIj5ZE3F4TmquYspI\""
+        ],
+        "CNAME": []
+    },
+    "detected_ns": [
+        "aron.ns.cloudflare.com.",
+        "theo.ns.cloudflare.com."
+    ],
+    "cloudflare_detected": true,
+    "cdn_providers": [
+        "cloudflare"
+    ],
+    "http_headers": {
+        "Server": "cloudflare",
+        "CF-Ray": "a16b1d4fb9418582-HKG",
+        "CF-Cache-Status": "HIT",
+        "Alt-Svc": "h3=\":443\"; ma=86400"
+    },
+    "mx_analysis": {
+        "has_mx": false,
+        "possible_streaming_only_site": true
+    },
+    "mail_provider": null,
+    "txt_analysis": {
+        "google_verification": true,
+        "google_verification_count": 1,
+        "spf_configured": false,
+        "dmarc_configured": false,
+        "microsoft_verification": false,
+        "facebook_verification": false
+    },
+    "cloud_provider": "CLOUDFLARE",
+    "ns_provider": "CLOUDFLARE",
+    "suspicious_hosting": false,
+    "resolved_ip": [
+        "172.67.181.50",
+        "104.21.48.71"
+    ],
+    "asn_info": {
+        "asn": "13335",
+        "asn_description": "CLOUDFLARENET - Cloudflare, Inc., US"
+    },
+    "legitimate_signals": {
+        "official_tld": false,
+        "business_mail": false,
+        "google_verification": true,
+        "spf_configured": false,
+        "major_cloud_provider": true,
+        "enterprise_dns": false,
+        "total_signals": 2
+    },
+    "risk_score": 25,
+    "legitimacy_score": 35,
+    "step0": {
+        "input_domain": "https://sales-tracker.io/",
+        "normalized_domain": "sales-tracker.io",
+        "in_database": false
+    }
+}

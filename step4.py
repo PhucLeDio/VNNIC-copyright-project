@@ -23,11 +23,16 @@ import sys
 from datetime import datetime
 from dotenv import load_dotenv
 
+# Fix Unicode output trên Windows terminal
+sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+
+
 # ==============================================================================
 # CONFIG
 # ==============================================================================
 
-GEMINI_MODEL   = "gemini-3.5-flash"
+GEMINI_MODEL   = "gemini-2.5-flash"
 REPORT_DIR     = "report"
 
 # Các trường OCR giữ lại (chỉ banner đã matched)
@@ -89,6 +94,43 @@ def build_slim_payload(final_json: dict) -> dict:
     ext_domains = step2.get("external_resource_domains", [])
     slim["external_domains_top5"]= ext_domains[:5] if ext_domains else []
 
+    # Footer pháp lý (Lớp 1 — L1)
+    footer = step2.get("footer_analysis", {})
+    slim["footer_legal"] = {
+        "has_legal_footer":        footer.get("has_legal_footer"),
+        "tax_code_found":          footer.get("tax_code_found"),
+        "authority_found":         footer.get("authority_found"),
+        "legal_notice_found":      footer.get("legal_notice_found"),
+        "footer_anonymous":        footer.get("FOOTER_ANONYMOUS"),
+        "has_telegram_contact":    footer.get("has_telegram_contact"),
+        "has_ad_contact_only":     footer.get("has_ad_contact_only"),
+        # Tiêu đề trang — phát hiện giả mạo thương hiệu
+        "page_title":              (footer.get("meta_info") or {}).get("title"),
+    }
+
+    # Technical flags (Lớp 4 — L4)
+    tech_flags = step2.get("technical_flags", {})
+    slim["tech_flags"] = {
+        "is_drm_protected":     tech_flags.get("is_drm_protected"),
+        "stream_intercepted":   tech_flags.get("stream_intercepted"),
+        "iframe_detected":      tech_flags.get("iframe_detected"),
+        "popup_detected":       tech_flags.get("popup_detected"),
+    }
+    # Legitimate signals tổng hợp (Step 1)
+    leg = final_json.get("legitimate_signals", {})
+    slim["legitimate_signals"] = {
+        "official_tld":        leg.get("official_tld"),
+        "business_mail":       leg.get("business_mail"),
+        "google_verification": leg.get("google_verification"),
+        "spf_configured":      leg.get("spf_configured"),
+        "total_signals":       leg.get("total_signals"),
+    }
+
+    # MX Analysis — site không có email doanh nghiệp → dấu hiệu streaming lậu
+    mx = final_json.get("mx_analysis", {})
+    slim["mx_streaming_only"]    = mx.get("possible_streaming_only_site", False)
+    slim["has_business_mail"]    = mx.get("has_mx", False)
+
     # ── Step 3 Branch 1: OCR Banner Engine ───────────────────────────────────
     branch1 = (final_json.get("step3_evidence") or {}).get("branch1_ocr", {})
     slim["ocr_banner_count"]     = branch1.get("banner_count", 0)
@@ -121,24 +163,55 @@ def build_slim_payload(final_json: dict) -> dict:
 # 2. PROMPT BUILDER — Tối ưu token
 # ==============================================================================
 
-SYSTEM_PROMPT = """Bạn là chuyên gia phân tích vi phạm bản quyền và nội dung độc hại trên internet tại Việt Nam, làm việc cho VNNIC.
+SYSTEM_PROMPT = """Bạn là chuyên gia phân tích vi phạm sở hữu trí tuệ (SHTT) trên internet tại Việt Nam, làm việc cho VNNIC.
 
-Nhiệm vụ: Phân tích các signals kỹ thuật từ hệ thống tự động và đưa ra kết luận về mức độ vi phạm của website.
+Nhiệm vụ: Phân tích signals kỹ thuật từ hệ thống tự động và đưa ra kết luận vi phạm bản quyền/SHTT.
 
-Quy tắc phán quyết:
-- VI_PHAM: Có bằng chứng rõ ràng (OCR phát hiện banner cờ bạc/18+, Content Model độc hại, stream lậu)
-- NGHI_NGO: Có một số dấu hiệu nhưng chưa đủ kết luận (domain mới, hosting đáng ngờ, nhưng không có nội dung vi phạm trực tiếp)
-- AN_TOAN: Không có dấu hiệu vi phạm
+════════════════════════════════════════
+KHUNG ĐỐI CHIẾU DẤU HIỆU VI PHẠM SHTT
+(Nguồn: Hệ thống tiêu chí VNNIC)
+========================================
+
+LỚP 1 — Định danh & Pháp lý:
+  [VP] Ẩn danh WHOIS (WHOIS Privacy bật); thông tin Footer chỉ có Telegram/Skype/Gmail rác; không có MST, giấy phép ICP/MXH.
+  [OK] Thông tin chủ sở hữu công khai, trùng khớp doanh nghiệp Việt Nam; Footer đầy đủ Giấy phép, MST, địa chỉ.
+
+LỚP 2 — Hạ tầng kỹ thuật:
+  [VP] TLD lạ/rủi ro cao (.to, .cc, .xyz, .top, .club); thay đổi domain liên tục (thêm số/ký tự); dùng Cloudflare miễn phí/ẩn danh để che IP thực; redirect nhiều lần sang domain khác; domain mới < 90 ngày.
+  [OK] TLD quốc gia .vn/.com.vn hoặc .com ổn định; hosting doanh nghiệp rõ ràng (Akamai, AWS, VNPT, Viettel).
+
+LỚP 3 — Mô hình doanh thu:
+  [VP] 100% banner nhà cái cá độ, game bài đổi thưởng (W88, Fun88, Kubet, Debet, 8xbet...); thanh toán qua thẻ cào/ví rác/crypto; pop-under tự động dẫn về trang đánh bạc.
+  [OK] Quảng cáo programmatic sạch (Google Ads, brand chính thống); cổng thanh toán được NHNN cấp phép (Napas, VNPAY, MoMo).
+
+LỚP 4 — Tính chất nội dung (theo lĩnh vực):
+  Phim ảnh [VP]: Bản CAM quay lén; Vietsub tự dịch; phim đang chiếu rạp; không có DRM; link .m3u8/.mp4 bắt được dễ dàng.
+  Bóng đá [VP]: Thu trộm tín hiệu K+/TV360/FPT Play; đè logo trang lậu (Xoilac, Thapcam); bình luận viên mạng dùng tục.
+  Game [VP]: Bản Crack/Mod/APK cài ngoài; Private Server; hướng dẫn tắt antivirus.
+  Cờ bạc [VP]: Trực tiếp: banner đá gà, cá cược, đặt cược, slot machine, bắn cá.
+
+========================================
+QUY TẮC PHÁN QUYẾT
+========================================
+- VI_PHAM: Có bằng chứng rõ ràng ở LỚP 3 hoặc LỚP 4 (nội dung vi phạm trực tiếp)
+- NGHI_NGO: Chỉ có dấu hiệu LỚP 1 + LỚP 2 (hạ tầng/định danh đáng ngờ) nhưng chưa có nội dung vi phạm trực tiếp
+- AN_TOAN: Không có dấu hiệu vi phạm ở cả 4 lớp
 
 Trả về CHÍNH XÁC JSON schema sau, không có text thừa:
 {
   "verdict": "VI_PHAM|NGHI_NGO|AN_TOAN",
   "confidence": <float 0.0-1.0>,
-  "violation_types": [<danh sách loại vi phạm, ví dụ: "Cờ bạc", "18+", "Stream lậu", "Phishing">],
+  "violation_types": [<ví dụ: "Cờ bạc", "Stream lậu", "Phim lậu", "Game crack", "Phishing">],
+  "matched_criteria": {
+    "lop1_phaplý": <true|false>,
+    "lop2_hatang": <true|false>,
+    "lop3_doanhthu": <true|false>,
+    "lop4_noidung": <true|false>
+  },
   "key_signals": [
-    {"signal": "<mô tả ngắn>", "weight": "HIGH|MEDIUM|LOW"}
+    {"signal": "<mô tả ngắn>", "weight": "HIGH|MEDIUM|LOW", "layer": "L1|L2|L3|L4"}
   ],
-  "summary_vi": "<tóm tắt 2-3 câu bằng tiếng Việt>",
+  "summary_vi": "<tóm tắt 1-2 câu ngắn bằng tiếng Việt>",
   "recommended_action": "BLOCK|INVESTIGATE|MONITOR|WHITELIST",
   "analysis_note": "<ghi chú bất thường nếu có, hoặc null>"
 }"""
@@ -163,6 +236,7 @@ def _clean_json_text(raw: str) -> str:
     CHỈ gọi khi parse trực tiếp đã thất bại.
     - Bỏ markdown code block (```json ... ```)
     - Bỏ trailing comma trước } hoặc ]
+    - Bỏ “orphan text” bị lặp lại sau string value (hallucination của LLM)
     KHÔNG xóa // vì có thể nằm trong string value (URL, text...)
     """
     # 1. Bỏ markdown fence nếu có
@@ -172,7 +246,57 @@ def _clean_json_text(raw: str) -> str:
     # 2. Bỏ trailing comma trước } hoặc ] (JSON không cho phép)
     raw = re.sub(r",\s*([}\]])", r"\1", raw)
 
+    # 3. Xóa “orphan text”: văn bản rác bị lặp sau khi đóng string value
+    #    Pattern điển hình (hallucination): "...rõ ràng."\nràng."\n}
+    #    Regex: sau dấu ” đóng, nếu dòng tiếp theo là text không phải key:value / [ / ]
+    #    thì xóa dòng đó đi
+    raw = re.sub(
+        r'("[^"\n]*")\s*\n\s*[\w\u00C0-\u024F\u1E00-\u1EFF][^":,{\[\]\n]*"?\s*(?=\n\s*[}\]])',
+        r'\1',
+        raw
+    )
+
     return raw.strip()
+
+
+def _recover_truncated_json(raw: str) -> str:
+    """
+    Cố gắng khắc phục JSON bị cắt ngang (Unterminated string / token limit).
+    Đóng string hiện tại, rồi đóng các array/object chưa được đóng.
+    """
+    depth = 0
+    in_string = False
+    escape = False
+    for ch in raw:
+        if escape:
+            escape = False
+            continue
+        if ch == '\\':
+            escape = True
+            continue
+        if ch == '"':
+            in_string = not in_string
+        elif not in_string:
+            if ch in ('{', '['):
+                depth += 1
+            elif ch in ('}', ']'):
+                depth -= 1
+
+    recovery = raw.rstrip()
+    if in_string:
+        # Đóng string đang hở, thêm dấu ... để biểu thị bị cắt
+        recovery += '...(bị cắt)"'
+
+    # Đóng các mức lồng nhau còn lại
+    while depth > 0:
+        last = recovery.rstrip()
+        if last.endswith('[') or last.endswith(','):
+            recovery = last.rstrip(',') + ']'
+        else:
+            recovery += '}'
+        depth -= 1
+
+    return recovery
 
 
 def call_gemini(slim: dict, api_key: str) -> dict:
@@ -210,7 +334,7 @@ def call_gemini(slim: dict, api_key: str) -> dict:
                 system_instruction=SYSTEM_PROMPT,
                 response_mime_type="application/json",
                 temperature=0.1,
-                max_output_tokens=2048,
+                max_output_tokens=3072,
             ),
         )
         raw_text = response.text.strip()
@@ -237,6 +361,24 @@ def call_gemini(slim: dict, api_key: str) -> dict:
             return json.loads(match.group(0))
         except json.JSONDecodeError:
             pass
+
+    # Lớp 4: json5 — parse liệt khoá hơn, xử lý được nhiều kiểu LLM output xấu
+    try:
+        import json5
+        return json5.loads(cleaned)
+    except Exception:
+        pass
+
+    # Lớp 5: recovery — đóng JSON bị cắt ngang do token limit
+    try:
+        recovered = _recover_truncated_json(cleaned)
+        result = json.loads(recovered)
+        # Đánh dấu response bị cắt để caller biết
+        result.setdefault("_truncated", True)
+        print("[WARNING] Gemini response bị cắt ngang (token limit). Đã phục hồi một phần.")
+        return result
+    except Exception:
+        pass
 
     # Thất bại hoàn toàn — log đầy đủ để debug
     try:
