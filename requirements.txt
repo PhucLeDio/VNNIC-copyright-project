@@ -6,3 +6,12 @@ ipwhois
 tldextract
 beautifulsoup4
 playwright
+
+# ── OCR Banner Pipeline (3-tier cascade) ──
+easyocr                    # Tầng 0: OCR đọc text từ banner image
+rapidfuzz                  # Tầng 2: Fuzzy string matching (Levenshtein)
+sentence-transformers      # Tầng 3: Semantic embedding (cosine similarity)
+numpy                      # Tầng 3: Dot product cho cosine similarity
+
+# ── Step 4: Gemini API Synthesis ──
+google-genai               # Gemini API client (SDK mới, thay thế google-generativeai)

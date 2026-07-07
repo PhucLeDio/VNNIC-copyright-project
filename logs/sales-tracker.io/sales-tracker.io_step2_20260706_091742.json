@@ -1,0 +1,942 @@
+{
+    "target_url": "https://sales-tracker.io/",
+    "target_domain": "sales-tracker.io",
+    "timestamp": "2026-07-06T09:17:45.033035",
+    "cloudflare_bypassed": true,
+    "episodes_found_total": 20,
+    "episodes_checked": 3,
+    "popup_blocked_count": 0,
+    "popup_urls": [],
+    "episodes_detail": [
+        {
+            "episode_url": "https://sales-tracker.io/truc-tiep/khangarid-klub-vs-central-stallions-luc-1400-ngay-06-07-2026-l6kegi85gd4cv75?houseId=87547578",
+            "streams": [
+                {
+                    "url": "https://live05.meung.app/live/08552895.m3u8",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://live05.meung.app/live/08552895-1783299009.ts?txspiseq=101662232976090050532",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://live05.koepgd.app/live/87547578.m3u8",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://video.gvvsb.com/hls/output_v1.m3u8",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://video.gvvsb.com/hls/output_v10.ts",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://video.gvvsb.com/hls/output_v11.ts",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://video.gvvsb.com/hls/output_v12.ts",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://video.gvvsb.com/hls/output_v13.ts",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://video.gvvsb.com/hls/output_v14.ts",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://video.gvvsb.com/hls/output_v15.ts",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://video.gvvsb.com/hls/output_v16.ts",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://video.gvvsb.com/hls/output_v17.ts",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://video.gvvsb.com/hls/output_v18.ts",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://video.gvvsb.com/hls/output_v19.ts",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                }
+            ],
+            "iframes": [
+                {
+                    "iframe_src": "https://sales-tracker.io/truc-tiep/khangarid-klub-vs-central-stallions-luc-1400-ngay-06-07-2026-l6kegi85gd4cv75?houseId=87547578",
+                    "source": "frame_tree",
+                    "is_external": false
+                },
+                {
+                    "iframe_src": "https://tv.trackervsb.live/vi/3d/football?profile=lzmp1hd71udukm6&uuid=l6kegi85gd4cv75",
+                    "source": "frame_tree",
+                    "is_external": true
+                },
+                {
+                    "iframe_src": "chrome-error://chromewebdata/",
+                    "source": "frame_tree",
+                    "is_external": true
+                },
+                {
+                    "iframe_src": "https://donghua.jmsec.app/anime/animation/#/vi/3d/football?profile=74rekh26eseunr0&showTrend=false&id=4565847",
+                    "source": "dom_query",
+                    "is_external": true,
+                    "dimensions": "x"
+                }
+            ],
+            "screenshot_path": "logs\\sales-tracker.io\\screenshots\\sales-tracker.io_ep1_20260706_091844.png",
+            "banner_network_hits": [
+                {
+                    "url": "https://sales-tracker.io/wp-content/uploads/2025/05/logo_xoilactv_header_cut.png",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://cdn.sales-tracker.io/wp-content/themes/cakhiatv/assets/images/hamburger.svg",
+                    "content_type": "image/svg+xml"
+                },
+                {
+                    "url": "https://sales-tracker.io/assets/images/dp_goal.svg",
+                    "content_type": "image/svg+xml"
+                },
+                {
+                    "url": "https://sales-tracker.io/assets/images/dp_capa.svg",
+                    "content_type": "image/svg+xml"
+                },
+                {
+                    "url": "https://sales-tracker.io/wp-content/uploads/2025/04/bg-match-2.webp",
+                    "content_type": "image/webp"
+                },
+                {
+                    "url": "https://sales-tracker.io/wp-content/uploads/2025/06/icon-facebook.webp",
+                    "content_type": "image/webp"
+                },
+                {
+                    "url": "https://sales-tracker.io/wp-content/uploads/2025/06/x-logo.png",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://sales-tracker.io/wp-content/uploads/2025/06/twitch_logo.png",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://sales-tracker.io/wp-content/uploads/2025/06/reddit_logo.png",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://sales-tracker.io/wp-content/uploads/2025/06/tumblr_logo.png",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://sales-tracker.io/wp-content/upqqloads/2025/06/youtube_logo.png",
+                    "content_type": "text/html"
+                },
+                {
+                    "url": "https://cdn.imgts.com/colatv/catfish/1781757633911_sup2zn_banner_vsbet.gif",
+                    "content_type": "image/gif"
+                },
+                {
+                    "url": "https://cdn.imgts.com/colatv/catfish/1781757302442_agt63n_banner_cls.gif",
+                    "content_type": "image/gif"
+                },
+                {
+                    "url": "https://cdn.sales-tracker.io/wp-content/uploads/2025/04/bg-match-2.webp",
+                    "content_type": "image/webp"
+                },
+                {
+                    "url": "https://tv.trackervsb.live/public/img/noise.1700a9b1.png",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://tv.trackervsb.live/public/img/3d-bg.4d3dc82e.png",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://img.trackervsb.com/football/team/83e44ba57d434d8cbf781f7ee0b249bd.png!w100",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://img.trackervsb.com/football/team/835fad5dc5a862b2d1e5504ddab8965e.png!w100",
+                    "content_type": "image/png"
+                }
+            ]
+        },
+        {
+            "episode_url": "https://sales-tracker.io/truc-tiep/fc-ulaanbaatar-vs-deren-fc-luc-1100-ngay-06-07-2026-ezk96i31o9js1kn?houseId=99121525",
+            "streams": [
+                {
+                    "url": "https://video.gvvsb.com/hls/output_v1.m3u8",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://video.gvvsb.com/hls/output_v110.ts",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://video.gvvsb.com/hls/output_v10.ts",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://video.gvvsb.com/hls/output_v11.ts",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://video.gvvsb.com/hls/output_v12.ts",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://video.gvvsb.com/hls/output_v13.ts",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://video.gvvsb.com/hls/output_v14.ts",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://video.gvvsb.com/hls/output_v15.ts",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://video.gvvsb.com/hls/output_v16.ts",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://video.gvvsb.com/hls/output_v17.ts",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://video.gvvsb.com/hls/output_v18.ts",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://video.gvvsb.com/hls/output_v19.ts",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                }
+            ],
+            "iframes": [
+                {
+                    "iframe_src": "https://sales-tracker.io/truc-tiep/fc-ulaanbaatar-vs-deren-fc-luc-1100-ngay-06-07-2026-ezk96i31o9js1kn?houseId=99121525",
+                    "source": "frame_tree",
+                    "is_external": false
+                },
+                {
+                    "iframe_src": "https://tv.trackervsb.live/vi/3d/football?profile=lzmp1hd71udukm6&uuid=4wyrn4h6n9pyq86",
+                    "source": "frame_tree",
+                    "is_external": true
+                },
+                {
+                    "iframe_src": "chrome-error://chromewebdata/",
+                    "source": "frame_tree",
+                    "is_external": true
+                },
+                {
+                    "iframe_src": "https://donghua.jmsec.app/anime/animation/#/vi/3d/football?profile=74rekh26eseunr0&showTrend=false&id=4565846",
+                    "source": "dom_query",
+                    "is_external": true,
+                    "dimensions": "x"
+                }
+            ],
+            "screenshot_path": "logs\\sales-tracker.io\\screenshots\\sales-tracker.io_ep2_20260706_091920.png",
+            "banner_network_hits": [
+                {
+                    "url": "https://sales-tracker.io/wp-content/uploads/2025/05/logo_xoilactv_header_cut.png",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://cdn.sales-tracker.io/wp-content/themes/cakhiatv/assets/images/hamburger.svg",
+                    "content_type": "image/svg+xml"
+                },
+                {
+                    "url": "https://sales-tracker.io/assets/images/dp_goal.svg",
+                    "content_type": "image/svg+xml"
+                },
+                {
+                    "url": "https://sales-tracker.io/assets/images/dp_capa.svg",
+                    "content_type": "image/svg+xml"
+                },
+                {
+                    "url": "https://sales-tracker.io/wp-content/uploads/2025/04/bg-match-2.webp",
+                    "content_type": "image/webp"
+                },
+                {
+                    "url": "https://sales-tracker.io/wp-content/uploads/2025/06/icon-facebook.webp",
+                    "content_type": "image/webp"
+                },
+                {
+                    "url": "https://sales-tracker.io/wp-content/uploads/2025/06/x-logo.png",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://sales-tracker.io/wp-content/uploads/2025/06/twitch_logo.png",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://sales-tracker.io/wp-content/upqqloads/2025/06/youtube_logo.png",
+                    "content_type": "text/html"
+                },
+                {
+                    "url": "https://sales-tracker.io/wp-content/uploads/2025/06/reddit_logo.png",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://sales-tracker.io/wp-content/uploads/2025/06/tumblr_logo.png",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://tv.trackervsb.live/public/img/3d-bg.4d3dc82e.png",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://tv.trackervsb.live/public/img/noise.1700a9b1.png",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://cdn.imgts.com/colatv/catfish/1781757633911_sup2zn_banner_vsbet.gif",
+                    "content_type": "image/gif"
+                },
+                {
+                    "url": "https://cdn.imgts.com/colatv/catfish/1781757302442_agt63n_banner_cls.gif",
+                    "content_type": "image/gif"
+                },
+                {
+                    "url": "https://cdn.sales-tracker.io/wp-content/uploads/2025/04/bg-match-2.webp",
+                    "content_type": "image/webp"
+                },
+                {
+                    "url": "https://img.trackervsb.com/football/team/e4f8faa800643a16387371e8f8234079.png!w100",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://img.trackervsb.com/football/team/0c7d6546c9204e45c17bc2d9d05f7a4b.png!w100",
+                    "content_type": "image/png"
+                }
+            ]
+        },
+        {
+            "episode_url": "https://sales-tracker.io/truc-tiep/mexico-vs-anh-luc-0800-ngay-06-07-2026-o17pjio94mzuy7j?houseId=08552895",
+            "streams": [
+                {
+                    "url": "https://live05.koepgd.app/live/08552895.m3u8",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://live05.koepgd.app/live/08552895-1783299044.ts?txspiseq=104501810853918122360",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://live05.koepgd.app/live/08552895-1783299045.ts?txspiseq=104501810853918122360",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://live05.koepgd.app/live/08552895-1783299046.ts?txspiseq=104501810853918122360",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://live05.koepgd.app/live/08552895-1783299056.ts?txspiseq=104501810853918122360",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://live05.koepgd.app/live/08552895-1783299057.ts?txspiseq=104501810853918122360",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://live05.koepgd.app/live/08552895-1783299058.ts?txspiseq=104501810853918122360",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://live05.koepgd.app/live/08552895-1783299059.ts?txspiseq=104501810853918122360",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://live05.koepgd.app/live/08552895-1783299060.ts?txspiseq=104501810853918122360",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                },
+                {
+                    "url": "https://live05.koepgd.app/live/08552895-1783299061.ts?txspiseq=104501810853918122360",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                }
+            ],
+            "iframes": [
+                {
+                    "iframe_src": "https://sales-tracker.io/truc-tiep/mexico-vs-anh-luc-0800-ngay-06-07-2026-o17pjio94mzuy7j?houseId=08552895",
+                    "source": "frame_tree",
+                    "is_external": false
+                },
+                {
+                    "iframe_src": "https://tv.trackervsb.live/vi/3d/football?profile=lzmp1hd71udukm6&uuid=o17pjio94mzuy7j",
+                    "source": "frame_tree",
+                    "is_external": true
+                },
+                {
+                    "iframe_src": "chrome-error://chromewebdata/",
+                    "source": "frame_tree",
+                    "is_external": true
+                },
+                {
+                    "iframe_src": "https://donghua.jmsec.app/anime/animation/#/vi/3d/football?profile=74rekh26eseunr0&showTrend=false&id=4459803",
+                    "source": "dom_query",
+                    "is_external": true,
+                    "dimensions": "x"
+                }
+            ],
+            "screenshot_path": "logs\\sales-tracker.io\\screenshots\\sales-tracker.io_ep3_20260706_091955.png",
+            "banner_network_hits": [
+                {
+                    "url": "https://sales-tracker.io/wp-content/uploads/2025/05/logo_xoilactv_header_cut.png",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://cdn.sales-tracker.io/wp-content/themes/cakhiatv/assets/images/hamburger.svg",
+                    "content_type": "image/svg+xml"
+                },
+                {
+                    "url": "https://sales-tracker.io/assets/images/dp_goal.svg",
+                    "content_type": "image/svg+xml"
+                },
+                {
+                    "url": "https://sales-tracker.io/assets/images/dp_capa.svg",
+                    "content_type": "image/svg+xml"
+                },
+                {
+                    "url": "https://sales-tracker.io/wp-content/uploads/2025/06/icon-facebook.webp",
+                    "content_type": "image/webp"
+                },
+                {
+                    "url": "https://sales-tracker.io/wp-content/uploads/2025/06/x-logo.png",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://sales-tracker.io/wp-content/uploads/2025/06/twitch_logo.png",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://sales-tracker.io/wp-content/uploads/2025/06/reddit_logo.png",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://sales-tracker.io/wp-content/uploads/2025/06/tumblr_logo.png",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://sales-tracker.io/wp-content/upqqloads/2025/06/youtube_logo.png",
+                    "content_type": "text/html"
+                },
+                {
+                    "url": "https://sales-tracker.io/wp-content/uploads/2025/04/bg-match-2.webp",
+                    "content_type": "image/webp"
+                },
+                {
+                    "url": "https://cdn.sales-tracker.io/wp-content/uploads/2025/04/bg-match-2.webp",
+                    "content_type": "image/webp"
+                },
+                {
+                    "url": "https://cdn.imgts.com/colatv/catfish/1781757633911_sup2zn_banner_vsbet.gif",
+                    "content_type": "image/gif"
+                },
+                {
+                    "url": "https://cdn.imgts.com/colatv/catfish/1781757302442_agt63n_banner_cls.gif",
+                    "content_type": "image/gif"
+                },
+                {
+                    "url": "https://tv.trackervsb.live/public/img/3d-bg.4d3dc82e.png",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://tv.trackervsb.live/public/img/noise.1700a9b1.png",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://img.trackervsb.com/football/team/70fd3d5ba9c841ef932fae2cf0d7f3e7.png!w100",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://img.trackervsb.com/football/team/cd5a7e277e91426d9ad74bd09b946fde.png!w100",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://tv.trackervsb.live/public/img/ball.9752c7c7.svg",
+                    "content_type": "image/svg+xml"
+                },
+                {
+                    "url": "https://img.trackervsb.com/football/player/5f4680067bf3b920b2734ba303419d2b.png!w50",
+                    "content_type": "image/png"
+                },
+                {
+                    "url": "https://img.trackervsb.com/football/player/f353ac6f35da2eb28e6e1d1e798c96b5.png!w50",
+                    "content_type": "image/png"
+                }
+            ]
+        }
+    ],
+    "all_streams": [
+        "https://live05.meung.app/live/08552895.m3u8",
+        "https://live05.meung.app/live/08552895-1783299009.ts?txspiseq=101662232976090050532",
+        "https://live05.koepgd.app/live/87547578.m3u8",
+        "https://video.gvvsb.com/hls/output_v1.m3u8",
+        "https://video.gvvsb.com/hls/output_v10.ts",
+        "https://video.gvvsb.com/hls/output_v11.ts",
+        "https://video.gvvsb.com/hls/output_v12.ts",
+        "https://video.gvvsb.com/hls/output_v13.ts",
+        "https://video.gvvsb.com/hls/output_v14.ts",
+        "https://video.gvvsb.com/hls/output_v15.ts",
+        "https://video.gvvsb.com/hls/output_v16.ts",
+        "https://video.gvvsb.com/hls/output_v17.ts",
+        "https://video.gvvsb.com/hls/output_v18.ts",
+        "https://video.gvvsb.com/hls/output_v19.ts",
+        "https://video.gvvsb.com/hls/output_v110.ts",
+        "https://live05.koepgd.app/live/08552895.m3u8",
+        "https://live05.koepgd.app/live/08552895-1783299044.ts?txspiseq=104501810853918122360",
+        "https://live05.koepgd.app/live/08552895-1783299045.ts?txspiseq=104501810853918122360",
+        "https://live05.koepgd.app/live/08552895-1783299046.ts?txspiseq=104501810853918122360",
+        "https://live05.koepgd.app/live/08552895-1783299056.ts?txspiseq=104501810853918122360",
+        "https://live05.koepgd.app/live/08552895-1783299057.ts?txspiseq=104501810853918122360",
+        "https://live05.koepgd.app/live/08552895-1783299058.ts?txspiseq=104501810853918122360",
+        "https://live05.koepgd.app/live/08552895-1783299059.ts?txspiseq=104501810853918122360",
+        "https://live05.koepgd.app/live/08552895-1783299060.ts?txspiseq=104501810853918122360",
+        "https://live05.koepgd.app/live/08552895-1783299061.ts?txspiseq=104501810853918122360"
+    ],
+    "all_iframes": [
+        "https://sales-tracker.io/truc-tiep/khangarid-klub-vs-central-stallions-luc-1400-ngay-06-07-2026-l6kegi85gd4cv75?houseId=87547578",
+        "https://tv.trackervsb.live/vi/3d/football?profile=lzmp1hd71udukm6&uuid=l6kegi85gd4cv75",
+        "chrome-error://chromewebdata/",
+        "https://donghua.jmsec.app/anime/animation/#/vi/3d/football?profile=74rekh26eseunr0&showTrend=false&id=4565847",
+        "https://sales-tracker.io/truc-tiep/fc-ulaanbaatar-vs-deren-fc-luc-1100-ngay-06-07-2026-ezk96i31o9js1kn?houseId=99121525",
+        "https://tv.trackervsb.live/vi/3d/football?profile=lzmp1hd71udukm6&uuid=4wyrn4h6n9pyq86",
+        "https://donghua.jmsec.app/anime/animation/#/vi/3d/football?profile=74rekh26eseunr0&showTrend=false&id=4565846",
+        "https://sales-tracker.io/truc-tiep/mexico-vs-anh-luc-0800-ngay-06-07-2026-o17pjio94mzuy7j?houseId=08552895",
+        "https://tv.trackervsb.live/vi/3d/football?profile=lzmp1hd71udukm6&uuid=o17pjio94mzuy7j",
+        "https://donghua.jmsec.app/anime/animation/#/vi/3d/football?profile=74rekh26eseunr0&showTrend=false&id=4459803"
+    ],
+    "footer_analysis": {
+        "has_legal_footer": true,
+        "legal_notice_found": false,
+        "tax_code_found": false,
+        "authority_found": false,
+        "copyright_found": false,
+        "has_structured_identity": true,
+        "is_infinite_scroll": false,
+        "has_telegram_contact": false,
+        "has_ad_contact_only": false,
+        "FOOTER_ANONYMOUS": false,
+        "extraction_method": "none",
+        "meta_info": {
+            "title": "Xoilac TV | Trực Tiếp Bóng đá HD - Xem Xôi Lạc Miễn Phí 2025",
+            "og_site_name": "Xoilac TV | Trực tiếp bóng đá HD - Xem Xôi Lạc miễn phí 2025",
+            "meta_copyright": "",
+            "meta_author": "",
+            "has_json_ld": false
+        },
+        "footer_text_snippet": "[META] xoilac tv | trực tiếp bóng đá hd - xem xôi lạc miễn phí 2025   xoilac tv | trực tiếp bóng đá hd - xem xôi lạc miễn phí 2025  width=device-width, initial-scale=1.0 xoilac tv được biết đến là trang web phát sóng trực tiếp đầy đủ các giải đấu bóng đá lớn nhỏ trên toàn cầu. khi truy cập vào đây, bạn có thể sống trọn với follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large vi_vn website xoilac tv | trực tiếp bóng đá hd - xem xôi lạc miễn phí 2025 xoilac tv được biết đến là tra"
+    },
+    "technical_flags": {
+        "cloudflare_bypassed": true,
+        "is_drm_protected": false,
+        "iframe_detected": true,
+        "stream_intercepted": true,
+        "has_legal_footer": true,
+        "popup_detected": false
+    },
+    "dom_text": "Xoilac TV | Trực Tiếp Bóng đá HD - Xem Xôi Lạc Miễn Phí 2025\nXoilac TV | Trực tiếp bóng đá HD - Xem Xôi Lạc miễn phí 2025\nReplay\nPause\nFullscreen\nCssfullscreen\n1x\n2x\n1.5x\n1x\n0.75x\n0.5x\nPIP\nClick and hold to drag\nVào phòng live đang phát sóng\nGiải vô địch bóng đá thế giới\nĐANG TRỰC TIẾP\n08:00 - 06/07\nMexico\n1 - 2\nAnh\nBLV 7UP | BLV C2 | BLV COCA | BLV GIÀ LÀNG\nXEM NGAY\nGiải Bóng đá Dự bị Nữ Hoa Kỳ\nĐANG TRỰC TIẾP\n09:00 - 06/07\nTacoma Defiance\n0 - 0\nPortland 2\nBLV SPRITE\nXEM NGAY\nUSL League One\nCHƯA BẮT ĐẦU\n10:00 - 06/07\nAV Alta\n0 - 0\nCharlotte Independ\nBLV FANTA\nXEM NGAY\nGiải ngoại hạng Mông Cổ\nCHƯA BẮT ĐẦU\n11:00 - 06/07\nFC Ulaanbaatar\n0 - 0\nDeren FC\nBLV BÍ ĐAO\nXEM NGAY\nVòng loại World Cup khu vực Châu Á\nCHƯA BẮT ĐẦU\n13:00 - 06/07\nTrung quốc\n0 - 0\nĐài Bắc Trung Hoa\nBLV Cozy\nXEM NGAY\nGiải ngoại hạng Mông Cổ\nCHƯA BẮT ĐẦU\n14:00 - 06/07\nKhangarid Klub\n0 - 0\nCentral Stallions\nBLV MOUNTAIN DEW\nXEM NGAY\nVòng loại World Cup khu vực Châu Á\nCHƯA BẮT ĐẦU\n14:00 - 06/07\nNew Zealand\n0 - 0\nGuam Island\nBLV ROCKSTAR\nXEM NGAY\nVòng loại World Cup khu vực Châu Á\nCHƯA BẮT ĐẦU\n17:30 - 06/07\nAustralia\n0 - 0\nPhilippines\nBLV POCARI\nXEM NGAY\nVòng loại World Cup khu vực Châu Á\nCHƯA BẮT ĐẦU\n17:30 - 06/07\nHàn Quốc\n0 - 0\nNhật Bản\nBLV 247\nXEM NGAY\nGiải bóng đá Cao cấp Latvia\nCHƯA BẮT ĐẦU\n23:00 - 06/07\nSuper Nova\n0 - 0\nOgre United\nBLV PEPSI\nXEM NGAY\nGiải Vô địch Quốc gia Thụy Điển\nCHƯA BẮT ĐẦU\n00:00 - 07/07\nBrommapojkarna\n0 - 0\nGAIS\nBLV MOUNTAIN DEW\nXEM NGAY\nGiải Vô địch Quốc gia Thụy Điển\nCHƯA BẮT ĐẦU\n00:00 - 07/07\nHacken\n0 - 0\nDjurgarden\nBLV FANTA\nXEM NGAY\nGiải vô địch bóng đá thế giới\nCHƯA BẮT ĐẦU\n02:00 - 07/07\nBồ Đào Nha\n0 - 0\nTây Ban Nha\nBLV 7UP | BLV C2 | BLV COCA | BLV GIÀ LÀNG\nXEM NGAY\nGiải bóng đá Hạng nhì Brasil\nCHƯA BẮT ĐẦU\n05:00 - 07/07\nBotafogo\n0 - 0\nAvai\nBLV BÍ ĐAO\nXEM NGAY\nGiải bóng đá Hạng nhì Brasil\nCHƯA BẮT ĐẦU\n05:00 - 07/07\nVila Nova\n0 - 0\nSao Bernardo\nBLV SPRITE\nXEM NGAY\nCúp Chile\nCHƯA BẮT ĐẦU\n06:30 - 07/07\nColo Colo\n0 - 0\nDeportes Recoleta\nBLV PEPSI\nXEM NGAY\nCúp Chile\nCHƯA BẮT ĐẦU\n06:30 - 07/07\nD. Concepcion\n0 - 0\nDeportes Temuco\nBLV Cozy\nXEM NGAY\nGiải vô địch bóng đá thế giới\nCHƯA BẮT ĐẦU\n07:00 - 07/07\nMỹ\n0 - 0\nBỉ\nBLV 7UP | BLV C2 | BLV COCA | BLV GIÀ LÀNG\nXEM NGAY\nHiệp hội bóng rổ quốc gia nữ\nCHƯA BẮT ĐẦU\n07:00 - 07/07\nMinnesota Lynx\n0 - 0\nConnecticut Sun\nBLV ROCKSTAR\nXEM NGAY\nGiải NBA Summer League\nCHƯA BẮT ĐẦU\n09:00 - 07/07\nSan Antonio Spurs\n0 - 0\nLos Angeles Lakers\nBLV Cozy\nXEM NGAY\nHiệp hội bóng rổ quốc gia nữ\nCHƯA BẮT ĐẦU\n09:00 - 07/07\nLos Angeles Sparks\n0 - 0\nSeattle Storm\nBLV ROCKSTAR\nXEM NGAY\nCúp bóng đá của Hiệp hội Bóng đá Úc\nCHƯA BẮT ĐẦU\n16:45 - 07/07\nNorth Sunshine Eagles\n0 - 0\nPreston Lions\nBLV BÍ ĐAO\nXEM NGAY\nGiải Ngoại hạng Quốc gia kv Bắc NSW\nCHƯA BẮT ĐẦU\n17:00 - 07/07\nNhạc Blues của thành phố Charleston\n0 - 0\nWeston Workers\nBLV SPRITE\nXEM NGAY\nGiải bóng đá hàng đầu Bhutan\nCHƯA BẮT ĐẦU\n19:00 - 07/07\nDrukpa FC\n0 - 0\nThimphu FC\nBLV 247\nXEM NGAY\nGiải vô địch U19 Nữ Châu Âu\nCHƯA BẮT ĐẦU\n21:00 - 07/07\nTây Ban Nha U19 Nữ\n0 - 0\nThụy Điển U19 Nữ\nBLV BÍ ĐAO\nXEM NGAY\nChampions League\nCHƯA BẮT ĐẦU\n23:00 - 07/07\nKauno Zalgiris\n0 - 0\nFC Drita\nBLV MOUNTAIN DEW\nXEM NGAY\nChampions League\nCHƯA BẮT ĐẦU\n23:00 - 07/07\nLincoln Red Imps\n0 - 0\nInter Escaldes\nBLV FANTA\nXEM NGAY\nGiải vô địch bóng đá thế giới\nCHƯA BẮT ĐẦU\n23:00 - 07/07\nArgentina\n0 - 0\nAi Cập\nBLV 7UP | BLV C2 | BLV COCA | BLV GIÀ LÀNG\nXEM NGAY\nChampions League\nCHƯA BẮT ĐẦU\n23:00 - 07/07\nFC Ararat-Armenia\n0 - 0\nRiga FC\nBLV PEPSI\nXEM NGAY\nChampions League\nCHƯA BẮT ĐẦU\n23:00 - 07/07\nSabah FC\n0 - 0\nThe New Saints\nBLV 247\nXEM NGAY\nGiải NBA Summer League\nCHƯA BẮT ĐẦU\n08:00 - 08/07\nUtah Jazz\n0 - 0\nOklahoma City Thunder\nBLV POCARI\nXEM NGAY\nMục Lục\nTable of Contents\nToggle\nXoilac TV được biết đến là trang web phát sóng trực tiếp đầy đủ các giải đấu bóng đá lớn nhỏ trên toàn cầu. Khi truy cập vào đây, bạn có thể sống trọn với niềm đam mê thể thao của mình nhờ vào chất lượng chiếu full HD cùng nhiều tiện ích vượt trội. Nếu đang muốn tìm hiểu về nền tảng này, hãy cùng chúng tôi khám phá ngay bài viết bên dưới!\nGiới thiệu khái quát về website bóng đá Xoilac TV\nĐược biết đến là nền tảng phát sóng trực tiếp bóng đá hàng đầu Việt Nam, địa chỉ này cho phép người xem có cơ hội theo dõi đầy đủ các sự kiện lớn nhỏ trên toàn cầu như: Ngoại Hạng Anh, Laliga, Bundesliga, World Cup,… Chính vì điều này, website đã dần trở thành một phần không thể thiếu đối với những cổ động viên hâm mộ thể thao.\nXoilac không chỉ cung cấp hệ thống trận đấu đa dạng chất lượng mà còn hứa hẹn mang đến cho khách hàng cái nhìn sâu sắc qua từng sự kiện nhờ vào những tiện ích hấp dẫn. Nhờ sở hữu công nghệ phát sóng liên tục suốt 90 phút, cổ động viên có thể thưởng thức được trận cầu đỉnh cao mà không bao giờ xảy ra tình trạng giật lag hay đứng hình.\nĐánh giá chất lượng phát sóng của Xoilac hiện nay\nNgoài được biết đến là trang chuyên phát sóng bóng đá trực tuyến, nền tảng còn chiếm trọn cảm tình của khán giả nhờ vào vô số tiện ích hấp dẫn. Tất cả đều góp phần mang đến trải nghiệm theo dõi thể thao đặc sắc, phong phú hơn. Cụ thể:\nXem bóng đá Xoilac TV miễn phí\nXoilacTV mang đến không gian phát sóng bóng đá trực tiếp cho hàng triệu cổ động viên tại Việt Nam hoàn toàn miễn phí. Tuy vậy, chất lượng video và hình ảnh cùng các tiện ích vẫn luôn được đơn vị đảm bảo ở mức cao cấp nhất. Đây cũng chính là điểm cộng tuyệt vời giúp thương hiệu càng trở nên nổi bật hơn hẳn so với các nền tảng miễn phí khác.\nHình ảnh sắc nét\nMột trong những yếu tố đóng vai trò quan trọng khi theo dõi trực tuyến bóng đá tại Xôi Lạc TV phải kể đến đó chính là hệ thống hình ảnh sắc nét. Trang web đã đầu tư công nghệ hiện đại vào các phiên livestream nhằm giúp người dùng như có cảm giác đang theo dõi trận đấu thực tế mà không phải thông qua màn ảnh.\nÂm thanh sống động\nĐiểm cộng đặc biệt tiếp theo của Xoilac TV đó chính là dàn âm thanh chất lượng cao được đơn vị tích hợp trên hệ thống. Đảm bảo ở mỗi trận đấu, bạn sẽ cảm nhận rõ từng tiếng hò reo, tiếng gõ trống, tiếng bóng lăn trên sân,… Nền tảng hứa hẹn mang đến cho hàng triệu cổ động viên Việt giây phút đón xem được chân thực nhất như đang có mặt trực tiếp tại khán đài.\nĐánh giá hệ thống âm thanh sống động tại Xoilac\nKhông quảng cáo chen ngang cùng Xoilac TV\nĐiểm đặc biệt khi theo dõi trực tiếp bóng đá tại đây hiện đang được các chuyên gia đánh giá cao đó chính là tính năng chặn quảng cáo. Để đảm bảo mạch xem của người dùng được diễn ra liền mạch và đẩy cảm xúc lên cao trào nhất, thương hiệu cam kết không cho xuất hiện bất kỳ yếu tố nào chen ngang trận đấu.\nKhông giật lag\nHiện tại, Xoi Lac TV đang sử dụng đường truyền công nghệ hiện đại áp dụng vào hệ thống. Nhờ vậy mà toàn bộ các trận đấu được nền tảng phát sóng luôn đảm bảo có tốc độ ổn định, mượt mà hơn. Điều này càng giúp khách hàng theo dõi trọn vẹn sự kiện thể thao mình yêu thích mà không thua kém gì so với việc xem trên TV.\nĐa dạng link dự phòng\nChưa hết, Xoilac TV cam kết luôn cập nhật đa dạng các đường link dự phòng từ khá sớm. Đồng thời ở mỗi trận đấu đều sở hữu tới 3 liên kết phát sóng cho người xem thỏa sức lựa chọn. Đơn vị đảm bảo rằng không có bất kỳ link nào dính mã độc hay virus, giúp thiết bị của bạn luôn trong trạng thái an toàn.\nBLV tại Xoilac TV vô cùng chuyên nghiệp\nĐiểm đặc biệt tiếp theo khiến mỗi màn xem bóng đá trực tiếp tại đây càng trở nên chân thực và hấp dẫn hơn đó chính là nhờ đội ngũ BLV tiếng Việt hoàn toàn miễn phí. Họ không chỉ sở hữu trình độ chuyên môn cao mà còn có tài dẫn dắt cuốn hút, góp phần tạo nên không khí sôi động cho từng trận đấu.\nĐặc biệt, sự kết hợp hài hòa cùng với chất lượng hình ảnh âm thanh sống động càng khiến Xoilac trở thành sự lựa chọn lý tưởng cho những ai hâm mộ bóng đá. Đảm bảo chỉ trong lần truy cập đầu, bạn sẽ không thể thoát ra và cưỡng lại được trước sự cuốn hút mà trang web cung cấp.\nBình luận viên Xoilac TV chuyên nghiệp nhất 2025\nTheo dõi đa thiết bị\nNếu như trước đây người xem cần tụ tập và theo dõi các trận bóng đá trên TV mang tính thụ động thì hiện tại, với sự phát triển của công nghệ số cho phép bạn được trải nghiệm ngay trên chiếc “dế yêu”. Theo đó, chỉ cần truy cập Xoilac TV bằng bất kỳ thiết bị nào được kết nối mạng là lập tức video phát sóng chất lượng cao nhất sẽ hiển thị ra.\nĐiều này cũng cho phép mọi người được thỏa sức theo dõi diễn biến trận đấu một cách tiện lợi mà không gặp bất kỳ rào cản nào. Thậm chí ngay cả khi chúng ta đang đi công tác cũng đều có thể dễ dàng thưởng thức, hưởng trọn niềm đam mê ngay.\nĐiểm danh một số tính năng bổ trợ hấp dẫn khác tại Xoilac TV\nNgoài những ưu điểm đặc biệt về chất lượng phát sóng bóng đá bên trên, nền tảng cũng cung cấp cho người xem nhiều tính năng bổ trợ vô cùng hấp dẫn khác. Bao gồm:\nLịch thi đấu\nKhi truy cập Xoilac TV, khách hàng cũng đảm bảo sẽ biết được lịch thi đấu của tất cả các giải đấu bóng đá quy mô toàn cầu đang nhận về nhiều sự quan tâm nhất. Chính vì vậy, mỗi ngày bạn có thể nắm rõ dữ liệu cho trận sắp diễn ra về mặt thời gian, đội hình ra sân, sân tổ chức thi,…\nLịch thi đấu luôn được Xôi Lạc TV cập nhật nhanh\nBảng xếp hạng\nTrang web cũng liên tục cập nhật dữ liệu trong bảng xếp hạng để phục vụ cho người xem bóng đá trực tuyến ở các trận đấu trên toàn cầu. Điều này giúp bạn biết được thứ hạng đội tuyển mình yêu thích đang ở vị trí nào một cách chuẩn xác mà không cần mất thời gian tìm tòi.\nKết quả bóng đá Xoilac TV\nNền tảng liên tục cập nhật đầy đủ hệ thống kết quả bóng đá chuẩn xác của các trận đấu lớn để khách hàng có thể theo dõi nhanh chóng. Không chỉ vậy, bạn còn biết được vị trí thứ hạng đội tuyển mình yêu thích là gì. Từ đó đưa ra đánh giá tổng quát nhất để nhận định kèo thêm hiệu quả hơn.\nNhận định bóng đá\nXoilac TV tự hào cung cấp thông tin nhận định kèo bóng đá chuẩn xác và hiệu quả nhờ sở hữu đội ngũ phân tích viên chuyên nghiệp. Đồng thời họ cũng có khả năng sử dụng dữ liệu thống kê để đưa ra đánh giá khách quan sát với thực tế nhất.\nCác tips cũng được trang web nghiên cứu kỹ lưỡng dưới sự phân tích ở nhiều góc độ như: đội bóng, lịch sử đối đầu, tình hình lực lượng,… Từ đó đưa ra cái nhìn toàn diện nhất cho người dùng khi tham gia cá cược thể thao.\nTính năng đặc sắc hiện có trên trang bóng đá\nSo sánh Xoilac TV cùng một số trang bóng đá hot khác\nSo với những nền tảng phát sóng trực tuyến bóng đá miễn phí khác, Xoilac vẫn luôn trở thành điểm sáng nổi bật và được nhiều người yêu thích theo dõi nhất. Đơn vị đảm bảo cung cấp trải nghiệm xem mượt mà cùng hình ảnh, âm thanh chất lượng cao giúp người dùng không bỏ lỡ bất kỳ khoảnh khắc quan trọng nào. Đây cũng là điểm mạnh hấp dẫn mà ít có nền tảng nào đáp ứng và xây dựng được.\nĐồng thời, nền tảng Xoilac TV không chỉ giới hạn ở việc phát sóng trực tiếp các trận bóng đá mà còn cung cấp góc nhìn đa chiều về thể thao thông qua tin tức cập nhật mỗi ngày, phân tích trước kèo,… So với những trang web như: CakhiaTV, VeboTV, RakhoiTV, 90Phut, Socolive thì nơi đây vẫn được đánh giá cao nhờ sự kết hợp chỉn chu giữa chất lượng dịch vụ cùng độ phong phú trong nội dung cung cấp.\nĐánh giá Xoilac TV với các trang bóng đá khác\nGiải đáp thắc mắc thường gặp khi xem bóng đá XoilacTV\nTại nền tảng xem trực tiếp bóng đá này, chúng tôi đã ghi nhận được khá nhiều thắc mắc mà người dùng mới gửi về hệ thống. Nhằm giúp bạn có cái nhìn đánh giá tổng quan nhất trước khi quyết định sử dụng dịch vụ, toàn bộ lời giải đáp chi tiết đã được cung cấp gồm:\nCó cách nào để lấy link Xoilac TV chuẩn?\nHiện nay trên thị trường đang xuất hiện khá nhiều tổ chức lừa đảo cung cấp đường link giả mạo nhằm gây hại cho thiết bị người dùng. Do vậy bạn cần truy cập vào chính xác trang chủ Xoilac được cung cấp trên website. Sau đó mọi người chỉ cần nhấp chuột vào trận đấu mình yêu thích để lấy đường link phát sóng phù hợp.\nCó cần đảm bảo quy tắc gì khi xem bóng đá không?\nĐể quá trình trải nghiệm của mọi người được thoải mái và suôn sẻ nhất thì cần tuân thủ một vài nguyên tắc quan trọng mà hệ thống cung cấp. Bao gồm:\nKhông đăng tải thông tin Xoilac TV phát sóng trực tiếp chưa được kiểm chứng và mua bản quyền ra bên ngoài.\nMọi bình luận cung cấp trên nền tảng phải đảm bảo văn minh, sử dụng lời lẽ lịch sự đúng chuẩn mực để không gây ảnh hưởng đến quy trình theo dõi của người khác.\nĐơn vị không yêu cầu bạn nạp tiền để xem bóng đá, vì vậy hãy tự bảo vệ thông tin cá nhân của mình trước các đường link lạ để tránh vấn đề đánh cắp hay lừa đảo.\nGiải đáp thắc mắc mới nhất về Xoilac TV 2025\nTại sao vẫn xảy ra tình trạng giật lag tại Xôi Lạc TV?\nNguyên nhân chủ yếu của vấn đề này là bởi tình trạng cấu hình thiết bị bạn đang sử dụng không đảm bảo độ tương thích với đường link nền tảng cung cấp. Do đó, hãy nâng cấp trình duyệt lên cao nhất trước khi bắt đầu theo dõi các trận đấu phát sóng chất lượng từ trang website.\nTrên đây là toàn bộ thông tin đánh giá tổng quan nhất về trang phát sóng bóng đá Xoilac TV miễn phí được yêu thích. Hy vọng qua bài viết, bạn sẽ có cái nhìn toàn diện trước khi quyết định sử dụng dịch vụ tại đây. Cảm ơn mọi người đã quan tâm!",
+    "banners": [
+        {
+            "src_url": "https://sales-tracker.io/wp-content/uploads/2025/06/x-logo.png",
+            "alt": "Twitter",
+            "link_href": "https://x.com/xoilacsosmap",
+            "width": 447,
+            "height": 450,
+            "case": "case1_nofollow_link",
+            "local_path": "logs\\sales-tracker.io\\banners\\c07a516c994f06ec28024fc3115b2e3d.png",
+            "download_ok": true,
+            "frames": [
+                "logs\\sales-tracker.io\\banners\\c07a516c994f06ec28024fc3115b2e3d.png"
+            ]
+        },
+        {
+            "src_url": "https://sales-tracker.io/wp-content/uploads/2025/06/twitch_logo.png",
+            "alt": "Twitch",
+            "link_href": "https://www.twitch.tv/xoilacsosmap/about",
+            "width": 2048,
+            "height": 2048,
+            "case": "case1_nofollow_link",
+            "local_path": "logs\\sales-tracker.io\\banners\\3d79b67333a46a1bc6c04d3e15e6549a.png",
+            "download_ok": true,
+            "frames": [
+                "logs\\sales-tracker.io\\banners\\3d79b67333a46a1bc6c04d3e15e6549a.png"
+            ]
+        },
+        {
+            "src_url": "https://sales-tracker.io/wp-content/upqqloads/2025/06/youtube_logo.png",
+            "alt": "Youtube",
+            "link_href": "https://www.youtube.com/@xoilacsosmap",
+            "width": 71,
+            "height": 17,
+            "case": "case1_nofollow_link",
+            "local_path": null,
+            "download_ok": false,
+            "frames": []
+        },
+        {
+            "src_url": "https://sales-tracker.io/wp-content/uploads/2025/06/reddit_logo.png",
+            "alt": "Reddit",
+            "link_href": "https://www.reddit.com/user/xoilacsosmap/",
+            "width": 418,
+            "height": 415,
+            "case": "case1_nofollow_link",
+            "local_path": "logs\\sales-tracker.io\\banners\\e5a4bdd5465d42330152f323551b7740.png",
+            "download_ok": true,
+            "frames": [
+                "logs\\sales-tracker.io\\banners\\e5a4bdd5465d42330152f323551b7740.png"
+            ]
+        },
+        {
+            "src_url": "https://sales-tracker.io/wp-content/uploads/2025/06/tumblr_logo.png",
+            "alt": "Tumblr",
+            "link_href": "https://www.tumblr.com/xoilacsosmap",
+            "width": 457,
+            "height": 461,
+            "case": "case1_nofollow_link",
+            "local_path": "logs\\sales-tracker.io\\banners\\ffea8c3ee25745b9159802cd738b5828.png",
+            "download_ok": true,
+            "frames": [
+                "logs\\sales-tracker.io\\banners\\ffea8c3ee25745b9159802cd738b5828.png"
+            ]
+        },
+        {
+            "src_url": "https://cdn.imgts.com/colatv/catfish/1781757633911_sup2zn_banner_vsbet.gif",
+            "alt": "Banner 4",
+            "link_href": "https://refvsb.com/",
+            "width": 1200,
+            "height": 100,
+            "case": "case1_nofollow_link",
+            "local_path": "logs\\sales-tracker.io\\banners\\1e76b2d6662baf05a016d9496d4e647d_frame_001.png",
+            "download_ok": true,
+            "frames": [
+                "logs\\sales-tracker.io\\banners\\1e76b2d6662baf05a016d9496d4e647d_frame_001.png",
+                "logs\\sales-tracker.io\\banners\\1e76b2d6662baf05a016d9496d4e647d_frame_002.png"
+            ]
+        },
+        {
+            "src_url": "https://cdn.imgts.com/colatv/catfish/1781757302442_agt63n_banner_cls.gif",
+            "alt": "Banner 3",
+            "link_href": "https://colascores.com/",
+            "width": 1200,
+            "height": 100,
+            "case": "case1_nofollow_link",
+            "local_path": "logs\\sales-tracker.io\\banners\\77225d716d12e6956457b3c32ab7d056_frame_001.png",
+            "download_ok": true,
+            "frames": [
+                "logs\\sales-tracker.io\\banners\\77225d716d12e6956457b3c32ab7d056_frame_001.png",
+                "logs\\sales-tracker.io\\banners\\77225d716d12e6956457b3c32ab7d056_frame_002.png"
+            ]
+        },
+        {
+            "src_url": "https://cdn.sales-tracker.io/wp-content/themes/cakhiatv/assets/images/hamburger.svg",
+            "alt": "Menu",
+            "link_href": "",
+            "width": 800,
+            "height": 800,
+            "case": "case_ad_url_img",
+            "local_path": null,
+            "download_ok": false,
+            "frames": []
+        },
+        {
+            "src_url": "https://sales-tracker.io/wp-content/uploads/2025/06/icon-facebook.webp",
+            "alt": "Facebook",
+            "link_href": "https://sales-tracker.io/#",
+            "width": 48,
+            "height": 48,
+            "case": "case_ad_url_img",
+            "local_path": "logs\\sales-tracker.io\\banners\\0c5e72573173dcf60e4c5c47743cabe6.webp",
+            "download_ok": true,
+            "frames": [
+                "logs\\sales-tracker.io\\banners\\0c5e72573173dcf60e4c5c47743cabe6.webp"
+            ]
+        },
+        {
+            "src_url": "https://sales-tracker.io/wp-content/uploads/2025/05/logo_xoilactv_header_cut.png",
+            "alt": "",
+            "link_href": "",
+            "width": 0,
+            "height": 0,
+            "case": "case7_network_intercept",
+            "local_path": "logs\\sales-tracker.io\\banners\\ab197f1d41e4961607ebf65f0dacb2f3.png",
+            "download_ok": true,
+            "frames": [
+                "logs\\sales-tracker.io\\banners\\ab197f1d41e4961607ebf65f0dacb2f3.png"
+            ]
+        },
+        {
+            "src_url": "https://sales-tracker.io/assets/images/dp_goal.svg",
+            "alt": "",
+            "link_href": "",
+            "width": 0,
+            "height": 0,
+            "case": "case7_network_intercept",
+            "local_path": "logs\\sales-tracker.io\\banners\\5ec97ef70a7137ad8e50c144e2563c1a.jpg",
+            "download_ok": true,
+            "frames": [
+                "logs\\sales-tracker.io\\banners\\5ec97ef70a7137ad8e50c144e2563c1a.jpg"
+            ]
+        },
+        {
+            "src_url": "https://sales-tracker.io/assets/images/dp_capa.svg",
+            "alt": "",
+            "link_href": "",
+            "width": 0,
+            "height": 0,
+            "case": "case7_network_intercept",
+            "local_path": null,
+            "download_ok": false,
+            "frames": []
+        },
+        {
+            "src_url": "https://sales-tracker.io/wp-content/uploads/2025/04/bg-match-2.webp",
+            "alt": "",
+            "link_href": "",
+            "width": 0,
+            "height": 0,
+            "case": "case7_network_intercept",
+            "local_path": "logs\\sales-tracker.io\\banners\\bbfee94ae9afe11fcebb55aec8b1deeb.webp",
+            "download_ok": true,
+            "frames": [
+                "logs\\sales-tracker.io\\banners\\bbfee94ae9afe11fcebb55aec8b1deeb.webp"
+            ]
+        },
+        {
+            "src_url": "https://cdn.sales-tracker.io/wp-content/uploads/2025/04/bg-match-2.webp",
+            "alt": "",
+            "link_href": "",
+            "width": 0,
+            "height": 0,
+            "case": "case7_network_intercept",
+            "local_path": "logs\\sales-tracker.io\\banners\\75fc9d4da8d769b00c4544b9d1dac635.webp",
+            "download_ok": true,
+            "frames": [
+                "logs\\sales-tracker.io\\banners\\75fc9d4da8d769b00c4544b9d1dac635.webp"
+            ]
+        },
+        {
+            "src_url": "https://tv.trackervsb.live/public/img/noise.1700a9b1.png",
+            "alt": "",
+            "link_href": "",
+            "width": 0,
+            "height": 0,
+            "case": "case7_network_intercept",
+            "local_path": "logs\\sales-tracker.io\\banners\\12c7dfd9103207337779b5f51d02dece.png",
+            "download_ok": true,
+            "frames": [
+                "logs\\sales-tracker.io\\banners\\12c7dfd9103207337779b5f51d02dece.png"
+            ]
+        },
+        {
+            "src_url": "https://tv.trackervsb.live/public/img/3d-bg.4d3dc82e.png",
+            "alt": "",
+            "link_href": "",
+            "width": 0,
+            "height": 0,
+            "case": "case7_network_intercept",
+            "local_path": "logs\\sales-tracker.io\\banners\\93acbc690b95148066d1c81a52b13d56.png",
+            "download_ok": true,
+            "frames": [
+                "logs\\sales-tracker.io\\banners\\93acbc690b95148066d1c81a52b13d56.png"
+            ]
+        },
+        {
+            "src_url": "https://img.trackervsb.com/football/team/83e44ba57d434d8cbf781f7ee0b249bd.png!w100",
+            "alt": "",
+            "link_href": "",
+            "width": 0,
+            "height": 0,
+            "case": "case7_network_intercept",
+            "local_path": "logs\\sales-tracker.io\\banners\\7a31fc8c151214de18d83679e8d74e23.jpg",
+            "download_ok": true,
+            "frames": [
+                "logs\\sales-tracker.io\\banners\\7a31fc8c151214de18d83679e8d74e23.jpg"
+            ]
+        },
+        {
+            "src_url": "https://img.trackervsb.com/football/team/835fad5dc5a862b2d1e5504ddab8965e.png!w100",
+            "alt": "",
+            "link_href": "",
+            "width": 0,
+            "height": 0,
+            "case": "case7_network_intercept",
+            "local_path": "logs\\sales-tracker.io\\banners\\16a2cc5883968c79189c28f3716a92ab.jpg",
+            "download_ok": true,
+            "frames": [
+                "logs\\sales-tracker.io\\banners\\16a2cc5883968c79189c28f3716a92ab.jpg"
+            ]
+        },
+        {
+            "src_url": "https://img.trackervsb.com/football/team/e4f8faa800643a16387371e8f8234079.png!w100",
+            "alt": "",
+            "link_href": "",
+            "width": 0,
+            "height": 0,
+            "case": "case7_network_intercept",
+            "local_path": "logs\\sales-tracker.io\\banners\\1b60d4465be4a52a0ac8faf5781cd584.jpg",
+            "download_ok": true,
+            "frames": [
+                "logs\\sales-tracker.io\\banners\\1b60d4465be4a52a0ac8faf5781cd584.jpg"
+            ]
+        },
+        {
+            "src_url": "https://img.trackervsb.com/football/team/0c7d6546c9204e45c17bc2d9d05f7a4b.png!w100",
+            "alt": "",
+            "link_href": "",
+            "width": 0,
+            "height": 0,
+            "case": "case7_network_intercept",
+            "local_path": "logs\\sales-tracker.io\\banners\\ef51ac9a598e325d7dbf51d9dbe9e0b9.jpg",
+            "download_ok": true,
+            "frames": [
+                "logs\\sales-tracker.io\\banners\\ef51ac9a598e325d7dbf51d9dbe9e0b9.jpg"
+            ]
+        },
+        {
+            "src_url": "https://img.trackervsb.com/football/team/70fd3d5ba9c841ef932fae2cf0d7f3e7.png!w100",
+            "alt": "",
+            "link_href": "",
+            "width": 0,
+            "height": 0,
+            "case": "case7_network_intercept",
+            "local_path": "logs\\sales-tracker.io\\banners\\219c5033df66cf3f2fc54bae33ef5399.jpg",
+            "download_ok": true,
+            "frames": [
+                "logs\\sales-tracker.io\\banners\\219c5033df66cf3f2fc54bae33ef5399.jpg"
+            ]
+        },
+        {
+            "src_url": "https://img.trackervsb.com/football/team/cd5a7e277e91426d9ad74bd09b946fde.png!w100",
+            "alt": "",
+            "link_href": "",
+            "width": 0,
+            "height": 0,
+            "case": "case7_network_intercept",
+            "local_path": "logs\\sales-tracker.io\\banners\\bf0c0d2e019052dce778eccb65b48448.jpg",
+            "download_ok": true,
+            "frames": [
+                "logs\\sales-tracker.io\\banners\\bf0c0d2e019052dce778eccb65b48448.jpg"
+            ]
+        },
+        {
+            "src_url": "https://tv.trackervsb.live/public/img/ball.9752c7c7.svg",
+            "alt": "",
+            "link_href": "",
+            "width": 0,
+            "height": 0,
+            "case": "case7_network_intercept",
+            "local_path": "logs\\sales-tracker.io\\banners\\49a60440ebf6f844fa6f266357cafef7.jpg",
+            "download_ok": true,
+            "frames": [
+                "logs\\sales-tracker.io\\banners\\49a60440ebf6f844fa6f266357cafef7.jpg"
+            ]
+        },
+        {
+            "src_url": "https://img.trackervsb.com/football/player/5f4680067bf3b920b2734ba303419d2b.png!w50",
+            "alt": "",
+            "link_href": "",
+            "width": 0,
+            "height": 0,
+            "case": "case7_network_intercept",
+            "local_path": "logs\\sales-tracker.io\\banners\\53683a91332747629bb12581b1698715.jpg",
+            "download_ok": true,
+            "frames": [
+                "logs\\sales-tracker.io\\banners\\53683a91332747629bb12581b1698715.jpg"
+            ]
+        },
+        {
+            "src_url": "https://img.trackervsb.com/football/player/f353ac6f35da2eb28e6e1d1e798c96b5.png!w50",
+            "alt": "",
+            "link_href": "",
+            "width": 0,
+            "height": 0,
+            "case": "case7_network_intercept",
+            "local_path": "logs\\sales-tracker.io\\banners\\aac5431b3ef38c16f801e5bff0705cf9.jpg",
+            "download_ok": true,
+            "frames": [
+                "logs\\sales-tracker.io\\banners\\aac5431b3ef38c16f801e5bff0705cf9.jpg"
+            ]
+        }
+    ],
+    "banner_network_hits": []
+}

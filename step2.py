@@ -42,6 +42,70 @@ CDN_KEYWORDS = [
     "master.m3u8", "chunklist", "segment",
 ]
 
+# ── Banner image collection config ──
+# CSS class/id keywords hinting at ad/banner containers
+BANNER_CLASS_KEYWORDS = [
+    "banner", "ads", "ad-", "-ad", "advert", "sponsor",
+    "promo", "sidebar", "widget", "popup-ad", "quangcao",
+    "affiliate", "partner",
+]
+
+# URL path/host keywords that suggest an ad image network
+AD_IMAGE_URL_KEYWORDS = [
+    "banner", "ads", "adserver", "doubleclick", "googlesyndication",
+    "adnxs", "adtech", "adsystem", "affiliate", "promo",
+    "sponsor", "partner", "track", "click",
+]
+
+# Exclusion patterns for content banners (e.g. anime covers, posters, thumbnails)
+BANNER_EXCLUDE_URL_KEYWORDS = [
+    "/data/banner/",
+    "/data/film/",
+    "/data/poster/",
+    "/images/film/",
+    "/images/poster/",
+    "/uploads/movie/",
+    "/uploads/poster/",
+    "/covers/",
+    "/posters/",
+    "/thumb/",
+    "/thumbnail/",
+    "/avatar/",
+    "/logo/",
+    "/icon/",
+]
+
+BANNER_EXCLUDE_CLASS_KEYWORDS = [
+    "poster",
+    "cover",
+    "thumb",
+    "thumbnail",
+    "slide",
+    "slider",
+    "carousel",
+    "avatar",
+    "player",
+    "movie-",
+    "film-",
+    "vn-background",
+    "bg-image",
+    "movie-info",
+    "detail-",
+    "logo",
+    "icon",
+]
+
+# Image file extensions recognised as banner assets
+BANNER_IMAGE_EXTENSIONS = (".jpg", ".jpeg", ".png", ".gif", ".webp", ".bmp")
+
+# Minimum pixel dimension to consider an image a banner
+# (filters out tiny icons/avatars)
+MIN_BANNER_WIDTH  = 80   # px
+MIN_BANNER_HEIGHT = 30   # px
+
+# Directory for downloaded banner images
+BANNERS_SUBDIR = "banners"
+
 # URL patterns that indicate an ACTUAL episode watch page
 # (not just anime info pages)
 EPISODE_WATCH_PATTERNS = [
@@ -124,6 +188,48 @@ logging.basicConfig(
     level=logging.INFO,
     format="[%(levelname)s] %(name)s: %(message)s",
 )
+
+# ── Extra imports for banner downloader ──
+import hashlib
+import urllib.request
+from urllib.error import URLError
+try:
+    from PIL import Image, ImageFilter as _ImageFilter, UnidentifiedImageError as _PIL_UnidentifiedImageError
+    _PIL_AVAILABLE = True
+except ImportError:
+    _PIL_AVAILABLE = False
+
+# ── Animated banner processing config (Temporal Sampling + MD5 Dedup) ──
+# Khoảng cách thời gian giữa 2 mẫu khi quét GIF/WEBP động (milliseconds)
+GIF_SAMPLE_INTERVAL_MS = 500
+# Tối đa số frame unique được lưu lại
+GIF_MAX_UNIQUE_FRAMES  = 5
+# Hard-cap tổng số frame được load vào memory
+GIF_MAX_MEMORY_FRAMES  = 30
+# Laplacian variance threshold — dựa trên thực nghiệm:
+#   Frame hợp lệ (rõ nét):  variance >= 1465
+#   Frame trống/tối/mờ:     variance = 393–1538
+GIF_MIN_SHARPNESS     = 1000.0
+# Kích thước PNG tối thiểu (để loại frame gần trống như frame xanh lá 996 bytes)
+GIF_MIN_FRAME_BYTES   = 2048
+# Ngưỡng Hamming distance để coi 2 frame là "giống nhau" qua pHash
+# (0 = giống tuyệt đối, 10 = chấp nhận sai lệch nhỏ do GIF delta)
+GIF_PHASH_DISTANCE    = 8
+
+
+from bs4 import BeautifulSoup
+
+def get_clean_text_from_html(html_content: str) -> str:
+    if not html_content:
+        return ""
+    soup = BeautifulSoup(html_content, "html.parser")
+    for tag in soup(["script", "style", "noscript", "header", "footer", "nav", "iframe", "svg", "aside", "form", "button"]):
+        tag.decompose()
+    for tag in soup.find_all(["p", "div", "h1", "h2", "h3", "h4", "h5", "h6", "li", "tr", "blockquote", "pre", "article", "section", "br"]):
+        tag.insert_before("\n")
+    text = soup.get_text(separator="", strip=False)
+    lines = [re.sub(r"[ \t]+", " ", line).strip() for line in text.splitlines() if re.sub(r"[ \t]+", " ", line).strip()]
+    return "\n".join(lines).strip()
 
 
 # ──────────────────────────────────────────────
@@ -289,17 +395,21 @@ async def bypass_cloudflare(page, url, max_retries=2):
             "just a moment",
             "checking your browser",
             "ray id",
-            "cloudflare",
             "attention required",
             "please wait",
         ]
 
-        is_blocked = any(
+        is_challenge_page = any(
             sig in (title + " " + body_text).lower()
             for sig in cf_blocked_signals
         )
 
-        if not is_blocked:
+        # If page has substantial body content, treat as loaded regardless
+        # of whether Cloudflare CDN headers/signals are present.
+        # (Distinguishes real challenge page from site *using* CF as CDN)
+        has_real_content = len(body_text.strip()) > 200
+
+        if not is_challenge_page or has_real_content:
             logger.info("[Cloudflare] ✓ Bypass successful!")
             return True
 
@@ -419,8 +529,9 @@ async def crawl_episode_urls(page, base_domain):
 
 def create_network_interceptor(evidence_collector):
     """
-    Returns a response handler that captures stream URLs
-    (.m3u8, .mp4, CDN patterns) from network traffic.
+    Returns a response handler that captures:
+    - Stream URLs (.m3u8, .mp4, CDN patterns)
+    - Ad/banner image URLs (Case 7 of banner collection)
     """
 
     async def handle_response(response):
@@ -428,12 +539,10 @@ def create_network_interceptor(evidence_collector):
         url = response.url
         url_lower = url.lower()
 
-        # Check for stream file extensions
+        # ── Stream detection ──
         is_stream = any(
             ext in url_lower for ext in STREAM_EXTENSIONS
         )
-
-        # Check for CDN keywords
         is_cdn = any(
             kw in url_lower for kw in CDN_KEYWORDS
         )
@@ -457,7 +566,6 @@ def create_network_interceptor(evidence_collector):
                 ),
             }
 
-            # Avoid duplicates
             existing_urls = [
                 s["url"]
                 for s in evidence_collector["streams"]
@@ -468,6 +576,27 @@ def create_network_interceptor(evidence_collector):
                 logger.info(
                     f"[Stream] ★ Captured: {url[:120]}..."
                 )
+
+        # ── Case 7: Ad/banner image interception ──
+        # Catch image responses whose URL path suggests an ad network
+        # so we can later download them even if they weren't in the DOM.
+        try:
+            content_type = response.headers.get("content-type", "")
+        except Exception:
+            content_type = ""
+
+        is_image_content = content_type.startswith("image/")
+        has_ad_url = any(kw in url_lower for kw in AD_IMAGE_URL_KEYWORDS)
+        has_image_ext = any(url_lower.split("?")[0].endswith(ext) for ext in BANNER_IMAGE_EXTENSIONS)
+
+        if (is_image_content or has_image_ext) and has_ad_url:
+            is_excluded = any(kw in url_lower for kw in BANNER_EXCLUDE_URL_KEYWORDS)
+            if not is_excluded:
+                hits = evidence_collector.get("banner_network_hits", [])
+                if url not in [h["url"] for h in hits]:
+                    hits.append({"url": url, "content_type": content_type})
+                    evidence_collector["banner_network_hits"] = hits
+                    logger.info(f"[BannerNet] ★ Ad image intercepted: {url[:120]}")
 
     return handle_response
 
@@ -736,14 +865,14 @@ async def _detect_infinite_scroll(page):
 
     try:
         height_before = await page.evaluate(
-            "document.body.scrollHeight"
+            "(document.body || document.documentElement || {scrollHeight: 0}).scrollHeight"
         )
         await page.evaluate(
-            "window.scrollTo(0, document.body.scrollHeight)"
+            "window.scrollTo(0, (document.body || document.documentElement || {scrollHeight: 0}).scrollHeight)"
         )
         await page.wait_for_timeout(2000)
         height_after = await page.evaluate(
-            "document.body.scrollHeight"
+            "(document.body || document.documentElement || {scrollHeight: 0}).scrollHeight"
         )
 
         is_infinite = height_after > height_before + 200
@@ -820,9 +949,12 @@ async def scan_footer(page):
     # Deep scroll (2 more rounds — _detect_infinite_scroll
     # already did 1 scroll)
     for scroll_round in range(1, 3):
-        await page.evaluate(
-            "window.scrollTo(0, document.body.scrollHeight)"
-        )
+        try:
+            await page.evaluate(
+                "window.scrollTo(0, (document.body || document.documentElement || {scrollHeight: 0}).scrollHeight)"
+            )
+        except Exception:
+            pass
         logger.info(
             f"[Footer] Scroll round {scroll_round}/2"
         )
@@ -1020,21 +1152,811 @@ async def scan_footer(page):
 
 
 # ──────────────────────────────────────────────
+# BANNER IMAGE COLLECTION (All 7 Cases)
+# ──────────────────────────────────────────────
+
+async def _trigger_lazy_load(page):
+    """
+    Scroll the page slowly to trigger lazy-loaded images
+    (IntersectionObserver / data-src swap patterns).
+    Waits 800ms between each step to allow JS to fire.
+    """
+    try:
+        total_height = await page.evaluate(
+            "(document.body || document.documentElement || {scrollHeight: 0}).scrollHeight"
+        )
+        if not total_height:
+            logger.warning("[Banner] Lazy-load skipped: page body not available.")
+            return
+        step = max(300, total_height // 6)
+        current = 0
+        while current < total_height:
+            await page.evaluate(f"window.scrollTo(0, {current})")
+            await page.wait_for_timeout(800)
+            current += step
+        # Scroll back to top
+        await page.evaluate("window.scrollTo(0, 0)")
+        await page.wait_for_timeout(500)
+        logger.info("[Banner] Lazy-load scroll complete.")
+    except Exception as e:
+        logger.warning(f"[Banner] Lazy-load scroll error: {e}")
+
+
+async def _scrape_banner_urls(page, domain):
+    """
+    DOM scraper covering Cases 1–6.
+
+    Returns a list of dicts:
+        {
+            "src_url"  : str,   # absolute image URL
+            "alt"      : str,   # alt attribute
+            "link_href": str,   # enclosing <a> href (if any)
+            "width"    : int,
+            "height"   : int,
+            "case"     : str,   # which case triggered this entry
+        }
+    """
+    try:
+        raw = await page.evaluate("""
+            () => {
+                const MIN_W = %d;
+                const MIN_H = %d;
+                const BANNER_KW = %s;
+                const AD_IMG_KW = %s;
+                const EXCLUDE_URL_KW = %s;
+                const EXCLUDE_CLASS_KW = %s;
+
+                // ── Helpers ──
+                function absUrl(src) {
+                    if (!src) return '';
+                    try { return new URL(src, location.href).href; }
+                    catch(e) { return src; }
+                }
+
+                function hasBannerClass(el) {
+                    const cls = (el.className || '').toLowerCase();
+                    const id  = (el.id || '').toLowerCase();
+                    return BANNER_KW.some(k => cls.includes(k) || id.includes(k));
+                }
+
+                function isAdUrl(url) {
+                    const u = url.toLowerCase();
+                    return AD_IMG_KW.some(k => u.includes(k));
+                }
+
+                function imgDims(el) {
+                    // Prefer natural size if rendered; fall back to attributes
+                    return {
+                        w: el.naturalWidth  || parseInt(el.getAttribute('width')  || el.width  || 0),
+                        h: el.naturalHeight || parseInt(el.getAttribute('height') || el.height || 0),
+                    };
+                }
+
+                function closestAnchor(el) {
+                    let cur = el.parentElement;
+                    while (cur && cur !== document.body) {
+                        if (cur.tagName === 'A') return cur;
+                        cur = cur.parentElement;
+                    }
+                    return null;
+                }
+
+                const MOVIE_PATH_KW = ["/phim/", "/xem-phim/", "/tap-", "/episode/", "/watch/", "/vod/", "/kenh-truyen-hinh/", "/chuong-trinh/", "/live/", "/video/", "/series/"];
+
+                function isExcluded(el, src, link) {
+                    const srcLower = (src || "").toLowerCase();
+                    const linkLower = (link || "").toLowerCase();
+
+                    // 1. Check URL keywords
+                    if (srcLower && EXCLUDE_URL_KW.some(kw => srcLower.includes(kw))) {
+                        return true;
+                    }
+
+                    // 2. Check enclosing link (if it's internal and goes to a movie page)
+                    if (linkLower) {
+                        const isInternal = linkLower.includes(location.hostname) || (!linkLower.startsWith("http") && !linkLower.startsWith("//"));
+                        if (isInternal && MOVIE_PATH_KW.some(p => linkLower.includes(p))) {
+                            return true;
+                        }
+                    }
+
+                    // 3. Check CSS classes and IDs of the element and parent elements
+                    let cur = el;
+                    for (let i = 0; i < 4; i++) {
+                        if (!cur || cur === document.body) break;
+                        const cls = (cur.className || "").toLowerCase();
+                        const id = (cur.id || "").toLowerCase();
+                        if (EXCLUDE_CLASS_KW.some(kw => cls.includes(kw) || id.includes(kw))) {
+                            return true;
+                        }
+                        cur = cur.parentElement;
+                    }
+
+                    return false;
+                }
+
+                const results = [];
+                const seenUrls = new Set();
+
+                function addEntry(src, alt, link, w, h, caseLabel) {
+                    const url = absUrl(src);
+                    if (!url || seenUrls.has(url)) return;
+                    seenUrls.add(url);
+                    results.push({
+                        src_url:   url,
+                        alt:       alt || '',
+                        link_href: link || '',
+                        width:     w   || 0,
+                        height:    h   || 0,
+                        case:      caseLabel,
+                    });
+                }
+
+                // ── Case 1: <img> inside <a rel=nofollow> or target=_blank ──
+                document.querySelectorAll('a[rel*="nofollow"] img, a[target="_blank"] img').forEach(img => {
+                    const {w, h} = imgDims(img);
+                    const src = img.src || img.getAttribute('data-src') || img.getAttribute('data-lazy-src') || '';
+                    if (!src) return;
+                    const anchor = closestAnchor(img) || img.closest('a');
+                    const href = anchor ? anchor.href : '';
+                    if (isExcluded(img, src, href)) return;
+                    addEntry(src, img.alt, href, w, h, 'case1_nofollow_link');
+                });
+
+                // ── Case 2: All <img> with data-src / data-lazy-src (lazy-load) ──
+                document.querySelectorAll('img[data-src], img[data-lazy-src], img[data-original]').forEach(img => {
+                    const src = img.getAttribute('data-src')
+                              || img.getAttribute('data-lazy-src')
+                              || img.getAttribute('data-original');
+                    if (!src) return;
+                    const {w, h} = imgDims(img);
+                    const anchor = closestAnchor(img);
+                    const href = anchor ? anchor.href : '';
+                    if (isExcluded(img, src, href)) return;
+                    addEntry(src, img.alt, href, w, h, 'case2_lazy_src');
+                });
+
+                // ── Case 3: <img> inside banner/ad/sidebar containers ──
+                document.querySelectorAll('img').forEach(img => {
+                    // Walk up 4 levels to find a banner container
+                    let el = img;
+                    let foundBannerContainer = false;
+                    for (let i = 0; i < 4; i++) {
+                        el = el.parentElement;
+                        if (!el || el === document.body) break;
+                        if (hasBannerClass(el)) { foundBannerContainer = true; break; }
+                    }
+                    if (!foundBannerContainer) return;
+                    const src = img.src || img.getAttribute('data-src') || img.getAttribute('data-lazy-src') || '';
+                    if (!src) return;
+                    const {w, h} = imgDims(img);
+                    const anchor = closestAnchor(img);
+                    const href = anchor ? anchor.href : '';
+                    if (isExcluded(img, src, href)) return;
+                    addEntry(src, img.alt, href, w, h, 'case3_banner_class');
+                });
+
+                // ── Case 4: CSS background-image ──
+                const allEls = document.querySelectorAll('[style]');
+                allEls.forEach(el => {
+                    const style = el.getAttribute('style') || '';
+                    const bgMatch = style.match(/background(?:-image)?[\s]*:[\s]*url\(["']?([^"')]+)["']?\)/);
+                    if (!bgMatch) return;
+                    const src = bgMatch[1];
+                    const rect = el.getBoundingClientRect();
+                    const w = Math.round(rect.width);
+                    const h = Math.round(rect.height);
+                    if (w < MIN_W && h < MIN_H) return;
+                    // Only include if URL or container hints at ad
+                    if (!isAdUrl(src) && !hasBannerClass(el)) return;
+                    if (isExcluded(el, src, '')) return;
+                    addEntry(src, el.getAttribute('aria-label') || '', '', w, h, 'case4_bg_image');
+                });
+
+                // ── Case 5: iframe ad — collect src for metadata (not image itself) ──
+                document.querySelectorAll('iframe').forEach(iframe => {
+                    const src = iframe.src || iframe.getAttribute('data-src') || '';
+                    if (!src) return;
+                    if (!isAdUrl(src) && !hasBannerClass(iframe)) return;
+                    if (isExcluded(iframe, src, '')) return;
+                    // Store iframe src as link_href; no image file to download
+                    if (!seenUrls.has(src)) {
+                        seenUrls.add(src);
+                        results.push({
+                            src_url:   '',
+                            alt:       'iframe-ad',
+                            link_href: absUrl(src),
+                            width:     parseInt(iframe.width  || 0),
+                            height:    parseInt(iframe.height || 0),
+                            case:      'case5_iframe_ad',
+                        });
+                    }
+                });
+
+                // ── Case 6: <picture><source srcset> ──
+                document.querySelectorAll('picture').forEach(pic => {
+                    const anchor = closestAnchor(pic);
+                    const href   = anchor ? anchor.href : '';
+                    if (isExcluded(pic, '', href)) return;
+                    // Prefer highest-res srcset
+                    const sources = pic.querySelectorAll('source[srcset]');
+                    sources.forEach(src => {
+                        const srcset = src.getAttribute('srcset') || '';
+                        // srcset can be "url 2x, url2 1x" — take first URL
+                        const firstUrl = srcset.trim().split(/[,\s]+/)[0];
+                        if (!firstUrl) return;
+                        const img = pic.querySelector('img');
+                        const {w, h} = img ? imgDims(img) : {w: 0, h: 0};
+                        if (isExcluded(pic, firstUrl, href)) return;
+                        addEntry(firstUrl, img ? img.alt : '', href, w, h, 'case6_picture_srcset');
+                    });
+                    // Fallback img inside <picture>
+                    const fallbackImg = pic.querySelector('img');
+                    if (fallbackImg) {
+                        const src = fallbackImg.src || fallbackImg.getAttribute('data-src') || '';
+                        const {w, h} = imgDims(fallbackImg);
+                        if (isExcluded(fallbackImg, src, href)) return;
+                        addEntry(src, fallbackImg.alt, href, w, h, 'case6_picture_img');
+                    }
+                });
+
+                // ── General pass: any large <img> with ad-like URL ──
+                document.querySelectorAll('img').forEach(img => {
+                    const src = img.src || img.getAttribute('data-src') || '';
+                    if (!src) return;
+                    if (!isAdUrl(src)) return;
+                    const {w, h} = imgDims(img);
+                    if (w < MIN_W && h < MIN_H) return;
+                    const anchor = closestAnchor(img);
+                    const href = anchor ? anchor.href : '';
+                    if (isExcluded(img, src, href)) return;
+                    addEntry(src, img.alt, anchor ? anchor.href : '', w, h, 'case_ad_url_img');
+                });
+
+                return results;
+            }
+        """ % (
+            MIN_BANNER_WIDTH,
+            MIN_BANNER_HEIGHT,
+            json.dumps(BANNER_CLASS_KEYWORDS),
+            json.dumps(AD_IMAGE_URL_KEYWORDS),
+            json.dumps(BANNER_EXCLUDE_URL_KEYWORDS),
+            json.dumps(BANNER_EXCLUDE_CLASS_KEYWORDS),
+        ))
+        return raw if isinstance(raw, list) else []
+    except Exception as e:
+        logger.warning(f"[Banner] DOM scrape error: {e}")
+        return []
+
+
+def _url_to_filename(url: str) -> str:
+    """
+    Convert a URL to a safe local filename using its MD5 hash
+    plus the original extension (if any).
+    """
+    ext = ""
+    path = url.split("?")[0].split("#")[0]
+    for e in BANNER_IMAGE_EXTENSIONS:
+        if path.lower().endswith(e):
+            ext = e
+            break
+    if not ext:
+        ext = ".jpg"  # fallback
+    return hashlib.md5(url.encode()).hexdigest() + ext
+
+
+def _download_banner_image(url: str, save_dir: str, domain: str) -> str | None:
+    """
+    Download a banner image to `save_dir`.
+    Returns the local file path on success, or None on failure.
+    Uses a browser-like User-Agent and Referer to avoid hotlink protection.
+    """
+    filename = _url_to_filename(url)
+    filepath = os.path.join(save_dir, filename)
+
+    if os.path.exists(filepath):
+        return filepath  # already downloaded
+
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/126.0.0.0 Safari/537.36"
+        ),
+        "Referer": f"https://{domain}/",
+        "Accept": "image/avif,image/webp,image/apng,image/*,*/*;q=0.8",
+    }
+
+    try:
+        req = urllib.request.Request(url, headers=headers)
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = resp.read()
+        if len(data) < 500:  # suspiciously small — skip (likely 1px tracker)
+            logger.debug(f"[Banner] Skipping tiny image ({len(data)} bytes): {url[:80]}")
+            return None
+        with open(filepath, "wb") as f:
+            f.write(data)
+        logger.info(f"[Banner] ✓ Downloaded ({len(data)//1024}KB): {filename}")
+        return filepath
+    except URLError as e:
+        logger.warning(f"[Banner] Download failed ({e}): {url[:100]}")
+        return None
+    except Exception as e:
+        logger.warning(f"[Banner] Unexpected download error ({e}): {url[:100]}")
+        return None
+
+
+# ──────────────────────────────────────────────
+# ANIMATED BANNER PROCESSOR (Temporal Sampling + MD5 Dedup)
+# ──────────────────────────────────────────────
+
+# Magic-byte signatures cho các định dạng ảnh động phổ biến
+_MAGIC_GIF87  = b'GIF87a'
+_MAGIC_GIF89  = b'GIF89a'
+_MAGIC_WEBP_1 = b'RIFF'          # WebP: RIFF....WEBP
+_MAGIC_WEBP_2 = b'WEBP'          # offset 8
+_MAGIC_PNG    = b'\x89PNG\r\n\x1a\n'
+
+
+def _detect_animated_format(filepath: str) -> str | None:
+    """
+    Đọc 12 byte đầu của file để xác định định dạng thực sự.
+    **Không dựa vào extension** — phòng tránh khả năng banner phục vụ GIF/WebP
+    dưới extension giả (.jpg, .png, …).
+
+    Returns:
+        'gif'  — GIF87a hoặc GIF89a
+        'webp' — RIFF....WEBP
+        'png'  — PNG (có thể là APNG)
+        None   — JPEG thường hoặc không xác định
+    """
+    try:
+        with open(filepath, 'rb') as f:
+            header = f.read(12)
+    except OSError:
+        return None
+
+    if header[:6] in (_MAGIC_GIF87, _MAGIC_GIF89):
+        return 'gif'
+    if header[:4] == _MAGIC_WEBP_1 and header[8:12] == _MAGIC_WEBP_2:
+        return 'webp'
+    if header[:8] == _MAGIC_PNG:
+        return 'png'
+    return None  # JPEG thường hoặc binary khác
+
+
+def _phash(img_rgba: "Image.Image", hash_size: int = 8) -> int:
+    """
+    Tính Perceptual Hash (pHash / DCT hash) của một frame.
+
+    Thuật toán:
+      1. Resize xuống (hash_size*4) x (hash_size*4)
+      2. Chuyển grayscale
+      3. Tính trung bình pixel
+      4. Bit = 1 nếu pixel > mean, 0 nếu không
+      5. Pack thành số int 64-bit
+
+    So sánh 2 pHash bằng Hamming distance — chấp nhận
+    sai lệch nhỏ do GIF delta encoding.
+    """
+    size = hash_size * 4
+    small = img_rgba.convert("L").resize((size, size), Image.LANCZOS)
+    pixels = list(small.getdata())
+    avg = sum(pixels) / len(pixels)
+    bits = [1 if p > avg else 0 for p in pixels]
+    # Pack vào int (lấy hash_size*hash_size bit đầu tiên)
+    result = 0
+    for bit in bits[: hash_size * hash_size]:
+        result = (result << 1) | bit
+    return result
+
+
+def _hamming(a: int, b: int) -> int:
+    """Hamming distance giữa 2 pHash."""
+    return bin(a ^ b).count("1")
+
+
+def process_animated_banner(filepath: str) -> list[str]:
+    """
+    Xử lý file ảnh động (được nhận biết qua magic bytes, không dựa extension).
+
+    Nhiều site phục vụ banner GIF / animated WEBP dưới extension .jpg / .png
+    để qua mặt các bộ lọc đơn giản. Hàm này phát hiện định dạng thực sự
+    bằng cách đọc 12 byte đầu (magic bytes), sau đó mới chạy thuật toán:
+
+      1. Temporal Sampling  — lấy mẫu frame cách đều GIF_SAMPLE_INTERVAL_MS ms,
+                              tối đa GIF_MAX_MEMORY_FRAMES frame được load.
+      2. MD5 Dedup          — loại bỏ frame trùng tuyệt đối (byte-identical).
+      3. Export             — mỗi frame unique → file PNG riêng.
+
+    Không load toàn bộ GIF vào RAM:
+      - `Image.seek(n)` chỉ decode đúng frame n, frame khác không bị load.
+      - Hard-cap GIF_MAX_MEMORY_FRAMES ngăn OOM với GIF cực lớn.
+
+    Args:
+        filepath: Đường dẫn tới file ảnh đã tải về (mọi extension).
+
+    Returns:
+        list[str]: Danh sách path các frame PNG unique đã lưu.
+                   Trả về [filepath] nguyên bản nếu Pillow chưa cài,
+                   hoặc file không phải ảnh động, hoặc xử lý lỗi.
+    """
+    if not _PIL_AVAILABLE:
+        logger.debug("[AnimBanner] Pillow không có sẵn — bỏ qua xử lý ảnh động.")
+        return [filepath]
+
+    # Phát hiện định dạng thực sự qua magic bytes (bỏ qua extension)
+    true_fmt = _detect_animated_format(filepath)
+    ext = os.path.splitext(filepath)[1].lower()
+    if true_fmt is None and ext not in (".gif", ".webp", ".png"):
+        # JPEG thường — không có animation, bỏ qua
+        return [filepath]
+    if true_fmt is None:
+        # extension gợi ý là ảnh động nhưng magic bytes không khớp — thử Pillow
+        pass
+    if true_fmt:
+        if ext != f".{true_fmt}":
+            logger.info(
+                f"[AnimBanner] Phát hiện extension giả: file '{os.path.basename(filepath)}' "
+                f"thực sự là {true_fmt.upper()} (extension: {ext})"
+            )
+
+    try:
+        img = Image.open(filepath)
+    except _PIL_UnidentifiedImageError:
+        logger.debug(f"[AnimBanner] Pillow không nhận dạng được file: {filepath}")
+        return [filepath]
+    except Exception as e:
+        logger.debug(f"[AnimBanner] Lỗi khi mở file {filepath}: {e}")
+        return [filepath]
+
+    # Kiểm tra có phải ảnh động không
+    try:
+        n_frames = getattr(img, "n_frames", 1)
+    except Exception:
+        n_frames = 1
+
+    if n_frames <= 1:
+        img.close()
+        return [filepath]  # Ảnh tĩnh — không cần xử lý
+
+    logger.info(
+        f"[AnimBanner] Phát hiện ảnh động ({n_frames} frames): "
+        f"{os.path.basename(filepath)}"
+    )
+
+    # ── Bước 1: Tính chỉ số frame sẽ lấy mẫu (Temporal Sampling) ──
+    # Lấy thông tin duration mỗi frame từ metadata (ms)
+    # Pillow lưu duration trong info dict sau khi seek()
+    sampled_indices = []
+    elapsed_ms = 0.0
+    next_sample_ms = 0.0  # Lấy frame đầu tiên luôn
+    frame_durations = []  # Cache duration để không seek lại
+
+    # Pass 1: Thu thập duration của từng frame (seek tuần tự)
+    # Hard-cap: chỉ scan tối đa GIF_MAX_MEMORY_FRAMES đầu
+    scan_limit = min(n_frames, GIF_MAX_MEMORY_FRAMES)
+    for i in range(scan_limit):
+        try:
+            img.seek(i)
+            duration = img.info.get("duration", GIF_SAMPLE_INTERVAL_MS)
+            if duration <= 0:
+                duration = GIF_SAMPLE_INTERVAL_MS
+            frame_durations.append(duration)
+        except EOFError:
+            break
+        except Exception:
+            frame_durations.append(GIF_SAMPLE_INTERVAL_MS)
+
+    # Chọn frame indices dựa trên Temporal Sampling
+    elapsed_ms = 0.0
+    next_sample_ms = 0.0
+    for i, dur in enumerate(frame_durations):
+        if elapsed_ms >= next_sample_ms:
+            sampled_indices.append(i)
+            next_sample_ms = elapsed_ms + GIF_SAMPLE_INTERVAL_MS
+        elapsed_ms += dur
+
+    if not sampled_indices:
+        sampled_indices = [0]  # Fallback: lấy ít nhất frame đầu
+
+    logger.debug(
+        f"[AnimBanner] Temporal Sampling: "
+        f"{len(frame_durations)} frames scanned → "
+        f"{len(sampled_indices)} frames sampled"
+    )
+
+    # ── Bước 2: Extract frame + Sharpness Filter + pHash Dedup ──
+    base = os.path.splitext(filepath)[0]  # VD: logs/.../banner_foo
+    seen_phashes: list[int] = []          # pHash của các frame đã giữ
+    saved_paths: list[str] = []
+
+    for idx in sampled_indices:
+        if len(saved_paths) >= GIF_MAX_UNIQUE_FRAMES:
+            break
+        try:
+            img.seek(idx)
+            # Convert sang RGBA để chuẩn hóa
+            frame = img.convert("RGBA")
+
+            # ─ Sharpness filter: bỏ qua transition/blank frame ─
+            gray = frame.convert("L")
+            lap = gray.filter(_ImageFilter.FIND_EDGES)
+            lap_bytes = lap.tobytes()
+            n_pixels = len(lap_bytes)
+            if n_pixels > 0:
+                mean_lap = sum(lap_bytes) / n_pixels
+                variance = sum((b - mean_lap) ** 2 for b in lap_bytes) / n_pixels
+            else:
+                variance = 0.0
+
+            if variance < GIF_MIN_SHARPNESS:
+                logger.debug(
+                    f"[AnimBanner] Frame {idx}: blur/blank "
+                    f"(var={variance:.0f} < {GIF_MIN_SHARPNESS:.0f}) — bỏ qua."
+                )
+                continue
+
+            # ─ pHash Dedup: bỏ qua frame trông giống frame đã lưu ─
+            ph = _phash(frame)
+            is_dup = any(_hamming(ph, prev) <= GIF_PHASH_DISTANCE for prev in seen_phashes)
+            if is_dup:
+                logger.debug(
+                    f"[AnimBanner] Frame {idx}: pHash gần giống frame đã lưu — bỏ qua."
+                )
+                continue
+
+            seen_phashes.append(ph)
+
+            # Lưu frame vào PNG tạm trước, kiểm tra size tối thiểu
+            frame_path = f"{base}_frame_{len(saved_paths) + 1:03d}.png"
+            frame.save(frame_path, format="PNG", optimize=True)
+            saved_size = os.path.getsize(frame_path)
+            if saved_size < GIF_MIN_FRAME_BYTES:
+                os.remove(frame_path)
+                logger.debug(
+                    f"[AnimBanner] Frame {idx}: PNG quá nhỏ ({saved_size}B) — bỏ qua."
+                )
+                seen_phashes.pop()  # rút lại pHash vì frame bị loại
+                continue
+
+            saved_paths.append(frame_path)
+            logger.debug(
+                f"[AnimBanner] Frame {idx}: SAVED "
+                f"(var={variance:.0f}, pH={ph:016x}) → "
+                f"{os.path.basename(frame_path)}"
+            )
+
+        except EOFError:
+            break
+        except Exception as e:
+            logger.debug(f"[AnimBanner] Lỗi khi extract frame {idx}: {e}")
+            continue
+
+    img.close()
+
+    n_unique = len(saved_paths)
+    logger.info(
+        f"[AnimBanner] ✓ {os.path.basename(filepath)}: "
+        f"{n_frames} tổng / {len(sampled_indices)} mẫu / {n_unique} unique → "
+        f"{n_unique} PNG đã lưu"
+    )
+
+    if not saved_paths:
+        # Không extract được gì (toàn blur hoặc lỗi) → giữ file gốc làm dự phòng
+        return [filepath]
+
+    # Xóa file động gốc sau khi đã extract thành các frame PNG tĩnh
+    # (đảm bảo chỉ xóa khi đã lưu thành công ít nhất 1 frame)
+    try:
+        os.remove(filepath)
+        logger.info(f"[AnimBanner] Ụ Đã xóa file động gốc: {os.path.basename(filepath)}")
+    except OSError as e:
+        logger.debug(f"[AnimBanner] Không xóa được file gốc ({e}): {os.path.basename(filepath)}")
+
+    return saved_paths
+
+
+async def _screenshot_crop_banner(page, entry: dict, save_dir: str) -> str | None:
+    """
+    Fallback: find the <img> element for a banner by its src URL and
+    take a cropped screenshot of its bounding box.
+    Returns local file path on success, or None.
+    """
+    src_url = entry.get("src_url", "")
+    if not src_url:
+        return None
+
+    try:
+        # Find the element matching this src (or data-src)
+        el = await page.query_selector(
+            f'img[src="{src_url}"], img[data-src="{src_url}"], img[data-lazy-src="{src_url}"]'
+        )
+        if not el:
+            return None
+
+        bbox = await el.bounding_box()
+        if not bbox or bbox["width"] < 10 or bbox["height"] < 10:
+            return None
+
+        filename = "crop_" + _url_to_filename(src_url) + ".png"
+        filepath = os.path.join(save_dir, filename)
+
+        await page.screenshot(
+            path=filepath,
+            clip={
+                "x":      bbox["x"],
+                "y":      bbox["y"],
+                "width":  bbox["width"],
+                "height": bbox["height"],
+            },
+        )
+        logger.info(f"[Banner] ✓ Screenshot-crop fallback saved: {filename}")
+        return filepath
+
+    except Exception as e:
+        logger.debug(f"[Banner] Screenshot-crop error: {e}")
+        return None
+
+
+async def collect_banner_images(page, domain: str, evidence_collector: dict) -> list[dict]:
+    """
+    Phase 5b — Banner Image Collection for OCR Branch 1.
+
+    Orchestrates all 7 banner cases:
+      Case 1–6 : DOM scraper via _scrape_banner_urls()
+      Case 7   : Network-intercepted ad image URLs (aggregated from
+                 global and episode-level details)
+
+    For each discovered image URL:
+      1. Try HTTP download (with browser-like headers).
+      2. On failure → screenshot-crop from the live DOM.
+
+    Returns list of banner metadata dicts:
+        {
+            "local_path" : str | None,
+            "src_url"    : str,
+            "alt"        : str,
+            "link_href"  : str,
+            "width"      : int,
+            "height"     : int,
+            "case"       : str,
+            "download_ok": bool,
+        }
+    """
+    logger.info("[Phase 5b] Starting banner image collection...")
+
+    safe_domain = re.sub(r'[\\/*?:"<>|]', "_", domain) if domain else "unknown"
+    save_dir = os.path.join("logs", safe_domain, BANNERS_SUBDIR)
+    os.makedirs(save_dir, exist_ok=True)
+
+    # ── Step 1: Trigger lazy-load so data-src images become real src ──
+    await _trigger_lazy_load(page)
+
+    # ── Step 2: DOM scrape (Cases 1–6) ──
+    dom_entries = await _scrape_banner_urls(page, domain)
+    logger.info(f"[Phase 5b] DOM scraper found {len(dom_entries)} candidate(s).")
+
+    # Apply backup Python-side exclusion filtering for DOM entries
+    filtered_dom_entries = []
+    for entry in dom_entries:
+        src = entry.get("src_url", "").lower()
+        href = entry.get("link_href", "").lower()
+
+        # 1. URL keywords check
+        if any(kw in src for kw in BANNER_EXCLUDE_URL_KEYWORDS):
+            logger.info(f"[Banner] Excluding candidate due to URL match: {src[:120]}")
+            continue
+
+        # 2. Internal movie links check
+        if href:
+            is_internal = domain in href or (not href.startswith("http") and not href.startswith("//"))
+            is_movie_link = any(p in href for p in ["/phim/", "/xem-phim/", "/tap-", "/episode/", "/watch/", "/vod/", "/kenh-truyen-hinh/", "/chuong-trinh/", "/live/", "/video/", "/series/"])
+            if is_internal and is_movie_link:
+                logger.info(f"[Banner] Excluding candidate due to internal movie link: {href[:120]}")
+                continue
+
+        filtered_dom_entries.append(entry)
+    dom_entries = filtered_dom_entries
+    logger.info(f"[Phase 5b] {len(dom_entries)} DOM candidates remain after filtering.")
+
+    # ── Step 3: Merge Case 7 network hits ──
+    # Gather network hits from global evidence
+    net_hits = list(evidence_collector.get("banner_network_hits", []))
+
+    # Also gather network hits from each episode's details
+    episodes_detail = evidence_collector.get("episodes_detail", [])
+    for ep in episodes_detail:
+        ep_hits = ep.get("banner_network_hits", [])
+        for hit in ep_hits:
+            if hit["url"] not in [h["url"] for h in net_hits]:
+                net_hits.append(hit)
+
+    # Add filtered network hits to candidates list
+    for hit in net_hits:
+        url = hit["url"]
+        url_lower = url.lower()
+        if any(kw in url_lower for kw in BANNER_EXCLUDE_URL_KEYWORDS):
+            continue
+        # Avoid duplicates with DOM entries
+        if not any(e["src_url"] == url for e in dom_entries):
+            dom_entries.append({
+                "src_url":   url,
+                "alt":       "",
+                "link_href": "",
+                "width":     0,
+                "height":    0,
+                "case":      "case7_network_intercept",
+            })
+    logger.info(
+        f"[Phase 5b] After merging Case 7: {len(dom_entries)} total candidate(s)."
+    )
+
+    # ── Step 4: Download / screenshot-crop each image ──
+    banners = []
+    for entry in dom_entries:
+        src = entry.get("src_url", "")
+
+        # Case 5 (iframe ads) have no image src — store metadata only
+        if entry.get("case") == "case5_iframe_ad":
+            banners.append({**entry, "local_path": None, "download_ok": False})
+            continue
+
+        if not src:
+            continue
+
+        # Try HTTP download first
+        local_path = _download_banner_image(src, save_dir, domain)
+        download_ok = local_path is not None
+
+        # Fallback: screenshot-crop
+        if not download_ok:
+            local_path = await _screenshot_crop_banner(page, entry, save_dir)
+            download_ok = local_path is not None
+
+        # ── Temporal Sampling + MD5 Dedup cho ảnh động (GIF / WEBP) ──
+        # Chạy ngay sau khi download/crop thành công để loại bỏ frame lặp
+        # trước khi bằng chứng được đưa vào pipeline OCR
+        frames: list[str] = []
+        if download_ok and local_path:
+            frames = process_animated_banner(local_path)
+            if len(frames) > 1:
+                # Ảnh động đã được tách thành nhiều frame unique
+                # Dùng frame đầu tiên làm local_path chính để tương thích ngược
+                local_path = frames[0]
+
+        banners.append({
+            **entry,
+            "local_path":  local_path,
+            "download_ok": download_ok,
+            "frames":      frames,  # list các PNG frame unique (rỗng nếu ảnh tĩnh)
+        })
+
+    ok_count = sum(1 for b in banners if b.get("download_ok"))
+    logger.info(
+        f"[Phase 5b] Banner collection complete: "
+        f"{len(banners)} found, {ok_count} downloaded successfully."
+    )
+    return banners
+
+
+# ──────────────────────────────────────────────
 # SCREENSHOT CAPTURE
 # ──────────────────────────────────────────────
 
 async def capture_screenshot(page, domain, episode_index):
     """
-    Capture a full-page screenshot and save to logs/screenshots/.
+    Capture a full-page screenshot and save to logs/<domain>/screenshots/.
     Returns the file path.
     """
 
-    os.makedirs(SCREENSHOTS_DIR, exist_ok=True)
+    safe_domain = re.sub(r'[\\/*?:"<>|]', "_", domain) if domain else "unknown"
+    screenshots_dir = os.path.join("logs", safe_domain, "screenshots")
+    os.makedirs(screenshots_dir, exist_ok=True)
 
-    safe_domain = re.sub(r'[\\/*?:"<>|]', "_", domain)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     filename = f"{safe_domain}_ep{episode_index}_{timestamp}.png"
-    filepath = os.path.join(SCREENSHOTS_DIR, filename)
+    filepath = os.path.join(screenshots_dir, filename)
 
     try:
         await page.screenshot(
@@ -1473,7 +2395,9 @@ async def _run_step2_async(domain, url):
         "all_iframes": [],
         "footer_analysis": {},
         "technical_flags": {},
-        "dom_text": "",  # Full body text for Content Model (Step 3 Branch 2)
+        "dom_text": "",     # Full body text for Content Model (Step 3 Branch 2)
+        "banners": [],      # Banner images for OCR Engine (Step 3 Branch 1)
+        "banner_network_hits": [],  # Case 7: network-intercepted ad image URLs
     }
 
     stealth = Stealth(
@@ -1500,18 +2424,11 @@ async def _run_step2_async(domain, url):
             evidence["cloudflare_bypassed"] = cf_ok
 
             if not cf_ok:
-                logger.error(
-                    "[Phase 1] Cannot bypass Cloudflare. "
-                    "Evidence will be limited."
+                logger.warning(
+                    "[Phase 1] Cloudflare bypass uncertain — "
+                    "continuing evidence collection anyway."
                 )
                 evidence["technical_flags"]["cloudflare_bypassed"] = False
-
-                # Still try to capture whatever we can
-                footer = await scan_footer(page)
-                evidence["footer_analysis"] = footer
-                await capture_screenshot(page, domain, 0)
-
-                return evidence
 
             # ────────────────────────────────
             # Phase 2: Crawl episode URLs
@@ -1585,29 +2502,29 @@ async def _run_step2_async(domain, url):
             footer = await scan_footer(page)
             evidence["footer_analysis"] = footer
 
-            # ── Extract full body text for Content Model (Step 3) ──
-            logger.info("[Phase 5] Extracting full DOM text for Content Model...")
+            # ── Extract full DOM HTML and clean it for Content Model (Step 3) ──
+            logger.info("[Phase 5] Extracting and cleaning DOM text for Content Model...")
             try:
-                dom_text = await page.evaluate("""
-                    () => {
-                        // Remove script / style / noscript nodes from clone
-                        const clone = document.body.cloneNode(true);
-                        for (const tag of ['script', 'style', 'noscript', 'svg', 'img']) {
-                            clone.querySelectorAll(tag).forEach(el => el.remove());
-                        }
-                        return clone.innerText || '';
-                    }
-                """)
-                # Collapse excessive whitespace
-                import re as _re
-                dom_text = _re.sub(r'[ \t]+', ' ', dom_text)
-                dom_text = _re.sub(r'\n{3,}', '\n\n', dom_text).strip()
+                html_content = await page.content()
+                dom_text = get_clean_text_from_html(html_content)
                 evidence["dom_text"] = dom_text
                 logger.info(
-                    f"[Phase 5] DOM text extracted: {len(dom_text)} chars"
+                    f"[Phase 5] DOM text extracted and cleaned: {len(dom_text)} chars"
                 )
             except Exception as e:
                 logger.warning(f"[Phase 5] DOM text extraction error: {e}")
+
+            # ────────────────────────────────
+            # Phase 5b: Banner Image Collection (for OCR Branch 1)
+            # ────────────────────────────────
+
+            logger.info("[Phase 5b] Collecting banner images for OCR engine...")
+            try:
+                banners = await collect_banner_images(page, domain, evidence)
+                evidence["banners"] = banners
+            except Exception as e:
+                logger.warning(f"[Phase 5b] Banner collection error: {e}")
+
 
             # ────────────────────────────────
             # Phase 6: Compile technical flags
@@ -1636,14 +2553,17 @@ async def _run_step2_async(domain, url):
             await browser.close()
 
     # ── Summary log ──
+    banners_ok = sum(1 for b in evidence.get("banners", []) if b.get("download_ok"))
     logger.info(
         f"\n{'='*60}\n"
         f"  STEP 2 COMPLETE\n"
-        f"  Episodes checked: {evidence['episodes_checked']}\n"
-        f"  Streams found: {len(evidence['all_streams'])}\n"
-        f"  Iframes found: {len(evidence['all_iframes'])}\n"
-        f"  Popups blocked: {evidence['popup_blocked_count']}\n"
-        f"  Footer anonymous: "
+        f"  Episodes checked  : {evidence['episodes_checked']}\n"
+        f"  Streams found     : {len(evidence['all_streams'])}\n"
+        f"  Iframes found     : {len(evidence['all_iframes'])}\n"
+        f"  Popups blocked    : {evidence['popup_blocked_count']}\n"
+        f"  Banners collected : {len(evidence.get('banners', []))} "
+        f"({banners_ok} downloaded)\n"
+        f"  Footer anonymous  : "
         f"{evidence.get('footer_analysis', {}).get('FOOTER_ANONYMOUS', 'N/A')}\n"
         f"{'='*60}\n"
     )
@@ -1769,11 +2689,12 @@ if __name__ == "__main__":
     result = run_step2(target_domain, target_url)
 
     # Save output
-    os.makedirs("logs", exist_ok=True)
+    safe = re.sub(r'[\\/*?:"<>|]', "_", target_domain) if target_domain else "unknown"
+    domain_logs_dir = os.path.join("logs", safe)
+    os.makedirs(domain_logs_dir, exist_ok=True)
 
-    safe = re.sub(r'[\\/*?:"<>|]', "_", target_domain)
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    out_path = os.path.join("logs", f"{safe}_step2_{ts}.json")
+    out_path = os.path.join(domain_logs_dir, f"{safe}_step2_{ts}.json")
 
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(

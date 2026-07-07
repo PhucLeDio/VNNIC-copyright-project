@@ -1,0 +1,312 @@
+{
+    "target_url": "https://animevietsub.love/",
+    "target_domain": "animevietsub.love",
+    "timestamp": "2026-07-04T18:32:58.417597",
+    "cloudflare_bypassed": true,
+    "episodes_found_total": 6,
+    "episodes_checked": 3,
+    "popup_blocked_count": 4,
+    "popup_urls": [
+        "https://bom88.plus/?a=five_5ec7e52591464a5cb1a330629a14cc30&utm_campaign=cpd&utm_source=animevietsubapp&utm_medium=popunder&utm_term=phim",
+        "chrome-error://chromewebdata/",
+        "https://sin88.med/?a=dc0b32972c1d7d0a6880fa5bac020142&utm_source=animevietsubapp&utm_medium=popup&utm_campaign=cpd&utm_content=phim",
+        "chrome-error://chromewebdata/"
+    ],
+    "episodes_detail": [
+        {
+            "episode_url": "https://animevietsub.love/phim/to-love-ru-darkness-r1-a2012/tap-08-22362.html",
+            "streams": [
+                {
+                    "url": "https://storage.googleapiscdn.com/playlist/fdd91b113adc319dbf75582dd3a681281f73ba4f81c2f457558d936686124143/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgzMTY0ODA2LCJleHAiOjE3ODMxNzIwMDYsImp0aSI6IjlmN2VjNDc4NWVhYjJiMjc2OTMzNzI0YWIxNmZlYzZkN2VkYjVhNWQ1NzkwYWU4NmMyODQ3NmU5MTU2ZjY1ZTUxZTQ0NmIyZGE0ZmJhMmU5OGJhNWY4ZTYwODhkNjBmMTE1YjBkY2FkNzQ4NzBmODU2YTNhZTIxM2Q5MDhhYzZkIn0.1kNcs0bTY0yC4cKgRV8bDPLKwSUBE5qs8Mp9dP7GZFY&fc=Y3Jvc3Mtb3JpZ2lu",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                }
+            ],
+            "iframes": [
+                {
+                    "iframe_src": "https://animevietsub.love/phim/to-love-ru-darkness-r1-a2012/tap-08-22362.html",
+                    "source": "frame_tree",
+                    "is_external": false
+                },
+                {
+                    "iframe_src": "https://storage.googleapiscdn.com/devtools-warning",
+                    "source": "frame_tree",
+                    "is_external": true
+                },
+                {
+                    "iframe_src": "https://storage.googleapiscdn.com/player/fdd91b113adc319dbf75582dd3a681281f73ba4f81c2f457558d936686124143?nextName=09&nextUrl=https%3A%2F%2Fanimevietsub.love%2Fphim%2Fto-love-ru-darkness-r1-a2012%2Ftap-09-22363.html",
+                    "source": "dom_query",
+                    "is_external": false,
+                    "dimensions": "100%x100%"
+                }
+            ],
+            "screenshot_path": "logs\\animevietsub.love\\screenshots\\animevietsub.love_ep1_20260704_183405.png"
+        },
+        {
+            "episode_url": "https://animevietsub.love/phim/tamayomi-a3699/tap-12-71420.html",
+            "streams": [
+                {
+                    "url": "https://storage.googleapiscdn.com/playlist/d5cd598d859db8021d1f0f33a430c65882d764fe3560e061a5afcb5a35b4c73b/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgzMTY0ODQ5LCJleHAiOjE3ODMxNzIwNDksImp0aSI6ImQ5ODIwYjE4YTM2YmE0YWYzYzM4NDZkODEyYzExODQ0YTllYjQxYjVjZTRkOTYwMzgwMDBjN2U1YjVhNmM3NGE1MmVlMWZmMDQ5MmQ2MGVkYmI2MDRmMTc5ODY0YzQ3NjM0NDg2NGUxNDYzMjRiZDNhZTYyMGI3ZmU0YTcwYjBiIn0.Qrv2BUmf5wpXIJ5K7Djec5ih6jTytRUDsf4cH2q1fC4&fc=Y3Jvc3Mtb3JpZ2lu",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                }
+            ],
+            "iframes": [
+                {
+                    "iframe_src": "https://animevietsub.love/phim/tamayomi-a3699/tap-12-71420.html",
+                    "source": "frame_tree",
+                    "is_external": false
+                },
+                {
+                    "iframe_src": "https://storage.googleapiscdn.com/devtools-warning",
+                    "source": "frame_tree",
+                    "is_external": true
+                },
+                {
+                    "iframe_src": "https://storage.googleapiscdn.com/player/d5cd598d859db8021d1f0f33a430c65882d764fe3560e061a5afcb5a35b4c73b?isFinal=1",
+                    "source": "dom_query",
+                    "is_external": true,
+                    "dimensions": "100%x100%"
+                }
+            ],
+            "screenshot_path": "logs\\animevietsub.love\\screenshots\\animevietsub.love_ep2_20260704_183449.png"
+        },
+        {
+            "episode_url": "https://animevietsub.love/phim/dr-stone-4th-season-i4-a5533/tap-29-113239.html",
+            "streams": [
+                {
+                    "url": "https://storage.googleapiscdn.com/playlist/a34c0d45ec275b54ebd3633fc3454a35f678c03d6390b9271ec7185b0ebcefb7/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgzMTY0ODkyLCJleHAiOjE3ODMxNzIwOTIsImp0aSI6ImE4ODFlYjA4OWMxMTA5ZWZkNjVhZGRmMjdmODFiYTFhMjBjNmRhN2RlMzE5NDA3YzM5M2E4ZTUzZDY1OGVjNzEyNDhmNDdlNjk0N2Y1OGYzMzhkNGY0MTYyZjdkYTllNjk5YmVhYzM4Zjg5NWU2NWI2ZmVlM2MyNmM2NTg1ODM3In0.xvMULY9fqkhy0oezy_kjQZqf4Lb5SfsXIIOucfAy0ao&fc=Y3Jvc3Mtb3JpZ2lu",
+                    "content_type": "detected_from_request",
+                    "status": 0,
+                    "matched_by": "request_intercept"
+                }
+            ],
+            "iframes": [
+                {
+                    "iframe_src": "https://animevietsub.love/phim/dr-stone-4th-season-i4-a5533/tap-29-113239.html",
+                    "source": "frame_tree",
+                    "is_external": false
+                },
+                {
+                    "iframe_src": "https://storage.googleapiscdn.com/devtools-warning",
+                    "source": "frame_tree",
+                    "is_external": true
+                },
+                {
+                    "iframe_src": "https://storage.googleapiscdn.com/player/a34c0d45ec275b54ebd3633fc3454a35f678c03d6390b9271ec7185b0ebcefb7?nextName=30&nextUrl=https%3A%2F%2Fanimevietsub.love%2Fphim%2Fdr-stone-4th-season-i4-a5533%2Ftap-30-113371.html",
+                    "source": "dom_query",
+                    "is_external": false,
+                    "dimensions": "100%x100%"
+                }
+            ],
+            "screenshot_path": "logs\\animevietsub.love\\screenshots\\animevietsub.love_ep3_20260704_183526.png"
+        }
+    ],
+    "all_streams": [
+        "https://storage.googleapiscdn.com/playlist/fdd91b113adc319dbf75582dd3a681281f73ba4f81c2f457558d936686124143/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgzMTY0ODA2LCJleHAiOjE3ODMxNzIwMDYsImp0aSI6IjlmN2VjNDc4NWVhYjJiMjc2OTMzNzI0YWIxNmZlYzZkN2VkYjVhNWQ1NzkwYWU4NmMyODQ3NmU5MTU2ZjY1ZTUxZTQ0NmIyZGE0ZmJhMmU5OGJhNWY4ZTYwODhkNjBmMTE1YjBkY2FkNzQ4NzBmODU2YTNhZTIxM2Q5MDhhYzZkIn0.1kNcs0bTY0yC4cKgRV8bDPLKwSUBE5qs8Mp9dP7GZFY&fc=Y3Jvc3Mtb3JpZ2lu",
+        "https://storage.googleapiscdn.com/playlist/d5cd598d859db8021d1f0f33a430c65882d764fe3560e061a5afcb5a35b4c73b/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgzMTY0ODQ5LCJleHAiOjE3ODMxNzIwNDksImp0aSI6ImQ5ODIwYjE4YTM2YmE0YWYzYzM4NDZkODEyYzExODQ0YTllYjQxYjVjZTRkOTYwMzgwMDBjN2U1YjVhNmM3NGE1MmVlMWZmMDQ5MmQ2MGVkYmI2MDRmMTc5ODY0YzQ3NjM0NDg2NGUxNDYzMjRiZDNhZTYyMGI3ZmU0YTcwYjBiIn0.Qrv2BUmf5wpXIJ5K7Djec5ih6jTytRUDsf4cH2q1fC4&fc=Y3Jvc3Mtb3JpZ2lu",
+        "https://storage.googleapiscdn.com/playlist/a34c0d45ec275b54ebd3633fc3454a35f678c03d6390b9271ec7185b0ebcefb7/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdnMtdXNlciIsImlzcyI6ImF2cy1hdXRoIiwiaWF0IjoxNzgzMTY0ODkyLCJleHAiOjE3ODMxNzIwOTIsImp0aSI6ImE4ODFlYjA4OWMxMTA5ZWZkNjVhZGRmMjdmODFiYTFhMjBjNmRhN2RlMzE5NDA3YzM5M2E4ZTUzZDY1OGVjNzEyNDhmNDdlNjk0N2Y1OGYzMzhkNGY0MTYyZjdkYTllNjk5YmVhYzM4Zjg5NWU2NWI2ZmVlM2MyNmM2NTg1ODM3In0.xvMULY9fqkhy0oezy_kjQZqf4Lb5SfsXIIOucfAy0ao&fc=Y3Jvc3Mtb3JpZ2lu"
+    ],
+    "all_iframes": [
+        "https://animevietsub.love/phim/to-love-ru-darkness-r1-a2012/tap-08-22362.html",
+        "https://storage.googleapiscdn.com/devtools-warning",
+        "https://storage.googleapiscdn.com/player/fdd91b113adc319dbf75582dd3a681281f73ba4f81c2f457558d936686124143?nextName=09&nextUrl=https%3A%2F%2Fanimevietsub.love%2Fphim%2Fto-love-ru-darkness-r1-a2012%2Ftap-09-22363.html",
+        "https://animevietsub.love/phim/tamayomi-a3699/tap-12-71420.html",
+        "https://storage.googleapiscdn.com/player/d5cd598d859db8021d1f0f33a430c65882d764fe3560e061a5afcb5a35b4c73b?isFinal=1",
+        "https://animevietsub.love/phim/dr-stone-4th-season-i4-a5533/tap-29-113239.html",
+        "https://storage.googleapiscdn.com/player/a34c0d45ec275b54ebd3633fc3454a35f678c03d6390b9271ec7185b0ebcefb7?nextName=30&nextUrl=https%3A%2F%2Fanimevietsub.love%2Fphim%2Fdr-stone-4th-season-i4-a5533%2Ftap-30-113371.html"
+    ],
+    "footer_analysis": {
+        "has_legal_footer": true,
+        "legal_notice_found": false,
+        "tax_code_found": false,
+        "authority_found": false,
+        "copyright_found": false,
+        "has_structured_identity": true,
+        "is_infinite_scroll": false,
+        "has_telegram_contact": false,
+        "has_ad_contact_only": false,
+        "FOOTER_ANONYMOUS": false,
+        "extraction_method": "none",
+        "meta_info": {
+            "title": "Anime Vietsub Online - AnimeVietSub.love",
+            "og_site_name": "animevietsub.love",
+            "meta_copyright": "",
+            "meta_author": "",
+            "has_json_ld": false
+        },
+        "footer_text_snippet": "[META] anime vietsub online - animevietsub.love   animevietsub.love  anime vietsub online - animevietsub.love anime vietsub online - animevietsub.love xem phim anime vietsub online xem trên điện thoại di động và máy tính nhanh nhất. là một website xem phim anime vietsub miễn phí tốt nhất. liên tục cập nhật các anime sớm nhất từ các fansub việt nam. anime, animetv, anime hay, anime vietsub, anime vietsub online, xem anime, anime tv, download anime vietsub, anime hd, tai anime, anime moi nhat, phim anime"
+    },
+    "technical_flags": {
+        "cloudflare_bypassed": true,
+        "is_drm_protected": true,
+        "iframe_detected": true,
+        "stream_intercepted": true,
+        "has_legal_footer": true,
+        "popup_detected": true
+    },
+    "dom_text": "Anime Vietsub Online - AnimeVietSub.love\n📌\nLINK RÚT GỌN\nLưu lại để truy cập khi nhà mạng chặn!bit.ly/animevietsubtv\n🤝\nCỘNG ĐỒNG\nTham gia để cập nhật và ủng hộ AnimeVietsub!\n👥 Facebook💬 Discord\n🔖\nKHÔI PHỤC DỮ LIỆU\nLấy lịch sử xem & đăng nhập từ tên miền cũTẢI NGAY\nTẬP14\n9.6\nVào Ma Giới Rồi Đấy! Iruma-kun Mùa 4\nTẬP01\n9.5\nThất Nghiệp Chuyển Sinh Mùa 3\nTẬP13\n9.3\nLúc Đó, Tôi Đã Chuyển Sinh Thành Slime Mùa 4\nTẬP01\n8.6\nKoko wa Ore ni Makasete Saki ni Ike to Itte kara 10-nen ga Tattara Densetsu ni Natteita.\nTẬP01\n8.9\nTrọng Giáp Hiệp Sĩ Chuyển Sinh Bị Lưu Đày Trở Nên Vô Địch Nhờ Kiến Thức Về Game\nHOÀNTẤT\n9\nMai Mối Cho Độc Sư\nHOÀNTẤT\n8.4\nNeedy Girl Overdose\nTẬP1168\n9.3\nOne Piece - Đảo Hải Tặc\nTẬP12\n9\nHắc Miêu Và Lớp Học Phù Thủy\nHOÀNTẤT\n9.5\nWistoria: Trượng Và Kiếm Mùa 2\nTẬP1205\n9.4\nThám Tử Lừng Danh Conan\nHOÀNTẤT\n9.7\nDr. Stone 4th Season\nHOÀNTẤT\n5.5\nSaikyou no Ousama, Nidome no Jinsei wa Nani wo Suru? 2nd Season\nHOÀNTẤT\n9\nChào Mừng Đến Với Lớp Học Đề Cao Thực Lực 4\nHOÀNTẤT\n9.5\nClass de 2-banme ni Kawaii Onnanoko to Tomodachi ni Natta\nHOÀNTẤT\n9.4\nCuộc Sống Nông Dân Ở Thế Giới Khác 2\nVào Ma Giới Rồi Đấy! Iruma-kun Mùa 4\n9.614/242026FHD\nMùa 4 sẽ tập trung vào Arc Lễ hội Âm nhạc, nơi lớp Cá biệt phải đối mặt...\nStudio: Bandai Namco Pictures\nThể Loại:Shounen, School, Supernatural, Fantasy, Demons, Comedy,\nXem Phim\nThất Nghiệp Chuyển Sinh Mùa 3\n9.501/??2026FHD\nSau khi ổn định cuộc sống với Sylphie và Roxy, Rudeus nhận được lời cảnh...\nStudio: Studio Bind\nThể Loại:Fantasy, Ecchi, Drama, Adventure, Magic,\nXem Phim\nLúc Đó, Tôi Đã Chuyển Sinh Thành Slime Mùa 4\n9.313/??2026FHD\nSau các sự kiện ở mùa 3, Liên bang Jura-Tempest bắt đầu hướng tới việc...\nStudio: 8bit\nThể Loại:Fantasy, Demons, Comedy, Adventure, Magic, Action,\nXem Phim\nKoko wa Ore ni Makasete Saki ni Ike to Itte kara 10-nen ga Tattara Densetsu ni Natteita.\n8.601/??2026FHD\nLuck, một pháp sư của tổ đội Anh hùng, đã một mình chống lại đội quân...\nStudio: Gekkou\nThể Loại:Fantasy, Adventure, Action,\nXem Phim\nTrọng Giáp Hiệp Sĩ Chuyển Sinh Bị Lưu Đày Trở Nên Vô Địch Nhờ Kiến Thức Về Game\n8.901/262026FHD\nElma Edvan, người kế thừa của một gia tộc Thánh kiếm danh giá. Trong buổi...\nStudio: GoHands\nThể Loại:Fantasy, Adventure, Action,\nXem Phim\nMai Mối Cho Độc Sư\n913/132026FHD\nHikaru Gero, người kế thừa của Ngự Độc sư, một gia tộc sát thủ chuyên sử...\nStudio: Bones Film\nThể Loại:Shounen, Romance, Drama, Comedy, Action,\nXem Phim\nNeedy Girl Overdose\n8.413/132026FHD\nNeedy Girl Overdose là một \"cuộc phiêu lưu nhiều kết thúc\" khắc họa cuộc...\nStudio: Yostar Pictures\nThể Loại:Drama,\nXem Phim\nOne Piece - Đảo Hải Tặc\n9.31168/????1999FHD\nAnime được phát sóng lần đầu tiên vào năm 1999 và nhanh chóng trở...\nStudio: Toei Animation\nThể Loại:Shounen, Super Power, Fantasy, Drama, Comedy, Adventure, Action,\nXem Phim\nHắc Miêu Và Lớp Học Phù Thủy\n912/242026FHD\nSpica Virgo, một nữ phù thủy tập sự không thể sử dụng bất kỳ phép thuật...\nStudio: LIDENFILMS\nThể Loại:School, Fantasy, Comedy,\nXem Phim\nWistoria: Trượng Và Kiếm Mùa 2\n9.512/122026FHD\nSau khi thể hiện sức mạnh vượt trội ở cuối mùa 1, Will bắt đầu thu hút...\nStudio: Bandai Namco Pictures, Actas\nThể Loại:Shounen, School, Fantasy, Adventure, Action,\nXem Phim\nMới cập nhật Tất cảMùa Hạ - 2026Anime bộAnime lẻHH Trung Quốc\nTẬP142\n7.9\nPokemon (2023)Lượt xem: 5,343,246\nPokemon (2023)\nHD7.9142/???2023\nPocket Monsters, gọi tắt là \"Pokémon\", là những sinh vật kì lạ với vô vàn...\nStudio: OLM\nThể loại:Fantasy, Comedy, Adventure, Kids, Action,\nDiễn viên: Liko,\nTẬP14\n9.6\nVào Ma Giới Rồi Đấy! Iruma-kun Mùa 4Lượt xem: 1,084,414\nVào Ma Giới Rồi Đấy! Iruma-kun Mùa 4\nFHD9.614/242026\nMùa 4 sẽ tập trung vào Arc Lễ hội Âm nhạc, nơi lớp Cá biệt phải đối mặt...\nStudio: Bandai Namco Pictures\nThể loại:Shounen, School, Supernatural, Fantasy, Demons, Comedy,\nDiễn viên: Suzuki,\nTẬP01\n9.5\nThất Nghiệp Chuyển Sinh Mùa 3Lượt xem: 88,659\nThất Nghiệp Chuyển Sinh Mùa 3\nFHD9.501/??2026\nSau khi ổn định cuộc sống với Sylphie và Roxy, Rudeus nhận được lời cảnh...\nStudio: Studio Bind\nThể loại:Fantasy, Ecchi, Drama, Adventure, Magic,\nDiễn viên: Greyrat,\nTẬP01\n9.6\nHell Mode: Yarikomizuki no Gamer wa Hai Settei no Isekai de Musou suru 2nd SeasonLượt xem: 171,448\nHell Mode: Yarikomizuki no Gamer wa Hai Settei no Isekai de Musou suru 2nd Season\nFHD9.601/??2026\nNội dung của phần 2 sẽ tập trung toàn bộ vào Học viện Học đường (Academy...\nStudio: Yokohama Animation Lab\nThể loại:Fantasy, Adventure, Action,\nDiễn viên: Allen,\nTẬP41\n8.9\nĐạo Yêu HànhLượt xem: 375,745\nĐạo Yêu Hành\nFHD8.941/??2026\nThiều Nguyệt thánh nữ của Cửu Tuyền Tông, bị mang ra gả cho Giang Nguyên...\nStudio: Đang Cập Nhật\nThể loại:Cổ Trang,\nDiễn viên:\nNhân vật đang được cập nhật\nTẬP92\n8.3\nThần MộLượt xem: 2,320,759\nThần Mộ\nHD8.392/??2022\nNội dung Thần mộ kể về chàng thiếu niên tên Thần Nam được hồi sinh sau...\nStudio: Wonder Cat Animation Rocen\nThể loại:Fantasy, Adventure, Action,\nDiễn viên:\nNhân vật đang được cập nhật\nTẬP276\n8.8\nThế Giới Hoàn MỹLượt xem: 23,128,612\nThế Giới Hoàn Mỹ\nHD8.8276/???2021\nMột hạt bụi có thể lấp biển, một cọng cỏ chém hết mặt trời mặt trăng và...\nStudio: Shanghai Foch Film and TV Culture Investment\nThể loại:Fantasy, Adventure, Action,\nDiễn viên:\nNhân vật đang được cập nhật\nTẬP619\n6.9\nVô Thượng Thần ĐếLượt xem: 8,087,553\nVô Thượng Thần Đế\nHD6.9619/??2020\nTiên Vương Mục Vân bởi vì nắm giữ Tru Tiên Đồ mà bị kẻ khác ám toán, tàn...\nStudio: Ruo Hong Culture\nThể loại:Cartoon,\nDiễn viên:\nNhân vật đang được cập nhật\nTẬP670\n8.3\nVõ Thần Chúa TểLượt xem: 11,879,906\nVõ Thần Chúa Tể\nHD8.3670/???2020\nThiên Vũ đại lục nhất đại truyền kỳ Tần Trần, bởi vì bạn tốt phản bội...\nStudio: Ruo Hong Culture\nThể loại:Fantasy, Drama, Historical, Martial Arts, Action,\nDiễn viên:\nNhân vật đang được cập nhật\nTẬP04\n9\nVân Thâm Bất Tri Mộng: Trận Chiến Trục MinhLượt xem: 61,331\nVân Thâm Bất Tri Mộng: Trận Chiến Trục Minh\nFHD904/??2026\nVào thời mạt thế thượng cổ, thiếu nữ Hi Hòa của tộc Huy Hoa đã trốn thoát...\nStudio:\nThể loại:Cổ Trang,\nDiễn viên:\nNhân vật đang được cập nhật\nXem thêm..\nSắp chiếu\nSẮP CHIẾU07-2026\n9.6\nThiếu Chủ Giỏi Chạy Trốn 2Lượt xem: 149,215\nThiếu Chủ Giỏi Chạy Trốn 2\nFHD9.6PV/??07-2026\nSau thời gian dài ẩn mình và tích lũy lực lượng tại vùng Suwa, Hōjō Tokiyuki...\nStudio: CloverWorks\nThể loại:Comedy, Adventure,\nDiễn viên: Houjou,\n4d 5h 24m 13s09-07-2026\n8.5\nDogulwangLượt xem: 165,681\nDogulwang\nFHD8.5PV/??2026\nPhim lấy bối cảnh thế giới xuất hiện các \"Lăng mộ thần bí\" chứa đựng những...\nStudio: Studio Eek\nThể loại:Fantasy, Adventure, Action,\nDiễn viên: Seo,\nSẮP CHIẾU07-2026\n9.7\nGrand Blue Season 3Lượt xem: 125,240\nGrand Blue Season 3\nFHD9.7PV/??07-2026\nPhần 3 sẽ đánh dấu một cột mốc mới khi đưa nhóm nhân vật chính lần đầu...\nStudio: Zero-G, Saber Works\nThể loại:Slice of Life, Comedy,\nDiễn viên: Kitahara,\nSẮP CHIẾU10-2026\n9\nDragon Ball Super: BeerusLượt xem: 256,778\nDragon Ball Super: Beerus\nFHD9PV/??10-2026\nHòa bình Trái Đất một lần nữa bị đe dọa khi Thần Hủy Diệt Beerus thức...\nStudio: Toei Animation\nThể loại:Fantasy, Adventure, Action,\nDiễn viên: Son,\n0d 5h 24m 13s05-07-2026\n9.1\nNijusseiki Denki Mokuroku: Eureka EvrikaLượt xem: 365,038\nNijusseiki Denki Mokuroku: Eureka Evrika\nFHD9.1PV/??2026\nBối cảnh diễn ra vào năm 1907 tại Kyoto, thời điểm Nhật Bản chuyển...\nStudio: Kyoto Animation\nThể loại:Romance, Historical,\nDiễn viên: Momokawa,\n0d 5h 24m 13s05-07-2026\n9.6\nCậu Và Tớ Là Hai Thái Cực Đối Lập 2Lượt xem: 208,579\nCậu Và Tớ Là Hai Thái Cực Đối Lập 2\nFHD9.6PV/??2025\nMùa 2 tiếp tục xoay quanh quá trình phát triển tình cảm giữa cô nàng năng...\nStudio: Lapin Track\nThể loại:Romance, Comedy,\nDiễn viên: Suzuki,\n0d 5h 24m 13s05-07-2026\n8\nKimi no Koto ga Daidaidaidaidaisuki na 100-nin no Kanojo 3rd SeasonLượt xem: 331,215\nKimi no Koto ga Daidaidaidaidaisuki na 100-nin no Kanojo 3rd Season\nFHD8PV/??2026\nNối tiếp diễn biến từ phần trước, phần 3 của anime tiếp tục theo chân Rentarou...\nStudio: Bibury Animation Studios\nThể loại:Romance, Comedy,\nDiễn viên: Inda,\nSẮP CHIẾU07-2026\n8.6\nSaikyou Degarashi Ouji no Anyaku Teii ArasoiLượt xem: 124,019\nSaikyou Degarashi Ouji no Anyaku Teii Arasoi\nFHD8.6PV/??07-2026\nCâu chuyện xoay quanh Aold Reaks Adler, nhị hoàng tử của Đế quốc Adeshia....\nStudio: Maho Film\nThể loại:Fantasy, Adventure, Action,\nDiễn viên: Adler,\n0d 5h 24m 13s05-07-2026\n9.6\nSaijo no Osewa: Takane no Hanadarake na Meimonkou de, Gakuin Ichi no Ojousama (Seikatsu Nouryoku Kaimu) wo Kagenagara Osewa suru Koto ni NarimashitaLượt xem: 229,826\nSaijo no Osewa: Takane no Hanadarake na Meimonkou de, Gakuin Ichi no Ojousama (Seikatsu Nouryoku Kaimu) wo Kagenagara Osewa suru Koto ni Narimashita\nFHD9.6PV/??2026\nCâu chuyện xoay quanh nam chính Itsuki, một học sinh có khả năng nội trợ...\nStudio: Brain's Base\nThể loại:Romance, Comedy,\nDiễn viên: Konohana,\nSẮP CHIẾU07-2026\n9.5\nTenkou-saki no Seiso Karen na Bishoujo ga, Mukashi Danshi to Omotte Issho ni Asonda Osananajimi Datta KenLượt xem: 197,547\nTenkou-saki no Seiso Karen na Bishoujo ga, Mukashi Danshi to Omotte Issho ni Asonda Osananajimi Datta Ken\nFHD9.5PV/??07-2026\nNhân vật chính Hayato chuyển trường và gặp lại một thiếu nữ cực kỳ xinh...\nStudio: Project No.9\nThể loại:Romance, Comedy,\nDiễn viên: Nikaidou, Xem thêm..\nĐề cử Xem nhiều hôm nayXem nhiều trong mùaYêu ThíchTháng\nTẬP13\n9.3\nLúc Đó, Tôi Đã Chuyển Sinh Thành Slime Mùa 4Lượt xem: 3,068,617\nLúc Đó, Tôi Đã Chuyển Sinh Thành Slime Mùa 4\nFHD9.313/??2026\nSau các sự kiện ở mùa 3, Liên bang Jura-Tempest bắt đầu hướng tới việc...\nStudio: 8bit\nThể loại:Fantasy, Demons, Comedy, Adventure, Magic, Action,\nDiễn viên: Tempest,\nTẬP01\n8.6\nKoko wa Ore ni Makasete Saki ni Ike to Itte kara 10-nen ga Tattara Densetsu ni Natteita.Lượt xem: 235,608\nKoko wa Ore ni Makasete Saki ni Ike to Itte kara 10-nen ga Tattara Densetsu ni Natteita.\nFHD8.601/??2026\nLuck, một pháp sư của tổ đội Anh hùng, đã một mình chống lại đội quân...\nStudio: Gekkou\nThể loại:Fantasy, Adventure, Action,\nDiễn viên: Franzen,\nTẬP01\n8.9\nTrọng Giáp Hiệp Sĩ Chuyển Sinh Bị Lưu Đày Trở Nên Vô Địch Nhờ Kiến Thức Về GameLượt xem: 216,971\nTrọng Giáp Hiệp Sĩ Chuyển Sinh Bị Lưu Đày Trở Nên Vô Địch Nhờ Kiến Thức Về Game\nFHD8.901/262026\nElma Edvan, người kế thừa của một gia tộc Thánh kiếm danh giá. Trong buổi...\nStudio: GoHands\nThể loại:Fantasy, Adventure, Action,\nDiễn viên: Rubis,\nTẬP01\n9.6\nHell Mode: Yarikomizuki no Gamer wa Hai Settei no Isekai de Musou suru 2nd SeasonLượt xem: 171,448\nHell Mode: Yarikomizuki no Gamer wa Hai Settei no Isekai de Musou suru 2nd Season\nFHD9.601/??2026\nNội dung của phần 2 sẽ tập trung toàn bộ vào Học viện Học đường (Academy...\nStudio: Yokohama Animation Lab\nThể loại:Fantasy, Adventure, Action,\nDiễn viên: Allen,\nTẬP41\n8.9\nĐạo Yêu HànhLượt xem: 375,745\nĐạo Yêu Hành\nFHD8.941/??2026\nThiều Nguyệt thánh nữ của Cửu Tuyền Tông, bị mang ra gả cho Giang Nguyên...\nStudio: Đang Cập Nhật\nThể loại:Cổ Trang,\nDiễn viên:\nNhân vật đang được cập nhật\nHOÀNTẤT\n9\nMai Mối Cho Độc SưLượt xem: 1,145,852\nMai Mối Cho Độc Sư\nFHD913/132026\nHikaru Gero, người kế thừa của Ngự Độc sư, một gia tộc sát thủ chuyên sử...\nStudio: Bones Film\nThể loại:Shounen, Romance, Drama, Comedy, Action,\nDiễn viên: Kinosaki,\nTẬP04\n8.9\nTrảm Thần Phần 2Lượt xem: 58,707\nTrảm Thần Phần 2\nFHD8.904/??2026\nCâu chuyện sẽ được tiếp tục sau khi Lâm Thất Dạ trở về tiểu đội 136 và...\nStudio: Đang Cập Nhật\nThể loại:Cartoon,\nDiễn viên:\nNhân vật đang được cập nhật\nTẬP276\n8.8\nThế Giới Hoàn MỹLượt xem: 23,128,612\nThế Giới Hoàn Mỹ\nHD8.8276/???2021\nMột hạt bụi có thể lấp biển, một cọng cỏ chém hết mặt trời mặt trăng và...\nStudio: Shanghai Foch Film and TV Culture Investment\nThể loại:Fantasy, Adventure, Action,\nDiễn viên:\nNhân vật đang được cập nhật\nTẬP01\n9.5\nRyoumin 0-nin Start no Henkyou Ryoushu-samaLượt xem: 19,544\nRyoumin 0-nin Start no Henkyou Ryoushu-sama\nHD9.501/??2026\nDias, một cựu binh lính đánh thuê đã cống hiến cả tuổi trẻ trên chiến...\nStudio: animation studio42\nThể loại:Slice of Life, Romance, Fantasy, Drama, Comedy, Action,\nDiễn viên: Alna,\nTẬP92\n8.3\nThần MộLượt xem: 2,320,759\nThần Mộ\nHD8.392/??2022\nNội dung Thần mộ kể về chàng thiếu niên tên Thần Nam được hồi sinh sau...\nStudio: Wonder Cat Animation Rocen\nThể loại:Fantasy, Adventure, Action,\nDiễn viên:\nNhân vật đang được cập nhật\nXem thêm..\nTâm điểm Sôi nổiTop bình luậnThành viên tích cựcĐược yêu thíchBình luận nhiều nhất\nĐang tải...\nĐang tải...\nĐang tải...\n🥇 451\nFull\nWistoria: Trượng Và Kiếm Mùa 2\n🥈 359\nFull\nAishiteru Game wo Owarasetai\n🥉 213\nFull\nClass de 2-banme ni Kawaii Onnanoko to Tomodachi ni Natta\n207\nTập 13\nLúc Đó, Tôi Đã Chuyển Sinh Thành Slime Mùa 4\n180\nTập 01\nTrọng Giáp Hiệp Sĩ Chuyển Sinh Bị Lưu Đày Trở Nên Vô Địch Nhờ Kiến Thức Về Game\n160\nFull\nLúc Đó, Tôi Đã Chuyển Sinh Thành Slime: Nước Mắt Đại Dương\n123\nFull\nSứ Giả Bốn Mùa: Vũ Điệu Mùa Xuân\n122\nTập 01\nYani Neko\n118\nFull\nBức Tường Băng\n114\nTập 01\nYêu Nhau Đến Tận Ngày Cậu Biến Mất\nĐang tải...\nTiếp tục xem\nHOÀNTẤT\nDr. Stone 4th Seasonđã xem 37 giây trước Xem tiếp Tập 29\nHOÀNTẤT\nTamayomiđã xem 1 phút trước Xem tiếp Tập 12\nHOÀNTẤT\nTo LOVE-Ru Darknessđã xem 2 phút trước Xem tiếp Tập 08Xem thêm..\nX\n×\n×",
+    "banners": [
+        {
+            "src_url": "https://lh3.googleusercontent.com/fjZDO41EekPLC3a2M_6P-uXvkBrNzmgmp_GCYnzZfRoQEz8HstgxLg3kSNFPP_B4pkJtm-FU-_cfGYf5o81aZWOWSpB5TMNQd-2q8JEa-ekz3jiiAvPOVrqqy1o=s0",
+            "alt": "yo88",
+            "link_href": "https://yo88chinhhang.com/animevietsubapp-topbanner1",
+            "width": 728,
+            "height": 90,
+            "case": "case1_nofollow_link",
+            "local_path": "logs\\animevietsub.love\\banners\\67ca25d358ac069e2279e3a94c5e27a2_frame_001.png",
+            "download_ok": true,
+            "frames": [
+                "logs\\animevietsub.love\\banners\\67ca25d358ac069e2279e3a94c5e27a2_frame_001.png",
+                "logs\\animevietsub.love\\banners\\67ca25d358ac069e2279e3a94c5e27a2_frame_002.png"
+            ]
+        },
+        {
+            "src_url": "https://lh3.googleusercontent.com/ZM3X4eoX9e9y2hVZrOdfNq6YhbMRZ0jU_sVZHmTVzrlHP1taQYR9tnuetISZMd-4lCWDfks6p_C05eorSwfw1T37zXbtRQa36V8g2XQklBOUdOwb6O6ci2yJyRaWUg=s0",
+            "alt": "hitclub",
+            "link_href": "https://hitclubchinhhang.com/animevietsubapp-topbanner2",
+            "width": 720,
+            "height": 90,
+            "case": "case1_nofollow_link",
+            "local_path": "logs\\animevietsub.love\\banners\\08fa3c2f3f756f8e09ec16668df54b9d_frame_001.png",
+            "download_ok": true,
+            "frames": [
+                "logs\\animevietsub.love\\banners\\08fa3c2f3f756f8e09ec16668df54b9d_frame_001.png",
+                "logs\\animevietsub.love\\banners\\08fa3c2f3f756f8e09ec16668df54b9d_frame_002.png"
+            ]
+        },
+        {
+            "src_url": "https://lh3.googleusercontent.com/UcyUn8yMSOeJ-mVDYJEvt7W3ToY2rWpCm6-5ZSoQm-zLkAosZD4fptz8arrY-1c7gRdDSLmd6C8KAQlB05NQi2XRUeszuKzQQGyT-qy86cxi4ZDgQZKuwZqOr_gM3w=s0",
+            "alt": "win79",
+            "link_href": "https://gemwinchinhhang.com/animevietsubapp-topbanner3",
+            "width": 728,
+            "height": 90,
+            "case": "case1_nofollow_link",
+            "local_path": "logs\\animevietsub.love\\banners\\b2e26fdb30efaca27f86448b58d9f0c4_frame_001.png",
+            "download_ok": true,
+            "frames": [
+                "logs\\animevietsub.love\\banners\\b2e26fdb30efaca27f86448b58d9f0c4_frame_001.png",
+                "logs\\animevietsub.love\\banners\\b2e26fdb30efaca27f86448b58d9f0c4_frame_002.png",
+                "logs\\animevietsub.love\\banners\\b2e26fdb30efaca27f86448b58d9f0c4_frame_003.png"
+            ]
+        },
+        {
+            "src_url": "https://lh3.googleusercontent.com/U-U9YF9LG3hq1bNf_Gn-lcE-KfPGkPv2QH33B4EzPGKWDOn2oe6xONfxN7nXTEKI-ZuElMb-TlksowDry-4OPgu9RQmKlCB32VQgtA3ZLM4uNoyOlEkNvUlo7dkN=s0",
+            "alt": "zowin",
+            "link_href": "https://zowinchinhhang.online/animevietsubapp-topbanner4",
+            "width": 728,
+            "height": 90,
+            "case": "case1_nofollow_link",
+            "local_path": "logs\\animevietsub.love\\banners\\5c4c0baa880e5ea739e76745a001ce2d_frame_001.png",
+            "download_ok": true,
+            "frames": [
+                "logs\\animevietsub.love\\banners\\5c4c0baa880e5ea739e76745a001ce2d_frame_001.png",
+                "logs\\animevietsub.love\\banners\\5c4c0baa880e5ea739e76745a001ce2d_frame_002.png",
+                "logs\\animevietsub.love\\banners\\5c4c0baa880e5ea739e76745a001ce2d_frame_003.png",
+                "logs\\animevietsub.love\\banners\\5c4c0baa880e5ea739e76745a001ce2d_frame_004.png",
+                "logs\\animevietsub.love\\banners\\5c4c0baa880e5ea739e76745a001ce2d_frame_005.png"
+            ]
+        },
+        {
+            "src_url": "https://lh3.googleusercontent.com/i43QHWNdG2DN_inIyu8xFnwiJhuy1XNfygotT3hwWToF1jHZ8464u5-fKo-tJZLu8dmq6r7mgraCQ3wRXIgyIufLe31pPI6ITsQJJ6t9z5S7z11Z8jwzDzZJ3xgj=s0",
+            "alt": "vsbet",
+            "link_href": "https://6789x.site/ad9namei07",
+            "width": 728,
+            "height": 90,
+            "case": "case1_nofollow_link",
+            "local_path": "logs\\animevietsub.love\\banners\\50806ed063047d40a9f31d9eee4f3bc4_frame_001.png",
+            "download_ok": true,
+            "frames": [
+                "logs\\animevietsub.love\\banners\\50806ed063047d40a9f31d9eee4f3bc4_frame_001.png",
+                "logs\\animevietsub.love\\banners\\50806ed063047d40a9f31d9eee4f3bc4_frame_002.png"
+            ]
+        },
+        {
+            "src_url": "https://lh3.googleusercontent.com/yZ4YPMFHbhvr63uROW50rvefEKwgcKSo9zOmte1fIuMXnxy5rXIWhkAELOX0KV7RzUn8hcNGemNE8-trQzy8VNVnuSbhHI9v1Vru6i6vUvWslU0rUVCtkozINAMC=s0",
+            "alt": "rikvip",
+            "link_href": "https://rikvipchinhhang.com/animevietsubapp-topbanner5",
+            "width": 728,
+            "height": 90,
+            "case": "case1_nofollow_link",
+            "local_path": "logs\\animevietsub.love\\banners\\5ffc573caa27d7316988573cc3c667ca_frame_001.png",
+            "download_ok": true,
+            "frames": [
+                "logs\\animevietsub.love\\banners\\5ffc573caa27d7316988573cc3c667ca_frame_001.png",
+                "logs\\animevietsub.love\\banners\\5ffc573caa27d7316988573cc3c667ca_frame_002.png",
+                "logs\\animevietsub.love\\banners\\5ffc573caa27d7316988573cc3c667ca_frame_003.png",
+                "logs\\animevietsub.love\\banners\\5ffc573caa27d7316988573cc3c667ca_frame_004.png"
+            ]
+        },
+        {
+            "src_url": "https://lh3.googleusercontent.com/jLmubMHhzNSZkuxjweTycOOReGz2wMIfSTQ3Arqy07GO9ohFw596i-9nuN6xXqzNr0nAUg6AiCOjlNnmDxRfPFlLnxnlDY-yq03GIvOKckE8hXjJkwQblZgUH3rHbg=s0",
+            "alt": "uk88",
+            "link_href": "https://uk88chinhhang.com/animevietsubapp-right-banner",
+            "width": 300,
+            "height": 250,
+            "case": "case1_nofollow_link",
+            "local_path": "logs\\animevietsub.love\\banners\\fd92ec77e1a4a7963d0a755c450b28c7_frame_001.png",
+            "download_ok": true,
+            "frames": [
+                "logs\\animevietsub.love\\banners\\fd92ec77e1a4a7963d0a755c450b28c7_frame_001.png",
+                "logs\\animevietsub.love\\banners\\fd92ec77e1a4a7963d0a755c450b28c7_frame_002.png",
+                "logs\\animevietsub.love\\banners\\fd92ec77e1a4a7963d0a755c450b28c7_frame_003.png"
+            ]
+        },
+        {
+            "src_url": "https://lh6.googleusercontent.com/niNvqW87lyRKXDaWknU-K7iiTx6_sAPg_cyDtbJhk_RhXK1hFYPGjIsdM9F6DDyqsDD9IdPZv3hKHkkM2lNZGMFaDdvll8bV6B0n3SFONcjrGY9YY1gM6KQd28Zl=s0",
+            "alt": "group",
+            "link_href": "https://fb.com/311330635239510",
+            "width": 300,
+            "height": 250,
+            "case": "case1_nofollow_link",
+            "local_path": "logs\\animevietsub.love\\banners\\85af70843f8a12e7f89d2f3403a208a6.jpg",
+            "download_ok": true,
+            "frames": [
+                "logs\\animevietsub.love\\banners\\85af70843f8a12e7f89d2f3403a208a6_frame_001.png"
+            ]
+        },
+        {
+            "src_url": "https://lh3.googleusercontent.com/UdkobLtdaMtnOK6SxwWqu_am53vP3YD7PKGyIoUmnbDFaBQAC5Juon7UNXGdtceR_2BLwC8g9z-814GhDu1i1I5Mnc8ie0_yr53zS4i8stV1t09s_E45kbVDapFUOQ=s0",
+            "alt": "five88",
+            "link_href": "https://five88chinhhang.com/animevietsubapp-catfish",
+            "width": 728,
+            "height": 90,
+            "case": "case1_nofollow_link",
+            "local_path": "logs\\animevietsub.love\\banners\\56e03cc2fcbb6166235abfdc6c824213.jpg",
+            "download_ok": true,
+            "frames": [
+                "logs\\animevietsub.love\\banners\\56e03cc2fcbb6166235abfdc6c824213_frame_001.png"
+            ]
+        },
+        {
+            "src_url": "https://lh3.googleusercontent.com/NRFo1svKuA96vi2O_eKpfTCQQ-u_PDrCjeKOcHLV1hqo5P5PBmPGcJ11kVtkur-OqZKbs_Q0n9WO6dyXVB2DZ7iQAH4WgiUkDDi6LXe4vqM_c6bm34sZ_YYdoosr=s0",
+            "alt": "",
+            "link_href": "https://ball88.fyi/?a=five_c72981f02794b26e53179a6d861eb5a3&utm_campaign=cpd&utm_source=animevietsubapp&utm_medium=catfish1-720x80&utm_term=phim",
+            "width": 728,
+            "height": 90,
+            "case": "case1_nofollow_link",
+            "local_path": "logs\\animevietsub.love\\banners\\7d707e28a89683450457ce4c4227db36.jpg",
+            "download_ok": true,
+            "frames": [
+                "logs\\animevietsub.love\\banners\\7d707e28a89683450457ce4c4227db36_frame_001.png"
+            ]
+        },
+        {
+            "src_url": "https://lh3.googleusercontent.com/1ljHzJ2BlYTuI2XjCI2ebHK_xybERcrPcqcmgn_w-__tVWkv_qGQBcQ9e9OQVwyysDQLHkOrxYfRTzo7UW3w-p9f-mLRBhsvrTkHMSYIpXpo0tW86kOSb4lu4xjCPA=s0",
+            "alt": "",
+            "link_href": "https://sin88chinhhang.com/animevietsubapp-popup",
+            "width": 300,
+            "height": 250,
+            "case": "case1_nofollow_link",
+            "local_path": "logs\\animevietsub.love\\banners\\3711c8f371eae569a9ab29dd403a4c6b_frame_001.png",
+            "download_ok": true,
+            "frames": [
+                "logs\\animevietsub.love\\banners\\3711c8f371eae569a9ab29dd403a4c6b_frame_001.png",
+                "logs\\animevietsub.love\\banners\\3711c8f371eae569a9ab29dd403a4c6b_frame_002.png"
+            ]
+        }
+    ],
+    "banner_network_hits": []
+}
