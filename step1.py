@@ -11,9 +11,13 @@ import requests
 import whois
 # pyrefly: ignore [missing-import]
 import dns.resolver
+import logging
 
 from datetime import datetime, timezone
 from ipwhois import IPWhois
+
+# Suppress whois library connection logs / socket errors
+logging.getLogger("whois").setLevel(logging.CRITICAL)
 
 
 #################################################

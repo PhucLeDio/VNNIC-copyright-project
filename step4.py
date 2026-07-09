@@ -32,7 +32,7 @@ sys.stderr.reconfigure(encoding='utf-8', errors='replace')
 # CONFIG
 # ==============================================================================
 
-GEMINI_MODEL   = "gemini-2.5-flash"
+GEMINI_MODEL   = "gemini-3.5-flash"
 REPORT_DIR     = "report"
 
 # Các trường OCR giữ lại (chỉ banner đã matched)
