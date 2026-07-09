@@ -1,9 +1,11 @@
-# main.py
+# Chạy bình thường (python main.py)
+# Chạy để cập nhật mô hình (python main.py --update)
 
 import sys
 import json
 import os
 import re
+import msvcrt
 from datetime import datetime
 
 # Fix Unicode output trên Windows terminal (cp1252 không hỗ trợ tiếng Việt)
@@ -50,6 +52,10 @@ def main():
 
         print("[ERROR] Domain không được để trống.")
         return
+
+    # Tự động thêm https:// nếu đầu vào chưa có scheme (http/https)
+    if not target_url.startswith(("http://", "https://")):
+        target_url = "https://" + target_url
 
     domain = normalize_domain(
         target_url
@@ -216,10 +222,27 @@ def main():
     print("========================\n")
 
     banners = step2_evidence.get("banners", [])
-    if banners:
+
+    # Chỉ đưa vào OCR những banner có local_path chứa "_frame"
+    # Đây là các frame thực sự được trích xuất từ GIF/animated banner quảng cáo
+    # (do hàm process_animated_banner() tạo ra).
+    # Loại bỏ ảnh thumbnail/poster phim không phải quảng cáo để giảm nhiễu.
+    ad_banners = [
+        b for b in banners
+        if b.get("local_path") and "_frame" in os.path.basename(b["local_path"])
+    ]
+    excluded = len(banners) - len(ad_banners)
+    if excluded > 0:
+        print(
+            f"[INFO] OCR Engine: Bỏ qua {excluded}/{len(banners)} banner "
+            f"không phải quảng cáo (không có đuôi _frame). "
+            f"Chỉ phân tích {len(ad_banners)} banner quảng cáo thực sự."
+        )
+
+    if ad_banners:
         try:
             ocr_results = run_ocr_pipeline(
-                banners,
+                ad_banners,
                 keywords_csv="keywords/Keywords_v1.csv",
             )
             flagged = [r for r in ocr_results if r.get("matched")]
@@ -260,7 +283,7 @@ def main():
             print(f"\n[ERROR] OCR Engine lỗi: {e}")
             evidence_buffer["step3_evidence"]["branch1_ocr"] = {"error": str(e)}
     else:
-        print("[WARN] Không có banner từ Step 2 — bỏ qua OCR Engine.")
+        print("[WARN] Không có banner quảng cáo (_frame) từ Step 2 — bỏ qua OCR Engine.")
         evidence_buffer["step3_evidence"]["branch1_ocr"] = {
             "banner_count": 0, "flagged_count": 0,
             "has_gambling_banner": False, "results": [],
@@ -363,5 +386,55 @@ def main():
             print(f"\n[ERROR] Step 4 lỗi: {e}")
 
 
+def ask_continue() -> bool:
+    """Hỏi người dùng có muốn tiếp tục không.
+    Nhấn Enter hoặc 'y'/'Y' để chạy lại.
+    Nhấn ESC hoặc 'n'/'N' hoặc 'q'/'Q' để thoát.
+    Trả về True nếu tiếp tục, False nếu thoát.
+    """
+    print("\n" + "=" * 43)
+    print(" Nhấn  Enter  để kiểm tra domain tiếp theo")
+    print(" Nhấn  ESC   để thoát chương trình")
+    print("=" * 43)
+
+    while True:
+        key = msvcrt.getch()
+        # ESC = 0x1B, Enter = 0x0D or 0x0A
+        if key in (b'\x1b',):          # ESC
+            return False
+        if key in (b'\r', b'\n', b'y', b'Y'):  # Enter / y
+            return True
+        if key in (b'n', b'N', b'q', b'Q'):    # n / q
+            return False
+        # Mọi phím khác: bỏ qua, chờ tiếp
+
+
 if __name__ == "__main__":
-    main()
+    # Kiểm tra nếu người dùng muốn cập nhật mô hình từ Hugging Face
+    if "--update" in sys.argv:
+        print("\n==========================================")
+        print("[INFO] Bắt đầu kiểm tra và cập nhật mô hình...")
+        print("==========================================\n")
+        try:
+            sys.path.insert(0, os.path.join(os.path.dirname(__file__), "model"))
+            from model_loader import get_domain_model, get_content_model
+            get_domain_model(force_update=True)
+            get_content_model(force_update=True)
+            print("\n[SUCCESS] Cập nhật thành công các mô hình mới nhất từ Hugging Face!")
+            print("[INFO] Từ lần chạy sau, bạn có thể chạy bình thường không cần `--update` để load offline tốc độ tối đa.\n")
+        except Exception as e:
+            print(f"\n[ERROR] Lỗi khi cập nhật mô hình: {e}")
+        sys.exit(0)
+
+    while True:
+        try:
+            main()
+        except KeyboardInterrupt:
+            print("\n\n[INFO] Đã nhận Ctrl+C — thoát chương trình.")
+            break
+        except Exception as e:
+            print(f"\n[ERROR] Lỗi không mong đợi: {e}")
+
+        if not ask_continue():
+            print("\n[INFO] Thoát chương trình. Tạm biệt!\n")
+            break

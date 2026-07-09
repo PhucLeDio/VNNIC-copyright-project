@@ -1,0 +1,94 @@
+{
+    "domain_age_days": null,
+    "creation_date": "None",
+    "registrar": null,
+    "is_whois_privacy_active": false,
+    "tld_info": {
+        "tld": ".app",
+        "risk": "LOW"
+    },
+    "redirect_history": [
+        "https://phimmoie.app/"
+    ],
+    "redirect_info": {
+        "redirect_depth": 1,
+        "domains_seen": [
+            "phimmoie.app"
+        ],
+        "domain_hopping": false
+    },
+    "dns_records": {
+        "A": [
+            "172.67.210.66",
+            "104.21.77.167"
+        ],
+        "AAAA": [
+            "2606:4700:3034::6815:4da7",
+            "2606:4700:3033::ac43:d242"
+        ],
+        "NS": [
+            "raquel.ns.cloudflare.com.",
+            "piotr.ns.cloudflare.com."
+        ],
+        "MX": [],
+        "TXT": [
+            "\"google-site-verification=IiRXhF2Ma2WPbiCCsPQ8qp0CFoPt_Zw4sdKHtAJHEeU\""
+        ],
+        "CNAME": []
+    },
+    "detected_ns": [
+        "raquel.ns.cloudflare.com.",
+        "piotr.ns.cloudflare.com."
+    ],
+    "cloudflare_detected": true,
+    "cdn_providers": [
+        "cloudflare"
+    ],
+    "http_headers": {
+        "Server": "cloudflare",
+        "CF-Ray": "a17b77b2cc9f8579-HKG",
+        "CF-Cache-Status": "HIT",
+        "X-Powered-By": "Next.js",
+        "Alt-Svc": "h3=\":443\"; ma=86400"
+    },
+    "mx_analysis": {
+        "has_mx": false,
+        "possible_streaming_only_site": true
+    },
+    "mail_provider": null,
+    "txt_analysis": {
+        "google_verification": true,
+        "google_verification_count": 1,
+        "spf_configured": false,
+        "dmarc_configured": false,
+        "microsoft_verification": false,
+        "facebook_verification": false
+    },
+    "cloud_provider": "CLOUDFLARE",
+    "ns_provider": "CLOUDFLARE",
+    "suspicious_hosting": false,
+    "resolved_ip": [
+        "172.67.210.66",
+        "104.21.77.167"
+    ],
+    "asn_info": {
+        "asn": "13335",
+        "asn_description": "CLOUDFLARENET - Cloudflare, Inc., US"
+    },
+    "legitimate_signals": {
+        "official_tld": false,
+        "business_mail": false,
+        "google_verification": true,
+        "spf_configured": false,
+        "major_cloud_provider": true,
+        "enterprise_dns": false,
+        "total_signals": 2
+    },
+    "risk_score": 15,
+    "legitimacy_score": 25,
+    "step0": {
+        "input_domain": "https://phimmoie.app/",
+        "normalized_domain": "phimmoie.app",
+        "in_database": false
+    }
+}

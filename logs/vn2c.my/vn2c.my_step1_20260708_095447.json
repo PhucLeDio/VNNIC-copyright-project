@@ -1,0 +1,84 @@
+{
+    "domain_age_days": 276,
+    "creation_date": "2025-10-04 19:02:31.744000+00:00",
+    "registrar": "DYNADOT LLC",
+    "is_whois_privacy_active": true,
+    "tld_info": {
+        "tld": ".my",
+        "risk": "LOW"
+    },
+    "redirect_history": [
+        "https://www.vn2c.my/"
+    ],
+    "redirect_info": {
+        "redirect_depth": 1,
+        "domains_seen": [
+            "www.vn2c.my"
+        ],
+        "domain_hopping": false
+    },
+    "dns_records": {
+        "A": [
+            "14.177.66.1"
+        ],
+        "AAAA": [],
+        "NS": [
+            "cheryl.ns.cloudflare.com.",
+            "alexis.ns.cloudflare.com."
+        ],
+        "MX": [],
+        "TXT": [],
+        "CNAME": []
+    },
+    "detected_ns": [
+        "cheryl.ns.cloudflare.com.",
+        "alexis.ns.cloudflare.com."
+    ],
+    "cloudflare_detected": true,
+    "cdn_providers": [
+        "cloudflare"
+    ],
+    "http_headers": {
+        "Server": "Microsoft-IIS/10.0",
+        "X-Powered-By": "UrlRewriter.NET 2.0.0, ASP.NET"
+    },
+    "mx_analysis": {
+        "has_mx": false,
+        "possible_streaming_only_site": true
+    },
+    "mail_provider": null,
+    "txt_analysis": {
+        "google_verification": false,
+        "google_verification_count": 0,
+        "spf_configured": false,
+        "dmarc_configured": false,
+        "microsoft_verification": false,
+        "facebook_verification": false
+    },
+    "cloud_provider": null,
+    "ns_provider": "CLOUDFLARE",
+    "suspicious_hosting": false,
+    "resolved_ip": [
+        "14.177.66.1"
+    ],
+    "asn_info": {
+        "asn": "45899",
+        "asn_description": "VNPT-AS-VN - VNPT Corp, VN"
+    },
+    "legitimate_signals": {
+        "official_tld": false,
+        "business_mail": false,
+        "google_verification": false,
+        "spf_configured": false,
+        "major_cloud_provider": false,
+        "enterprise_dns": false,
+        "total_signals": 0
+    },
+    "risk_score": 25,
+    "legitimacy_score": 0,
+    "step0": {
+        "input_domain": "https://www.vn2c.my",
+        "normalized_domain": "vn2c.my",
+        "in_database": false
+    }
+}

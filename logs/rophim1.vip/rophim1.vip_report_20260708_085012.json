@@ -1,0 +1,142 @@
+{
+    "domain": "rophim1.vip",
+    "analyzed_at": "2026-07-08 08:54:49",
+    "analyzer": "Gemini/gemini-3.5-flash",
+    "verdict": "VI_PHAM",
+    "confidence": 0.95,
+    "violation_types": [
+        "Phim lậu",
+        "Cờ bạc"
+    ],
+    "matched_criteria": {
+        "lop1_phaplý": true,
+        "lop2_hatang": true,
+        "lop3_doanhthu": true,
+        "lop4_noidung": true
+    },
+    "key_signals": [
+        {
+            "signal": "Phát hiện banner quảng cáo cá độ, đánh đề, cá độ bóng đá qua OCR (3 banner vi phạm)",
+            "weight": "HIGH",
+            "layer": "L3"
+        },
+        {
+            "signal": "Trang web chiếu phim lậu ('Rổ Phim - Phim hay cả rổ') không có bảo vệ bản quyền DRM",
+            "weight": "HIGH",
+            "layer": "L4"
+        },
+        {
+            "signal": "Sử dụng TLD rủi ro (.vip), ẩn danh WHOIS và dùng Cloudflare che giấu IP máy chủ",
+            "weight": "MEDIUM",
+            "layer": "L2"
+        },
+        {
+            "signal": "Không có thông tin mã số thuế, giấy phép trang thông tin điện tử/mạng xã hội hợp lệ",
+            "weight": "MEDIUM",
+            "layer": "L1"
+        }
+    ],
+    "summary_vi": "Trang web 'Rổ Phim' hoạt động chiếu phim lậu không bản quyền, đồng thời kiếm tiền bất chính bằng cách đặt các banner quảng cáo cờ bạc, cá độ bóng đá trái phép.",
+    "recommended_action": "BLOCK",
+    "analysis_note": "Mô hình vi phạm kép điển hình: vận hành trang phim lậu không DRM để thu hút lưu lượng truy cập, sau đó đặt banner quảng cáo cho các nhà cái cá cược vi phạm pháp luật Việt Nam.",
+    "supplemental": {
+        "input_domain": "https://rophim1.vip/",
+        "normalized_domain": "rophim1.vip",
+        "resolved_ips": [
+            "172.67.73.135",
+            "104.26.2.65",
+            "104.26.3.65"
+        ],
+        "asn": {
+            "asn": "13335",
+            "description": "CLOUDFLARENET - Cloudflare, Inc., US",
+            "country": null
+        },
+        "ns_records": [
+            "gemma.ns.cloudflare.com.",
+            "dane.ns.cloudflare.com."
+        ],
+        "redirect_chain": [
+            "https://rophim1.vip/"
+        ],
+        "registrar": "Spaceship, Inc.",
+        "creation_date": "2026-03-03 21:41:59+00:00",
+        "domain_age_days": 126,
+        "cdn_providers": [
+            "cloudflare"
+        ]
+    },
+    "input_summary": {
+        "whitelist_hit": false,
+        "domain_model_label": "Độc hại",
+        "domain_model_prob_mal": 0.9027,
+        "domain_model_flag": "FLAG_DOMAIN_PREDICT_MALICIOUS",
+        "domain_age_days": 126,
+        "registrar": "Spaceship, Inc.",
+        "whois_privacy": true,
+        "tld": ".vip",
+        "tld_risk": "MEDIUM",
+        "suspicious_hosting": false,
+        "cloudflare": true,
+        "mail_provider": null,
+        "risk_score": 55,
+        "legitimacy_score": 25,
+        "redirect_cross_domain": 0,
+        "redirect_final_url": null,
+        "streams_found": false,
+        "stream_count": 0,
+        "keyword_hits": [],
+        "external_domains_top5": [],
+        "footer_legal": {
+            "has_legal_footer": true,
+            "tax_code_found": false,
+            "authority_found": false,
+            "legal_notice_found": false,
+            "footer_anonymous": false,
+            "has_telegram_contact": false,
+            "has_ad_contact_only": false,
+            "page_title": "Rổ Phim - Phim hay cả rổ"
+        },
+        "tech_flags": {
+            "is_drm_protected": false,
+            "stream_intercepted": false,
+            "iframe_detected": true,
+            "popup_detected": false
+        },
+        "legitimate_signals": {
+            "official_tld": false,
+            "business_mail": false,
+            "google_verification": true,
+            "spf_configured": false,
+            "total_signals": 2
+        },
+        "mx_streaming_only": true,
+        "has_business_mail": false,
+        "ocr_banner_count": 8,
+        "ocr_flagged_count": 3,
+        "ocr_has_gambling": true,
+        "ocr_flagged_keywords": [
+            {
+                "tier_hit": 2,
+                "keyword": "đánh đề",
+                "field": "Cờ bạc"
+            },
+            {
+                "tier_hit": 2,
+                "keyword": "cá độ",
+                "field": "Cờ bạc"
+            },
+            {
+                "tier_hit": 2,
+                "keyword": "cá độ bóng đá",
+                "field": "Cờ bạc"
+            }
+        ],
+        "content_label": 0,
+        "content_label_name": "An toàn",
+        "content_type": "Game",
+        "content_prob_mal": 0.2177,
+        "content_seg_malicious": 0,
+        "content_seg_total": 24
+    }
+}

@@ -1,0 +1,124 @@
+{
+    "domain": "guphim.com",
+    "analyzed_at": "2026-07-08 09:04:34",
+    "analyzer": "Gemini/gemini-3.5-flash",
+    "verdict": "VI_PHAM",
+    "confidence": 0.92,
+    "violation_types": [
+        "Phim lậu"
+    ],
+    "matched_criteria": {
+        "lop1_phaplý": true,
+        "lop2_hatang": true,
+        "lop3_doanhthu": false,
+        "lop4_noidung": true
+    },
+    "key_signals": [
+        {
+            "signal": "Tiêu đề trang chứa từ khóa 'Phim Mới | Xem phim mới, Full HD, Vietsub, thuyết minh' - thương hiệu phim lậu điển hình",
+            "weight": "HIGH",
+            "layer": "L4"
+        },
+        {
+            "signal": "Luồng stream video bị bắt gói tin dễ dàng (stream_intercepted: true) và không có công nghệ bảo vệ bản quyền DRM",
+            "weight": "HIGH",
+            "layer": "L4"
+        },
+        {
+            "signal": "Không tìm thấy mã số thuế, giấy phép ICP/MXH hoặc thông tin pháp lý hợp pháp tại Việt Nam",
+            "weight": "MEDIUM",
+            "layer": "L1"
+        },
+        {
+            "signal": "Sử dụng dịch vụ Cloudflare để ẩn giấu IP máy chủ gốc và nhà đăng ký tên miền quốc tế Spaceship",
+            "weight": "MEDIUM",
+            "layer": "L2"
+        }
+    ],
+    "summary_vi": "Website hoạt động dưới danh nghĩa trang chiếu phim lậu 'Phim Mới', cung cấp các nội dung video không có bản quyền (dễ dàng bắt link stream, không có DRM) và hoàn toàn ẩn danh về mặt pháp lý.",
+    "recommended_action": "BLOCK",
+    "analysis_note": "Hệ thống tự động phân loại nhầm danh mục nội dung là 'Game' và nhãn 'An toàn', tuy nhiên tiêu đề trang và các tín hiệu kỹ thuật về stream (stream_intercepted=true, is_drm_protected=false) đã khẳng định đây là trang phim lậu vi phạm bản quyền nghiêm trọng.",
+    "supplemental": {
+        "input_domain": "https://guphim.com",
+        "normalized_domain": "guphim.com",
+        "resolved_ips": [
+            "104.21.27.194",
+            "172.67.169.160"
+        ],
+        "asn": {
+            "asn": "13335",
+            "description": "CLOUDFLARENET - Cloudflare, Inc., US",
+            "country": null
+        },
+        "ns_records": [
+            "suzanne.ns.cloudflare.com.",
+            "cartman.ns.cloudflare.com."
+        ],
+        "redirect_chain": [
+            "https://guphim.com/"
+        ],
+        "registrar": "Spaceship, Inc.",
+        "creation_date": "2025-11-19 17:11:14+00:00",
+        "domain_age_days": 230,
+        "cdn_providers": [
+            "cloudflare"
+        ]
+    },
+    "input_summary": {
+        "whitelist_hit": false,
+        "domain_model_label": "Độc hại",
+        "domain_model_prob_mal": 0.8823,
+        "domain_model_flag": "FLAG_DOMAIN_PREDICT_MALICIOUS",
+        "domain_age_days": 230,
+        "registrar": "Spaceship, Inc.",
+        "whois_privacy": false,
+        "tld": ".com",
+        "tld_risk": "LOW",
+        "suspicious_hosting": false,
+        "cloudflare": true,
+        "mail_provider": null,
+        "risk_score": 15,
+        "legitimacy_score": 25,
+        "redirect_cross_domain": 0,
+        "redirect_final_url": null,
+        "streams_found": false,
+        "stream_count": 0,
+        "keyword_hits": [],
+        "external_domains_top5": [],
+        "footer_legal": {
+            "has_legal_footer": true,
+            "tax_code_found": false,
+            "authority_found": false,
+            "legal_notice_found": false,
+            "footer_anonymous": false,
+            "has_telegram_contact": false,
+            "has_ad_contact_only": false,
+            "page_title": "Phim Mới | Xem phim mới, Full HD, Vietsub, thuyết minh, mới nhất"
+        },
+        "tech_flags": {
+            "is_drm_protected": false,
+            "stream_intercepted": true,
+            "iframe_detected": true,
+            "popup_detected": true
+        },
+        "legitimate_signals": {
+            "official_tld": false,
+            "business_mail": false,
+            "google_verification": true,
+            "spf_configured": false,
+            "total_signals": 2
+        },
+        "mx_streaming_only": true,
+        "has_business_mail": false,
+        "ocr_banner_count": 0,
+        "ocr_flagged_count": 0,
+        "ocr_has_gambling": false,
+        "ocr_flagged_keywords": [],
+        "content_label": 0,
+        "content_label_name": "An toàn",
+        "content_type": "Game",
+        "content_prob_mal": 0.1104,
+        "content_seg_malicious": 0,
+        "content_seg_total": 11
+    }
+}

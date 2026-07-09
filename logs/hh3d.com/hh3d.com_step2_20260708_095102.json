@@ -1,0 +1,150 @@
+{
+    "target_url": "https://hh3d.com",
+    "target_domain": "hh3d.com",
+    "timestamp": "2026-07-08T09:51:02.738596",
+    "cloudflare_bypassed": true,
+    "episodes_found_total": 20,
+    "episodes_checked": 3,
+    "popup_blocked_count": 0,
+    "popup_urls": [],
+    "episodes_detail": [
+        {
+            "episode_url": "https://hh3d.com/danh-sach/hoan-thanh/",
+            "streams": [],
+            "iframes": [
+                {
+                    "iframe_src": "https://hh3d.com/vinh-sinh-2-hen-uoc-muoi-nam",
+                    "source": "frame_tree",
+                    "is_external": false
+                }
+            ],
+            "screenshot_path": "logs\\hh3d.com\\screenshots\\hh3d.com_ep1_20260708_095205.png"
+        },
+        {
+            "episode_url": "https://hh3d.com/the-loai/kiem-hiep",
+            "streams": [
+                {
+                    "url": "https://whos.amung.us/pingjs/?k=s0tswmpfb3&t=&c=d&x=https%3A%2F%2Fembed1.streamc.xyz%2Fembed.php%3Fhash%3Da29e1af5c0b4a0aac438dd9428187ac0&y=https%3A%2F%2Fembed1.streamc.xyz%2Fembed.php%3Fhash%3Da29e1af5c0b4a0aac438dd9428187ac0&a=0&v=27&r=5086",
+                    "content_type": "text/javascript;charset=UTF-8",
+                    "status": 200,
+                    "matched_by": "cdn_keyword"
+                }
+            ],
+            "iframes": [
+                {
+                    "iframe_src": "https://hh3d.com/hoa-giang-ho-chi-linh-chu/tap-10-48942",
+                    "source": "frame_tree",
+                    "is_external": false
+                },
+                {
+                    "iframe_src": "https://embed1.streamc.xyz/embed.php?hash=a29e1af5c0b4a0aac438dd9428187ac0",
+                    "source": "frame_tree",
+                    "is_external": true
+                }
+            ],
+            "screenshot_path": "logs\\hh3d.com\\screenshots\\hh3d.com_ep2_20260708_095246.png"
+        },
+        {
+            "episode_url": "https://hh3d.com/the-loai/trung-sinh",
+            "streams": [
+                {
+                    "url": "https://whos.amung.us/pingjs/?k=s0tswmpfb3&t=&c=d&x=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&y=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&a=0&v=27&r=8115",
+                    "content_type": "text/javascript;charset=UTF-8",
+                    "status": 200,
+                    "matched_by": "cdn_keyword"
+                },
+                {
+                    "url": "https://whos.amung.us/pingjs/?k=s0tswmpfb3&t=&c=d&x=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&y=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&a=0&v=27&r=3827",
+                    "content_type": "text/javascript;charset=UTF-8",
+                    "status": 200,
+                    "matched_by": "cdn_keyword"
+                },
+                {
+                    "url": "https://whos.amung.us/pingjs/?k=s0tswmpfb3&t=&c=d&x=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&y=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&a=0&v=27&r=9012",
+                    "content_type": "text/javascript;charset=UTF-8",
+                    "status": 200,
+                    "matched_by": "cdn_keyword"
+                },
+                {
+                    "url": "https://whos.amung.us/pingjs/?k=s0tswmpfb3&t=&c=d&x=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&y=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&a=0&v=27&r=5378",
+                    "content_type": "text/javascript;charset=UTF-8",
+                    "status": 200,
+                    "matched_by": "cdn_keyword"
+                },
+                {
+                    "url": "https://whos.amung.us/pingjs/?k=s0tswmpfb3&t=&c=d&x=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&y=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&a=0&v=27&r=4869",
+                    "content_type": "text/javascript;charset=UTF-8",
+                    "status": 200,
+                    "matched_by": "cdn_keyword"
+                },
+                {
+                    "url": "https://t.dtscout.com/i/?l=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&j=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&wk=s0tswmpfb3",
+                    "content_type": "application/javascript",
+                    "status": 200,
+                    "matched_by": "cdn_keyword"
+                }
+            ],
+            "iframes": [
+                {
+                    "iframe_src": "https://hh3d.com/tuyet-the-than-hoang/tap-27-40423",
+                    "source": "frame_tree",
+                    "is_external": false
+                },
+                {
+                    "iframe_src": "https://embed14.streamc.xyz/embed.php?hash=503ae3b048cb4bf0191bacad0a3934d8",
+                    "source": "frame_tree",
+                    "is_external": true
+                }
+            ],
+            "screenshot_path": "logs\\hh3d.com\\screenshots\\hh3d.com_ep3_20260708_095328.png"
+        }
+    ],
+    "all_streams": [
+        "https://whos.amung.us/pingjs/?k=s0tswmpfb3&t=&c=d&x=https%3A%2F%2Fembed1.streamc.xyz%2Fembed.php%3Fhash%3Da29e1af5c0b4a0aac438dd9428187ac0&y=https%3A%2F%2Fembed1.streamc.xyz%2Fembed.php%3Fhash%3Da29e1af5c0b4a0aac438dd9428187ac0&a=0&v=27&r=5086",
+        "https://whos.amung.us/pingjs/?k=s0tswmpfb3&t=&c=d&x=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&y=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&a=0&v=27&r=8115",
+        "https://whos.amung.us/pingjs/?k=s0tswmpfb3&t=&c=d&x=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&y=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&a=0&v=27&r=3827",
+        "https://whos.amung.us/pingjs/?k=s0tswmpfb3&t=&c=d&x=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&y=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&a=0&v=27&r=9012",
+        "https://whos.amung.us/pingjs/?k=s0tswmpfb3&t=&c=d&x=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&y=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&a=0&v=27&r=5378",
+        "https://whos.amung.us/pingjs/?k=s0tswmpfb3&t=&c=d&x=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&y=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&a=0&v=27&r=4869",
+        "https://t.dtscout.com/i/?l=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&j=https%3A%2F%2Fembed14.streamc.xyz%2Fembed.php%3Fhash%3D503ae3b048cb4bf0191bacad0a3934d8&wk=s0tswmpfb3"
+    ],
+    "all_iframes": [
+        "https://hh3d.com/vinh-sinh-2-hen-uoc-muoi-nam",
+        "https://hh3d.com/hoa-giang-ho-chi-linh-chu/tap-10-48942",
+        "https://embed1.streamc.xyz/embed.php?hash=a29e1af5c0b4a0aac438dd9428187ac0",
+        "https://hh3d.com/tuyet-the-than-hoang/tap-27-40423",
+        "https://embed14.streamc.xyz/embed.php?hash=503ae3b048cb4bf0191bacad0a3934d8"
+    ],
+    "footer_analysis": {
+        "has_legal_footer": true,
+        "legal_notice_found": false,
+        "tax_code_found": false,
+        "authority_found": false,
+        "copyright_found": false,
+        "has_structured_identity": true,
+        "is_infinite_scroll": false,
+        "has_telegram_contact": false,
+        "has_ad_contact_only": false,
+        "FOOTER_ANONYMOUS": false,
+        "extraction_method": "none",
+        "meta_info": {
+            "title": "HH3D – Xem Hoạt Hình 3D Trung Quốc Vietsub, Thuyết Minh Hay",
+            "og_site_name": "HH3D",
+            "meta_copyright": "",
+            "meta_author": "",
+            "has_json_ld": false
+        },
+        "footer_text_snippet": "[META] hh3d – xem hoạt hình 3d trung quốc vietsub, thuyết minh hay   hh3d  initial-scale=1.0, width=device-width index,nofollow 1 days index,nofollow index,follow index,follow index,follow index,follow index,follow no-referrer vi llgzpra3bdk3melqoiiuxqlrafof0k33dwepecvq hh3d là nền tảng phát sóng phim hoạt hình 3d trung quốc vietsub và thuyết minh tiếng việt chất lượng cao hoàn toàn miễn phí. hh3d, hoạt hình 3d, hh3d thuyết minh, hh3d vietsub, hh3d.com, hoathinh3d, hh3dtrungquoc, hoạt hình trung quốc, "
+    },
+    "technical_flags": {
+        "cloudflare_bypassed": true,
+        "is_drm_protected": false,
+        "iframe_detected": true,
+        "stream_intercepted": true,
+        "has_legal_footer": true,
+        "popup_detected": false
+    },
+    "dom_text": "HH3D – Xem Hoạt Hình 3D Trung Quốc Vietsub, Thuyết Minh Hay\nTop Hoạt Hình 3D Thịnh Hành\nVietsub, Thuyết minh - Full HD\nTập 90\nMục Thần Ký\nTales of Herding Gods\nVietsub, Thuyết minh - Full HD\nTập 148/180\nTiên Nghịch\nRenegade Immortal\nVietsub, Thuyết minh - Full HD\nTập 160/182\nĐấu La Đại Lục 2: Tuyệt Thế Đường Môn\nSoul Land 2\nVietsub, Thuyết minh - Full HD\nTập 206/209\nĐấu Phá Thương Khung (Phần 5+6)\nFights Break Sphere (Season 5+6)\nVietsub, Thuyết minh - Full HD\nTập 29/78\nQuang Âm Chi Ngoại\nBeyond Time's Gaze\nVietsub, Thuyết minh - Full HD\nTập 25\nTrạch Thiên Ký 3D\nFighter of the Destiny\nVietsub, Thuyết minh - Full HD\nTập 231\nThôn Phệ Tinh Không (Gộp 1+2)\nSwallowed Star\nVietsub, Thuyết minh - Full HD\nTập 170\nGià Thiên\nShrouding The Heavens\nVietsub, Thuyết minh - Full HD\nTập 276\nThế Giới Hoàn Mỹ\nPerfect World\nVietsub, Thuyết minh - Full HD\nTập 181/...\nPhàm Nhân Tu Tiên\nA Record Of A Mortal's Journey To Immortality\nVietsub, Thuyết minh - Full HD\nTập 90\nMục Thần Ký\nTales of Herding Gods\nVietsub, Thuyết minh - Full HD\nTập 148/180\nTiên Nghịch\nRenegade Immortal\nVietsub, Thuyết minh - Full HD\nTập 160/182\nĐấu La Đại Lục 2: Tuyệt Thế Đường Môn\nSoul Land 2\nVietsub, Thuyết minh - Full HD\nTập 206/209\nĐấu Phá Thương Khung (Phần 5+6)\nFights Break Sphere (Season 5+6)\nVietsub, Thuyết minh - Full HD\nTập 29/78\nQuang Âm Chi Ngoại\nBeyond Time's Gaze\nVietsub, Thuyết minh - Full HD\nTập 25\nTrạch Thiên Ký 3D\nFighter of the Destiny\nVietsub, Thuyết minh - Full HD\nTập 231\nThôn Phệ Tinh Không (Gộp 1+2)\nSwallowed Star\nVietsub, Thuyết minh - Full HD\nTập 170\nGià Thiên\nShrouding The Heavens\nVietsub, Thuyết minh - Full HD\nTập 276\nThế Giới Hoàn Mỹ\nPerfect World\nVietsub, Thuyết minh - Full HD\nTập 181/...\nPhàm Nhân Tu Tiên\nA Record Of A Mortal's Journey To Immortality\nVietsub, Thuyết minh - Full HD\nTập 90\nMục Thần Ký\nTales of Herding Gods\nVietsub, Thuyết minh - Full HD\nTập 148/180\nTiên Nghịch\nRenegade Immortal\nHoạt Hình Lẻ Mới\nGià Thiên Movie: Vác Quan Tài Chiến Vương Đằng\nShrounding the Heavens Movie: Fighting Against Wang Teng with Copper Coffin\n6866 lượt xem\n90 phút\nThôn Phệ Tinh Không Movie: Quyết Chiến Nguyên Thủy Tinh\nSwallowed Star Movie: Showdown on Primeval Star\n6362 lượt xem\n94 phút\nTiên Nghịch: Thần Lâm Chi Chiến\nRenegade Immortal: Battle Of The God\n8022 lượt xem\n93 phút\nHoạt Hình 3D Bộ Mới\nTrảm Thần (Phần 2)\nGod Slayer (Season 2)\n11923 lượt xem\n20 phút/tập\nQuỷ Bí Chi Chủ OVA: Bạch Ngân Thành\nLord of the Mysteries Special\n3219 lượt xem\n25 phút/tập\nVân Thâm Bất Tri Mộng OVA: Trận Chiến Trục Minh\nEclipse of Illusion SP: The Miasma War\n2738 lượt xem\n24 phút/tập\nHH3D mới cập nhật\nVietsub, Thuyết minh - Full HD\nTập 231\nThôn Phệ Tinh Không (Gộp 1+2)\nSwallowed Star\nVietsub, Thuyết minh - Full HD\nTập 170\nGià Thiên\nShrouding The Heavens\nVietsub - Full HD\nTập 672\nVõ Thần Chúa Tể\nMartial Master\nVietsub - HD\nTập 36\nCửu Dương Võ Thần\nAscendants of the Nine Suns\nVietsub - Full HD\nTập 42\nĐạo Yêu Hành\nAliens Among Immortals\nVietsub - Full HD\nTập 355\nLuyện Khí Mười Vạn Năm\nOne Hundred Thousand Years of Qi Training\nVietsub - Full HD\nTập 463\nVạn Giới Độc Tôn\nTen Thousand Worlds\nVietsub, Thuyết minh - Full HD\nTập 276\nThế Giới Hoàn Mỹ\nPerfect World\nVietsub, Thuyết minh - Full HD\nTập 181/...\nPhàm Nhân Tu Tiên\nA Record Of A Mortal's Journey To Immortality\nVietsub, Thuyết minh - Full HD\nTập 90\nMục Thần Ký\nTales of Herding Gods\nVietsub - HD\nTập 529\nNghịch Thiên Chí Tôn\nAgainst The Sky Supreme\nVietsub - HD\nTập 620\nVô Thượng Thần Đế\nSupreme God Emperor\nVietsub, Thuyết minh - Full HD\nTập 15\nĐại Đạo Độc Hành\nWalking the Way All Alone\nVietsub - Full HD\nTập 193\nLinh Vũ Đại Lục\nLegend of Lingwu Continent\nVietsub, Thuyết minh - Full HD\nTập 148/180\nTiên Nghịch\nRenegade Immortal\nVietsub - Full HD\nTập 44\nNghịch Thiên Tà Thần\nAgainst the Gods\nXem tất cả",
+    "banners": [],
+    "banner_network_hits": []
+}

@@ -203,41 +203,89 @@ _content_tokenizer = None
 _content_lock = threading.Lock()
 
 
-def get_domain_model():
+def get_domain_model(force_update=False):
     """
     Trả về (model, tokenizer) của Domain Model.
     Chỉ tải lần đầu tiên gọi (lazy singleton).
+    Nếu force_update=True, bắt buộc kiểm tra và cập nhật từ Hugging Face.
     """
     global _domain_model, _domain_tokenizer
+    
+    if force_update:
+        with _domain_lock:
+            _domain_model = None
+            _domain_tokenizer = None
+
     if _domain_model is None:
         with _domain_lock:
             if _domain_model is None:
-                print("[ModelLoader] Đang tải Domain Model từ Hugging Face...")
-                config = AutoConfig.from_pretrained(_DOMAIN_MODEL_NAME)
-                _domain_model = HybridFeaturesDomain.from_pretrained(
-                    _DOMAIN_MODEL_NAME, config=config
-                )
+                if force_update:
+                    print("[ModelLoader] Đang kiểm tra và tải bản cập nhật Domain Model từ Hugging Face...")
+                    config = AutoConfig.from_pretrained(_DOMAIN_MODEL_NAME, force_download=True)
+                    _domain_model = HybridFeaturesDomain.from_pretrained(
+                        _DOMAIN_MODEL_NAME, config=config, force_download=True
+                    )
+                    _domain_tokenizer = AutoTokenizer.from_pretrained(_PHOBERT_TOKENIZER, force_download=True)
+                else:
+                    print("[ModelLoader] Đang tải Domain Model...")
+                    try:
+                        # Thử load offline từ cache cục bộ trước để tránh check mạng Hugging Face
+                        config = AutoConfig.from_pretrained(_DOMAIN_MODEL_NAME, local_files_only=True)
+                        _domain_model = HybridFeaturesDomain.from_pretrained(
+                            _DOMAIN_MODEL_NAME, config=config, local_files_only=True
+                        )
+                        _domain_tokenizer = AutoTokenizer.from_pretrained(_PHOBERT_TOKENIZER, local_files_only=True)
+                    except Exception:
+                        # Nếu chưa được tải về cache cục bộ, tiến hành tải online từ Hugging Face
+                        config = AutoConfig.from_pretrained(_DOMAIN_MODEL_NAME)
+                        _domain_model = HybridFeaturesDomain.from_pretrained(
+                            _DOMAIN_MODEL_NAME, config=config
+                        )
+                        _domain_tokenizer = AutoTokenizer.from_pretrained(_PHOBERT_TOKENIZER)
                 _domain_model.eval().to(DEVICE)
-                _domain_tokenizer = AutoTokenizer.from_pretrained(_PHOBERT_TOKENIZER)
                 print("[ModelLoader] ✅ Domain Model đã sẵn sàng.")
     return _domain_model, _domain_tokenizer
 
 
-def get_content_model():
+def get_content_model(force_update=False):
     """
     Trả về (model, tokenizer) của Content Model.
     Chỉ tải lần đầu tiên gọi (lazy singleton).
+    Nếu force_update=True, bắt buộc kiểm tra và cập nhật từ Hugging Face.
     """
     global _content_model, _content_tokenizer
+    
+    if force_update:
+        with _content_lock:
+            _content_model = None
+            _content_tokenizer = None
+
     if _content_model is None:
         with _content_lock:
             if _content_model is None:
-                print("[ModelLoader] Đang tải Content Model từ Hugging Face...")
-                config = AutoConfig.from_pretrained(_CONTENT_MODEL_NAME)
-                _content_model = PhoBERTMultiTask.from_pretrained(
-                    _CONTENT_MODEL_NAME, config=config
-                )
+                if force_update:
+                    print("[ModelLoader] Đang kiểm tra và tải bản cập nhật Content Model từ Hugging Face...")
+                    config = AutoConfig.from_pretrained(_CONTENT_MODEL_NAME, force_download=True)
+                    _content_model = PhoBERTMultiTask.from_pretrained(
+                        _CONTENT_MODEL_NAME, config=config, force_download=True
+                    )
+                    _content_tokenizer = AutoTokenizer.from_pretrained(_PHOBERT_TOKENIZER, force_download=True)
+                else:
+                    print("[ModelLoader] Đang tải Content Model...")
+                    try:
+                        # Thử load offline từ cache cục bộ trước để tránh check mạng Hugging Face
+                        config = AutoConfig.from_pretrained(_CONTENT_MODEL_NAME, local_files_only=True)
+                        _content_model = PhoBERTMultiTask.from_pretrained(
+                            _CONTENT_MODEL_NAME, config=config, local_files_only=True
+                        )
+                        _content_tokenizer = AutoTokenizer.from_pretrained(_PHOBERT_TOKENIZER, local_files_only=True)
+                    except Exception:
+                        # Nếu chưa được tải về cache cục bộ, tiến hành tải online từ Hugging Face
+                        config = AutoConfig.from_pretrained(_CONTENT_MODEL_NAME)
+                        _content_model = PhoBERTMultiTask.from_pretrained(
+                            _CONTENT_MODEL_NAME, config=config
+                        )
+                        _content_tokenizer = AutoTokenizer.from_pretrained(_PHOBERT_TOKENIZER)
                 _content_model.eval().to(DEVICE)
-                _content_tokenizer = AutoTokenizer.from_pretrained(_PHOBERT_TOKENIZER)
                 print("[ModelLoader] ✅ Content Model đã sẵn sàng.")
     return _content_model, _content_tokenizer

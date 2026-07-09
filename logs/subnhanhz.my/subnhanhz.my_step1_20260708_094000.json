@@ -1,0 +1,91 @@
+{
+    "domain_age_days": 151,
+    "creation_date": "2026-02-06 12:23:20.761000+00:00",
+    "registrar": "NAMECHEAP INC",
+    "is_whois_privacy_active": true,
+    "tld_info": {
+        "tld": ".my",
+        "risk": "LOW"
+    },
+    "redirect_history": [
+        "https://subnhanhz.my/"
+    ],
+    "redirect_info": {
+        "redirect_depth": 1,
+        "domains_seen": [
+            "subnhanhz.my"
+        ],
+        "domain_hopping": false
+    },
+    "dns_records": {
+        "A": [
+            "172.67.170.172",
+            "104.21.63.123"
+        ],
+        "AAAA": [
+            "2606:4700:3030::ac43:aaac",
+            "2606:4700:3037::6815:3f7b"
+        ],
+        "NS": [
+            "lindsey.ns.cloudflare.com.",
+            "brad.ns.cloudflare.com."
+        ],
+        "MX": [],
+        "TXT": [],
+        "CNAME": []
+    },
+    "detected_ns": [
+        "lindsey.ns.cloudflare.com.",
+        "brad.ns.cloudflare.com."
+    ],
+    "cloudflare_detected": true,
+    "cdn_providers": [
+        "cloudflare"
+    ],
+    "http_headers": {
+        "Server": "cloudflare",
+        "CF-Ray": "a17bb8b6788fdd6c-HKG",
+        "CF-Cache-Status": "DYNAMIC",
+        "Alt-Svc": "h3=\":443\"; ma=86400"
+    },
+    "mx_analysis": {
+        "has_mx": false,
+        "possible_streaming_only_site": true
+    },
+    "mail_provider": null,
+    "txt_analysis": {
+        "google_verification": false,
+        "google_verification_count": 0,
+        "spf_configured": false,
+        "dmarc_configured": false,
+        "microsoft_verification": false,
+        "facebook_verification": false
+    },
+    "cloud_provider": "CLOUDFLARE",
+    "ns_provider": "CLOUDFLARE",
+    "suspicious_hosting": false,
+    "resolved_ip": [
+        "104.21.63.123",
+        "172.67.170.172"
+    ],
+    "asn_info": {
+        "asn": "13335",
+        "asn_description": "CLOUDFLARENET - Cloudflare, Inc., US"
+    },
+    "legitimate_signals": {
+        "official_tld": false,
+        "business_mail": false,
+        "google_verification": false,
+        "spf_configured": false,
+        "major_cloud_provider": true,
+        "enterprise_dns": false,
+        "total_signals": 1
+    },
+    "risk_score": 45,
+    "legitimacy_score": 15,
+    "step0": {
+        "input_domain": "https://subnhanhz.my",
+        "normalized_domain": "subnhanhz.my",
+        "in_database": false
+    }
+}

@@ -1,0 +1,128 @@
+{
+    "domain": "xoilac-qq.com",
+    "analyzed_at": "2026-07-08 09:48:32",
+    "analyzer": "Gemini/gemini-3.5-flash",
+    "verdict": "VI_PHAM",
+    "confidence": 0.98,
+    "violation_types": [
+        "Stream lậu",
+        "Bản quyền bóng đá"
+    ],
+    "matched_criteria": {
+        "lop1_phaplý": true,
+        "lop2_hatang": true,
+        "lop3_doanhthu": false,
+        "lop4_noidung": true
+    },
+    "key_signals": [
+        {
+            "signal": "Tiêu đề trang chứa thương hiệu phát sóng lậu nổi tiếng 'Xoilac | Trực Tiếp Bóng Đá HD'",
+            "weight": "HIGH",
+            "layer": "L4"
+        },
+        {
+            "signal": "Ẩn danh thông tin đăng ký tên miền (WHOIS Privacy) và footer hoàn toàn ẩn danh",
+            "weight": "HIGH",
+            "layer": "L1"
+        },
+        {
+            "signal": "Hệ thống AI đánh giá xác suất độc hại cực cao (98.41%)",
+            "weight": "HIGH",
+            "layer": "L2"
+        },
+        {
+            "signal": "Không có mã số thuế, giấy phép ICP/MXH hay bất kỳ thông tin pháp lý nào tại Việt Nam",
+            "weight": "MEDIUM",
+            "layer": "L1"
+        }
+    ],
+    "summary_vi": "Website sử dụng thương hiệu truyền hình lậu 'Xoilac' để phát sóng trực tiếp bóng đá trái phép, vi phạm nghiêm trọng bản quyền truyền hình. Chủ thể ẩn danh hoàn toàn và không có giấy phép hoạt động hợp pháp.",
+    "recommended_action": "BLOCK",
+    "analysis_note": "Mặc dù chưa phát hiện trực tiếp banner cờ bạc qua OCR trong dữ liệu quét, thương hiệu Xoilac luôn đi kèm với mô hình doanh thu từ quảng cáo cá độ bóng đá lậu. Cần thực hiện chặn chặn tên miền ngay lập tức.",
+    "_truncated": true,
+    "supplemental": {
+        "input_domain": "http://www.xoilac-qq.com/",
+        "normalized_domain": "xoilac-qq.com",
+        "resolved_ips": [
+            "104.16.250.22",
+            "104.21.224.5",
+            "104.21.227.134",
+            "104.18.185.26",
+            "104.17.25.173"
+        ],
+        "asn": {
+            "asn": "13335",
+            "description": "CLOUDFLARENET - Cloudflare, Inc., US",
+            "country": null
+        },
+        "ns_records": [
+            "ns1.julydns.com.",
+            "ns2.julydns.com."
+        ],
+        "redirect_chain": [
+            "http://www.xoilac-qq.com/",
+            "https://www.xoilac-qq.com/"
+        ],
+        "registrar": "July Name Limited",
+        "creation_date": "2025-12-27 14:10:30+00:00",
+        "domain_age_days": 192,
+        "cdn_providers": []
+    },
+    "input_summary": {
+        "whitelist_hit": false,
+        "domain_model_label": "Độc hại",
+        "domain_model_prob_mal": 0.9841,
+        "domain_model_flag": "FLAG_DOMAIN_PREDICT_MALICIOUS",
+        "domain_age_days": 192,
+        "registrar": "July Name Limited",
+        "whois_privacy": true,
+        "tld": ".com",
+        "tld_risk": "LOW",
+        "suspicious_hosting": false,
+        "cloudflare": false,
+        "mail_provider": null,
+        "risk_score": 20,
+        "legitimacy_score": 15,
+        "redirect_cross_domain": 0,
+        "redirect_final_url": null,
+        "streams_found": false,
+        "stream_count": 0,
+        "keyword_hits": [],
+        "external_domains_top5": [],
+        "footer_legal": {
+            "has_legal_footer": false,
+            "tax_code_found": false,
+            "authority_found": false,
+            "legal_notice_found": false,
+            "footer_anonymous": true,
+            "has_telegram_contact": false,
+            "has_ad_contact_only": false,
+            "page_title": "Xoilac | Trực Tiếp Bóng Đá HD - Link Xoilac #1 Hôm Nay"
+        },
+        "tech_flags": {
+            "is_drm_protected": false,
+            "stream_intercepted": false,
+            "iframe_detected": true,
+            "popup_detected": false
+        },
+        "legitimate_signals": {
+            "official_tld": false,
+            "business_mail": false,
+            "google_verification": false,
+            "spf_configured": false,
+            "total_signals": 1
+        },
+        "mx_streaming_only": true,
+        "has_business_mail": false,
+        "ocr_banner_count": 0,
+        "ocr_flagged_count": 0,
+        "ocr_has_gambling": false,
+        "ocr_flagged_keywords": [],
+        "content_label": 1,
+        "content_label_name": "Độc hại",
+        "content_type": "Báo chí",
+        "content_prob_mal": 0.9788,
+        "content_seg_malicious": 1,
+        "content_seg_total": 19
+    }
+}

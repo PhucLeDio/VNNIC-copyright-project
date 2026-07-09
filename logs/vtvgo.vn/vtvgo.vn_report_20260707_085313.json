@@ -1,0 +1,124 @@
+{
+    "domain": "vtvgo.vn",
+    "analyzed_at": "2026-07-07 08:54:33",
+    "analyzer": "Gemini/gemini-3.5-flash",
+    "verdict": "AN_TOAN",
+    "confidence": 0.99,
+    "violation_types": [],
+    "matched_criteria": {
+        "lop1_phaplý": false,
+        "lop2_hatang": false,
+        "lop3_doanhthu": false,
+        "lop4_noidung": false
+    },
+    "key_signals": [
+        {
+            "signal": "Nằm trong danh sách Whitelist hệ thống",
+            "weight": "HIGH",
+            "layer": "L1"
+        },
+        {
+            "signal": "Tiêu đề trang xác định là VTVgo - Nền tảng truyền hình số quốc gia",
+            "weight": "HIGH",
+            "layer": "L1"
+        },
+        {
+            "signal": "Sử dụng tên miền quốc gia .vn độ tin cậy cao",
+            "weight": "MEDIUM",
+            "layer": "L2"
+        },
+        {
+            "signal": "Mô hình AI dự đoán độc hại sai lệch (False Positive)",
+            "weight": "LOW",
+            "layer": "L2"
+        }
+    ],
+    "summary_vi": "Tên miền an toàn, thuộc nền tảng truyền hình số quốc gia VTVgo, đã được xác minh whitelist và không có bất kỳ dấu hiệu vi phạm nào.",
+    "recommended_action": "WHITELIST",
+    "analysis_note": "Hệ thống AI gắn nhãn nhầm (False Positive) với xác suất độc hại 0.811, cần bỏ qua cảnh báo này vì đây là trang chính thống đã whitelist.",
+    "supplemental": {
+        "input_domain": "https://vtvgo.vn/",
+        "normalized_domain": "vtvgo.vn",
+        "resolved_ips": [
+            "13.227.227.49",
+            "13.227.227.105",
+            "13.227.227.54",
+            "13.227.227.113"
+        ],
+        "asn": {
+            "asn": "16509",
+            "description": "AMAZON-02 - Amazon.com, Inc., US",
+            "country": null
+        },
+        "ns_records": [
+            "ns-1815.awsdns-34.co.uk.",
+            "ns-938.awsdns-53.net.",
+            "ns-244.awsdns-30.com.",
+            "ns-1218.awsdns-24.org."
+        ],
+        "redirect_chain": [
+            "https://vtvgo.vn/"
+        ],
+        "registrar": null,
+        "creation_date": "None",
+        "domain_age_days": null,
+        "cdn_providers": []
+    },
+    "input_summary": {
+        "whitelist_hit": true,
+        "domain_model_label": "Độc hại",
+        "domain_model_prob_mal": 0.811,
+        "domain_model_flag": "FLAG_DOMAIN_PREDICT_MALICIOUS",
+        "domain_age_days": null,
+        "registrar": null,
+        "whois_privacy": false,
+        "tld": ".vn",
+        "tld_risk": "LOW",
+        "suspicious_hosting": false,
+        "cloudflare": false,
+        "mail_provider": "AWS_SES",
+        "risk_score": 0,
+        "legitimacy_score": 80,
+        "redirect_cross_domain": 0,
+        "redirect_final_url": null,
+        "streams_found": false,
+        "stream_count": 0,
+        "keyword_hits": [],
+        "external_domains_top5": [],
+        "footer_legal": {
+            "has_legal_footer": true,
+            "tax_code_found": false,
+            "authority_found": false,
+            "legal_notice_found": false,
+            "footer_anonymous": false,
+            "has_telegram_contact": false,
+            "has_ad_contact_only": false,
+            "page_title": "VTVgo - Nền tảng truyền hình số quốc gia"
+        },
+        "tech_flags": {
+            "is_drm_protected": false,
+            "stream_intercepted": false,
+            "iframe_detected": false,
+            "popup_detected": false
+        },
+        "legitimate_signals": {
+            "official_tld": true,
+            "business_mail": true,
+            "google_verification": true,
+            "spf_configured": true,
+            "total_signals": 6
+        },
+        "mx_streaming_only": false,
+        "has_business_mail": true,
+        "ocr_banner_count": 0,
+        "ocr_flagged_count": 0,
+        "ocr_has_gambling": false,
+        "ocr_flagged_keywords": [],
+        "content_label": 0,
+        "content_label_name": "An toàn",
+        "content_type": "Tổ chức",
+        "content_prob_mal": 0.0101,
+        "content_seg_malicious": 0,
+        "content_seg_total": 11
+    }
+}

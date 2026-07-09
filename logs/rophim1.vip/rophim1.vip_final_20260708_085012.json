@@ -1,0 +1,1028 @@
+{
+    "domain_age_days": 126,
+    "creation_date": "2026-03-03 21:41:59+00:00",
+    "registrar": "Spaceship, Inc.",
+    "is_whois_privacy_active": true,
+    "tld_info": {
+        "tld": ".vip",
+        "risk": "MEDIUM"
+    },
+    "redirect_history": [
+        "https://rophim1.vip/"
+    ],
+    "redirect_info": {
+        "redirect_depth": 1,
+        "domains_seen": [
+            "rophim1.vip"
+        ],
+        "domain_hopping": false
+    },
+    "dns_records": {
+        "A": [
+            "172.67.73.135",
+            "104.26.3.65",
+            "104.26.2.65"
+        ],
+        "AAAA": [
+            "2606:4700:20::ac43:4987",
+            "2606:4700:20::681a:341",
+            "2606:4700:20::681a:241"
+        ],
+        "NS": [
+            "gemma.ns.cloudflare.com.",
+            "dane.ns.cloudflare.com."
+        ],
+        "MX": [],
+        "TXT": [
+            "\"google-site-verification=DF-01heiswADvNHeSG6gMGAPmCIL9uLFEFyugsp2zRA\""
+        ],
+        "CNAME": []
+    },
+    "detected_ns": [
+        "gemma.ns.cloudflare.com.",
+        "dane.ns.cloudflare.com."
+    ],
+    "cloudflare_detected": true,
+    "cdn_providers": [
+        "cloudflare"
+    ],
+    "http_headers": {
+        "Server": "cloudflare",
+        "CF-Ray": "a17b6fc46da7806f-SIN",
+        "CF-Cache-Status": "HIT",
+        "Alt-Svc": "h3=\":443\"; ma=86400"
+    },
+    "mx_analysis": {
+        "has_mx": false,
+        "possible_streaming_only_site": true
+    },
+    "mail_provider": null,
+    "txt_analysis": {
+        "google_verification": true,
+        "google_verification_count": 1,
+        "spf_configured": false,
+        "dmarc_configured": false,
+        "microsoft_verification": false,
+        "facebook_verification": false
+    },
+    "cloud_provider": "CLOUDFLARE",
+    "ns_provider": "CLOUDFLARE",
+    "suspicious_hosting": false,
+    "resolved_ip": [
+        "172.67.73.135",
+        "104.26.2.65",
+        "104.26.3.65"
+    ],
+    "asn_info": {
+        "asn": "13335",
+        "asn_description": "CLOUDFLARENET - Cloudflare, Inc., US"
+    },
+    "legitimate_signals": {
+        "official_tld": false,
+        "business_mail": false,
+        "google_verification": true,
+        "spf_configured": false,
+        "major_cloud_provider": true,
+        "enterprise_dns": false,
+        "total_signals": 2
+    },
+    "risk_score": 55,
+    "legitimacy_score": 25,
+    "step0": {
+        "input_domain": "https://rophim1.vip/",
+        "normalized_domain": "rophim1.vip",
+        "in_database": false,
+        "domain_model": {
+            "label": 1,
+            "label_name": "Độc hại",
+            "prob_safe": 0.0973,
+            "prob_malicious": 0.9027,
+            "features": [
+                11.0,
+                3.095795255000934,
+                0.09090909090909091,
+                0.0,
+                0.0,
+                3.0,
+                3.0,
+                2.0,
+                0.0,
+                3.0,
+                2.0,
+                300.0
+            ],
+            "flag": "FLAG_DOMAIN_PREDICT_MALICIOUS",
+            "model": "v1_hybrid"
+        }
+    },
+    "step2_evidence": {
+        "target_url": "https://rophim1.vip/",
+        "target_domain": "rophim1.vip",
+        "timestamp": "2026-07-08T08:50:12.648322",
+        "cloudflare_bypassed": true,
+        "episodes_found_total": 173,
+        "episodes_checked": 3,
+        "popup_blocked_count": 0,
+        "popup_urls": [],
+        "episodes_detail": [
+            {
+                "episode_url": "https://rophim1.vip/phim/ky-uc-tinh-thu",
+                "streams": [],
+                "iframes": [
+                    {
+                        "iframe_src": "https://rophim1.vip/phim/ky-uc-tinh-thu",
+                        "source": "frame_tree",
+                        "is_external": false
+                    }
+                ],
+                "screenshot_path": "logs\\rophim1.vip\\screenshots\\rophim1.vip_ep1_20260708_085115.png",
+                "banner_network_hits": [
+                    {
+                        "url": "https://rophim1.vip/images/social/threads-icon.svg",
+                        "content_type": "image/svg+xml"
+                    },
+                    {
+                        "url": "https://pagead2.googlesyndication.com/pagead/gen_204?id=sodar2&v=255&t=1&e=13",
+                        "content_type": "image/gif"
+                    }
+                ]
+            },
+            {
+                "episode_url": "https://rophim1.vip/phim/tinh-yeu-co-phao-hoa",
+                "streams": [],
+                "iframes": [
+                    {
+                        "iframe_src": "https://rophim1.vip/phim/tinh-yeu-co-phao-hoa",
+                        "source": "frame_tree",
+                        "is_external": false
+                    }
+                ],
+                "screenshot_path": "logs\\rophim1.vip\\screenshots\\rophim1.vip_ep2_20260708_085156.png",
+                "banner_network_hits": [
+                    {
+                        "url": "https://rophim1.vip/images/social/threads-icon.svg",
+                        "content_type": "image/svg+xml"
+                    },
+                    {
+                        "url": "https://img.ophim.live/uploads/movies/tinh-yeu-co-phao-hoa-poster.jpg",
+                        "content_type": "image/jpeg"
+                    },
+                    {
+                        "url": "https://img.ophim.live/uploads/movies/tinh-yeu-co-phao-hoa-thumb.jpg",
+                        "content_type": "image/jpeg"
+                    }
+                ]
+            },
+            {
+                "episode_url": "https://rophim1.vip/phim/bac-si-dao-hoang?cid=6854",
+                "streams": [],
+                "iframes": [
+                    {
+                        "iframe_src": "https://rophim1.vip/phim/bac-si-dao-hoang?cid=6854",
+                        "source": "frame_tree",
+                        "is_external": false
+                    }
+                ],
+                "screenshot_path": "logs\\rophim1.vip\\screenshots\\rophim1.vip_ep3_20260708_085239.png",
+                "banner_network_hits": [
+                    {
+                        "url": "https://rophim1.vip/images/social/threads-icon.svg",
+                        "content_type": "image/svg+xml"
+                    },
+                    {
+                        "url": "https://img.ophim.live/uploads/movies/bac-si-dao-hoang-poster.jpg",
+                        "content_type": "image/jpeg"
+                    }
+                ]
+            }
+        ],
+        "all_streams": [],
+        "all_iframes": [
+            "https://rophim1.vip/phim/ky-uc-tinh-thu",
+            "https://rophim1.vip/phim/tinh-yeu-co-phao-hoa",
+            "https://rophim1.vip/phim/bac-si-dao-hoang?cid=6854"
+        ],
+        "footer_analysis": {
+            "has_legal_footer": true,
+            "legal_notice_found": false,
+            "tax_code_found": false,
+            "authority_found": false,
+            "copyright_found": false,
+            "has_structured_identity": true,
+            "is_infinite_scroll": true,
+            "has_telegram_contact": false,
+            "has_ad_contact_only": false,
+            "FOOTER_ANONYMOUS": false,
+            "extraction_method": "none",
+            "meta_info": {
+                "title": "Rổ Phim - Phim hay cả rổ",
+                "og_site_name": "Rổ Phim",
+                "meta_copyright": "",
+                "meta_author": "",
+                "has_json_ld": false
+            },
+            "footer_text_snippet": "[META] rổ phim - phim hay cả rổ   rổ phim  width=device-width, initial-scale=1 rổ phim - nền tảng xem phim trực tuyến miễn phí, nổi bật với chất lượng hình ảnh cao và giao diện dễ sử dụng. với tốc độ tải trang nhanh chóng, người dùng có thể dễ dàng truy cập và thưởng thức một kho phim phong phú gồm hơn 100.000 tựa phim mới và hấp dẫn. rổ phim, rophim, rophim1.pro, rophim.com, ro phim, rophim1, phim thuyết minh, phim lồng tiếng, phim vietsub, web rổ phim, link rổ phim, web ro phim, rổ phim chính thức, p"
+        },
+        "technical_flags": {
+            "cloudflare_bypassed": true,
+            "is_drm_protected": false,
+            "iframe_detected": true,
+            "stream_intercepted": false,
+            "has_legal_footer": true,
+            "popup_detected": false
+        },
+        "dom_text": "Rổ Phim | Phim gì cũng có | RoPhim Lồng Tiếng Vietsub | Rổ Phim Mới Nhất\nBác Sĩ Đảo Hoang\nDoctor on the Edge\n2026\nHàn Quốc\nTập 12\nMột bác sĩ y tế công cộng trên một hòn đảo bị xa lánh và một nữ y tá bí ẩn bắt đầu một mối tình lãng mạn giữa con người và y khoa.\nThiên Hương\nThe Eternal Fragrance\n2026\nTrung Quốc\nTập 21\nTrong một thế giới bị tàn phá bởi cuộc chiến giành quyền năng của một cây thần thoại, hai người ngoài cuộc, Lôi Tú Nguyên và Tiêu Bang Chui, gặp nhau tại một học viện tu luyện và hình thành một mối quan hệ sâu sắc. Khi quá khứ bị che giấu của họ được phơi bày, họ phải bất chấp số phận và mạo hiểm tất cả để bảo vệ tình yêu của mình và khôi phục hòa bình cho tam giới.\nVân Tú Hành\nThe Legend of Rosy Clouds\n2026\nTrung Quốc\nTập 31\n\"Vân Tú Hành\" là một bộ phim cổ trang do Chu Thiếu Kiệt (Chúc Khanh Hảo) đạo diễn, Lý Nhất Đồng (Cuồng Tiêu), Tăng Thuấn Hy (Liên Hoa Lâu), Đặng Vi (Tiêu Sái Giai Nhân Đạm Đạm Trang\") đóng vai chính. Bộ phim được chuyển thể từ tác phẩm Saiunkoku Monogatari của Sai Yukino. Cửu Thành trong truyền thuyết có một vị tiểu thư nghèo xuất thân danh môn Phạm Vân (Lý Nhất Đồng thủ vai) và một vị thành chủ Tề Tranh (Tăng Thuấn Hy thủ vai). Họ từ việc thử thách đối phương cho đến sự tin tưởng lẫn nhau, hai người cùng nhau vượt qua khó khăn để phục vụ nhân dân, cuối cùng họ có được cả tình bằng hữu và tình yêu; Phạm Vân cũng giúp Tề Tranh bình thiên hạ, phá bỏ lễ giáo cũ và giải quyết khủng hoảng ở Cửu Thành, cùng nhau xây dựng một Cửu Thành phồn thịnh.\nChủ Tịch Tập Sự\nReborn Rookie\n2026\nHàn Quốc\nTập 12\nKang Yong Ho - \"ông hoàng kinh doanh\" bất ngờ hoán đổi linh hồn vào thân xác cầu thủ trẻ Hwang Jun Hyeon sau tai nạn. Với tư duy của một chủ tịch trong diện mạo nhân viên mới, ông bắt đầu hành trình đầy biến động để chinh phục lại đế chế của chính mình.\nĐặc vụ Kim tái khởi động\nAgent Kim Reactivated\n2026\nHàn Quốc\nTập 4\nKhi con gái mất tích, một ông bố tưởng như bình thường phải đánh thức những kĩ năng đặc nhiệm để tìm con, khiến anh lọt vào tầm ngắm của những kẻ nguy hiểm.\nMùa Hè Nồng Nhiệt\nNever-Ending Summer\n2026\nTrung Quốc\nTập 29\nBộ phim kể về câu chuyện cô gái Chu Vãn vì muốn cứu bà mà cố tình tiếp cận chàng trai Lục Tây Kiêu. Trong quá trình cứu rỗi lẫn nhau, cả hai dần nảy sinh tình cảm nhưng lại phải chia cắt vì hiện thực. Mười năm sau gặp lại, mối tình đầy rối ren đó được họ lấy danh nghĩa “trả thù” để lần nữa thắp lại ngọn lửa tình yêu.\nTình Yêu Có Pháo Hoa\nLove Has Fireworks\n2025\nTrung Quốc\nTập 36\nTiền Phi, một nhân viên ngân hàng, đang lên kế hoạch cho một cuộc sống viên mãn. Nhưng sau khi bị hôn phu bỏ rơi, cô phải định nghĩa lại cuộc đời mình. Lý Diệc Phi, xuất thân từ một gia đình giàu có, luôn đặt sự nghiệp lên hàng đầu. Bạn gái anh không chịu nổi cảnh nghèo khó nên đã bỏ đi. Để trả tiền vay thế chấp, Tiền Phi cho Diệc Phi thuê một căn phòng, và họ trở thành cộng sự. Tiền Phi đã dũng cảm đối mặt với thử thách và trưởng thành qua quá trình này. Hành trình của họ được đánh dấu bằng những va chạm, nhưng họ đã yêu nhau và quyết định cùng nhau hướng tới tương lai.\nMạc Ly\nMo Li\n2026\nTrung Quốc\nTập 40\nMột nữ quý tộc và một hoàng tử vượt qua sự nghi ngờ để phá vỡ âm mưu trong triều đình, khôi phục hòa bình thông qua liên minh miễn cưỡng của họ.\nKẻ Thù Hoàng Gia Của Tôi\nMy Royal Nemesis\n2026\nHàn Quốc\nTập 14\nMột ác nữ thời Joseon bị ban chết bỗng tỉnh dậy ở Seoul thời hiện đại. Tại đó, một người thừa kế tập đoàn tài phiệt tàn nhẫn có thể là cơ hội cuối để cô thay đổi số phận của mình.\nHồ Sơ Nam Bộ\nArchives: The Nanyang Mystery\n2026\nTrung Quốc\nTập 33\nThời kỳ đầu Dân Quốc, trên vùng biển Nam Dương xảy ra vụ án mạng kỳ bí \"Thủy quỷ vọng hương\". Hai nhân viên thuộc Cục Lưu trữ Phía Nam - đơn vị chuyên điều tra các sự kiện huyền bí của gia tộc họ Trương là Trương Hải Diêm và Trương Hải Hà được cử đến hiện trường. Không ngờ họ vướng vào một âm mưu tử thần nhằm săn lùng các thành viên họ Trương ở hải ngoại. Trương Hải Hà hy sinh thân mình để mở đường cho Hải Diêm lên chuyến tàu Nam An trở về Hạ Môn, hy vọng đồng đội có cơ hội sống sót. Nhưng chuyến hải trình đầy sóng gió này mới chỉ là khởi đầu: một tên quân phiệt quyền lực, chàng kế toán trẻ ngây thơ nhưng kiên định, cùng người thân thập niên chưa gặp... Hải Diêm đơn độc đối mặt với những biến cố dồn dập. Và khi chân anh chạm đất Hạ Môn, số phận thực sự của hai chàng trai mới bắt đầu thay đổi...\nKiều Sở\nAshes to Crown\n2026\nTrung Quốc\nTập 24\nSở Triêu, con gái đại tướng quân, vì muốn thay đổi số phận bi thảm là quân cờ cho Tiêu Tuần đoạt quyền đã quyết định chủ động tấn công. Với sự hỗ trợ của Tạ Yến Lai, nàng vượt bao hiểm nguy, hộ tống hoàng trưởng tôn vào cung, đấu trí trước điện, phò tá hoàng trưởng tôn kế vị, chặt đứt con đường xưng đế của Tiêu Tuần. Tân đế lên ngôi khi Đại Sở thù trong giặc ngoài, Sở Triêu cùng Tạ Yến Lai vừa khéo léo đối nội vừa cầm quân dẹp loạn, thay đổi vận mệnh của mình, mang lại thái bình cho bá tánh.\nHuyền Thoại Lính Bếp\nThe Legend of Kitchen Soldier\n2026\nHàn Quốc\nTập 12\nKang Seong Jae – một anh nuôi quân đội bình thường – bất ngờ nhận được “nhiệm vụ” trở thành huyền thoại nhà bếp trong quân doanh.\nGiữa doanh trại đầy những con người kỳ quặc: một trung sĩ miệng độc nhưng tốt bụng, một trung úy nguyên tắc đến đáng sợ và đàn anh nấu ăn hậu đậu hết thuốc chữa, Seong Jae liên tục tạo ra hàng loạt tình huống dở khóc dở cười.\nTừ những bữa cơm quân đội tưởng chừng nhàm chán, anh dần biến căn bếp doanh trại thành nơi gắn kết tình đồng đội bằng những món ăn nóng hổi, hài hước và đầy cảm xúc.\nThanh Tra Bí Mật\nFiling for Love\n2026\nHàn Quốc\nTập 12\nBộ phim hài lãng mạn kể về Joo In-ah, một trưởng phòng kiểm toán đầy sức hút với một bí mật, và Noh Ki-joon, át chủ bài của phòng, người đột nhiên bị giáng chức và phải giải quyết các vụ bê bối của công ty.\nCuộc Chiến Trong Chúng Ta\nWe Are All Trying Here\n2026\nHàn Quốc\nTập 12\nAn aspiring director hits rock bottom after 20 years chasing his debut — until he meets an overwhelmed producer who helps him rediscover his self-worth.\nPhu Nhân Đại Quân Thế Kỷ 21\nPerfect Crown\n2026\nHàn Quốc\nTập 12\nTrong một chế độ quân chủ lập hiến thế kỷ 21, một người phụ nữ có tất cả mọi thứ nhưng vẫn là thường dân tình cờ gặp gỡ một vị hoàng tử, người dù thuộc dòng dõi hoàng tộc nhưng lại cảm thấy bất lực—dẫn đến một tình yêu vượt qua rào cản địa vị xã hội.\nPhim Hàn Quốc tập mới\nXem thêm\n8\n12\nBác Sĩ Đảo Hoang\nDoctor on the Edge\n6\n6\nSếp Ơi, Mai Đừng Gặp Nhau!\nSee You at Work Tomorrow!\n810\nRunning Man Thử Thách Thần Tượng\nRunning Man\nSắp chiếu\nMùa Không Tên\nThe Nameless Season\n2\nKỷ Niệm 10 Năm Phim Goblin\nGuardian: The Lonely And Great God 10th Anniversary\n2\n2\nTình Yêu Đồng Điệu\nLove In Sync\n2\n2\nSau Hôn Nhân\nThe Husband\n12\n12\nChủ Tịch Tập Sự\nReborn Rookie\n8\n8\nNghệ Thuật Lừa Dối Của Sarah\nThe Art of Sarah\n4\n4\nĐặc vụ Kim tái khởi động\nAgent Kim Reactivated\n3\nGieo Gì Gặt Nấy - Nông Trại Thẳng Tiến\nGBRB: Farm Operation - Go Go Farm\n12\nLớp Học Tình Yêu (Phần 3)\nLove Class (Season 3)\n4\n4\nLời Đề Nghị Của Công Tố Viên\nThe Prosecutor's Proposal\n8\n8\nNgười Khí\nHuman Vapor\n12\n12\nTựa Như Tình Đầu (Thêm Một Lần Yêu)\nLove Take Two\n8\nKill It: Slay Tới Bến\nKill It: Style Creator War\n6\nChuyến Đi Ngẫu Hứng: Bản Giới Hạn\nUnplanned Trip: Limited Edition\n7\nKhông Dung Thứ\nMercy for None\n12\n12\nHôm Nay Lại Bán Hết\nSold Out on You\n12\n12\nChuyên Gia Tuổi Trung Niên\nFifties Professionals\n8\n8\nNgôi Nhà Của Những Lời Dối Trá\nThe Lie We Lived In\n6\n6\nNhững Ghi Chú Ở Hàng Cuối\nNotes From The Last Row\n14\n14\nKẻ Thù Hoàng Gia Của Tôi\nMy Royal Nemesis\n8\n8\nNgười Hùng Yếu Đuối (Phần 1)\nWeak Hero Class 1\n8\n8\nBiệt Đội Siêu Khờ\nThe WONDERfools\n10\n10\nHọc Sinh Cá Biệt\nStudy Group\n10\n10\nÁnh Sáng Của Đôi Ta\nStill Shining\n8\n8\nĐại Ca Đi Học\nHigh School Return of a Gangster\n16\n16\nGiá Trị Tuyệt Đối Của Lãng Mạn\nAbsolute Value of Romance\nPhụ Đề\nKhi Chồng Hợp Lực\nHusbands in Action\nPhim Trung Quốc tập mới\nXem thêm\n17\nHoán Sa Lục\nThe Silk Master from the Future\n3\nHoạ Mộng Lục\nWhere Colors Dream\n6\nThành Hoàng Lục\nCHENGHUANG\n26\nMảnh Ghép Bí Ẩn\nThe Murder Puzzle\n23\nMôi Giới Đại Cát\n大吉中介\n8\nKinh Thành Kỳ Thám\nCases Between Us\n170\nGià Thiên\nShrouding The Heavens\n21\n21\nThiên Hương\nThe Eternal Fragrance\n10\n10\nTỏa Sáng Như Những Vì Sao\nRoad to Success\n31\n31\nVân Tú Hành\nThe Legend of Rosy Clouds\n26\nVĩnh Sinh (Phần 5)\nImmortality (Season 5)\n5\n100 Ngày Trở Thành Vua\nBai Ri Cheng Wang, Crowned in a Hundred Days\n21\nĐế Sư Trường An\nThe Imperial Master\n8\nCô Thành Chiếu: Kinh Biến\nDynasty of the Undead: Mutate\n8\n7\nChó Hoang Và Xương\nLove For You\n16\nHoa Hồng Rực Lửa\nBurning Rose\n7\nTrên Vạn Người\nAbove Myriads\n355\nLuyện Khí Mười Vạn Năm\nOne Hundred Thousand Years of Qi Refining\n463\nVạn Giới Độc Tôn\nTen Thousand Worlds\n14\nQuý Nhân Mang Nhiều Điềm Lành\n贵人多旺事\n672\nVõ Thần Chúa Tể\nMartial Master\nPhụ Đề\nCơn Thịnh Nộ\nThe Furious\n52\nRobo Trái Cây (Phần 1)\nFruity Robo (Season 1)\n95\n95\n95\nTân Tam Quốc Diễn Nghĩa 2010\nThree Kingdoms 2010\n205\nThôn Phệ Tinh Không 2\nSwallowed Star 2, Tunshi Xingkong 2nd Season\n231\nThôn Phệ Tinh Không\nSwallowed Star\n40\n40\n36\nLiên Hoa Lâu\nMysterious Lotus Casebook\n15\nĐại Đạo Độc Hành\nWalking The Way All Alone\n20\nĐứng Trên Đầu Gió\nRiding The Wind\n190\nThần Y Cổ Đại Ở Đô Thị (Đô Thị Cổ Tiên Y)\nImmortal Doctor In Modern City\nPhim US-UK tập mới\nXem thêm\n7\nGóc Tối Nhân Bản\nOrphan Black: Echoes\n8\nNhững Bản Di Chúc (Phần 1)\nThe Testaments (Season 1)\nPhụ Đề\nCơn Thịnh Nộ\nThe Furious\nPhụ Đề\nVùng Biển Chết Chóc\nDeep Water\n10\nDị Nhân '97 (Phần 2)\nX-Men '97 (Season 2)\n5\nMa Cà Rồng: Lestat de Lioncourt\nThe Vampire Lestat\n7\nRick và Morty (Phần 9)\nRick and Morty (Season 9)\nPhụ Đề\nChuyện Kể\nStorytelling\nPhụ Đề\nKhúc Ca Tội Lỗi\nCarolina Caroline\nPhụ Đề\nCông Dân Báo Thù\nCitizen Vigilante\nPhụ Đề\nHạnh Phúc Hơn Bao Giờ Hết: Một Bức Thư Tình Gửi Los Angeles\nHappier Than Ever: A Love Letter To Los Angeles\n1\nSilo (Phần 3)\nSilo (Season 3)\n2\nLife, Larry and the Pursuit of Unhappiness: An almost History of America\nLife, Larry and the Pursuit of Unhappiness: An almost History of America\n4\nPower Book III: Raising Kanan (Phần 5)\nPower Book III: Raising Kanan (Season 5)\nPhụ Đề\nBillie Eilish - Hit Me Hard and Soft: The Tour (Live in 3D)\nBillie Eilish - Hit Me Hard and Soft: The Tour (Live in 3D)\nPhụ Đề\nNgười chỉnh đàn\nTuner\nPhụ Đề\nChúa Tể Dogtown\nLords Of Dogtown\nPhụ Đề\nJuwanna Mann\nJuwanna Mann\n6\nChuyến Tàu Đêm Kinh Hoàng\nNightsleeper\n9\nTrang Trại Dutton\nDutton Ranch\n7\nCăn Cứ Star City\nStar City\n6\nDòng Sông Tội Ác\nCape Fear\n20\nTâm Trí Rực Rỡ (Phần 2)\nBrilliant Minds (Season 2)\n3\nThám Tử Sugar (Phần 2)\nSugar (Season 2)\nPhụ Đề\nVõ Sĩ Thời Khó\nHard Times\n8\nChuyện Sinh Tồn Của Cô Nàng Ngoại Cỡ (Phần 3)\nSurvival of the Thickest (Season 3)\n23\nGiải Cứu Thế Giới (Phần 4)\nHeroes (Season 4)\nPhụ Đề\nTốc Độ 2: Kiếm Soát Hành Trình\nSpeed 2: Cruise Control\nPhụ Đề\nCát Ăn Thịt Người\nThe Sand\nPhụ Đề\nNữ Thần Thám Enola Holmes 3\nEnola Holmes 3\nPhim Thái Lan tập mới\nXem thêm\n10\nThế giới em và tôi\nThe Two Faces of Thatri\n14\n10\nÝ Chí Kim Cương\nStrong Will\n7\nSan hô đen\nBlack Coral\n23\nVũ Điệu Lân Sư\nDance of the Lion\n13\n12\nKý Ức Tình Thù\nSunset In Winter\n7\nGió Nổi Hàn Dương, Xuân Sơn Cảnh\nA Winter Sun Wakes the Wind in Spring Hills' Dream\n3\nCuộc Chạy Đua Của Tình Và Tiền\nThe Running Of Love And Money\n10\n10\nTình Địch Có Lợi\nEnemies With Benefits\nPhụ Đề\nNgôi Đền Kỳ Quái 5\nPee Nak 5\n6\n6\nCậu Bé Không Lên Thiên Đường\nTicket To Heaven\n6\n6\nBáo Thù\nPayback\n3\n3\nSiêu Sao Hay Siêu Xịt\nLost to Light\n8\n8\nGió Thoảng Tình Theo\nThe Air 4 Elements\n6\n6\nTheo Đuổi Tình Yêu\nChasing Love\n24\nFourever You (Phần 2)\nFourever You (Season 2)\n3\n3\nVẽ nên giấc mơ ngày cưới\nIn Love Forever The Series\n2\nĐừng Xin Anh Jane\nDon’t Be Too Emotional\n1\n2\nWhen Light Fades\nWhen Light Fades\n5\nTám Tay Lừa Đảo\nThe Scammer Games\n4\n4\nTiếng Anh Thành Tiếng Yêu\nMy Tutor, My Love\n8\n8\nCây cam ở nhà cậu ấy nhưng quả cam luôn rơi sang nhà tôi\nWhen Oranges Fall\n1\n1\nAI Girl: Bạn Gái Người Máy\nAI Girl\n6\n6\nBà Đồng Muifei\nMuifei The Medium\n2\nRanh Giới Bình Minh\nThe Edge of Horizon\n1\n1\nNút Thắt\nKnot\n12\nKý Ức Tình Thù\nSanaeha Sunya Kaen\n9\n8\nWu\nWU\n12\n12\nLove of Silom\nLove of Silom\n19\n2\nYêu Được Chưa\nLet's Begin Again\n8\n8\nGọi Dad Đi Tharn\nYour Dear Daddy\nBình luận mới\n💕ChuChu💙\nPhim hay kết hơi nhạt, nhưng mê nhất vẫn là anh bác sĩ đông y, người dễ thương xinh xẻo, có điều hơi lùn hihi 🤭\nbảo anh\ndạ\n💕ChuChu💙\nPhim ẩn khuất ghê\nhuy1657h\nhay\nRổ Phim\nSv HN đang lỗi á nên lên chậm hơn. Coi tạm HCM nha\nChu Thanh Hải\nbà inde navarrette vớ vẩn tranh giải oscar đấy\nChemioso\nTrời ơi càng xem càng tức má nữ 9, tới bà của nam 9 còn support được còn má nữ 9 chỉ cần đứng đó hét lên Hwang Jun Hyeon là xong, ko hiểu sao viết được cái thiết lập nữ 9 não tàn này, dù em có phế vật tới mấy vẫn có người thương em hả chài....\nyas\nuôi ad ra nhanh thé\nChemioso\nXem được tới tập 8 vẫn chưa thấy nữ chính đóng góp được gì, thiết lập nhân vật nữ chính phế thật sự. Đã không giúp được gì mà tập nào cũng thấy la lối om sòm, kiểu tức nhưng không có năng lực để đánh trả chỉ biết chửi đỏng, thoại toàn xàm xí. Phim này bỏ luôn nữ chính có khi hay hơn í, coi nữ chính cứ trợn mắt chửi chửi làm tuột mood dễ sợ, các nhân vật khác vẫn còn đóng góp được cho mạch phim từ nhân vật phụ như mẹ, chị chồng, đến cả ông trưởng phòng vẫn còn giúp ích được hơn bà nữ chính.\nm\n\"ánh mắt ta chạm nhau\"\nQuang Hiển 0411\nchưa thấy nha ad ưi......\nhieu\nt thấy khá bth\nBún bò\nSao z bà\nhehe\nphim này khó hot\nuyên\ncó đấy bà\nhehe\nlốp mạnh nhất lịch sự của Ca Lâm😞\ntrangchuche\nvaix thật xem nhầm tập cuối từ đầu luôn. Bảo sao k hiểu gì. Muốn vứt cái não đi ghê\nRii\nBà thấy nó có bị nhảy k, kiểu như mình bấm cái gì nó cx nhảy qua qc tiktok shoppe í\nuyên\nê thật:)))\nRii\nỦa do máy e hay do wed mà e xem tập 9-10 nd lại là tập 8-1 :)))😭😭\nbảo anh\nadmin ơi chưa có tập 20 21 bên sv HN ạ\ntw_lofiuu\ntội dong eun qs\nThái giám Bắc Ninh\ncuối cùng cũng ra rồi, cảm ơn rổ phim nha. Phim hay lắm ae ơi\none\ncập nhật bản đặc biệt i ad ơi\nCookie\nSao chx có tập 1169 thế add ơi. 😭😭\nTrang nguyễn\n😭 hay qua ra tiếp di ad\nLinh Ly\nTưởg sập wed rồi chứ, hú hồn nha shop\nĐổi k được avtar\nÝ bị j\nĐổi k được avtar\nỦa bn j r ad ơi k xem\nĐổi k được avtar\nCái đoạn đầu má ơi má\nTV Shows Truyền Hình\nXem thêm\nRunning Man Thử Thách Thần Tượng\nRunning Man\n2010\nPhần 1\nTập 810\nThử Thách Thần Tượng - RUNNING MAN là một show truyền hình hài hước thực tế của Hàn Quốc, ra mắt từ năm 2010 nhưng cho đến nay vẫn là một trong những chương trình giải trí được yêu thích nhất tại xứ sở kim chi. Với RUNNING MAN, đảm bảo các bạn sẽ phải \"cười lăn cười bò\" vì sự hài hước của các thành viên cũng như những nhiệm vụ oái ăm mà họ phải chịu đựng trong suốt chương trình. Ngoài 8 thành viên chính của RUNNING MAN gồm: Yoo Jae Suk, Ji Suk Jin, Kim Jong Kook, Lee Kwang Soo, Haha, Song Ji Hyo, Yang Se Chan và Jeon So Min, khán giả sẽ có dịp gặp gỡ những ngôi sao giải trí hàng đầu khác của Hàn Quốc, thậm chí là những ngôi sao Quốc tế tham gia RUNNING MAN trong vai trò khách mời đặc biệt.\nKỷ Niệm 10 Năm Phim Goblin\nGuardian: The Lonely And Great God 10th Anniversary\n2026\nPhần 1\nTập 2\nKỷ niệm 10 năm phát sóng bộ phim Yêu Tinh từng gây sốt toàn châu Á, dàn diễn viên chính gồm Gong Yoo, Kim Go Eun, Lee Dong Wook và Yoo In Na đã hội ngộ trong một chuyến đi đặc biệt trở lại Gangneung. Họ cùng đến những địa điểm quay phim, tái hiện những cảnh quay và câu thoại đã trở thành biểu tượng và chia sẻ những câu chuyện hậu trường.\nGieo Gì Gặt Nấy - Nông Trại Thẳng Tiến\nGBRB: Farm Operation - Go Go Farm\n2026\nPhần 1\nTập 3\nTạm gác công việc trồng trọt, các bác \"nông dân\" Lee Kwang Soo, Doh Kyung Soo và Kim Woo Bin thẳng tiến đến đảo Jeju thầu ngay một trang trại chăn nuôi. Liệu cuộc sống ở nông trại với đồng cỏ xanh và những chú bò sữa có thực sự yên bình như họ tưởng tượng?\nChuyến Đi Ngẫu Hứng: Bản Giới Hạn\nUnplanned Trip: Limited Edition\n2026\nPhần 1\nTập 6\nVài năm sau khi Jung Yu Mi, Park Seo Jun và Choi Woo Shik trở thành những ông chủ nhà hàng thành đạt trong một bộ phim khác, họ tái hợp để tận hưởng thời gian nghỉ ngơi khỏi công việc thường nhật. Bộ ba sẽ đi du lịch khắp Hàn Quốc, nhưng có một điều bất ngờ: họ không biết chính xác mình sẽ đi đâu hay bằng cách nào, và mỗi ngày họ phải đến một thành phố mới. Được sự dẫn dắt không chính thức của nhà sản xuất truyền hình huyền thoại Na Yeong Seok, người được gọi thân mật là \"Na PD\", các diễn viên sẽ có một hành trình khó quên khi họ buộc phải đưa ra những lựa chọn khó khăn nhưng cũng rất thú vị trên đường đi\nĐảo tình yêu Hoa Kỳ (Phần 5)\nLove Island USA (Season 5)\n2023\nPhần 5\nTập 37\nCác chàng trai và cô gái độc thân sống cùng nhau trong biệt thự tại Fiji, liên tục ghép đôi, vượt qua thử thách và đối mặt với các \"bombshell\" mới xuất hiện. Những người không tìm được đối tác sẽ bị loại.\nĐảo tình yêu Australia (Phần 5)\nLove Island Australia (Season 5)\n2023\nPhần 5\nTập 29\nChương trình đưa những chàng trai và cô gái độc thân vào một biệt thự sang trọng. Họ phải ghép đôi để tiếp tục ở lại, đồng thời đối mặt với các \"bombshell\" (người mới xuất hiện), thử thách tình cảm và các đợt loại trực tiếp.\nBắt Sóng Tình Duyên\nRak Rak - Sense of Love\n2026\nPhần 1\nTập 8\nBắt Sóng Tình Duyên (Rak Rak – Sense of Love) là show hẹn hò thực tế khám phá sự kết nối qua giác quan, không dựa vào ngoại hình hay ngôn ngữ. Tại Thái Lan, 10 người trẻ từ nhiều quốc gia bước vào hành trình tìm kiếm tình yêu từ cảm nhận bản năng—trước khi nhìn, nghe hay hiểu nhau.\nNhịp Điệu Thù Hận\nThe Rhythm of Revenge\n2026\nPhần 1\nTập 30\nCa sĩ Poona mơ ước trở thành ngôi sao và tìm ra sự thật đằng sau cái chết của cha mẹ. Cô bắt tay với một cảnh sát khi cuộc truy tìm dần trở thành chuyện cá nhân.\nHòn Đảo Cám Dỗ (Phần 1)\nTemptation Island (Season 1)\n2025\nPhần 1\nTập 10\n4 cặp đôi đang gặp vấn đề trong tình cảm đến hòn đảo nhiệt đới để thử thách lòng chung thủy. Nam và nữ bị tách riêng, sống cùng nhiều người độc thân hấp dẫn.\nHòn Đảo Cám Dỗ (Phần 2)\nTemptation Island (Season 2)\n2026\nPhần 2\nTập 9\nMùa 2 tiếp tục công thức cũ với 4 cặp đôi mới: Kaylee & Summit, Scarlett & Cole, Sydney & Mikey, Shyanne & Jack. Mục tiêu là xem liệu tình yêu có vượt qua được cám dỗ hay không.\nTrò Chuyện Từ Trái Tim\nChat Hearts2Hearts\n2025\nPhần 1\nTập 12\nHearts2Hearts – tân binh đang gây sốt – lần đầu tham gia show giải trí và thể hiện kỹ năng giải trí cực đỉnh! Chatbot AI “Chat Hearts2Hearts” giúp fan khám phá mọi khoảnh khắc đáng nhớ: từ hậu trường tuyển chọn, quá trình thực tập đầy nước mắt, đến tình bạn thật sự giữa 8 thành viên. Những câu chuyện chưa từng tiết lộ đang dần hé lộ!\nTiệm Bánh Bonjour\nBonjour Bakery\n2026\nPhần 1\nTập 5\nKhi các ngôi sao điện ảnh hàng đầu gặp gỡ người cao tuổi, một câu chuyện cảm động thực sự sẽ được hé lộ! \"Bonjour Bakery\" lấy bối cảnh tại một ngôi làng quê yên bình, tạo nên quán cà phê đầu tiên ở Hàn Quốc dành riêng cho người cao tuổi. Ở đây, không chỉ bán các món tráng miệng; mà còn chia sẻ những câu chuyện. Một \"đội ngũ phục vụ\" vô cùng ấm áp gồm Kim Hee-ae và Kim Seon-ho xoa dịu mỗi người cao tuổi bằng những cuộc trò chuyện nhẹ nhàng và nụ cười nhân hậu; trong bếp, \"đầu bếp đa năng\" Cha Seung-won và Lee Ki-taek biến những nguyên liệu địa phương thành những tác phẩm nghệ thuật tinh tế. Hãy cùng xem những người nổi tiếng này đồng hành cùng người cao tuổi khi họ hồi tưởng về cuộc đời mình, lan tỏa sự ấm áp qua hương thơm của bánh mì.\nBí Mật Calabasas\nCalabasas Confidential\n2026\nPhần 1\nTập 8\nSau khi tốt nghiệp đại học, cả nhóm cùng quay trở lại Calabasas để tận hưởng \"một mùa hè họ sẽ không bao giờ quên\". Trở về nhà và sống trong những căn biệt thự xa hoa của cha mẹ trên sườn đồi, họ phải đối mặt với thực tế khó khăn khi phải giải quyết những mâu thuẫn chưa có hồi kết trong quá khứ, đồng thời cố gắng định hình hướng đi tiếp theo cho cuộc sống và các mối quan hệ của mình. Bốn năm xa cách có thể đã tạo ra khoảng cách giữa họ, nhưng những ngọn lửa tình yêu mới, những mối thù hằn cũ và những bí mật không ngờ tới sẽ không thể mãi giữ kín phía sau cánh cổng của mã bưu chính được thèm khát nhất Los Angeles.\nChăm Sóc Tủ Lạnh Của Tôi Nhé (Phần 2)\nChef & My Fridge (Season 2)\n2024\nPhần 2\nTập 70\nNhững đầu bếp giỏi nhất Hàn Quốc tranh tài để tạo ra những món ăn ngẫu hứng sử dụng các nguyên liệu có sẵn trong tủ lạnh cá nhân của các khách mời nổi tiếng.\nĐại Học Chiến Tranh (Phần 3)\nElite League (Season 3)\n2025\nPhần 3\nTập 8\nSeason 3 tiếp tục ngay sau khi đội Hưng Hân (Excellent Era) được thành lập và bắt đầu con đường tiến vào Vinh Quang chuyên nghiệp. Toàn bộ phần này tập trung vào vòng khiêu chiến, nơi Hưng Hân phải đánh bại các đội mạnh để giành quyền thăng hạng vào Liên minh.\nTôi Sống Một Mình\nI Live Alone\n2020\nPhần 1\nTập 648\nI Live Alone được công nhận là một trong những chương trình “Thực hư” của truyền hình Hàn Quốc. chương trình này phát các cảnh quay từ cuộc sống hàng ngày của một số thành viên Câu lạc bộ Cầu vồng được chọn, cả ở trong và ngoài nhà của họ.\nChương trình này cho người xem thấy những người nổi tiếng độc thân sống như thế nào và đã trở nên phổ biến rộng rãi nhờ sự liên quan đến lối sống độc thân của những người nổi tiếng khác nhau, được hiển thị mà không có sự lọc đáng kể. Kể từ khi thành lập, mỗi người dẫn chương trình đã tập hợp những khách mời nổi tiếng khác để thành lập một câu lạc bộ có tên Câu lạc bộ Cầu vồng.\nYêu là mù quáng: Habibi\nLove Is Blind: Habibi\n2024\nPhần 1\nTập 10\nCặp đôi nổi tiếng Khaled Saqer và Elham Ali dẫn chương trình thử nghiệm xã hội này, nơi những người Ả Rập độc thân kết nối và cam kết cưới nhau trước khi gặp mặt trực tiếp.\nBí Mật Triệu Đô (Phần 2)\nMillion Dollar Secret (Season 2)\n2026\nPhần 2\nTập 8\nTrong chương trình thi đấu khốc liệt này, một triệu phú bí mật phải ẩn mình giữa thanh thiên bạch nhật và tránh bị loại để có thể giữ tiền và giành chiến thắng trong trò chơi.\nChị Ơi Anh Yêu Em (Phần 2)\nMind the Noona Gap (Season 2)\n2026\nPhần 2\nTập 3\nMột câu chuyện tình yêu táo bạo và chân thực về một người đàn ông và một người phụ nữ có người yêu trẻ hơn, họ vượt qua rào cản tuổi tác và mạnh dạn, trung thực trong tình yêu của mình.\n6 Người Ế Ở Chung Nhà\nSix Singles Under One Roof\n2026\nPhần 1\nTập 6\nMột chương trình truyền hình thực tế chân thực, không hề chỉnh sửa, nơi những người độc thân cùng độ tuổi với cá tính mạnh mẽ, khác biệt—những người đã sống một mình trong thời gian dài—cùng nhau chia sẻ một ngôi nhà và hỗ trợ lối sống tuyệt vời của nhau.\nHoạt Hình Trẻ Em\nXem thêm\n300\nShin\nCậu Bé Bút Chì\n2019\nPhần 1\nTập 300\n104\nShin-chan\nCậu Bé Bút Chì\n2006\nPhần 1\nTập 104\n26\nCuộc Sống Thượng Hạng Của Zack & Cody\nThe Suite Life Of Zack & Cody (Season 1)\n2005\nPhần 1\nTập 26\n20\nCourage: Chú Chó Nhút Nhát (Phần 2)\nCourage the Cowardly Dog (Season 2)\n2000\nPhần 2\nTập 20\n13\nBoBoiBoy\nBoBoiBoy (Season 1)\n2011\nPhần 1\nTập 13\n917\nDoraemon: Tuyển tập mới nhất\nDoraemon: New Series\n2005\nPhần 1\nTập 917\n49\nChiến Đội Số 1 Gozyuger\nNo. 1 Sentai Gozyuger\n2025\nPhần 1\nTập 49\nFull\nFull\nFull\nHành Trình Của Moana 2\nMoana 2\n2024\nPhần 1\nTập FULL\n39\nSiêu Nhân Sấm Sét\nPower Rangers Dino Thunder\n2004\nPhần 1\nTập 39\n1\nFull\nTên Cậu Là Gì?\nYour Name\n2016\nPhần 1\nTập 1\n21\n21\nSiêu Cảnh Sát Vũ Trụ Gavan Infinity\nSuper Space Sheriff Gavan Infinity\n2026\nPhần 1\nTập 21\n14\nBài Ca Chiến Thắng (Phần 2)\nVictorious (Season 2)\n2011\nPhần 2\nTập 14\n25\nCourage: Chú Chó Nhút Nhát (Phần 3)\nCourage the Cowardly Dog (Season 3)\n2001\nPhần 3\nTập 25\n25\nỞ Nhà Cùng Shin\nShinchan At Home (Season 1)\n2019\nPhần 1\nTập 25\n38\nCảnh Sát Thiên Hà (Siêu Nhân SPD)\nPower Rangers SPD\n2005\nPhần 1\nTập 38\n78\n117\nPucca\nPucca\n2006\nPhần 1\nTập 117\n39\nCuộc Sống Thượng Hạng Của Zack & Cody (Phần 2)\nThe Suite Life Of Zack & Cody (Season 2)\n2006\nPhần 2\nTập 39\n37\nDIGIMON BEATBREAK\nDigimon Beatbreak\n2025\nPhần 1\nTập 37\n25\nCuộc Sống Của Shin\nShinchan's Life (Season 1)\n2019\nPhần 1\nTập 25\n13\n13\nBarbie Dreamhouse Adventures: Go Team Roberts (Phần 2)\nBarbie Dreamhouse Adventures: Go Team Roberts (Season 2)\n2020\nPhần 1\nTập 13\nFull\nFULL\nVua Khủng Long: Phiêu Lưu Đến Vùng Núi Lửa\nDino King: Journey To Fire Mountain\n2019\nPhần 1\nTập FULL\n25\nỞ Nhà Cùng Shin (Phần 2)\nShinchan At Home (Season 2)\n2019\nPhần 1\nTập 25\n20\nChuyện Nhà Nohara (Phần 2)\nShinchan Nohara Family (Season 2)\n2019\nPhần 1\nTập 20\n18\nMèo Cưng Của Simon\nSimon's Cat (Color)\n2022\nPhần 1\nTập 18\n8\nNhững chú chó và đồ chơi\nDog Days Out\n2025\nPhần 1\nTập 8\n13\nKamen Rider Amazons\nKamen Rider Amazons (Season 1)\n2016\nPhần 1\nTập 13\n12\nNhất Quỷ Nhì Ma Thứ Ba Takagi (Phần 2)\nTeasing Master Takagi-san (Season 2)\n2019\nPhần 1\nTập 12\n8\n8\nPokémon Concierge\nPokémon Concierge\n2023\nPhần 1\nTập 8\n12\nKiếp chuyển sinh ngọt ngào\nOkashi na Tensei\n2023\nPhần 1\nTập 12\n26\nTuyển Thủ Vô Hình\nKuroko's Basketball (Season 1)\n2012\nPhần 1\nTập 26\nRổ Phim Sắp Chiếu\nXem thêm\nSắp chiếu\nAre the Sexy Buttocks Not Good?\nAre the Sexy Buttocks Not Good?\nSắp chiếu\nMùa Không Tên\nThe Nameless Season\nSắp chiếu\nBittersweet Love\nBittersweet Love\nSắp chiếu\nTinh Nguyệt Chinh Đồ\nTo the Stars\nSắp chiếu\nTa Là Kẻ Phản Diện Mệnh Lớn\nI,The Fated Villain\nSắp chiếu\nCâu Chuyện Đồ Chơi 5\nToy Story 5\nSắp chiếu\nNgười Nhện: Khởi Đầu Mới\nSpider-Man: Brand New Day\nSắp chiếu\nChuyện Chăn Gối\nBedways\nSắp chiếu\nDesert Warrior\nDesert Warrior\nSắp chiếu\nLuật pháp và Trật tự: Đơn vị chuyên về nạn nhân đặc biệt (Phần 8)\nLaw & Order: Special Victims Unit (Season 8)\nRổ Phim - Phim hay cả rổ",
+        "banners": [
+            {
+                "src_url": "https://b23d80bf.pronet.pages.dev/728x90.gif",
+                "alt": "",
+                "link_href": "https://vsbet276.com/p/BSYk",
+                "width": 2048,
+                "height": 253,
+                "case": "case1_nofollow_link",
+                "local_path": "logs\\rophim1.vip\\banners\\474affde9a8048abe2c48b2e3c331b87.gif",
+                "download_ok": true,
+                "frames": [
+                    "logs\\rophim1.vip\\banners\\474affde9a8048abe2c48b2e3c331b87_frame_001.png"
+                ]
+            },
+            {
+                "src_url": "https://b23d80bf.pronet.pages.dev/wc.gif",
+                "alt": "",
+                "link_href": "https://colatv.live/",
+                "width": 728,
+                "height": 90,
+                "case": "case1_nofollow_link",
+                "local_path": "logs\\rophim1.vip\\banners\\f4698be2665068dce7702b3ab0d95bb4.gif",
+                "download_ok": true,
+                "frames": [
+                    "logs\\rophim1.vip\\banners\\f4698be2665068dce7702b3ab0d95bb4_frame_001.png"
+                ]
+            },
+            {
+                "src_url": "https://b23d80bf.pronet.pages.dev/colascore-gif-728x90.gif",
+                "alt": "",
+                "link_href": "https://colascore.com/",
+                "width": 728,
+                "height": 90,
+                "case": "case1_nofollow_link",
+                "local_path": "logs\\rophim1.vip\\banners\\9599e77486066180a20b5edb697e9e0b_frame_001.png",
+                "download_ok": true,
+                "frames": [
+                    "logs\\rophim1.vip\\banners\\9599e77486066180a20b5edb697e9e0b_frame_001.png",
+                    "logs\\rophim1.vip\\banners\\9599e77486066180a20b5edb697e9e0b_frame_002.png"
+                ]
+            },
+            {
+                "src_url": "https://rophim1.vip/images/social/threads-icon.svg",
+                "alt": "",
+                "link_href": "",
+                "width": 0,
+                "height": 0,
+                "case": "case7_network_intercept",
+                "local_path": "logs\\rophim1.vip\\banners\\8ea41a812a8a4e544f71e635f143b732.jpg",
+                "download_ok": true,
+                "frames": [
+                    "logs\\rophim1.vip\\banners\\8ea41a812a8a4e544f71e635f143b732.jpg"
+                ]
+            },
+            {
+                "src_url": "https://pagead2.googlesyndication.com/pagead/gen_204?id=sodar2&v=255&t=1&e=13",
+                "alt": "",
+                "link_href": "",
+                "width": 0,
+                "height": 0,
+                "case": "case7_network_intercept",
+                "local_path": null,
+                "download_ok": false,
+                "frames": []
+            },
+            {
+                "src_url": "https://img.ophim.live/uploads/movies/tinh-yeu-co-phao-hoa-poster.jpg",
+                "alt": "",
+                "link_href": "",
+                "width": 0,
+                "height": 0,
+                "case": "case7_network_intercept",
+                "local_path": "logs\\rophim1.vip\\banners\\004ec64a1d4624fe2e49c40ca79f1738.jpg",
+                "download_ok": true,
+                "frames": [
+                    "logs\\rophim1.vip\\banners\\004ec64a1d4624fe2e49c40ca79f1738.jpg"
+                ]
+            },
+            {
+                "src_url": "https://img.ophim.live/uploads/movies/tinh-yeu-co-phao-hoa-thumb.jpg",
+                "alt": "",
+                "link_href": "",
+                "width": 0,
+                "height": 0,
+                "case": "case7_network_intercept",
+                "local_path": "logs\\rophim1.vip\\banners\\41838452f46203c6f83e281936e2d3e3.jpg",
+                "download_ok": true,
+                "frames": [
+                    "logs\\rophim1.vip\\banners\\41838452f46203c6f83e281936e2d3e3.jpg"
+                ]
+            },
+            {
+                "src_url": "https://img.ophim.live/uploads/movies/bac-si-dao-hoang-poster.jpg",
+                "alt": "",
+                "link_href": "",
+                "width": 0,
+                "height": 0,
+                "case": "case7_network_intercept",
+                "local_path": "logs\\rophim1.vip\\banners\\9a45ddb6e4b14043bdf6b9c3fcef3564.jpg",
+                "download_ok": true,
+                "frames": [
+                    "logs\\rophim1.vip\\banners\\9a45ddb6e4b14043bdf6b9c3fcef3564.jpg"
+                ]
+            }
+        ],
+        "banner_network_hits": []
+    },
+    "step3_evidence": {
+        "branch1_ocr": {
+            "banner_count": 8,
+            "flagged_count": 3,
+            "has_gambling_banner": true,
+            "results": [
+                {
+                    "path": "logs\\rophim1.vip\\banners\\474affde9a8048abe2c48b2e3c331b87.gif",
+                    "src_url": "https://b23d80bf.pronet.pages.dev/728x90.gif",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "NAPDÂU VSbet TĂNGĐEN 68888000 68888000",
+                    "ocr_norm": "napdau vsbet tang en 68888000 68888000",
+                    "matched": true,
+                    "tier_hit": 2,
+                    "keyword": "đánh đề",
+                    "field": "Cờ bạc",
+                    "violation_level": 1,
+                    "score": 80.0,
+                    "score_type": "fuzzy_partial_ratio",
+                    "frames_ocr": [
+                        "NAPDÂU VSbet TĂNGĐEN 68888000 68888000"
+                    ],
+                    "error": null
+                },
+                {
+                    "path": "logs\\rophim1.vip\\banners\\f4698be2665068dce7702b3ab0d95bb4.gif",
+                    "src_url": "https://b23d80bf.pronet.pages.dev/wc.gif",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "XEM BÓNG ĐÁ COLATV WORLDCUP 2026 MỈỄN PHÍ",
+                    "ocr_norm": "xem bong a colatv worldcup 2026 mien phi",
+                    "matched": true,
+                    "tier_hit": 2,
+                    "keyword": "cá độ",
+                    "field": "Cờ bạc",
+                    "violation_level": 1,
+                    "score": 75.0,
+                    "score_type": "fuzzy_partial_ratio",
+                    "frames_ocr": [
+                        "XEM BÓNG ĐÁ COLATV WORLDCUP 2026 MỈỄN PHÍ"
+                    ],
+                    "error": null
+                },
+                {
+                    "path": "logs\\rophim1.vip\\banners\\9599e77486066180a20b5edb697e9e0b_frame_001.png",
+                    "src_url": "https://b23d80bf.pronet.pages.dev/colascore-gif-728x90.gif",
+                    "case": "case1_nofollow_link",
+                    "ocr_raw": "COLA SCORE COM THEO DÕl TỶ số BÓNG ĐÁ TRỰC TUYẾN COLA SCORE.COM THEO DÕl TỶ số BÓNGĐÁ TRỰC TUYẾN",
+                    "ocr_norm": "cola score com theo dol ty so bong a truc tuyen cola score com theo dol ty so bong a truc tuyen",
+                    "matched": true,
+                    "tier_hit": 2,
+                    "keyword": "cá độ bóng đá",
+                    "field": "Cờ bạc",
+                    "violation_level": 1,
+                    "score": 81.81818181818181,
+                    "score_type": "fuzzy_partial_ratio",
+                    "frames_ocr": [
+                        "COLA SCORE COM THEO DÕl TỶ số BÓNG ĐÁ TRỰC TUYẾN",
+                        "COLA SCORE.COM THEO DÕl TỶ số BÓNGĐÁ TRỰC TUYẾN"
+                    ],
+                    "error": null
+                },
+                {
+                    "path": "logs\\rophim1.vip\\banners\\8ea41a812a8a4e544f71e635f143b732.jpg",
+                    "src_url": "https://rophim1.vip/images/social/threads-icon.svg",
+                    "case": "case7_network_intercept",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": null
+                },
+                {
+                    "path": null,
+                    "src_url": "https://pagead2.googlesyndication.com/pagead/gen_204?id=sodar2&v=255&t=1&e=13",
+                    "case": "case7_network_intercept",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": "Không có file ảnh hợp lệ để OCR"
+                },
+                {
+                    "path": "logs\\rophim1.vip\\banners\\004ec64a1d4624fe2e49c40ca79f1738.jpg",
+                    "src_url": "https://img.ophim.live/uploads/movies/tinh-yeu-co-phao-hoa-poster.jpg",
+                    "case": "case7_network_intercept",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": null
+                },
+                {
+                    "path": "logs\\rophim1.vip\\banners\\41838452f46203c6f83e281936e2d3e3.jpg",
+                    "src_url": "https://img.ophim.live/uploads/movies/tinh-yeu-co-phao-hoa-thumb.jpg",
+                    "case": "case7_network_intercept",
+                    "ocr_raw": "ji ~AMy",
+                    "ocr_norm": "ji amy",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [
+                        "ji ~AMy "
+                    ],
+                    "error": null
+                },
+                {
+                    "path": "logs\\rophim1.vip\\banners\\9a45ddb6e4b14043bdf6b9c3fcef3564.jpg",
+                    "src_url": "https://img.ophim.live/uploads/movies/bac-si-dao-hoang-poster.jpg",
+                    "case": "case7_network_intercept",
+                    "ocr_raw": "",
+                    "ocr_norm": "",
+                    "matched": false,
+                    "tier_hit": null,
+                    "keyword": null,
+                    "field": null,
+                    "violation_level": null,
+                    "score": null,
+                    "score_type": null,
+                    "frames_ocr": [],
+                    "error": null
+                }
+            ]
+        },
+        "branch2_content_model": {
+            "final_label": 0,
+            "final_label_name": "An toàn",
+            "final_type": 8,
+            "final_type_name": "Game",
+            "max_malicious_prob": 0.2177,
+            "malicious_segment_count": 0,
+            "total_segments": 24,
+            "segment_results": [
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.9856598377227783,
+                    "prob_malicious": 0.014340143650770187,
+                    "type": 8,
+                    "type_name": "Game",
+                    "type_probs": [
+                        0.06066126376390457,
+                        0.017959291115403175,
+                        0.06400399655103683,
+                        0.024905666708946228,
+                        0.03781190514564514,
+                        0.006576020736247301,
+                        0.027605772018432617,
+                        0.24619708955287933,
+                        0.4396589398384094,
+                        0.07462014257907867
+                    ],
+                    "segment_index": 0,
+                    "segment_preview": "Rổ Phim | Phim gì cũng có | RoPhim Lồng Tiếng Vietsub | Rổ Phim Mới Nhất Bác Sĩ Đảo Hoang Doctor on ..."
+                },
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.9813807606697083,
+                    "prob_malicious": 0.01861920952796936,
+                    "type": 8,
+                    "type_name": "Game",
+                    "type_probs": [
+                        0.047642409801483154,
+                        0.016354570165276527,
+                        0.07040750980377197,
+                        0.03437742590904236,
+                        0.035945311188697815,
+                        0.006208376493304968,
+                        0.023029178380966187,
+                        0.19627167284488678,
+                        0.5067272186279297,
+                        0.0630362257361412
+                    ],
+                    "segment_index": 1,
+                    "segment_preview": "truyền thuyết có một vị tiểu thư nghèo xuất thân danh môn Phạm Vân ( Lý Nhất Đồng thủ vai ) và một v..."
+                },
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.9577592611312866,
+                    "prob_malicious": 0.04224073141813278,
+                    "type": 8,
+                    "type_name": "Game",
+                    "type_probs": [
+                        0.0839080959558487,
+                        0.01917213201522827,
+                        0.07277049124240875,
+                        0.032766278833150864,
+                        0.043589696288108826,
+                        0.006949722301214933,
+                        0.01785627380013466,
+                        0.23643000423908234,
+                        0.4252420663833618,
+                        0.061315298080444336
+                    ],
+                    "segment_index": 2,
+                    "segment_preview": "vì hiện thực . Mười năm sau gặp lại , mối tình đầy rối ren đó được họ lấy danh nghĩa “ trả thù ” để ..."
+                },
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.9814702868461609,
+                    "prob_malicious": 0.0185297429561615,
+                    "type": 0,
+                    "type_name": "Báo chí",
+                    "type_probs": [
+                        0.33732664585113525,
+                        0.01534963771700859,
+                        0.03357352688908577,
+                        0.017804676666855812,
+                        0.04921124130487442,
+                        0.010419252328574657,
+                        0.01245163381099701,
+                        0.3332139849662781,
+                        0.1228511780500412,
+                        0.06779821962118149
+                    ],
+                    "segment_index": 3,
+                    "segment_preview": "số phận của mình . Hồ Sơ Nam Bộ Archives : The Nanyang Mystery 2026 Trung Quốc Tập 33 Thời kỳ đầu Dâ..."
+                },
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.9606117010116577,
+                    "prob_malicious": 0.03938834369182587,
+                    "type": 0,
+                    "type_name": "Báo chí",
+                    "type_probs": [
+                        0.3091551661491394,
+                        0.0179352555423975,
+                        0.04330895096063614,
+                        0.02222512662410736,
+                        0.051871269941329956,
+                        0.009923357516527176,
+                        0.012388166971504688,
+                        0.3080463707447052,
+                        0.16900944709777832,
+                        0.05613686144351959
+                    ],
+                    "segment_index": 4,
+                    "segment_preview": "bao hiểm nguy , hộ tống hoàng trưởng tôn vào cung , đấu trí trước điện , phò tá hoàng trưởng tôn kế ..."
+                },
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.98886638879776,
+                    "prob_malicious": 0.011133593507111073,
+                    "type": 8,
+                    "type_name": "Game",
+                    "type_probs": [
+                        0.1026989221572876,
+                        0.022117139771580696,
+                        0.07488349080085754,
+                        0.0273969154804945,
+                        0.053591325879096985,
+                        0.0069296397268772125,
+                        0.021373584866523743,
+                        0.2373923659324646,
+                        0.40993571281433105,
+                        0.043680835515260696
+                    ],
+                    "segment_index": 5,
+                    "segment_preview": "Hàn Quốc Tập 12 An aspiring director hits rock bottom after 20 years chasing his debut — until he me..."
+                },
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.9838363528251648,
+                    "prob_malicious": 0.01616366021335125,
+                    "type": 8,
+                    "type_name": "Game",
+                    "type_probs": [
+                        0.05723405256867409,
+                        0.018809333443641663,
+                        0.07456419616937637,
+                        0.022880949079990387,
+                        0.045299798250198364,
+                        0.005428764037787914,
+                        0.024495834484696388,
+                        0.2228197604417801,
+                        0.4742651879787445,
+                        0.05420214310288429
+                    ],
+                    "segment_index": 6,
+                    "segment_preview": "Yêu ) Love Take Two 8 Kill It : Slay Tới Bến Kill It : Style Creator War 6 Chuyến Đi Ngẫu Hứng : Bản..."
+                },
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.9841365814208984,
+                    "prob_malicious": 0.015863411128520966,
+                    "type": 8,
+                    "type_name": "Game",
+                    "type_probs": [
+                        0.06692415475845337,
+                        0.019302211701869965,
+                        0.07635175436735153,
+                        0.026586802676320076,
+                        0.04583878070116043,
+                        0.005891995504498482,
+                        0.021158937364816666,
+                        0.23174145817756653,
+                        0.4529968202114105,
+                        0.053207043558359146
+                    ],
+                    "segment_index": 7,
+                    "segment_preview": "21 Đế Sư Trường An The Imperial Master 8 Cô Thành Chiếu : Kinh Biến Dynasty of the Undead : Mutate 8..."
+                },
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.9950324296951294,
+                    "prob_malicious": 0.004967582877725363,
+                    "type": 7,
+                    "type_name": "MXH",
+                    "type_probs": [
+                        0.12694033980369568,
+                        0.011825566180050373,
+                        0.02458992786705494,
+                        0.01678154431283474,
+                        0.05194492265582085,
+                        0.00808777753263712,
+                        0.025974571704864502,
+                        0.40871885418891907,
+                        0.12825936079025269,
+                        0.196877121925354
+                    ],
+                    "segment_index": 8,
+                    "segment_preview": "Tội Lỗi Carolina Caroline Phụ Đề Công Dân Báo Thù Citizen Vigilante Phụ Đề Hạnh Phúc Hơn Bao Giờ Hết..."
+                },
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.9922878742218018,
+                    "prob_malicious": 0.007712160237133503,
+                    "type": 7,
+                    "type_name": "MXH",
+                    "type_probs": [
+                        0.15496692061424255,
+                        0.021457046270370483,
+                        0.059526097029447556,
+                        0.020991429686546326,
+                        0.051315467804670334,
+                        0.00880513060837984,
+                        0.021813075989484787,
+                        0.31194236874580383,
+                        0.2886674404144287,
+                        0.06051495298743248
+                    ],
+                    "segment_index": 9,
+                    "segment_preview": "Người The Sand Phụ Đề Nữ Thần Thám Enola Holmes 3 Enola Holmes 3 Phim Thái Lan tập mới Xem thêm 10 T..."
+                },
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.9961115717887878,
+                    "prob_malicious": 0.0038884824607521296,
+                    "type": 8,
+                    "type_name": "Game",
+                    "type_probs": [
+                        0.06739609688520432,
+                        0.017331700772047043,
+                        0.058067046105861664,
+                        0.02261914126574993,
+                        0.044804226607084274,
+                        0.006296881940215826,
+                        0.031138423830270767,
+                        0.2769702076911926,
+                        0.3967640697956085,
+                        0.07861220836639404
+                    ],
+                    "segment_index": 10,
+                    "segment_preview": "2 Ranh Giới Bình Minh The Edge of Horizon 1 1 Nút Thắt Knot 12 Ký Ức Tình Thù Sanaeha Sunya Kaen 9 8..."
+                },
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.99055415391922,
+                    "prob_malicious": 0.00944589078426361,
+                    "type": 8,
+                    "type_name": "Game",
+                    "type_probs": [
+                        0.08366799354553223,
+                        0.01572815515100956,
+                        0.049708832055330276,
+                        0.018994063138961792,
+                        0.04443730413913727,
+                        0.006018412299454212,
+                        0.02994999848306179,
+                        0.32703930139541626,
+                        0.3302727937698364,
+                        0.09418313950300217
+                    ],
+                    "segment_index": 11,
+                    "segment_preview": "giúp được gì mà tập nào cũng thấy la lối om sòm , kiểu tức nhưng không có năng lực để đánh trả chỉ b..."
+                },
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.9876312613487244,
+                    "prob_malicious": 0.012368711642920971,
+                    "type": 8,
+                    "type_name": "Game",
+                    "type_probs": [
+                        0.029065702110528946,
+                        0.015090430155396461,
+                        0.06825460493564606,
+                        0.022299068048596382,
+                        0.033026471734046936,
+                        0.004435413051396608,
+                        0.029086178168654442,
+                        0.17383329570293427,
+                        0.5659691691398621,
+                        0.05893973261117935
+                    ],
+                    "segment_index": 12,
+                    "segment_preview": "bảo anh admin ơi chưa có tập 20 21 bên sv HN ạ tw lofiuu tội dong eun qs Thái giám Bắc Ninh cuối cùn..."
+                },
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.9932432770729065,
+                    "prob_malicious": 0.006756691727787256,
+                    "type": 7,
+                    "type_name": "MXH",
+                    "type_probs": [
+                        0.19018884003162384,
+                        0.018401332199573517,
+                        0.05063660442829132,
+                        0.02067282423377037,
+                        0.0601002499461174,
+                        0.007401798386126757,
+                        0.024460384622216225,
+                        0.30454710125923157,
+                        0.2713910937309265,
+                        0.05219970643520355
+                    ],
+                    "segment_index": 13,
+                    "segment_preview": "Jeon So Min , khán giả sẽ có dịp gặp gỡ những ngôi sao giải trí hàng đầu khác của Hàn Quốc , thậm ch..."
+                },
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.9883628487586975,
+                    "prob_malicious": 0.011637154966592789,
+                    "type": 8,
+                    "type_name": "Game",
+                    "type_probs": [
+                        0.044775135815143585,
+                        0.01651903986930847,
+                        0.07065217196941376,
+                        0.02295546792447567,
+                        0.0391400046646595,
+                        0.004612236749380827,
+                        0.026957735419273376,
+                        0.1923290491104126,
+                        0.5321195125579834,
+                        0.04993962496519089
+                    ],
+                    "segment_index": 14,
+                    "segment_preview": "Jung Yu Mi , Park Seo Jun và Choi Woo Shik trở thành những ông chủ nhà hàng thành đạt trong một bộ p..."
+                },
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.9767606258392334,
+                    "prob_malicious": 0.023239392787218094,
+                    "type": 8,
+                    "type_name": "Game",
+                    "type_probs": [
+                        0.052123431116342545,
+                        0.01909908466041088,
+                        0.0755947008728981,
+                        0.02430364303290844,
+                        0.03716901317238808,
+                        0.005502445623278618,
+                        0.02268107980489731,
+                        0.20178398489952087,
+                        0.5116766691207886,
+                        0.05006590113043785
+                    ],
+                    "segment_index": 15,
+                    "segment_preview": "Họ phải ghép đôi để tiếp tục ở lại , đồng thời đối mặt với các \" bombshell \" ( người mới xuất hiện )..."
+                },
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.9940922856330872,
+                    "prob_malicious": 0.005907769314944744,
+                    "type": 8,
+                    "type_name": "Game",
+                    "type_probs": [
+                        0.11769077926874161,
+                        0.016961757093667984,
+                        0.05469941347837448,
+                        0.023497924208641052,
+                        0.061531201004981995,
+                        0.00542230112478137,
+                        0.02309299260377884,
+                        0.31925466656684875,
+                        0.32091379165649414,
+                        0.056935183703899384
+                    ],
+                    "segment_index": 16,
+                    "segment_preview": ": Kaylee & Summit , Scarlett & Cole , Sydney & Mikey , Shyanne & Jack . Mục tiêu là xem liệu tình yê..."
+                },
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.9561721086502075,
+                    "prob_malicious": 0.04382791742682457,
+                    "type": 0,
+                    "type_name": "Báo chí",
+                    "type_probs": [
+                        0.44971010088920593,
+                        0.013018254190683365,
+                        0.027056481689214706,
+                        0.016821160912513733,
+                        0.06089625507593155,
+                        0.007582806050777435,
+                        0.009043389931321144,
+                        0.2791806757450104,
+                        0.09307421743869781,
+                        0.043616607785224915
+                    ],
+                    "segment_index": 17,
+                    "segment_preview": "nghệ thuật tinh tế . Hãy cùng xem những người nổi tiếng này đồng hành cùng người cao tuổi khi họ hồi..."
+                },
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.9714435935020447,
+                    "prob_malicious": 0.028556371107697487,
+                    "type": 8,
+                    "type_name": "Game",
+                    "type_probs": [
+                        0.043549515306949615,
+                        0.016401713714003563,
+                        0.07706115394830704,
+                        0.023428354412317276,
+                        0.043110769242048264,
+                        0.0041945939883589745,
+                        0.02131500281393528,
+                        0.19994772970676422,
+                        0.5247107148170471,
+                        0.04628043621778488
+                    ],
+                    "segment_index": 18,
+                    "segment_preview": "Season 3 ) 2025 Phần 3 Tập 8 Season 3 tiếp tục ngay sau khi đội Hưng Hân ( Excellent Era ) được thàn..."
+                },
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.7822525501251221,
+                    "prob_malicious": 0.21774744987487793,
+                    "type": 8,
+                    "type_name": "Game",
+                    "type_probs": [
+                        0.1424604207277298,
+                        0.02672654204070568,
+                        0.07801704853773117,
+                        0.018102459609508514,
+                        0.053016867488622665,
+                        0.006372249685227871,
+                        0.016470149159431458,
+                        0.2825605273246765,
+                        0.32904163002967834,
+                        0.047232162207365036
+                    ],
+                    "segment_index": 19,
+                    "segment_preview": "Tập 10 Cặp đôi nổi tiếng Khaled Saqer và Elham Ali dẫn chương trình thử nghiệm xã hội này , nơi nhữn..."
+                },
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.9887083768844604,
+                    "prob_malicious": 0.0112916836515069,
+                    "type": 8,
+                    "type_name": "Game",
+                    "type_probs": [
+                        0.028546897694468498,
+                        0.013586071319878101,
+                        0.05516158789396286,
+                        0.025101717561483383,
+                        0.035297784954309464,
+                        0.005253428127616644,
+                        0.04013583064079285,
+                        0.2011907398700714,
+                        0.4745662808418274,
+                        0.1211596205830574
+                    ],
+                    "segment_index": 20,
+                    "segment_preview": "tuổi với cá tính mạnh mẽ , khác biệt — những người đã sống một mình trong thời gian dài — cùng nhau ..."
+                },
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.9607366919517517,
+                    "prob_malicious": 0.039263300597667694,
+                    "type": 8,
+                    "type_name": "Game",
+                    "type_probs": [
+                        0.03999686613678932,
+                        0.01459761243313551,
+                        0.07676327973604202,
+                        0.02720467746257782,
+                        0.04282212629914284,
+                        0.003957449458539486,
+                        0.02001262828707695,
+                        0.19048336148262024,
+                        0.5333839058876038,
+                        0.050778038799762726
+                    ],
+                    "segment_index": 21,
+                    "segment_preview": "Full Hành Trình Của Moana 2 Moana 2 2024 Phần 1 Tập FULL 39 Siêu Nhân Sấm Sét Power Rangers Dino Thu..."
+                },
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.8965598940849304,
+                    "prob_malicious": 0.10344008356332779,
+                    "type": 8,
+                    "type_name": "Game",
+                    "type_probs": [
+                        0.04041978716850281,
+                        0.02007395587861538,
+                        0.0819663554430008,
+                        0.019286496564745903,
+                        0.03498540446162224,
+                        0.004473796579986811,
+                        0.022155266255140305,
+                        0.188339501619339,
+                        0.5400815606117249,
+                        0.04821784421801567
+                    ],
+                    "segment_index": 22,
+                    "segment_preview": "To Fire Mountain 2019 Phần 1 Tập FULL 25 Ở Nhà Cùng Shin ( Phần 2 ) Shinchan At Home ( Season 2 ) 20..."
+                },
+                {
+                    "label": 0,
+                    "label_name": "An toàn",
+                    "prob_safe": 0.9528819918632507,
+                    "prob_malicious": 0.04711797833442688,
+                    "type": 8,
+                    "type_name": "Game",
+                    "type_probs": [
+                        0.039313480257987976,
+                        0.01668708212673664,
+                        0.08794991672039032,
+                        0.024344157427549362,
+                        0.03757772967219353,
+                        0.0041659120470285416,
+                        0.018995044752955437,
+                        0.176583930850029,
+                        0.5526008009910583,
+                        0.04178183153271675
+                    ],
+                    "segment_index": 23,
+                    "segment_preview": "Basketball ( Season 1 ) 2012 Phần 1 Tập 26 Rổ Phim Sắp Chiếu Xem thêm Sắp chiếu Are the Sexy Buttock..."
+                }
+            ],
+            "model": "v2_multitask"
+        }
+    }
+}
