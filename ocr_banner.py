@@ -255,7 +255,14 @@ def run_ocr(image_path: str, reader) -> str:
         return ""
 
     try:
-        results = reader.readtext(image_path, detail=0, paragraph=False)
+        from PIL import Image
+        import numpy as np
+
+        with Image.open(image_path) as img:
+            img_rgb = img.convert("RGB")
+            img_np = np.array(img_rgb)
+
+        results = reader.readtext(img_np, detail=0, paragraph=False)
         raw_text = " ".join(str(r) for r in results if r)
         logger.debug(f"[OCR] {os.path.basename(image_path)} → '{raw_text[:80]}'")
         return raw_text

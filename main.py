@@ -1,5 +1,6 @@
-# Chạy bình thường (python main.py)
-# Chạy để cập nhật mô hình (python main.py --update)
+# COPYRIGHT DETECTION SYSTEM — v1.0.4.1
+# Chạy bình thường  : python main.py
+# Cập nhật mô hình  : python main.py --update
 
 import sys
 import json
@@ -41,7 +42,7 @@ CSV_PATH = "danh_sach_domain_whitelist.csv"
 def main():
 
     print("\n===================================")
-    print(" COPYRIGHT DETECTION SYSTEM ")
+    print(" COPYRIGHT DETECTION SYSTEM v1.0.4.1")
     print("===================================\n")
 
     target_url = input(
@@ -99,6 +100,28 @@ def main():
 
     evidence_buffer["step0"] = step0_result
 
+    # ── Phát hiện redirect cross-domain từ Step 1 ──
+    # Nếu requests bắt được redirect (ví dụ: animevietsub.id → animevietsub.meme),
+    # cập nhật domain ngay trước khi tạo thư mục và lưu bất kỳ file nào.
+    # Điều này đảm bảo TẤT CẢ log (step1, step2, step3, final, report) đều nằm
+    # chung 1 thư mục theo domain đích — không bị tách ra 2 folder.
+    _redirect_info = evidence_buffer.get("redirect_info", {})
+    if _redirect_info.get("domain_hopping"):
+        _domains_seen = _redirect_info.get("domains_seen", [])
+        _final_domain = _domains_seen[-1] if _domains_seen else None
+        if _final_domain and _final_domain != domain:
+            print(
+                f"\n[INFO] 🔀 Redirect cross-domain (Step 1): "
+                f"{domain} → {_final_domain}\n"
+                f"       Tất cả log sẽ được lưu vào thư mục: {_final_domain}/"
+            )
+            evidence_buffer["original_domain"] = domain   # lưu lại domain gốc
+            domain = _final_domain
+            # browser_url cũng cập nhật để Playwright mở thẳng domain đích
+            redirect_history_urls = evidence_buffer.get("redirect_history", [])
+            if redirect_history_urls:
+                target_url = redirect_history_urls[-1]
+
     print(
         json.dumps(
             evidence_buffer,
@@ -108,9 +131,9 @@ def main():
         )
     )
 
-    # Save Step 1 output to a JSON file inside a logs/<domain> directory
+    # Save Step 1 output to a JSON file inside a logs/v1.0.4.1/<domain> directory
     safe_domain = re.sub(r'[\\/*?:"<>|]', "_", domain) if domain else "unknown"
-    logs_dir = os.path.join("logs", safe_domain)
+    logs_dir = os.path.join("logs", "v1.0.4.1", safe_domain)
     if not os.path.exists(logs_dir):
         os.makedirs(logs_dir)
 
@@ -124,6 +147,7 @@ def main():
         print(f"\n[INFO] Kết quả Step 1 đã được lưu vào file JSON: {log_file_path}")
     except Exception as e:
         print(f"\n[ERROR] Không thể lưu file JSON kết quả Step 1: {e}")
+
 
     #################################################
     # STEP 0 PART 2: Domain Model
@@ -163,13 +187,31 @@ def main():
     print("========================\n")
 
     # Ensure URL has scheme for Playwright
+    # Lưu ý: domain và target_url có thể đã được cập nhật theo redirect từ Step 1 ở trên
     browser_url = target_url
     if not browser_url.startswith("http"):
         browser_url = "https://" + browser_url
 
     step2_evidence = run_step2(domain, browser_url)
 
-    # Merge Step 2 into the evidence buffer
+    # ── Fallback: cập nhật domain nếu Playwright phát hiện thêm redirect (JS / meta refresh) ──
+    # Trường hợp này xảy ra khi redirect không bắt được qua requests (connection reset)
+    # nhưng Playwright load được trang và thấy redirect phía browser.
+    if step2_evidence.get("redirect_cross_domain"):
+        redirected_domain = step2_evidence.get("target_domain", domain)
+        if redirected_domain and redirected_domain != domain:
+            print(
+                f"\n[INFO] 🔀 Playwright phát hiện redirect bổ sung: "
+                f"{domain} → {redirected_domain}\n"
+                f"       Cập nhật thư mục log và nhãn domain theo URL thực."
+            )
+            domain = redirected_domain
+            safe_domain = re.sub(r'[\\/*?:"<>|]', "_", domain)
+            logs_dir = os.path.join("logs", "v1.0.4.1", safe_domain)
+            if not os.path.exists(logs_dir):
+                os.makedirs(logs_dir)
+
+
     # step2_evidence chỉ chứa dữ liệu thu thập thô (banners, dom_text, streams...)
     # Kết quả phân tích (OCR, Content Model) được lưu riêng vào step3_evidence
     evidence_buffer["step2_evidence"] = step2_evidence
@@ -222,22 +264,9 @@ def main():
     print("========================\n")
 
     banners = step2_evidence.get("banners", [])
-
-    # Chỉ đưa vào OCR những banner có local_path chứa "_frame"
-    # Đây là các frame thực sự được trích xuất từ GIF/animated banner quảng cáo
-    # (do hàm process_animated_banner() tạo ra).
-    # Loại bỏ ảnh thumbnail/poster phim không phải quảng cáo để giảm nhiễu.
-    ad_banners = [
-        b for b in banners
-        if b.get("local_path") and "_frame" in os.path.basename(b["local_path"])
-    ]
-    excluded = len(banners) - len(ad_banners)
-    if excluded > 0:
-        print(
-            f"[INFO] OCR Engine: Bỏ qua {excluded}/{len(banners)} banner "
-            f"không phải quảng cáo (không có đuôi _frame). "
-            f"Chỉ phân tích {len(ad_banners)} banner quảng cáo thực sự."
-        )
+    
+    # Chỉ chạy OCR trên các banner có local_path (ảnh đã được YOLO xác nhận là betting và lưu lại)
+    ad_banners = [b for b in banners if b.get("local_path")]
 
     if ad_banners:
         try:
@@ -283,7 +312,7 @@ def main():
             print(f"\n[ERROR] OCR Engine lỗi: {e}")
             evidence_buffer["step3_evidence"]["branch1_ocr"] = {"error": str(e)}
     else:
-        print("[WARN] Không có banner quảng cáo (_frame) từ Step 2 — bỏ qua OCR Engine.")
+        print("[WARN] Không có banner betting hợp lệ để chạy OCR Engine.")
         evidence_buffer["step3_evidence"]["branch1_ocr"] = {
             "banner_count": 0, "flagged_count": 0,
             "has_gambling_banner": False, "results": [],

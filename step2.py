@@ -16,6 +16,7 @@ Usage:
 """
 
 import os
+import sys
 import re
 import json
 import random
@@ -180,7 +181,7 @@ NETWORK_SETTLE_MS = 8000
 MAX_EPISODES_TO_CHECK = 3
 
 # Screenshots directory
-SCREENSHOTS_DIR = os.path.join("logs", "screenshots")
+SCREENSHOTS_DIR = os.path.join("logs", "v1.0.4.1", "screenshots")
 
 # Logging
 logger = logging.getLogger("step2")
@@ -965,7 +966,7 @@ async def scan_footer(page):
     extraction_method = "none"
 
     try:
-        footer_text = await page.evaluate("""
+        footer_text = await page.evaluate(r"""
             () => {
                 // Strategy 1: Semantic <footer> tag
                 const footer = document.querySelector('footer');
@@ -1197,7 +1198,7 @@ async def _scrape_banner_urls(page, domain):
         }
     """
     try:
-        raw = await page.evaluate("""
+        raw = await page.evaluate(r"""
             () => {
                 const MIN_W = %d;
                 const MIN_H = %d;
@@ -1616,9 +1617,16 @@ def process_animated_banner(filepath: str) -> list[str]:
     except Exception:
         n_frames = 1
 
+    true_fmt = _detect_animated_format(filepath)
+    ext = os.path.splitext(filepath)[1].lower()
+    is_gif_or_webp = (true_fmt in ("gif", "webp")) or (ext in (".gif", ".webp"))
+
     if n_frames <= 1:
-        img.close()
-        return [filepath]  # Ảnh tĩnh — không cần xử lý
+        if is_gif_or_webp:
+            n_frames = 1
+        else:
+            img.close()
+            return [filepath]  # Ảnh tĩnh — không cần xử lý
 
     logger.info(
         f"[AnimBanner] Phát hiện ảnh động ({n_frames} frames): "
@@ -1827,7 +1835,7 @@ async def collect_banner_images(page, domain: str, evidence_collector: dict) -> 
     logger.info("[Phase 5b] Starting banner image collection...")
 
     safe_domain = re.sub(r'[\\/*?:"<>|]', "_", domain) if domain else "unknown"
-    save_dir = os.path.join("logs", safe_domain, BANNERS_SUBDIR)
+    save_dir = os.path.join("logs", "v1.0.4.1", safe_domain, BANNERS_SUBDIR)
     os.makedirs(save_dir, exist_ok=True)
 
     # ── Step 1: Trigger lazy-load so data-src images become real src ──
@@ -1920,17 +1928,48 @@ async def collect_banner_images(page, domain: str, evidence_collector: dict) -> 
         frames: list[str] = []
         if download_ok and local_path:
             frames = process_animated_banner(local_path)
-            if len(frames) > 1:
-                # Ảnh động đã được tách thành nhiều frame unique
+            if len(frames) >= 1:
                 # Dùng frame đầu tiên làm local_path chính để tương thích ngược
                 local_path = frames[0]
 
-        banners.append({
-            **entry,
-            "local_path":  local_path,
-            "download_ok": download_ok,
-            "frames":      frames,  # list các PNG frame unique (rỗng nếu ảnh tĩnh)
-        })
+        # ── Lọc YOLO ngay lập tức để xóa ảnh poster/thumbnail phim rác ──
+        is_betting = True
+        yolo_class = "unknown"
+        yolo_conf = 0.0
+
+        if download_ok and local_path:
+            try:
+                # Import động để tránh circular imports và trì hoãn load YOLO model
+                sys.path.insert(0, os.path.dirname(__file__))
+                from banner_filter import run_banner_filter
+
+                temp_banner = {
+                    **entry,
+                    "local_path":  local_path,
+                    "download_ok": download_ok,
+                    "frames":      frames,
+                }
+
+                # Chạy YOLO lọc và tự động xóa file trên disk nếu là nonbetting
+                filtered_res, _ = run_banner_filter([temp_banner], delete_nonbetting=True)
+                if not filtered_res:
+                    is_betting = False
+                else:
+                    yolo_class = filtered_res[0].get("yolo_class", "betting")
+                    yolo_conf = filtered_res[0].get("yolo_conf", 0.0)
+            except Exception as e:
+                logger.warning(f"[BannerYOLO] Lỗi khi chạy lọc YOLO cho {local_path}: {e}")
+                # Giữ lại nếu lỗi để tránh mất bằng chứng
+
+        if is_betting:
+            banners.append({
+                **entry,
+                "local_path":  local_path,
+                "download_ok": download_ok,
+                "frames":      frames,
+                "yolo_class":  yolo_class,
+                "yolo_conf":   yolo_conf,
+            })
 
     ok_count = sum(1 for b in banners if b.get("download_ok"))
     logger.info(
@@ -1951,7 +1990,7 @@ async def capture_screenshot(page, domain, episode_index):
     """
 
     safe_domain = re.sub(r'[\\/*?:"<>|]', "_", domain) if domain else "unknown"
-    screenshots_dir = os.path.join("logs", safe_domain, "screenshots")
+    screenshots_dir = os.path.join("logs", "v1.0.4.1", safe_domain, "screenshots")
     os.makedirs(screenshots_dir, exist_ok=True)
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -2430,9 +2469,37 @@ async def _run_step2_async(domain, url):
                 )
                 evidence["technical_flags"]["cloudflare_bypassed"] = False
 
-            # ────────────────────────────────
-            # Phase 2: Crawl episode URLs
-            # ────────────────────────────────
+            # ── Phát hiện redirect cross-domain sau khi trình duyệt load xong ──
+            # Playwright tự theo redirect (bao gồm JS redirect và meta refresh),
+            # nên page.url có thể khác với url ban đầu ta truyền vào.
+            # Chú ý: nếu page.goto thất bại hoàn toàn (ERR_CONNECTION_RESET...),
+            # page.url sẽ trả về "chrome-error://chromewebdata/" — ta bỏ qua trường hợp này.
+            try:
+                actual_url = page.url
+                if (
+                    actual_url
+                    and actual_url.startswith(("http://", "https://"))
+                    and actual_url != url
+                ):
+                    from urllib.parse import urlparse as _urlparse
+                    actual_domain = _urlparse(actual_url).netloc.lstrip("www.").split(":")[0]
+                    if actual_domain and actual_domain != domain:
+                        logger.info(
+                            f"[Phase 1] ⚠️ Redirect cross-domain phát hiện: "
+                            f"{domain} → {actual_domain}  "
+                            f"({url} → {actual_url})"
+                        )
+                        # Cập nhật domain và url để toàn bộ Phase 2-5b dùng đúng domain thực
+                        domain = actual_domain
+                        url = actual_url
+                        evidence["target_url"] = actual_url
+                        evidence["target_domain"] = actual_domain
+                        evidence["redirect_cross_domain"] = True
+            except Exception as _re:
+                logger.debug(f"[Phase 1] Không đọc được page.url sau redirect: {_re}")
+
+
+
 
             logger.info("[Phase 2] Crawling episode URLs...")
 
@@ -2690,7 +2757,7 @@ if __name__ == "__main__":
 
     # Save output
     safe = re.sub(r'[\\/*?:"<>|]', "_", target_domain) if target_domain else "unknown"
-    domain_logs_dir = os.path.join("logs", safe)
+    domain_logs_dir = os.path.join("logs", "v1.0.4.1", safe)
     os.makedirs(domain_logs_dir, exist_ok=True)
 
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
