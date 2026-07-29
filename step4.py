@@ -486,7 +486,7 @@ def save_report(report: dict, domain: str, timestamp: str, output_dir: str | Non
     safe_domain = re.sub(r'[\\/*?"<>|]', "_", domain) if domain else "unknown"
 
     if output_dir is None:
-        output_dir = os.path.join("logs", safe_domain)
+        output_dir = os.path.join("logs", "v1.0.4.1", safe_domain)
 
     os.makedirs(output_dir, exist_ok=True)
 

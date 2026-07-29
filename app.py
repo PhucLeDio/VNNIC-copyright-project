@@ -126,7 +126,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-def scan_reports(base_dir="."):
+def scan_reports(base_dir=os.path.join("logs", "v1.0.4.1")):
     """
     Scans base_dir for files ending with _report_*.json
     and maps them to their respective _final_*.json files.

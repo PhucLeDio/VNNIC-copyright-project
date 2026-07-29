@@ -1,11 +1,12 @@
 """
 model/model_loader.py
 
-Lazy singleton loader cho Domain Model và Content Model.
+Lazy singleton loader cho Domain Model, Content Model và Banner Model.
 - Model chỉ được tải xuống 1 lần duy nhất (singleton pattern).
 - Thread-safe với threading.Lock.
 """
 
+import os
 import threading
 import torch
 import torch.nn as nn
@@ -289,3 +290,36 @@ def get_content_model(force_update=False):
                 _content_model.eval().to(DEVICE)
                 print("[ModelLoader] ✅ Content Model đã sẵn sàng.")
     return _content_model, _content_tokenizer
+
+
+# --- Banner model (YOLO) state ---
+_banner_model = None
+_banner_model_lock = threading.Lock()
+
+# Đường dẫn tuyệt đối đến file .pt (relative to dự án)
+_BANNER_MODEL_PATH = os.path.join(
+    os.path.dirname(__file__), "banner model", "banner_detection.pt"
+)
+
+
+def get_banner_model():
+    """
+    Trả về YOLO Banner Detection model (ultralytics).
+    Chỉ tải lần đầu tiên gọi (lazy singleton).
+    Model có 2 class: 'betting' và 'nonbetting'.
+    """
+    global _banner_model
+    if _banner_model is None:
+        with _banner_model_lock:
+            if _banner_model is None:
+                try:
+                    from ultralytics import YOLO
+                except ImportError as e:
+                    raise ImportError(
+                        "[ModelLoader] Thiếu thư viện 'ultralytics'. "
+                        "Cài bằng: pip install ultralytics"
+                    ) from e
+                print("[ModelLoader] Đang tải Banner Detection Model (YOLO)...")
+                _banner_model = YOLO(_BANNER_MODEL_PATH)
+                print("[ModelLoader] ✅ Banner Detection Model đã sẵn sàng.")
+    return _banner_model
