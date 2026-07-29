@@ -1,0 +1,181 @@
+@startuml
+left to right direction
+
+' =============================================================
+' CẤU HÌNH GIAO DIỆN (SKINPARAM)
+' =============================================================
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam defaultFontName "Segoe UI"
+skinparam defaultFontSize 12
+skinparam roundCorner 10
+
+' Cấu hình màu sắc đường kết nối
+skinparam ArrowColor #475569
+skinparam ArrowThickness 1.5
+
+' Định nghĩa kiểu dáng và màu sắc cho các thành phần
+skinparam rectangle {
+    BackgroundColor<<input>> #f8fafc
+    BorderColor<<input>> #cbd5e1
+    FontColor<<input>> #1e293b
+    
+    BackgroundColor<<model>> #eff6ff
+    BorderColor<<model>> #3b82f6
+    FontColor<<model>> #1e3a8a
+    
+    BackgroundColor<<buffer>> #fff1f2
+    BorderColor<<buffer>> #f43f5e
+    FontColor<<buffer>> #881337
+    
+    BackgroundColor<<output>> #faf5ff
+    BorderColor<<output>> #a855f7
+    FontColor<<output>> #581c87
+    
+    BackgroundColor<<dashboard>> #f0fdf4
+    BorderColor<<dashboard>> #22c55e
+    FontColor<<dashboard>> #14532d
+}
+
+' =============================================================
+' ĐỊNH NGHĨA CÁC KHỐI PHẦN TỬ
+' =============================================================
+
+rectangle "Target URL / Domain\n(Đầu vào cần quét)" as input <<input>>
+
+package "STEP 0 (Part 1): Whitelist Check" {
+    rectangle "VNNIC Whitelist CSV\n(Kiểm tra CSDL tên miền hợp pháp)" as db_whitelist
+}
+
+package "STEP 1: Perimeter Guard & Network Scan" {
+    rectangle "WHOIS Lookup\n(Tuổi domain, Registrar, WHOIS Privacy)" as whois_scan
+    rectangle "DNS Query Engine\n(Bản ghi A, AAAA, MX, NS, TXT)" as dns_query
+    rectangle "Redirect Chain Tracking\n(Bắt chuỗi chuyển hướng & Cross-domain)" as redirect_tracker
+    rectangle "IP & ASN Resolver\n(Phát hiện Cloud Provider & Suspicious Hosting)" as ip_asn_resolver
+    rectangle "Network Risk & Legitimacy Calculator\n(Tính điểm rủi ro TLD, Mail, Legitimate Signals)" as risk_calculator
+}
+
+package "STEP 0 (Part 2): Domain Model Pre-screening" {
+    rectangle "Feature Extractor\n(Trích xuất 12 đặc trưng Lexical + Hosting từ Step 1)" as feat_extractor
+    rectangle "HybridFeaturesDomain Model\n(PhoBERT + 12 Features Classification)" as model_domain <<model>>
+    rectangle "Domain Pre-screening Flag\n(FLAG_DOMAIN_PREDICT_MALICIOUS / OK)" as domain_flag
+}
+
+package "STEP 2: Deep Browser Evidence Collection (Playwright)" {
+    rectangle "Playwright-Stealth Browser\n(Vượt rào Cloudflare JS challenge)" as browser_crawl
+    rectangle "Deep Watch/Episode Pages Scan\n(Trích xuất URL tập phim/nguồn phát)" as watch_pages
+    rectangle "Network Stream Interceptor\n(Bắt luồng .m3u8, .mp4, .ts, .mpd & DRM)" as stream_interceptor
+    rectangle "Embedded iFrames Resolver\n(Giải mã iFrames phát video ẩn)" as iframe_resolver
+    rectangle "Ad Banner Collector & Network Hits\n(Thu thập banner DOM & URL quảng cáo)" as banner_collector
+    rectangle "DOM Text Extractor\n(Trích xuất văn bản thô từ DOM cho NLP)" as dom_extractor
+    rectangle "Legal Footer & Identity Scan\n(Trích xuất MST, Giấy phép, Telegram, Ad-contact)" as footer_scan
+    rectangle "Anti-Popup Block & Fullpage Screenshot\n(Tự động chặn tab quảng cáo, chụp màn hình)" as screenshots
+}
+
+package "STEP 3: AI Evidence Engines" {
+    package "Branch 1: OCR Banner Pipeline (Doanh thu cờ bạc)" {
+        rectangle "YOLO Banner Pre-filter\n(Model banner_detection.pt: betting vs non-betting)" as yolo_filter <<model>>
+        rectangle "EasyOCR Text Extractor\n(Nhận dạng chữ tiếng Việt + Anh, hỗ trợ GIF frame)" as ocr_extractor
+        rectangle "Text Normalizer\n(Lowercase, NFD loại bỏ dấu tiếng Việt)" as ocr_normalizer
+        
+        package "3-Tier Cascade Matcher (Fail-Fast)" {
+            rectangle "Tier 1: Exact Keyword Match\n(Keywords_v1.csv)" as ocr_t1
+            rectangle "Tier 2: Fuzzy String Match\n(RapidFuzz partial_ratio >= 75)" as ocr_t2
+            rectangle "Tier 3: Semantic Embedding Match\n(paraphrase-multilingual-MiniLM-L12-v2 >= 0.75)" as ocr_t3 <<model>>
+        }
+    }
+    
+    package "Branch 2: Content Model (NLP DOM Text)" {
+        rectangle "DOM Text Segmenter\n(Cắt 256 từ + Overlap ngắt câu)" as dom_segmenter
+        rectangle "PhoBERT Multi-Task Core\n(Model content_model fine-tuned)" as phobert_core <<model>>
+        rectangle "Task 1: Binary Classification\n(Safe vs. Malicious)" as task_binary
+        rectangle "Task 2: Multi-Category Classification\n(10 loại: Cờ bạc, 18+, Game, Báo chí...)" as task_multiclass
+        rectangle "Max Pooling & Voting Aggregator\n(Early stop độc hại & Bầu cử thể loại)" as content_aggregator
+    }
+}
+
+rectangle "Evidence Buffer\n(Bể tích lũy bằng chứng tổng hợp)" as evidence_buffer <<buffer>>
+
+package "STEP 4: Decision & Reporting Engine" {
+    rectangle "Payload Reducer\n(Trích xuất ~25 trường thiết yếu, nén 60-90% token)" as payload_reducer
+    rectangle "Gemini 3.5 Flash Synthesis\n(Phân tích 4 lớp vi phạm VNNIC)" as gemini_core <<model>>
+    rectangle "Whitelist & Synthesis Override Logic\n(Phán quyết 3 mức: VI_PHAM / NGHI_NGO / AN_TOAN)" as override_logic
+    rectangle "Report Enricher & Saver\n(Tự động tổng hợp hồ sơ số JSON vào logs & report/)" as report_enricher
+}
+
+rectangle "Synthesis Report\n(Hồ sơ bằng chứng & Phán quyết vi phạm JSON)" as final_report <<output>>
+rectangle "Streamlit Monitoring Dashboard\n(Giao diện app.py trực quan hóa bằng chứng)" as dashboard <<dashboard>>
+
+' =============================================================
+' THIẾT LẬP LUỒNG DỮ LIỆU
+' =============================================================
+
+' Step 0 Part 1 & Step 1
+input --> db_whitelist
+input --> whois_scan
+input --> dns_query
+input --> redirect_tracker
+
+dns_query --> ip_asn_resolver
+whois_scan --> risk_calculator
+dns_query --> risk_calculator
+ip_asn_resolver --> risk_calculator
+
+' Step 0 Part 2 (Domain Model) - Phụ thuộc dữ liệu Step 1
+input --> feat_extractor
+dns_query --> feat_extractor : "DNS records"
+ip_asn_resolver --> feat_extractor : "IPs & ASN"
+risk_calculator --> feat_extractor : "TLD risk"
+
+feat_extractor --> model_domain
+model_domain --> domain_flag
+
+' Chuyển giao sang Step 2 (Browser Crawl)
+redirect_tracker --> browser_crawl : "Target URL sau redirect"
+domain_flag --> browser_crawl
+
+browser_crawl --> watch_pages
+browser_crawl --> stream_interceptor
+browser_crawl --> iframe_resolver
+browser_crawl --> banner_collector
+browser_crawl --> dom_extractor
+browser_crawl --> footer_scan
+browser_crawl --> screenshots
+
+' Thu thập thông tin vào Evidence Buffer từ Step 2
+stream_interceptor --> evidence_buffer
+iframe_resolver --> evidence_buffer
+footer_scan --> evidence_buffer
+screenshots --> evidence_buffer
+watch_pages --> evidence_buffer
+
+' Luồng xử lý Step 3 Branch 1 (OCR Banner Pipeline)
+banner_collector --> yolo_filter
+yolo_filter --> ocr_extractor : "Betting banners (Delete non-betting)"
+ocr_extractor --> ocr_normalizer
+ocr_normalizer --> ocr_t1
+ocr_t1 --> ocr_t2 : "Next tier if unmatched"
+ocr_t2 --> ocr_t3 : "Next tier if unmatched"
+
+ocr_t1 --> evidence_buffer
+ocr_t2 --> evidence_buffer
+ocr_t3 --> evidence_buffer
+
+' Luồng xử lý Step 3 Branch 2 (Content NLP)
+dom_extractor --> dom_segmenter
+dom_segmenter --> phobert_core
+phobert_core --> task_binary
+phobert_core --> task_multiclass
+task_binary --> content_aggregator
+task_multiclass --> content_aggregator
+content_aggregator --> evidence_buffer
+
+' Luồng xử lý Step 4 & Visualizing
+evidence_buffer --> payload_reducer
+payload_reducer --> gemini_core
+gemini_core --> override_logic
+override_logic --> report_enricher
+report_enricher --> final_report
+final_report --> dashboard
+
+@enduml
