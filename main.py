@@ -1,4 +1,4 @@
-# COPYRIGHT DETECTION SYSTEM — v1.0.4.1
+# COPYRIGHT DETECTION SYSTEM — v1.0.5
 # Chạy bình thường  : python main.py
 # Cập nhật mô hình  : python main.py --update
 
@@ -42,7 +42,7 @@ CSV_PATH = "danh_sach_domain_whitelist.csv"
 def main():
 
     print("\n===================================")
-    print(" COPYRIGHT DETECTION SYSTEM v1.0.4.1")
+    print(" COPYRIGHT DETECTION SYSTEM v1.0.5")
     print("===================================\n")
 
     target_url = input(
@@ -131,9 +131,9 @@ def main():
         )
     )
 
-    # Save Step 1 output to a JSON file inside a logs/v1.0.4.1/<domain> directory
+    # Save Step 1 output to a JSON file inside a logs/v1.0.5/<domain> directory
     safe_domain = re.sub(r'[\\/*?:"<>|]', "_", domain) if domain else "unknown"
-    logs_dir = os.path.join("logs", "v1.0.4.1", safe_domain)
+    logs_dir = os.path.join("logs", "v1.0.5", safe_domain)
     if not os.path.exists(logs_dir):
         os.makedirs(logs_dir)
 
@@ -207,7 +207,7 @@ def main():
             )
             domain = redirected_domain
             safe_domain = re.sub(r'[\\/*?:"<>|]', "_", domain)
-            logs_dir = os.path.join("logs", "v1.0.4.1", safe_domain)
+            logs_dir = os.path.join("logs", "v1.0.5", safe_domain)
             if not os.path.exists(logs_dir):
                 os.makedirs(logs_dir)
 

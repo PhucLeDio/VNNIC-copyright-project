@@ -176,7 +176,7 @@ def segment_content(content: str, max_words: int = 256, overlap_words: int = 40)
 # =====================================================================
 # 5. Tải Model & Tokenizer từ Hugging Face
 # =====================================================================
-MODEL_NAME = "ttqdunggg/finetune_cls_vs_content_ronbackbone_100k"
+MODEL_NAME = "phucleDio/finetune_cls_vs_content_12class_v5"
 TOKENIZER_NAME = "vinai/phobert-base"
 
 print("\n--- Đang tải mô hình từ Hugging Face (Có thể mất vài phút)... ---")

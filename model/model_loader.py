@@ -188,7 +188,7 @@ class PhoBERTMultiTask(RobertaPreTrainedModel):
 # ==============================================================================
 
 _DOMAIN_MODEL_NAME  = "ttqdunggg/hybrid_feats_domain"
-_CONTENT_MODEL_NAME = "ttqdunggg/finetune_cls_vs_content_ronbackbone_100k"
+_CONTENT_MODEL_NAME = "phucleDio/finetune_cls_vs_content_12class_v5"
 _PHOBERT_TOKENIZER  = "vinai/phobert-base"
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")

@@ -181,7 +181,7 @@ NETWORK_SETTLE_MS = 8000
 MAX_EPISODES_TO_CHECK = 3
 
 # Screenshots directory
-SCREENSHOTS_DIR = os.path.join("logs", "v1.0.4.1", "screenshots")
+SCREENSHOTS_DIR = os.path.join("logs", "v1.0.5", "screenshots")
 
 # Logging
 logger = logging.getLogger("step2")
@@ -1835,7 +1835,7 @@ async def collect_banner_images(page, domain: str, evidence_collector: dict) -> 
     logger.info("[Phase 5b] Starting banner image collection...")
 
     safe_domain = re.sub(r'[\\/*?:"<>|]', "_", domain) if domain else "unknown"
-    save_dir = os.path.join("logs", "v1.0.4.1", safe_domain, BANNERS_SUBDIR)
+    save_dir = os.path.join("logs", "v1.0.5", safe_domain, BANNERS_SUBDIR)
     os.makedirs(save_dir, exist_ok=True)
 
     # ── Step 1: Trigger lazy-load so data-src images become real src ──
@@ -1990,7 +1990,7 @@ async def capture_screenshot(page, domain, episode_index):
     """
 
     safe_domain = re.sub(r'[\\/*?:"<>|]', "_", domain) if domain else "unknown"
-    screenshots_dir = os.path.join("logs", "v1.0.4.1", safe_domain, "screenshots")
+    screenshots_dir = os.path.join("logs", "v1.0.5", safe_domain, "screenshots")
     os.makedirs(screenshots_dir, exist_ok=True)
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -2757,7 +2757,7 @@ if __name__ == "__main__":
 
     # Save output
     safe = re.sub(r'[\\/*?:"<>|]', "_", target_domain) if target_domain else "unknown"
-    domain_logs_dir = os.path.join("logs", "v1.0.4.1", safe)
+    domain_logs_dir = os.path.join("logs", "v1.0.5", safe)
     os.makedirs(domain_logs_dir, exist_ok=True)
 
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")

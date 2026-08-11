@@ -44,6 +44,8 @@ TYPE_MAPPING = {
     7:  "MXH",
     8:  "Game",
     9:  "Chưa xác định",
+    10: "Phim ảnh",
+    11: "Thể thao",
 }
 
 # ==============================================================================
@@ -203,7 +205,7 @@ def run_content_model(dom_text: str, mode: str = "quick") -> dict:
         dict: {
             "final_label"            : int   (0=An toàn / 1=Độc hại),
             "final_label_name"       : str,
-            "final_type"             : int   (0-8),
+            "final_type"             : int   (0-11),
             "final_type_name"        : str,
             "max_malicious_prob"     : float,
             "malicious_segment_count": int,

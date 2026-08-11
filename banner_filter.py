@@ -1,5 +1,5 @@
 """
-banner_filter.py  --  YOLO Banner Pre-filter (v1.0.4.1)
+banner_filter.py  --  YOLO Banner Pre-filter (v1.0.5)
 
 Chay model YOLO banner_detection.pt tren danh sach banner thu thap tu Step 2
 TRUOC khi dua vao OCR pipeline.
